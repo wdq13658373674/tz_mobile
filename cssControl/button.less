@@ -1,0 +1,57 @@
+/*
+按钮按下
+@red-dark：鼠标按下背景颜色
+*/
+.btn-active(@bg:@red-dark){
+  text-decoration: none;
+  background: @bg;
+  box-shadow: 0 1px 3px #5b0505 inset,0 3px 0 #fff;
+  -moz-box-shadow: 0 1px 3px #5b0505 inset,0 3px 0 #fff;
+  -webkit-box-shadow: 0 1px 3px #5b0505 inset,0 3px 0 #fff;
+}
+
+/*红色按钮（带背景色）*/
+.btn-red-full(@h:84/@rem){
+  display:block;
+  height:@h;
+  line-height:@h;
+  .round(5/@rem);
+  background-color: @red;
+  text-align: center;
+  color:#ffffff;
+  .textshadow(0,-1/@rem,0,#dc4144);
+  font-size:28/@rem;
+  border:none;
+  &:active{
+    .btn-active(@red-dark);
+  }
+}
+
+/*带边框无背景按钮*/
+.btn-empty(@color:@red,@h:80/@rem){
+  display:block;
+  height:@h;
+  line-height:@h;
+  .round(100/@rem);
+  background-color: #ffffff;
+  text-align: center;
+  color:@color;
+  font-size:26/@rem;
+  border: solid 1px @color;
+}
+
+/*禁止点击按钮*/
+.btn-disabled(@h:80/@rem){
+  cursor: not-allowed;
+  pointer-events: none;
+  display:block;
+  height:@h;
+  line-height:@h;
+  .round(5/@rem);
+  background-color: #ededed;
+  text-align: center;
+  color:#888888;
+  .textshadow(0,2/@rem,0,#ffffff);
+  font-size:28/@rem;
+  border:none;
+}

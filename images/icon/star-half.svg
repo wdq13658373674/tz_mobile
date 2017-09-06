@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="15px" viewBox="0 0 16 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 45.1 (43504) - http://www.bohemiancoding.com/sketch -->
+    <title>E8280AA3-9B58-47BC-B322-3793697200E1</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="首页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-315.000000, -1400.000000)">
+            <rect id="Rectangle-2-Copy-7" fill="#FFFFFF" x="0" y="1070" width="750" height="807"></rect>
+            <g id="Group-6" transform="translate(315.000000, 1400.000000)">
+                <polygon id="Star-Copy-4" fill="#D8D8D8" points="8 12 3.29771798 14.472136 4.19577393 9.23606798 0.39154787 5.52786405 5.64885899 4.76393202 8 0 10.351141 4.76393202 15.6084521 5.52786405 11.8042261 9.23606798 12.702282 14.472136"></polygon>
+                <path d="M8,0.793362638 L7.60845213,0 L5.25731112,4.76393202 L0,5.52786405 L3.80422607,9.23606798 L2.90617011,14.472136 L7.60845213,12 L8,12.2058489 L8,0.793362638 Z" id="Combined-Shape" fill="#FFD161"></path>
+            </g>
+        </g>
+    </g>
+</svg>

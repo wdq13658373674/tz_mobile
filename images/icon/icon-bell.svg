@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="31px" viewBox="0 0 30 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>25F32EF6-CF05-44AB-AE6B-E6D7DFF2A285</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <polygon id="path-1" points="11.6989 30 18.6989 30 18.6989 29.5 11.6989 29.5 11.6989 30"></polygon>
+    </defs>
+    <g id="首页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-47.000000, -992.000000)" id="Group-41">
+            <g transform="translate(47.000000, 992.000000)">
+                <g id="Group-33" transform="translate(0.000000, 1.000000)">
+                    <path d="M27.876,26.413 L27.876,13.542 C27.876,11.175 27.209,8.821 25.788,6.929 C23.541,3.936 19.969,2 15.938,2 C11.907,2 8.334,3.936 6.088,6.929 C4.667,8.821 4,11.175 4,13.542 L4,26.413" id="Stroke-25" stroke="#FD4915" stroke-width="2"></path>
+                    <path d="M0,26 L30,26" id="Stroke-27" stroke="#FD4915" stroke-width="2"></path>
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Clip-30"></g>
+                    <path d="M11.6989,29 L18.6989,29" id="Stroke-29" stroke="#FD4915" stroke-width="2"></path>
+                    <path d="M16,1.149 L16,0" id="Stroke-32" stroke="#FD4915" stroke-width="2" stroke-linecap="round"></path>
+                    <path d="M8,15 L8,22" id="Stroke-34" stroke="#FD4915" stroke-width="2" stroke-linecap="round"></path>
+                    <path d="M9.25,10 L8,11.812" id="Stroke-36" stroke="#FD4915" stroke-width="2" stroke-linecap="round"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

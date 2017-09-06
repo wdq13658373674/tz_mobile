@@ -1,0 +1,233 @@
+/*路径定义*/
+@base-url:"..";
+
+/*单位计算*/
+@rem:50rem;
+
+/*网站总宽*/
+.main-width{width:100%; margin-left: auto; margin-right: auto}
+
+/*网站主色*/
+@orange: #fd4915;
+@orange-dark: #cb4416;
+@orange-light: #fd670b;
+
+/*网站背景色*/
+@block-bg: #ffffff;
+@bg: #f4f4f4;
+
+/*标题颜色*/
+@title-color: #464646;
+@subtitle-color: #7b7b7b;
+@threetitle-color: #9f9f9f;
+@fourtitle-color: #bbbbbb;
+
+/*字体颜色*/
+@txt-black:#464646;
+
+/*提示颜色*/
+@tip-suc:#5CB85C;
+@tip-err:#D9534F;
+
+/*失效颜色*/
+@disabled-bg:#ededed;
+@disabled-border:#d6d6d6;
+@disabled-color:#888888;
+
+/*宽高*/
+.wh(@w:auto,@h:auto,@numb:" "){
+  width: @w;
+  height: @h;
+
+  .line-height(@numb);
+}
+.line-height (@numb) when not (isstring(@numb)){
+  line-height:@numb;
+}
+
+/*
+文字阴影,可以指定多组阴影
+@right_left1 右边阴影为正数 左边负数
+@bottom_top1 下边阴影为正数 上边负数
+<a href="http://my.oschina.net/text" class="referer" target="_blank">@text</a>  阴影大小
+@text_color 阴影颜色
+*/
+.textshadow(@right_left1:2px,@bottom_top1:2px,@blur :2px,@tetx_color:#ddd){
+  text-shadow:@arguments;
+}
+.box-shadow(@x: 0, @y: 0, @blur: 1px, @color: #ddd) {
+  box-shadow:@x @y @blur @color;
+  -moz-box-shadow:@x @y @blur @color;
+  -webkit-box-shadow:@x @y @blur @color;
+}
+
+/*
+定义圆角
+@radius 圆角大小
+*/
+.round(@radius:5px){
+  border-radius:@radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+
+/*flex*/
+.flex(){
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+/*主轴方向
+@new:默认水平row
+(row | column)
+@old:默认水平horizontal
+(horizontal | vertical)
+*/
+.flex-direction(@new:row,@old:horizontal){
+  -webkit-box-direction: normal;
+  -webkit-box-orient: @old;
+  -moz-flex-direction: @new;
+  -webkit-flex-direction: @new;
+  flex-direction: @new;
+}
+
+/*对齐方式
+@new:新版本参数space-between
+（flex-start：左对齐 | flex-end：右对齐 | center：居中对齐 | space-between：两端对齐 | space-around：相等间隔）
+@old:旧版本参数justify
+（start | end | center | justify）
+*/
+.justify-content(@new:space-between,@old:justify){
+  -webkit-box-pack: @old;
+  justify-content: @new;
+  -webkit-justify-content: @new;
+  -moz-justify-content: @new;
+}
+/*是否换行
+@fw:默认不换行（参数：nowrap，wrap）
+*/
+.flex-wrap(@fw:nowrap){
+  -webkit-flex-wrap: @fw;
+  -ms-flex-wrap: @fw;
+  flex-wrap: @fw;
+}
+/*项目对齐
+@ai：默认中点对齐
+（flex-start：起点对齐 | flex-end：终点对齐 | center；中点对齐 | baseline：文字的基线对齐 | stretch：占满整个容器的高度）
+*/
+.align-items(@ai:center){
+  -webkit-box-align: @ai;
+  -ms-flex-align: @ai;
+  -webkit-align-items: @ai;
+  align-items: @ai;
+}
+/*单个对齐不一致
+@as:默认auto
+（auto：继承父元素 |flex-start：起点对齐 | flex-end：终点对齐 | center；中点对齐 | baseline：文字的基线对齐 | stretch：占满整个容器的高度）
+*/
+.align-self(@as:auto) {
+  -ms-flex-item-align: @as;
+  -webkit-align-self: @as;
+  align-self: @as;
+}
+
+/*省略号
+@line:多行省略（行数）
+*/
+.ellipsis(@line:1){
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: normal !important;
+  -webkit-line-clamp: @line;
+  -webkit-box-orient: vertical;
+}
+/*单行省略*/
+.ellipsis-1{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/*transition*/
+.transition(@min:1s){
+  transition:All @min ease-in-out;
+  -webkit-transition:All @min ease-in-out;
+  -moz-transition:All @min ease-in-out;
+  -o-transition:All @min ease-in-out
+}
+
+/*
+透明度 或渐变 1为不透明 0透明
+css3 rgba(110, 142, 185, .4)!important;前三个是颜色值 后一个是透明值
+用来兼容所有浏览器
+*/
+.rgba(@rgba_a:.4,@rgb_b:40){
+  filter: alpha(opacity=@rgb_b);
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=@{rgb_b})";
+  opacity:@rgba_a;
+}
+
+/*
+透明背景
+@bg:背景色
+*/
+.bg-rgba(@bg:rgba(43, 48, 77, 0.7)){
+  background-color: @bg;
+  -webkit-background-color: @bg;
+  -moz-background-color: @bg;
+}
+
+/*
+渐变背景：
+@color-from：起始颜色
+@@color-to：终止颜色
+*/
+.linear-gradient(@color-from, @color-to) {
+  background-color: @color-from; // Old browsers
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@color-from), color-stop(100%,@color-to)); // Chrome, Safari4+
+  background-image: -webkit-linear-gradient(top, @color-from 0%, @color-to 100%);           // Chrome10+, Safari5.1+
+  background-image:    -moz-linear-gradient(top, @color-from 0%, @color-to 100%);           // FF3.6+
+  background-image:     -ms-linear-gradient(top, @color-from 0%, @color-to 100%);           // IE10+
+  background-image:      -o-linear-gradient(top, @color-from 0%, @color-to 100%);           // Opera 11.10+
+  background-image:         linear-gradient(to bottom, @color-from 0%, @color-to 100%);     // W3C
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{@color-from}', endColorstr='#{@color-to}', GradientType=0 ); // IE6-9
+}
+
+/*btn effect*/
+.btn-effect(@color:@gray-hover){
+  -webkit-transition-duration: 0ms;
+  transition-duration: 0ms;
+  background-color: @color;
+}
+
+
+/*图标*/
+.icon(@w,@h,@url){
+  width: @w;
+  height: @h;
+  background: url(@url) no-repeat;
+  background-size: 100% 100%;
+}
+
+/*标题*/
+.title(){
+  font-size: 32/@rem;
+  color: #464646;
+}
+.sub-title(){
+  font-size: 18/@rem;
+  color: #7b7b7b;
+}
+.three-title(){
+  font-size: 18/@rem;
+  color: #9f9f9f;
+}
+.four-title(){
+  font-size: 18/@rem;
+  color: #bbbbbb;
+}

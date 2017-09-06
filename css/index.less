@@ -1,0 +1,376 @@
+@import "../cssControl/control";
+/*主页头部*/
+.index-header{
+  padding: 45/@rem 47/@rem;
+  background-color: @block-bg;
+  .position{
+    em{
+      margin-left: 17/@rem;
+      float: left;
+      font-style: normal;
+      .title();
+    }
+    .icon-position{
+      margin-top: 10/@rem;
+      float: left;
+      display: inline-block;
+      .icon(19/@rem, 29/@rem, "../images/icon/icon-position.svg");
+    }
+  }
+  .head-multi{
+    .head-multi-item{
+      a{
+        display: block;
+      }
+      float: left;
+      font-size: 20/@rem;
+      text-align: center;
+      .icon-weChat-sao{
+        display: block;
+        margin: 0 auto 15/@rem auto;
+        width: 39/@rem;
+        height: 38/@rem;
+        .icon(39/@rem, 38/@rem, "../images/icon/icon-weChat-sao.svg");
+      }
+      .icon-steward-tel{
+        display: block;
+        margin: 0 auto 15/@rem auto;
+        width: 33/@rem;
+        height: 38/@rem;
+        .icon(33/@rem, 38/@rem, "../images/icon/icon-tel.svg");
+      }
+    }
+  }
+}
+
+/*功能列表*/
+.multi-item-icon(@url){
+  display: block;
+  margin: 0 auto 22/@rem auto;
+  .icon(102/@rem, 102/@rem, @url);
+}
+.multi-list{
+  background-color: @block-bg;
+  padding: 20/@rem 0 60/@rem 0;
+  .multi-item{
+    a{
+      display: block;
+      width: 102/@rem;
+      margin: 0 auto;
+      p{
+        font-size: 20/@rem;
+      }
+    }
+    width: 25%;
+    text-align: center;
+    float: left;
+    margin: 30/@rem 0;
+    .icon-payment{
+      .multi-item-icon("../images/icon/icon-shuidi.svg");
+    }
+    .icon-service{
+      .multi-item-icon("../images/icon/icon-man.svg");
+    }
+    .icon-property{
+      .multi-item-icon("../images/icon/icon-money.svg");
+    }
+    .icon-repair{
+      .multi-item-icon("../images/icon/icon-repair.svg");
+    }
+    .icon-complaint{
+      .multi-item-icon("../images/icon/icon-complaint.svg");
+    }
+    .icon-intelligence{
+      .multi-item-icon("../images/icon/icon-intelligence.svg");
+    }
+    .icon-carwash{
+      .multi-item-icon("../images/icon/icon-carwash.svg");
+    }
+    .icon-laundry{
+      .multi-item-icon("../images/icon/icon-laundry.svg");
+    }
+  }
+}
+
+//TODO 广告位临时样式
+/*广告位*/
+.advert{
+  margin: 24/@rem 0;
+  width: 750/@rem;
+  height: 300/@rem;
+  background-color: #fd4915;;
+}
+
+/*小区消息滚动提示*/
+
+.info-estate{
+  padding: 26/@rem 47/@rem;
+  background: @block-bg url("../images/icon/icon-bell.svg") no-repeat 47/@rem;
+  background-size: 30/@rem 31/@rem;
+  line-height: 24/@rem;
+  a{
+    display: block;
+    margin-bottom: 20/@rem;
+  }
+  .tips{
+    margin-left: 50/@rem;
+    font-size: 24/@rem;
+    color: #464646;
+  }
+  .time{
+    .sub-title();
+  }
+}
+.rowup-list{
+  width: 100%;
+  margin: 20px auto;
+  position: relative;
+  height: 24/@rem;
+  overflow: hidden;
+  font-size: 15px;
+  .rowup{
+    -webkit-animation: 5s rowup linear infinite normal;
+    animation: 5s rowup linear infinite normal;
+    position: relative;
+  }
+}
+
+@keyframes rowup {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate3d(0, 0);
+  }
+  20% {
+    -webkit-transform: translate(0, 0);
+    transform: translate3d(0, 0);
+  }
+  40%  {
+    -webkit-transform: translate(0, -42/@rem);
+    transform: translate3d(0, -42/@rem);
+  }
+  60%  {
+    -webkit-transform: translate(0, -42/@rem);
+    transform: translate3d(0, -42/@rem);
+  }
+  80%  {
+    -webkit-transform: translate(0, -87/@rem);
+    transform: translate3d(0, -87/@rem);
+  }
+  100%  {
+    -webkit-transform: translate(0, -87/@rem);
+    transform: translate3d(0, -87/@rem);
+  }
+}
+
+/*附近商铺*/
+.shops{
+  margin-top: 24/@rem;
+  padding: 27/@rem 48/@rem 0 48/@rem;
+  background-color: @block-bg;
+  .title{
+    span{
+      float: left;
+      .title();
+    }
+
+    em{
+      margin-top: 10/@rem;
+      float: left;
+      font-style: normal;
+      font-size: 20/@rem;
+      i{
+        margin: 0 14/@rem;
+      }
+    }
+  }
+}
+
+.shop-list{
+  margin-bottom: 128/@rem;
+  .shops-item{
+    padding: 24/@rem 0;
+    position: relative;
+    display: box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    box-orient: horizontal;
+    border-bottom: 1/@rem solid #e4e4e4;
+  }
+  .shop-img{
+    width: 168/@rem;
+    height: 128/@rem;
+
+    //TODO 商铺图片临时样式
+    background-color: #bbbbbb;
+  }
+
+  .shop-info{
+    margin-left: 16/@rem;
+  }
+}
+
+.shop-info{
+  -webkit-box-flex: 1;
+  box-flex: 1;
+  .shop-title{
+    font-size: 24/@rem;
+    font-weight: bold;
+    color: #464646;
+  }
+  .shop-tips{
+    color: #7b7b7b;
+  }
+  .shop-rank{
+    .star{
+      display: inline-block;
+      width: 16/@rem;
+      height: 15/@rem;
+    }
+    .star-solid{
+      background: url("../images/icon/star-solid.svg") no-repeat;
+      background-size: 100% auto;
+    }
+    .star-empty{
+      background: url("../images/icon/star-empty.svg") no-repeat;
+      background-size: 100% auto;
+    }
+    .star-half{
+      background: url("../images/icon/star-half.svg") no-repeat;
+      background-size: 100% auto;
+    }
+  }
+  .message{
+    margin-top: 12/@rem;
+    display: block;
+    .coupon-tag{
+      display: inline-block;
+      width: 27/@rem;
+      height: 27/@rem;
+      line-height: 27/@rem;
+      text-align: center;
+      font-style: normal;
+      color: #fff;
+      font-size: 18/@rem;
+      background-color: #ff635b;
+    }
+    .coupon-info{
+      margin-left: 8/@rem;
+      color: #9f9f9f;
+    }
+    .popularity{
+      .popularity-tag{
+        display: inline-block;
+        width: 16/@rem;
+        height: 15/@rem;
+        background: url("../images/icon/popularity-tag.svg") no-repeat;
+        background-size: 100% auto;
+      }
+      .popularity-info{
+        color: #9f9f9f;
+      }
+    }
+  }
+}
+
+.nav-tag-size(@w:55,@h:55){
+  width: @w/@rem;
+  height: @h/@rem;
+}
+
+.footer{
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 128/@rem;
+  bottom: 0;
+  background-color: #fff;
+  border-top: 1/@rem solid #e4e4e4;
+  .footer-box{
+    width: 100%;
+    height: 128/@rem;
+    background-color: #fff;
+    position: relative;
+  }
+  .nav{
+    margin: 24/@rem 42/@rem;
+    display: inline-block;
+    p{
+      margin-top: 10.4/@rem;
+    }
+    .nav-tag{
+      display: block;
+    }
+    p{
+      text-align: center;
+    }
+    .nav-tag-home{
+      .nav-tag-size();
+      background: url("../images/icon/nav-home.svg") no-repeat;
+      background-size: 100% auto;
+    }
+    .nav-tag-mall{
+      .nav-tag-size();
+      background: url("../images/icon/nav-mall.svg") no-repeat;
+      background-size: 100% auto;
+    }
+    .nav-tag-lj{
+      .nav-tag-size();
+      background: url("../images/icon/nav-lj.svg") no-repeat;
+      background-size: 100% auto;
+    }
+    .nav-tag-my{
+      .nav-tag-size();
+      background: url("../images/icon/nav-my.svg") no-repeat;
+      background-size: 100% auto;
+    }
+  }
+  .active{
+    .nav-tag-home{
+      .nav-tag-size();
+      background: url("../images/icon/nav-home-active.svg") no-repeat;
+      background-size: 100% auto;
+    }
+    .nav-tag-mall{
+      .nav-tag-size();
+      background: url("../images/icon/nav-mall-active.svg") no-repeat;
+      background-size: 100% auto;
+    }
+    .nav-tag-lj{
+      .nav-tag-size();
+      background: url("../images/icon/nav-lj-active.svg") no-repeat;
+      background-size: 100% auto;
+    }
+    .nav-tag-my{
+      .nav-tag-size();
+      background: url("../images/icon/nav-my-active.svg") no-repeat;
+      background-size: 100% auto;
+    }
+  }
+  .nav-mj-box{
+    position: relative;
+    .nav-middle{
+      position: absolute;
+      width: 160/@rem;
+      height: 160/@rem;
+      border-radius: 50%;
+      background: #fd4915 url("../images/icon/nav-mj.svg") no-repeat center;
+      background-size: 50/@rem 61/@rem;
+      left: 50%;
+      margin-left: -77/@rem;
+      bottom: 34/@rem;
+      z-index: 1;
+    }
+  }
+  .nav-middle-bg{
+    position: absolute;
+    width: 168/@rem;
+    height: 168/@rem;
+    border-radius: 50%;
+    border:1/@rem solid #e4e4e4;
+    background-color: #fff;
+    bottom: 41/@rem;
+    z-index: -1;
+    left: 50%;
+    margin-left: -168/2/@rem;
+  }
+}

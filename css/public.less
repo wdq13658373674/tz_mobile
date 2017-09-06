@@ -1,0 +1,224 @@
+@import "../cssControl/control";
+
+/*初始化样式*/
+*,::before,::after{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  -webkit-box-sizing:border-box;
+  -webkit-touch-callout:none;
+  -webkit-text-size-adjust:none;
+  -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+//  -webkit-user-select:none;
+  outline: none;
+}
+html,body{min-height:100%;width:100%;overflow-x: hidden;}
+body {
+  font-family: "Microsoft YaHei","Helvetica Neue", Helvetica, sans-serif;
+  font-size: 20/@rem;
+  font-weight:normal;
+  color: @txt-black;
+  outline: 0;
+  background-color: @bg;
+}
+input, textarea, select, button {
+  font-size:100%;
+  outline:none;
+}
+input[type='text'],input[type='password'],input[type='number']{
+  border:0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+}
+button,input,select,textarea {
+  font: inherit;
+  color: inherit;
+}
+a {
+  color: @txt-black;
+  outline: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+  &:hover{text-decoration: none;}
+  &:visited{text-decoration: none;}
+}
+ul,ol{
+  list-style:none;
+}
+table {
+  border-collapse:collapse;
+  border-spacing:0
+}
+fieldset,img {
+  border:0
+}
+img{vertical-align: middle;}
+sub,sup{
+  font-size:75%;
+  line-height:0;
+  position:relative;
+  vertical-align:baseline
+}
+sup {
+  top:-.5em
+}
+sub {
+  bottom:-.25em
+}
+
+/*base*/
+.center{margin-left: auto; margin-right: auto}
+.hide{display: none}
+.text-align{text-align:center;}
+.bg-white{background-color: #ffffff;}
+
+/*左右浮动*/
+.pull-left{display:inline;float: left;}
+.pull-right{display:inline;float: right;}
+
+/*清除浮动*/
+.clearfix{
+  &:before,
+  &:after {
+    content: " ";
+    height:0;
+    line-height:0;
+    display:block;
+    visibility:hidden;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+/*字体大小*/
+.f12{font-size: 12/@rem;}
+.f14{font-size: 14/@rem;}
+.f16{font-size: 16/@rem;}
+.f18{font-size: 18/@rem;}
+.f20{font-size: 20/@rem;}
+.f22{font-size: 22/@rem;}
+.f25{font-size: 25/@rem;}
+.f26{font-size: 26/@rem !important;}
+.f28{font-size: 28/@rem;}
+.f30{font-size: 30/@rem;}
+.f36{font-size: 36/@rem;}
+.f42{font-size: 42/@rem;}
+
+/*margin*/
+.mb150{margin-bottom: 150/@rem;}
+.mb15{margin-bottom: 15/@rem;}
+.mb32{margin-bottom:32/@rem;}
+.mb40{margin-bottom: 40/@rem;}
+
+.mt30{margin-top:30/@rem;}
+.mt32{margin-top:32/@rem;}
+.mt40{margin-top:40/@rem;}
+.mt20{margin-top:20/@rem;}
+.mt60{margin-top:60/@rem;}
+.mt64{margin-top:64/@rem;}
+.ml45{margin-left:45/@rem;}
+
+.mr20{margin-right:20/@rem;}
+
+
+.pt114{padding-top:114/@rem;}
+
+/*颜色*/
+.bold{font-weight: bold;}
+
+/*page-group*/
+.page-group{.wh(100%); min-height: 100%; position: relative;left: 100%; top: 0; .transition(0.2s); overflow: hidden; background: @bg;}
+
+/*底部固定工具栏fixed*/
+.bar {
+  width:100%;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.bar-tab{
+  bottom:0;
+  height:128/@rem;
+  line-height:88/@rem;
+}
+/*fixed-margin*/
+.bar~.page-group{margin-bottom:88/@rem;}
+
+/*头部标题栏nav*/
+
+
+/*header && footer*/
+
+.footer-wrap{padding:0 32/@rem;overflow: hidden;background: @txt-black;font-size:18/@rem;color:@bg;
+  .crumbs{padding:32/@rem 0;border-bottom: 1px solid #323a5b;}
+  .bottom-box{margin:32/@rem 0;
+    .left-box{.wh(270/@rem,auto);}
+  }
+}
+
+/*面包屑*/
+//.crumbs{
+//  color: @gray;
+//  a{
+//    font-size: 18/@rem;
+//    color: @gray;
+//    &:hover{
+//      padding-bottom: 1px;
+//      border-bottom: 1px solid @gray;
+//    }
+//  }
+//  span{
+//    font-size:18/@rem;
+//  }
+//}
+
+/*desc-list*/
+.desc-list{
+  span{padding:4/@rem 11/@rem;.round(4/@rem);margin-right:8/@rem;font-size:18/@rem;}
+}
+
+
+/*为空*/
+.empty-list{.wh(100%,250px,250px);text-align: center;color:@bg;}
+
+/*moblie_tips*/
+#moblie_tips{
+  display: none;
+  position: absolute;
+  bottom: 50/@rem;
+  left: 33%;
+  padding: 10/@rem 15/@rem;
+  border-radius: 5/@rem;
+  background: rgba(0,0,0,.8);
+  span{
+    font-size: 30/@rem;
+    color: #fff;
+  }
+}
+/*无消息记录*/
+.no-data-box{
+  margin-top: 30/@rem;
+  background: #eff2f9;
+  text-align: center;
+  height:1108/@rem;
+  p{
+    margin: 50/@rem 0;
+    color: #a7aab1;
+  }
+}
+.no-data{
+  width: 266/@rem;
+  height: 267/@rem;
+  margin: 0 auto;
+}
+
+
