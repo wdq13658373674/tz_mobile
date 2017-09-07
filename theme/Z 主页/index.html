@@ -9,9 +9,10 @@
 
     <link rel="stylesheet" href="../../css/public.css">
     <link rel="stylesheet" href="../../css/index.css">
-
+    <link rel="stylesheet" href="../../js/addons/Swiper/swiper.min.css">
     <script type="text/javascript" src="../../js/fastclick.js"></script>
     <script type="text/javascript" src="../../js/public.js"></script>
+
     <title>首页</title>
 </head>
 <body>
@@ -89,7 +90,15 @@
         </ul>
     </div>
 
-    <div class="advert">广告</div>
+    <div class="advert">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="height: 6rem;">Slide 1</div>
+                <div class="swiper-slide" style="height: 6rem;">Slide 2</div>
+                <div class="swiper-slide" style="height: 6rem;">Slide 3</div>
+            </div>
+        </div>
+    </div>
 
     <div class="info-estate  clearfix" >
         <div class="rowup-list">
@@ -228,5 +237,11 @@
         <div class="nav-middle-bg"></div>
     </div>
 </footer>
+<script type="text/javascript" src="../../js/addons/Swiper/swiper.min.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        loop: true
+    });
+</script>
 </body>
 </html>

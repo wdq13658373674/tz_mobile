@@ -1,0 +1,68 @@
+@import "../cssControl/control";
+
+/*公告列表页*/
+.msg-list {
+  background-color: #fff;
+  .msg-item {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 40/@rem;
+    border-bottom: 1/@rem solid #e4e4e4;
+    .msg-title {
+      font-size: 30/@rem;
+      color: #464646;
+    }
+    .msg-time {
+      font-size: 24/@rem;
+      margin-top: 21/@rem;
+      color: #9b9b9b;
+      i {
+
+      }
+    }
+    .icon-go {
+      position: absolute;
+      margin-top: 37/@rem;
+      font-style: normal;
+      font-size: 30/@rem;
+      color: #bbb;
+      top: 30/@rem;
+      right: 40/@rem;
+    }
+    .icon-tel {
+      position: absolute;
+      top: 68/@rem;
+      right: 40/@rem;
+      display: block;
+      .wh(34/@rem, 37/@rem);
+      background: url("../images/icon/icon-tel.svg") no-repeat;
+      background-size: 100% auto;
+    }
+  }
+}
+
+/*通知详情*/
+.header-txt {
+  .time {
+    margin-top: 26/@rem;
+    margin-right: 40/@rem;
+    font-size: 24/@rem;
+    text-align: left;
+    color: #4a4a4a;
+  }
+}
+
+.msg-article {
+  background-color: #fff;
+  height: 1078/@rem;
+  padding: 32/@rem 40/@rem;
+  font-size: 28/@rem;
+  text-indent: 28*2/@rem;
+  p {
+    margin-top: 28/@rem;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}

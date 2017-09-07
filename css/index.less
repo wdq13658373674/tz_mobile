@@ -92,15 +92,17 @@
   }
 }
 
-//TODO 广告位临时样式
 /*广告位*/
 .advert{
   margin: 24/@rem 0;
-  width: 750/@rem;
+  width: 100%;
   height: 300/@rem;
-  background-color: #fd4915;;
+  background-color: #fd4915;
 }
 
+.swiper-container {
+  height: 300/@rem;
+}
 /*小区消息滚动提示*/
 
 .info-estate{
@@ -138,27 +140,27 @@
 @keyframes rowup {
   0% {
     -webkit-transform: translate(0, 0);
-    transform: translate3d(0, 0);
+    transform: translate(0, 0);
   }
   20% {
     -webkit-transform: translate(0, 0);
-    transform: translate3d(0, 0);
+    transform: translate(0, 0);
   }
   40%  {
     -webkit-transform: translate(0, -42/@rem);
-    transform: translate3d(0, -42/@rem);
+    transform: translate(0, -42/@rem);
   }
   60%  {
     -webkit-transform: translate(0, -42/@rem);
-    transform: translate3d(0, -42/@rem);
+    transform: translate(0, -42/@rem);
   }
   80%  {
     -webkit-transform: translate(0, -87/@rem);
-    transform: translate3d(0, -87/@rem);
+    transform: translate(0, -87/@rem);
   }
   100%  {
     -webkit-transform: translate(0, -87/@rem);
-    transform: translate3d(0, -87/@rem);
+    transform: translate(0, -87/@rem);
   }
 }
 
@@ -167,6 +169,7 @@
   margin-top: 24/@rem;
   padding: 27/@rem 48/@rem 0 48/@rem;
   background-color: @block-bg;
+  margin-bottom: 128/@rem;
   .title{
     span{
       float: left;
@@ -186,7 +189,6 @@
 }
 
 .shop-list{
-  margin-bottom: 128/@rem;
   .shops-item{
     padding: 24/@rem 0;
     position: relative;
@@ -195,6 +197,9 @@
     display: -ms-flexbox;
     box-orient: horizontal;
     border-bottom: 1/@rem solid #e4e4e4;
+    &:last-child {
+      border-bottom: none;
+    }
   }
   .shop-img{
     width: 168/@rem;
@@ -272,11 +277,6 @@
   }
 }
 
-.nav-tag-size(@w:55,@h:55){
-  width: @w/@rem;
-  height: @h/@rem;
-}
-
 .footer{
   position: fixed;
   z-index: 999;
@@ -304,44 +304,44 @@
       text-align: center;
     }
     .nav-tag-home{
-      .nav-tag-size();
+      .wh(47/@rem, 49/@rem);
       background: url("../images/icon/nav-home.svg") no-repeat;
       background-size: 100% auto;
     }
     .nav-tag-mall{
-      .nav-tag-size();
+      .wh(55/@rem, 55/@rem);
       background: url("../images/icon/nav-mall.svg") no-repeat;
       background-size: 100% auto;
     }
     .nav-tag-lj{
-      .nav-tag-size();
+      .wh(52/@rem, 52/@rem);
       background: url("../images/icon/nav-lj.svg") no-repeat;
       background-size: 100% auto;
     }
     .nav-tag-my{
-      .nav-tag-size();
+      .wh(55/@rem, 55/@rem);
       background: url("../images/icon/nav-my.svg") no-repeat;
       background-size: 100% auto;
     }
   }
   .active{
     .nav-tag-home{
-      .nav-tag-size();
+      .wh(47/@rem, 49/@rem);
       background: url("../images/icon/nav-home-active.svg") no-repeat;
       background-size: 100% auto;
     }
     .nav-tag-mall{
-      .nav-tag-size();
+      .wh(55/@rem, 55/@rem);
       background: url("../images/icon/nav-mall-active.svg") no-repeat;
       background-size: 100% auto;
     }
     .nav-tag-lj{
-      .nav-tag-size();
+      .wh(52/@rem, 52/@rem);
       background: url("../images/icon/nav-lj-active.svg") no-repeat;
       background-size: 100% auto;
     }
     .nav-tag-my{
-      .nav-tag-size();
+      .wh(55/@rem, 55/@rem);
       background: url("../images/icon/nav-my-active.svg") no-repeat;
       background-size: 100% auto;
     }
@@ -356,7 +356,7 @@
       background: #fd4915 url("../images/icon/nav-mj.svg") no-repeat center;
       background-size: 50/@rem 61/@rem;
       left: 50%;
-      margin-left: -77/@rem;
+      margin-left: -67/@rem;
       bottom: 34/@rem;
       z-index: 1;
     }
