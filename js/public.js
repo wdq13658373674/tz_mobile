@@ -25,25 +25,12 @@ function list_header_scroll() {
     $(window).scroll(function () {
         var top = $(window).scrollTop();
         if (top > 10) {
-            $('.article-header').stop().animate({
-                height: '2.76rem'
-            }, 200);
-            $('.header-animate h4').stop().animate({
-                fontSize: '.8rem',
-                left: '50%',
-                top: '0',
-                marginLeft: '-2.03rem'
-            }, 200);
+            $('.article-header').addClass('animation');
+            $('.msg-list').css('margin-top', '6.64rem');
         } else {
-            $('.article-header').stop().animate({
-                height: '4.84rem'
-            }, 200);
-            $('.header-animate h4').stop().animate({
-                fontSize: '.96rem',
-                'left': '.8rem',
-                'top': '2.12rem',
-                'margin-left': '0'
-            }, 200)
+
+            $('.article-header').removeClass('animation');
+            $('.msg-list').css('margin-top', '4.84rem');
         }
     });
 }
