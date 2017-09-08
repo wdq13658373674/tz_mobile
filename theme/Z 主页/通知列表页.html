@@ -3,62 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>index</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-    <link rel="stylesheet" href="../../css/public.css">
-    <link rel="stylesheet" href="../../css/message.css">
+    <link rel="stylesheet" href="../../css/test.css">
+    <link rel="stylesheet" href="../../css/message2.css">
 
     <script type="text/javascript" src="../../js/fastclick.js"></script>
+    <script src="../../js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="../../js/public.js"></script>
 
-    <title>公告通知</title>
+    <title>首页</title>
 </head>
 <body>
 <header class="article-header">
-    <div class="header-box">
-        <div class="header-animate clearfix">
-            <a class="back pull-left" href="javascript:window.history.go(-1);">&lt;</a>
-        </div>
-        <div class="header-txt">公告通知</div>
+    <div class="header-animate clearfix">
+        <a class="back pull-left" href="#">&lt;</a>
+        <h4>公告通知</h4>
     </div>
 </header>
-<section class="msg-list" id="touch">
-    <a href="#" class="msg-item ">
-        <div>
-            <p class="msg-title">停水通知</p>
-            <p class="msg-time">2017.09.05</p>
-        </div>
-        <i class="icon-go">&gt;</i>
-    </a>
-    <a href="#" class="msg-item ">
-        <div>
-            <p class="msg-title">停水通知</p>
-            <p class="msg-time">2017.09.05</p>
-        </div>
-        <i class="icon-go">&gt;</i>
-    </a>
-    <a href="#" class="msg-item ">
-        <div>
-            <p class="msg-title">停水通知</p>
-            <p class="msg-time">2017.09.05</p>
-        </div>
-        <i class="icon-go">&gt;</i>
-    </a>
-    <a href="#" class="msg-item ">
-        <div>
-            <p class="msg-title">停水通知</p>
-            <p class="msg-time">2017.09.05</p>
-        </div>
-        <i class="icon-go">&gt;</i>
-    </a>
-    <a href="#" class="msg-item ">
-        <div>
-            <p class="msg-title">停水通知</p>
-            <p class="msg-time">2017.09.05</p>
-        </div>
-        <i class="icon-go">&gt;</i>
-    </a>
+<section class="msg-list">
     <a href="#" class="msg-item ">
         <div>
             <p class="msg-title">停水通知</p>
@@ -116,16 +81,9 @@
         <i class="icon-go">&gt;</i>
     </a>
 </section>
-<script src="../../js/jquery-3.2.1.min.js"></script>
+
 <script>
-    $(window).scroll(function () {
-        var top = $(window).scrollTop();
-        if (top > 10) {
-            $(".article-header").addClass("fixed");
-        } else {
-            $(".article-header").removeClass("fixed");
-        }
-    });
+    list_header_scroll();
 </script>
 </body>
 </html>

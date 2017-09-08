@@ -19,3 +19,31 @@ if ('addEventListener' in document) {
         FastClick.attach(document.body);
     }, false);
 }
+
+/*列表页头部效果*/
+function list_header_scroll() {
+    $(window).scroll(function () {
+        var top = $(window).scrollTop();
+        if (top > 10) {
+            $('.article-header').stop().animate({
+                height: '2.76rem'
+            }, 200);
+            $('.header-animate h4').stop().animate({
+                fontSize: '.8rem',
+                left: '50%',
+                top: '0',
+                marginLeft: '-2.03rem'
+            }, 200);
+        } else {
+            $('.article-header').stop().animate({
+                height: '4.84rem'
+            }, 200);
+            $('.header-animate h4').stop().animate({
+                fontSize: '.96rem',
+                'left': '.8rem',
+                'top': '2.12rem',
+                'margin-left': '0'
+            }, 200)
+        }
+    });
+}

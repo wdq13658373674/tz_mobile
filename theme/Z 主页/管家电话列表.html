@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../../css/message.css">
 
     <script type="text/javascript" src="../../js/fastclick.js"></script>
+    <script src="../../js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="../../js/public.js"></script>
 
     <title>管家电话</title>
@@ -81,16 +82,9 @@
         <i class="icon-tel"></i>
     </a>
 </section>
-<script src="../../js/jquery-3.2.1.min.js"></script>
+
 <script>
-    $(window).scroll(function () {
-        var top = $(window).scrollTop();
-        if (top > 10) {
-            $(".article-header").addClass("fixed");
-        } else {
-            $(".article-header").removeClass("fixed");
-        }
-    });
+    list_header_scroll();
 </script>
 </body>
 </html>
