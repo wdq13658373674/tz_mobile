@@ -263,3 +263,102 @@ sub {
     .transition(.3s);
   }
 }
+
+/*公共底部*/
+.footer {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 128/@rem;
+  bottom: 0;
+  background-color: #fff;
+  border-top: 1/@rem solid #e4e4e4;
+  .footer-box {
+    width: 100%;
+    height: 128/@rem;
+    background-color: #fff;
+    position: relative;
+  }
+  .nav {
+    margin: 24/@rem 42/@rem;
+    display: inline-block;
+    p {
+      margin-top: 10.4/@rem;
+    }
+    .nav-tag {
+      display: block;
+    }
+    p {
+      text-align: center;
+    }
+    .nav-tag-home {
+      .wh(47/@rem, 49/@rem);
+      background: url("../images/icon/nav-home.svg") no-repeat;
+      background-size: 100% auto;
+    }
+    .nav-tag-mall {
+      .wh(55/@rem, 55/@rem);
+      background: url("../images/icon/nav-mall.svg") no-repeat;
+      background-size: 100% auto;
+    }
+    .nav-tag-lj {
+      .wh(52/@rem, 52/@rem);
+      background: url("../images/icon/nav-lj.svg") no-repeat;
+      background-size: 100% auto;
+    }
+    .nav-tag-my {
+      .wh(55/@rem, 55/@rem);
+      background: url("../images/icon/nav-my.svg") no-repeat;
+      background-size: 100% auto;
+    }
+  }
+  .active {
+    .nav-tag-home {
+      .wh(47/@rem, 49/@rem);
+      background: url("../images/icon/nav-home-active.svg") no-repeat;
+      background-size: 100% auto;
+    }
+    .nav-tag-mall {
+      .wh(55/@rem, 55/@rem);
+      background: url("../images/icon/nav-mall-active.svg") no-repeat;
+      background-size: 100% auto;
+    }
+    .nav-tag-lj {
+      .wh(52/@rem, 52/@rem);
+      background: url("../images/icon/nav-lj-active.svg") no-repeat;
+      background-size: 100% auto;
+    }
+    .nav-tag-my {
+      .wh(55/@rem, 55/@rem);
+      background: url("../images/icon/nav-my-active.svg") no-repeat;
+      background-size: 100% auto;
+    }
+  }
+  .nav-mj-box {
+    position: relative;
+    .nav-middle {
+      position: absolute;
+      width: 160/@rem;
+      height: 160/@rem;
+      border-radius: 50%;
+      background: #fd4915 url("../images/icon/nav-mj.svg") no-repeat center;
+      background-size: 50/@rem 61/@rem;
+      left: 50%;
+      margin-left: -67/@rem;
+      bottom: 34/@rem;
+      z-index: 1;
+    }
+  }
+  .nav-middle-bg {
+    position: absolute;
+    width: 168/@rem;
+    height: 168/@rem;
+    border-radius: 50%;
+    border: 1/@rem solid #e4e4e4;
+    background-color: #fff;
+    bottom: 41/@rem;
+    z-index: -1;
+    left: 50%;
+    margin-left: -168/2/@rem;
+  }
+}

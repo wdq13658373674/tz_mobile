@@ -1,0 +1,217 @@
+@import "../cssControl/control";
+/*头部*/
+.header {
+  background-color: #fff;
+  padding: 36/@rem 48/@rem 0 48/@rem;
+  .center-header {
+    .flex();
+    border-bottom: 1/@rem solid #e4e4e4;
+    padding-bottom: 31/@rem;
+  }
+  .header-flex-item {
+    overflow: hidden;
+    flex: 1;
+    .header-name {
+      font-size: 52/@rem;
+      color: #464646;
+      font-weight: normal;
+      .ellipsis-1();
+    }
+    p {
+      margin-top: 6/@rem;
+      font-size: 26/@rem;
+      color: #7b7b7b;
+      .ellipsis-1();
+    }
+  }
+  .header-right {
+    margin-left: 70/@rem;
+    flex: 0 0 170/@rem;
+    a {
+      display: block;
+      .flex();
+      .icon-right {
+        flex: 1;
+        margin-top: 40/@rem;
+        width: 8/@rem;
+        height: 26/@rem;
+        background: url("../images/icon/icon-right.svg") no-repeat;
+        background-size: 100% 100%;
+      }
+      .header-img {
+        flex: 0 0 106/@rem;
+        margin-right: 19/@rem;
+        border-radius: 50%;
+        overflow: hidden;
+        width: 106/@rem;
+        height: 106/@rem;
+        img {
+          width: 106/@rem;
+          height: 106/@rem;
+        }
+      }
+    }
+  }
+}
+
+.center-main {
+
+}
+
+/*资金信息*/
+.center-info {
+  .public-bg();
+  padding: 65/@rem 48/@rem 51/@rem 48/@rem;
+  .flex();
+  .info-item {
+    flex: 1;
+  }
+  .info-item-TB {
+    background-color: #fd4915;
+    border-radius: 13px;
+    padding: 35/@rem 25/@rem;
+    .info-TB {
+      font-size: 48/@rem;
+      color: #fff;
+      font-weight: normal;
+    }
+    .info-item-title {
+      margin-left: 4/@rem;
+      margin-top: 57/@rem;
+      .flex();
+      align-items: center;
+      .icon-TB {
+        flex: 0 0 34/@rem;
+        width: 34/@rem;
+        height: 34/@rem;
+        background: #fff;
+        margin-right: 15/@rem;
+      }
+      h4 {
+        flex: 1;
+        font-size: 26/@rem;
+        color: #ffffff;
+        font-weight: normal;
+      }
+    }
+  }
+  .info-item-other {
+    margin-left: 43/@rem;
+    .info-title {
+      .flex();
+      align-items: center;
+      .icon {
+        flex: 0 0 22/@rem;
+      }
+      h5 {
+        flex: 1;
+        margin-left: 11/@rem;
+        font-size: 24/@rem;
+        font-weight: normal;
+        color: #7b7b7b;
+      }
+    }
+    .info-amount {
+      margin-top: 10px;
+      font-size: 30/@rem;
+      color: #464646;
+    }
+    .info-balance {
+      .icon-RMB {
+        width: 22/@rem;
+        height: 23/@rem;
+        background: url("../images/icon/icon-RMB.svg") no-repeat;
+        background-size: 100% 100%;;
+      }
+    }
+    .info-integral {
+      margin-top: 63/@rem;
+      .icon-integral {
+        width: 22/@rem;
+        height: 23/@rem;
+        background: url("../images/icon/icon-integral.svg") no-repeat;
+        background-size: 100% 100%;;
+      }
+    }
+  }
+}
+
+/*账单信息*/
+.center-bill {
+  .public-bg();
+  padding: 48/@rem 57/@rem 48/@rem;
+  .title {
+    .title();
+    font-weight: normal;
+    font-size: 24/@rem;
+  }
+  .bill-block {
+    margin-top: 20/@rem;
+    padding: 24/@rem 28/@rem;
+    border: 1/@rem solid #fd4915;
+    border-radius: 8px;
+    .sub-title {
+      .sub-title();
+      font-size: 22/@rem;
+      font-weight: normal;
+    }
+    .bill-total {
+      font-size: 64/@rem;
+      color: #464646;
+    }
+  }
+}
+
+/*菜单*/
+.center-menu {
+  .public-bg();
+  margin-top: 24/@rem;
+  .menu-item {
+    padding: 22/@rem 0;
+    border-bottom: 1/@rem solid #e4e4e4;
+    &:last-child {
+      border-bottom: none;
+    }
+    a {
+      position: relative;
+      padding: 0 48/@rem;
+      .flex();
+      align-items: center;
+    }
+    .icon {
+      flex: 0 0 23/@rem;
+    }
+    .icon-order {
+      width: 23/@rem;
+      height: 26/@rem;
+      margin-right: 31/@rem;
+      background: url("../images/icon/icon-order.svg") no-repeat;
+      background-size: 100% 100%;;
+    }
+    .icon-coupon {
+      flex: 0 0 31/@rem;
+      width: 23/@rem;
+      height: 26/@rem;
+      margin-right: 23/@rem;
+      background: url("../images/icon/icon-coupon.svg") no-repeat;
+      background-size: 100% 100%;;
+    }
+    .icon-collection {
+      flex: 0 0 31/@rem;
+      width: 23/@rem;
+      height: 31/@rem;
+      margin-right: 23/@rem;
+      background: url("../images/icon/icon-collection.svg") no-repeat;
+      background-size: 100% 100%;;
+    }
+    .icon-right {
+      position: absolute;
+      width: 12/@rem;
+      height: 19/@rem;
+      top: 6/@rem;
+      right: 48/@rem;
+      background: url("../images/icon/icon-right.svg") no-repeat;
+      background-size: 100% 100%;;
+    }
+  }
+}

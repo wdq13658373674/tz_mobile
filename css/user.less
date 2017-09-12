@@ -1,0 +1,51 @@
+@import "../cssControl/control";
+/*头部*/
+.header {
+  background-color: #fff;
+  padding: 36/@rem 48/@rem 0 48/@rem;
+  .center-header {
+    .flex();
+    border-bottom: 1/@rem solid #e4e4e4;
+    padding-bottom: 31/@rem;
+  }
+  .header-flex-item {
+    overflow: hidden;
+    flex: 1;
+    .header-name {
+      font-size: 52/@rem;
+      color: #464646;
+      font-weight: normal;
+      .ellipsis-1();
+    }
+    p {
+      margin-top: 6/@rem;
+      font-size: 26/@rem;
+      color: #7b7b7b;
+      .ellipsis-1();
+    }
+  }
+  .header-right {
+    margin-left: 100/@rem;
+    flex: 0 0 106/@rem;
+    a {
+      display: block;
+      .header-img {
+        position: relative;
+        border-radius: 50%;
+        overflow: hidden;
+        width: 106/@rem;
+        height: 106/@rem;
+        img {
+          width: 106/@rem;
+          height: 106/@rem;
+        }
+        .icon-camera {
+          position: absolute;
+          display: block;
+          width: 41/@rem;
+          height: 41/@rem;
+        }
+      }
+    }
+  }
+}
