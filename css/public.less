@@ -222,31 +222,32 @@ sub {
 }
 
 /*公共头部*/
-.article-header {
+.list-header {
   position: fixed;
   width: 100%;
   background-color: #fff;
   text-align: center;
-  line-height: 123/@rem;
   height: 242/@rem;
   border-bottom: 24/@rem solid #f4f4f4;
+  padding: 39/@rem 40/@rem;
   z-index: 5;
   .transition(.3s);
   .header-animate {
     position: relative;
-    padding-left: 40/@rem;
     width: 100%;
   }
-  .back {
-    font-size: 60/@rem;
+  .icon-back {
+    width: 20/@rem;
+    height: 33/@rem;
+    background: url("../images/icon/icon-back.svg") no-repeat;
+    background-size: 100% 100%;
   }
   h4 {
     position: absolute;
-    line-height: 123/@rem;
     font-size: 48/@rem;
     font-weight: normal;
-    left: 140/@rem;
-    top: 106/@rem;
+    left: 100/@rem;
+    top: 90/@rem;
     margin-left: -203/2/@rem;
     .transition(.3s);
   }
@@ -258,7 +259,7 @@ sub {
   h4 {
     font-size: .8rem;
     left: 50%;
-    top: 0;
+    top: -10/@rem;
     margin-left: -2.03rem;
     .transition(.3s);
   }

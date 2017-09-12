@@ -25,11 +25,11 @@ function list_header_scroll() {
     $(window).scroll(function () {
         var top = $(window).scrollTop();
         if (top > 10) {
-            $('.article-header').addClass('animation');
+            $('.list-header').addClass('animation');
             $('.msg-list').css('margin-top', '6.64rem');
         } else {
 
-            $('.article-header').removeClass('animation');
+            $('.list-header').removeClass('animation');
             $('.msg-list').css('margin-top', '4.84rem');
         }
     });
