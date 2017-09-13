@@ -6,6 +6,7 @@
     <title>index</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
 
     <link rel="stylesheet" href="../../css/public.css">
     <link rel="stylesheet" href="../../css/user.css">
@@ -18,23 +19,100 @@
 <!--头部-->
 <header class="header">
     <div class="goBack">
-
+        <a class="icon-back" href="javascript:window.history.go(-1);alert('测试');"></a>
     </div>
+</header>
+
+<section class="setting">
 
     <div class="center-header">
-        <div class="header-flex-item">
+        <div class="header-flex-item header-left">
             <h4 class="header-name">18223515667</h4>
             <p>云鼎府邸13栋9-8业主云鼎府邸13栋9云鼎府邸13栋9云鼎府邸13栋9</p>
         </div>
         <div class="header-flex-item header-right">
-            <a href="#">
-                <div class="header-img ">
-                    <img src="../../images/img/header-img.svg" alt="">
+            <a href="javascript:alert('测试');">
+                <div class="header-camera">
+                    <div class="header-img ">
+                        <img src="../../images/img/header-img.svg" alt="">
+                    </div>
                     <i class="icon-camera"></i>
                 </div>
             </a>
         </div>
     </div>
-</header>
+
+    <div class="set-list">
+        <a class="set-item" href="#">
+            <span class="set-field">姓名</span>
+            <span class="set-value">二得很</span>
+            <span class="set-ico icon-right"></span>
+        </a>
+        <a class="set-item" href="#">
+            <span class="set-field">昵称</span>
+            <span class="set-value">tail</span>
+            <span class="set-ico icon-right"></span>
+        </a>
+        <a class="set-item" href="#">
+            <span class="set-field">性别</span>
+            <span class="set-value">女</span>
+            <span class="set-ico icon-right"></span>
+        </a>
+        <a class="set-item" href="#">
+            <span class="set-field">邮箱</span>
+            <span class="set-value">168545@qq.com</span>
+            <span class="set-ico icon-right"></span>
+        </a>
+        <a class="set-item" href="#">
+            <span class="set-field">手机</span>
+            <span class="set-value">1354846456456</span>
+            <span class="set-ico icon-right"></span>
+        </a>
+    </div>
+
+    <div class="safe">
+        <a class="set-item " href="#">
+            <span class="set-field">我的房屋</span>
+            <span class="set-value">云鼎府邸13栋9-8</span>
+            <span class="set-ico icon-right"></span>
+        </a>
+        <a class="set-item " href="#">
+            <span class="set-field">修改密码</span>
+            <span class="set-value"></span>
+            <span class="set-ico icon-right"></span>
+        </a>
+        <a class="set-item " href="#">
+            <span class="set-field color-oring">退出登陆</span>
+        </a>
+    </div>
+</section>
+
+<footer class="footer-bottom-box">
+    <div class="footer">
+        <div class="footer-box">
+            <a class="nav active" href="#">
+                <i class="nav-tag nav-tag-home"></i>
+                <p>首页</p>
+            </a>
+            <a class="nav" href="#">
+                <i class="nav-tag nav-tag-mall"></i>
+                <p>商城</p>
+            </a>
+            <a class="nav nav-mj-box" href="javascript:alert('功能正在开发中。。。');">
+                <div class="nav-middle"></div>
+                <p>智能门禁</p>
+            </a>
+            <a class="nav" href="#">
+                <i class="nav-tag nav-tag-lj"></i>
+                <p>邻聚</p>
+            </a>
+            <a class="nav" href="#">
+                <i class="nav-tag nav-tag-my"></i>
+                <p>我的</p>
+            </a>
+        </div>
+        <div class="nav-middle-bg"></div>
+    </div>
+</footer>
 </body>
 </html>

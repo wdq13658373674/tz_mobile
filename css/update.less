@@ -1,0 +1,51 @@
+@import "../cssControl/control";
+
+.update-main {
+  min-height: 1188/@rem;
+  .public-bg;
+  .form-control {
+    position: relative;
+    line-height: 128/@rem;
+    width: 100%;
+    height: 128/@rem;
+    display: block;
+    padding: 0 52/@rem;
+    border-bottom: 1/@rem solid #e4e4e4;
+    /*单选*/
+    .radio {
+      position: absolute;
+      opacity: 0;
+      width: 100%;
+      height: 128/@rem;
+    }
+    .radio-field {
+      font-size: 26/@rem;
+      color: #464646;
+    }
+    .tag-radio {
+      margin-top: 45/@rem;
+      display: block;
+      width: 35/@rem;
+      height: 35/@rem;
+      border-radius: 50%;
+      border: 1/@rem solid #7b7b7b;
+    }
+    .radio:checked + .form-radio > .tag-radio {
+      border: 1px solid red;
+    }
+    /*text*/
+    .form-text {
+      width: 100%;
+      height: 126/@rem;
+      font-size: 26/@rem;
+    }
+
+  }
+  .form-tips {
+    margin-top: 24/@rem;
+    margin-left: 48/@rem;
+    font-size: 26/@rem;
+    color: #7b7b7b;
+  }
+}
+

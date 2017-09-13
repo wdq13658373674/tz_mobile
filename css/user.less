@@ -1,15 +1,33 @@
 @import "../cssControl/control";
 /*头部*/
 .header {
+  position: fixed;
   background-color: #fff;
-  padding: 36/@rem 48/@rem 0 48/@rem;
+  padding: 36/@rem 48/@rem 36/@rem 48/@rem;
+  .public-bg;
+  width: 100%;
+  height: 105/@rem;
+  .goBack {
+    .icon-back {
+      padding: 20/@rem;
+      display: block;
+      width: 20/@rem;
+      height: 33/@rem;
+      background: url("../images/icon/icon-back.svg") no-repeat;
+      background-size: 100% 100%;
+    }
+  }
+}
+
+.setting {
+
+  margin-top: 105/@rem;
   .center-header {
+    padding: 0 48/@rem;
     .flex();
-    border-bottom: 1/@rem solid #e4e4e4;
-    padding-bottom: 31/@rem;
+    .public-bg();
   }
   .header-flex-item {
-    overflow: hidden;
     flex: 1;
     .header-name {
       font-size: 52/@rem;
@@ -24,13 +42,30 @@
       .ellipsis-1();
     }
   }
+  .header-left {
+    overflow: hidden;
+  }
   .header-right {
     margin-left: 100/@rem;
     flex: 0 0 106/@rem;
     a {
       display: block;
-      .header-img {
+      .header-camera {
         position: relative;
+        width: 106/@rem;
+        height: 106/@rem;
+        .icon-camera {
+          position: absolute;
+          display: block;
+          width: 41/@rem;
+          height: 41/@rem;
+          top: 70/@rem;
+          left: 70/@rem;
+          background: url("../images/icon/icon-camera.svg") no-repeat;
+          background-size: 100% 100%;
+        }
+      }
+      .header-img {
         border-radius: 50%;
         overflow: hidden;
         width: 106/@rem;
@@ -39,12 +74,54 @@
           width: 106/@rem;
           height: 106/@rem;
         }
-        .icon-camera {
-          position: absolute;
-          display: block;
-          width: 41/@rem;
-          height: 41/@rem;
-        }
+      }
+    }
+  }
+
+  .set-item {
+    .flex();
+    align-items: center;
+    line-height: 125/@rem;
+    border-bottom: 1/@rem solid #e4e4e4;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  .set-field {
+    flex: 0 0 104/@rem;
+    font-size: 26/@rem;
+    text-align: left;
+    color: #464646;
+  }
+  .set-value {
+    flex: 1;
+    text-align: right;
+    font-size: 26/@rem;
+    margin-left: 40/@rem;
+    color: #7b7b7b;
+  }
+  .set-ico {
+    flex: 0 0 8.8/@rem;
+    margin-left: 40/@rem;
+  }
+  .icon-right {
+    height: 16.9/@rem;
+    background: url("../images/icon/icon-right.svg") no-repeat;
+    background-size: 100% 100%;
+  }
+  .set-list {
+    padding: 0 48/@rem;
+    .public-bg();
+  }
+  .safe {
+    .set-item {
+      padding: 0 48/@rem;
+      .public-bg();
+      line-height: 80/@rem;
+      margin: 25/@rem 0;
+      border-bottom: none;
+      .color-oring {
+        color: #fd4915;
       }
     }
   }

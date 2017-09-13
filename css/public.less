@@ -266,6 +266,9 @@ sub {
 }
 
 /*公共底部*/
+.footer-bottom-box {
+  height: 128/@rem;
+}
 .footer {
   position: fixed;
   z-index: 999;
@@ -363,3 +366,40 @@ sub {
     margin-left: -168/2/@rem;
   }
 }
+
+/*资料修改公共样式*/
+.update-header {
+  height: 121/@rem;
+  padding: 34/@rem 41/@rem;
+  .flex;
+  align-items: center;
+  .public-bg;
+  .icon-back {
+    flex: 0 0 15.1/@rem;
+    margin-top: 8/@rem;
+    width: 15.1/@rem;
+    height: 29/@rem;
+    background: url("../images/icon/icon-back.svg") no-repeat;
+    background-size: 100% 100%;
+  }
+  .title {
+    flex: 1;
+    line-height: 40/@rem;
+    text-align: center;
+    font-size: 40/@rem;
+    font-weight: normal;
+  }
+  .btn {
+    flex: 0 0 68/@rem;
+    font-size: 34/@rem;
+    font-weight: normal;
+    color: #7b7b7b;
+    border: none;
+    background: #fff;
+  }
+}
+
+.update-main {
+  margin-top: 25/@rem;
+}
+
