@@ -266,6 +266,9 @@ sub {
 }
 
 /*公共底部*/
+footer {
+  height: 128/@rem;
+}
 .footer-bottom-box {
   height: 128/@rem;
 }
@@ -284,8 +287,10 @@ sub {
     position: relative;
   }
   .nav {
-    margin: 24/@rem 42/@rem;
+    //margin: 24/@rem 42/@rem;
     display: inline-block;
+    margin-top: 24/@rem;
+    width: 19.3%;
     p {
       margin-top: 10.4/@rem;
     }
@@ -296,21 +301,25 @@ sub {
       text-align: center;
     }
     .nav-tag-home {
+      margin: 0 auto;
       .wh(47/@rem, 49/@rem);
-      background: url("../images/icon/nav-home.svg") no-repeat;
+      background: url("../images/icon/nav-home.svg") no-repeat center center;
       background-size: 100% auto;
     }
     .nav-tag-mall {
+      margin: 0 auto;
       .wh(55/@rem, 55/@rem);
       background: url("../images/icon/nav-mall.svg") no-repeat;
       background-size: 100% auto;
     }
     .nav-tag-lj {
+      margin: 0 auto;
       .wh(52/@rem, 52/@rem);
       background: url("../images/icon/nav-lj.svg") no-repeat;
       background-size: 100% auto;
     }
     .nav-tag-my {
+      margin: 0 auto;
       .wh(55/@rem, 55/@rem);
       background: url("../images/icon/nav-my.svg") no-repeat;
       background-size: 100% auto;
@@ -318,21 +327,25 @@ sub {
   }
   .active {
     .nav-tag-home {
+      margin: 0 auto;
       .wh(47/@rem, 49/@rem);
       background: url("../images/icon/nav-home-active.svg") no-repeat;
       background-size: 100% auto;
     }
     .nav-tag-mall {
+      margin: 0 auto;
       .wh(55/@rem, 55/@rem);
       background: url("../images/icon/nav-mall-active.svg") no-repeat;
       background-size: 100% auto;
     }
     .nav-tag-lj {
+      margin: 0 auto;
       .wh(52/@rem, 52/@rem);
       background: url("../images/icon/nav-lj-active.svg") no-repeat;
       background-size: 100% auto;
     }
     .nav-tag-my {
+      margin: 0 auto;
       .wh(55/@rem, 55/@rem);
       background: url("../images/icon/nav-my-active.svg") no-repeat;
       background-size: 100% auto;
@@ -342,28 +355,28 @@ sub {
     position: relative;
     .nav-middle {
       position: absolute;
-      width: 160/@rem;
-      height: 160/@rem;
+      width: 119/@rem;
+      height: 119/@rem;
       border-radius: 50%;
       background: #fd4915 url("../images/icon/nav-mj.svg") no-repeat center;
       background-size: 50/@rem 61/@rem;
       left: 50%;
-      margin-left: -67/@rem;
+      margin-left: -119/2/@rem;
       bottom: 34/@rem;
       z-index: 1;
     }
   }
   .nav-middle-bg {
     position: absolute;
-    width: 168/@rem;
-    height: 168/@rem;
+    width: 148/@rem;
+    height: 148/@rem;
     border-radius: 50%;
     border: 1/@rem solid #e4e4e4;
     background-color: #fff;
-    bottom: 41/@rem;
+    bottom: 30/@rem;
     z-index: -1;
     left: 50%;
-    margin-left: -168/2/@rem;
+    margin-left: -148/2/@rem;
   }
 }
 

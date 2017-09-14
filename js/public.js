@@ -34,3 +34,15 @@ function list_header_scroll() {
         }
     });
 }
+
+/*判断横竖屏切换*/
+
+// window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
+//     if (window.orientation === 180 || window.orientation === 0) {
+//         history.go(0)
+//     }
+//     if (window.orientation === 90 || window.orientation === -90 ){
+//         history.go(0)
+//     }
+// }, false);
+
