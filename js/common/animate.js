@@ -10,17 +10,17 @@ window.onload=function(){
 
     openDoor.addEventListener('touchstart',function(e){
         var oEvent=window.event || e;
-        oEvent.preventDefault();
+        oEvent.preventDefault();//阻止默认事件
 
         dotList.classList.add('show');
-        dotList.classList.add('infinite');
+        dotList.classList.add('infinite');//动画循环次数
     })
     openDoor.addEventListener('touchend',function(e){
         var oEvent=window.event || e;
-        oEvent.preventDefault();
+        oEvent.preventDefault();//阻止默认事件
 
         dotList.classList.remove('infinite');
-        var animationEnd=aniEndName();
+        var animationEnd=aniEndName();//动画结束
         dotList.addEventListener(animationEnd,function(){
             dotList.classList.remove('show');
         })
