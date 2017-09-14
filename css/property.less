@@ -1,0 +1,51 @@
+@import "../cssControl/control";
+
+.unpaid {
+  width: 100%;
+  height: 302/@rem;
+  background: url("../images/img/zdbj.png") no-repeat;
+  background-size: 100% 100%;
+  text-align: center;
+  padding: 66/@rem 0;
+  color: #fff;
+  .title {
+    font-size: 22/@rem;
+    font-weight: normal;
+  }
+  .money {
+    margin-top: 10/@rem;
+    font-size: 64/@rem;
+  }
+  .roomnum {
+    margin-top: 10/@rem;
+    font-size: 26/@rem;
+  }
+}
+
+.tab-box {
+  .public-bg;
+  .tab-nav {
+    padding: 0 48/@rem;
+    .flex;
+    a {
+      flex: 1;
+      display: block;
+      text-align: center;
+      line-height: 81/@rem;
+      height: 81/@rem;
+      font-size: 30/@rem;
+      color: #9f9f9f;
+    }
+    .curr {
+      color: #464646;
+      border-bottom: 3/@rem solid #fd4915;
+    }
+  }
+
+  .content-item {
+    display: none;
+  }
+  .active {
+    display: block;
+  }
+}

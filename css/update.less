@@ -3,20 +3,26 @@
 .update-main {
   min-height: 1188/@rem;
   .public-bg;
+  .form-sex {
+    .form-control {
+      line-height: 128/@rem;
+    }
+  }
+
   .form-control {
     position: relative;
-    line-height: 128/@rem;
     width: 100%;
     height: 128/@rem;
     display: block;
     padding: 0 52/@rem;
     border-bottom: 1/@rem solid #e4e4e4;
+
     /*单选*/
     .radio {
       position: absolute;
       opacity: 0;
       width: 100%;
-      height: 128/@rem;
+      height: 100%;
     }
     .radio-field {
       font-size: 26/@rem;
@@ -53,6 +59,39 @@
     margin-left: 48/@rem;
     font-size: 26/@rem;
     color: #7b7b7b;
+  }
+
+  .form-region {
+    .form-control {
+      height: 160/@rem;
+      .radio-field {
+        margin-top: 40/@rem;
+        font-size: 26/@rem;
+        color: #464646;
+      }
+      .region-name {
+        font-size: 30/@rem;
+      }
+      .region-address {
+        .flex();
+        align-items: center;
+        margin-top: 16/@rem;
+        font-size: 26/@rem;
+        color: #7b7b7b;
+      }
+    }
+    .icon-addr {
+      flex: 0 0 19/@rem;
+      display: inline-block;
+      width: 19/@rem;
+      height: 28/@rem;
+      background: url("../images/icon/icon-addr.svg") no-repeat;
+      background-size: 100% 100%;
+      margin-right: 12/@rem;
+    }
+    .tag-radio {
+      margin-top: 66/@rem;
+    }
   }
 }
 

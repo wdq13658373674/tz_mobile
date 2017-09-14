@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>index</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../../css/property.css">
+    <script type="text/javascript" src="../../js/fastclick.js"></script>
+    <script type="text/javascript" src="../../js/public.js"></script>
+
+    <title>物业账单</title>
+</head>
+<body>
+<header class="public-header">
+    <div class="header-box">
+        <a href="#" class="icon-back"></a>
+        <h4 class="title">物业账单</h4>
+    </div>
+</header>
+
+<section>
+    <div class="unpaid">
+        <h5 class="title">未缴纳金额合计</h5>
+        <p class="money">1005.78</p>
+        <p class="roomnum">房间：云鼎府邸13栋9-8业主</p>
+    </div>
+
+    <div class="tab-box">
+        <div class="tab-nav">
+            <a href="javascript: void(0);" class="curr">未出账单</a>
+            <a href="javascript: void(0);">已缴账单</a>
+        </div>
+        <div class="content">
+            <div class="content-item active">
+                <div class="unpaid-bill">
+
+                </div>
+            </div>
+            <div class="content-item">
+                已缴账单
+            </div>
+             
+        </div>
+    </div>
+
+</section>
+<script src="../../js/jquery-3.2.1.min.js"></script>
+<script>
+    $(function () {
+        $(".tab-nav a").click(function () {
+            $(this).addClass('curr').siblings().removeClass('curr');
+            var index = $(this).index();
+            number = index;
+            $('.tab-box .content .content-item').removeClass('active');
+            $('.tab-box .content .content-item:eq(' + index + ')').addClass('active');
+        });
+    })
+</script>
+</body>
+</html>
