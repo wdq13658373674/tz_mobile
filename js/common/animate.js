@@ -5,8 +5,9 @@
  * 底部banner按钮波动
  * */
 window.onload=function(){
-    var openDoor=document.querySelector('.nav-middle');
+    var openDoor=document.querySelector('.nav-middle');//按钮class
     var dotList=document.querySelector('.dot-box');
+
     openDoor.addEventListener('touchstart',function(e){
         var oEvent=window.event || e;
         oEvent.preventDefault();
@@ -25,6 +26,9 @@ window.onload=function(){
         })
     })
 }
+/**
+ * animationend兼容检测
+ * */
 function aniEndName() {
     var eleStyle = document.createElement('div').style;
     var verdors = ['a', 'webkitA', 'MozA', 'OA', 'msA'];
