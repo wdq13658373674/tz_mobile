@@ -45,7 +45,286 @@
   .content-item {
     display: none;
   }
+  .bill-not {
+    height: 648/@rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .bill-out {
+    height: 768/@rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
   .active {
     display: block;
+  }
+  .unpaid-bill {
+    .bill-list {
+      border-bottom: 1/@rem solid #e4e4e4;
+    }
+    .bill-item {
+      padding: 0 48/@rem;
+      width: 100%;
+      height: 135/@rem;
+      .flex;
+      position: relative;
+      align-items: center;
+    }
+    .radio {
+      position: absolute;
+      width: 100%;
+      height: 135/@rem;
+      opacity: 0;
+    }
+    .icon-y {
+      flex: 0 0 35/@rem;
+      width: 35/@rem;
+      height: 35/@rem;
+      border-radius: 50%;
+      border: 1/@rem solid #7b7b7b;
+      margin-right: 24/@rem;
+    }
+    .radio:checked + .icon-y {
+      border: none;
+      background: url("../images/icon/icon-dui.svg") no-repeat;
+      background-size: 100% 100%;
+    }
+
+    .bill-info {
+      flex: 0 0 415/@rem;
+      .time {
+        font-size: 30/@rem;
+        color: #4a4a4a;
+      }
+      .info {
+        width: 415/@rem;
+        font-size: 22/@rem;
+        color: #9f9f9f;
+        .ellipsis-1;
+      }
+    }
+    .bill-money {
+      justify-content: flex-end;
+      flex: 0 0 200/@rem;
+      text-align: right;
+      font-size: 40/@rem;
+      color: #4a4a4a;
+    }
+  }
+}
+
+.arrears {
+
+  .arrears-box {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 120/@rem;
+    background-color: #fd4915;
+    a {
+      line-height: 120/@rem;
+      display: block;
+      text-align: center;
+      font-size: 35/@rem;
+      color: #ffffff;
+    }
+  }
+}
+
+/*我的积分、我的余额*/
+.top-total {
+  .public-bg;
+  width: 100%;
+  height: 200/@rem;
+  padding: 42/@rem 0;
+  text-align: center;
+  .total-title {
+    font-size: 24/@rem;
+    color: #464646;
+  }
+  .total-num {
+    font-size: 64/@rem;
+    color: #fd4915;
+    font-weight: normal;
+  }
+}
+
+.total-detailed {
+  min-height: 960/@rem;
+  margin-top: 24/@rem;
+  .public-bg;
+  .detailed-item {
+    padding: 0 48px;
+    width: 100%;
+    height: 138/@rem;
+    border-bottom: 1/@rem solid #e4e4e4;
+    .flex;
+    align-items: center;
+    .detailed-info {
+      flex: 1;
+      .info {
+        font-size: 28/@rem;
+        color: #464646;
+      }
+      .date {
+        margin-top: 7/@rem;
+        font-size: 20/@rem;
+        color: #7b7b7b;
+      }
+    }
+    .detailed-val {
+      font-size: 34/@rem;
+      &.add {
+        color: #fd4915;
+      }
+      &.reduce {
+        color: #7b7b7b;
+      }
+    }
+  }
+}
+
+/*累计收益*/
+.benefit {
+  padding-top: 57/@rem;
+  .public-bg;
+  min-height: 1187/@rem;
+  .accumulated {
+    margin: 0 auto;
+    padding: 19/@rem;
+    width: 396/@rem;
+    height: 396/@rem;
+    border-radius: 50%;
+    background-color: #f3f3f3;
+    .accumulated-bg {
+      padding: 22/@rem;
+      margin: 0 auto;
+      width: 358/@rem;
+      height: 358/@rem;
+      border-radius: 50%;
+      background-image: linear-gradient(to bottom, #ffce18, #f8630f);
+      .accumulated-info {
+        padding: 102/@rem 0;
+        margin: 0 auto;
+        text-align: center;
+        width: 314/@rem;
+        height: 314/@rem;
+        border-radius: 50%;
+        background-color: #fff;
+        .accumulated-title {
+          font-size: 24/@rem;
+          color: #7b7b7b;
+        }
+        .accumulated-num {
+          font-size: 64/@rem;
+          color: #464646;
+        }
+      }
+    }
+  }
+  .accumulated-list {
+    margin-top: 18/@rem;
+    .accumulated-item {
+      padding: 0 48/@rem;
+      width: 100%;
+      height: 98/@rem;
+      border-bottom: 1/@rem solid #e4e4e4;
+      .flex;
+      align-items: center;
+      .date {
+        flex: 1;
+        font-size: 28/@rem;
+        color: #7b7b7b;
+      }
+      .num {
+        font-size: 34/@rem;
+        color: #fd4915;
+      }
+    }
+  }
+}
+
+/*我的TB*/
+.myTB {
+  .top-total {
+    width: 100%;
+    height: 325/@rem;
+    background: url("../images/img/TB_bg.png") no-repeat;
+    background-size: 100% 100%;
+    .flex;
+    align-items: center;
+    .flex-total {
+      flex: 1;
+      text-align: center;
+      .title-box {
+        .flex;
+        align-items: center;
+        justify-content: center;
+        .icon-TB {
+          flex: 0 0 30/@rem;
+          width: 30/@rem;
+          height: 30/@rem;
+          background: url("../images/icon/icon-TB.svg") no-repeat;
+          background-size: 100% 100%;
+        }
+        .icon-accumulated {
+          flex: 0 0 37/@rem;
+          width: 37/@rem;
+          height: 27/@rem;
+          background: url("../images/icon/icon-accumulated.svg") no-repeat;
+          background-size: 100% 100%;
+        }
+        .title {
+          margin-left: 10/@rem;
+          font-size: 30/@rem;
+          color: #ffffff;
+        }
+      }
+      .num {
+        font-size: 52/@rem;
+        color: #ffffff;
+      }
+    }
+    .vertical-line {
+      flex: 0 0 3/@rem;
+      width: 3/@rem;
+      height: 198/@rem;
+      background-color: #fff;
+    }
+  }
+  .table {
+    min-height: 883/@rem;
+    .public-bg;
+    .table-tr {
+      width: 100%;
+      height: 98/@rem;
+      padding: 0 45/@rem;
+      .flex;
+      align-items: center;
+      border-bottom: 1/@rem solid #e4e4e4;
+    }
+    .table-td {
+      text-align: center;
+      flex: 1;
+      font-size: 28/@rem;
+      color: #7b7b7b;
+    }
+    .table-thead {
+      .table-tr {
+        height: 100/@rem;
+      }
+      .table-th {
+        text-align: center;
+        flex: 1;
+        font-size: 30/@rem;
+        color: #464646;
+      }
+    }
+    .add {
+      color: #fd4915;
+    }
+    .reduce {
+      color: #7b7b7b;
+    }
   }
 }
