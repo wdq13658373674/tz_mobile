@@ -358,29 +358,13 @@ footer {
       width: 119/@rem;
       height: 119/@rem;
       border-radius: 50%;
-      background: #fd4915 url("../images/icon/nav-mj.svg") no-repeat center;
-      background-size: 50/@rem 61/@rem;
+      background: url("../images/icon/icon-door.png") no-repeat center;
+      background-size: 100% 100%;
       left: 50%;
       margin-left: -119/2/@rem;
-      bottom: 34/@rem;
+      bottom: 54/@rem;
       z-index: 999;
-
-      &.active{
-        animation: gelatine .5s cubic-bezier(.6,4,.3,.8);
-      }
     }
-  }
-  .nav-middle-bg {
-    position: absolute;
-    width: 138/@rem;
-    height: 138/@rem;
-    border-radius: 50%;
-    border: 1/@rem solid #e4e4e4;
-    background-color: #fff;
-    bottom: 40/@rem;
-    z-index: -1;
-    left: 50%;
-    margin-left: -140/2/@rem;
   }
 }
 
@@ -585,3 +569,18 @@ footer {
    }
 }
 /*todo--------keyframes end----------*/
+
+/*滚动加载*/
+#content {
+  position: fixed;
+  top: 2.42rem;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.scroll-warpper {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
