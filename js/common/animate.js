@@ -8,23 +8,20 @@ window.onload=function(){
     var openDoor=document.querySelector('.nav-middle');//按钮class
     var dotList=document.querySelector('.dot-box');
 
-    openDoor.addEventListener('touchstart',function(e){
+    openDoor.onclick=function(e){
+        var self=this;
         var oEvent=window.event || e;
         oEvent.preventDefault();//阻止默认事件
 
         dotList.classList.add('show');
-        dotList.classList.add('infinite');//动画循环次数
-    })
-    openDoor.addEventListener('touchend',function(e){
-        var oEvent=window.event || e;
-        oEvent.preventDefault();//阻止默认事件
+        this.classList.add('active');
 
-        dotList.classList.remove('infinite');
         var animationEnd=aniEndName();//动画结束
         dotList.addEventListener(animationEnd,function(){
             dotList.classList.remove('show');
+            self.classList.remove('active');
         })
-    })
+    }
 }
 /**
  * animationend兼容检测

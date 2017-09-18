@@ -364,6 +364,10 @@ footer {
       margin-left: -119/2/@rem;
       bottom: 34/@rem;
       z-index: 999;
+
+      &.active{
+        animation: gelatine .5s cubic-bezier(.6,4,.3,.8);
+      }
     }
   }
   .nav-middle-bg {
@@ -421,23 +425,20 @@ footer {
   }
 }
 
-
 /*底部按钮水波纹*/
 .dot-box{width: 119/@rem;height: 119/@rem;position: absolute;left: 50%;margin-left: -119/2/@rem;bottom: 34/@rem;z-index: 999;display: none;
   &.show{display:block;}
-  &.infinite{
-    .dot1,.dot2,.dot3{
-      animation-iteration-count: infinite;
-    }
-  }
   .dot1 {
     animation: sploosh 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -webkit-animation: sploosh 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
   .dot2 {
     animation: sploosh2 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -webkit-animation: sploosh2 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
   .dot3 {
     animation: sploosh3 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -webkit-animation: sploosh3 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
   .dot1,.dot2,.dot3{
     width: 119/@rem;
@@ -447,8 +448,11 @@ footer {
     background: transparent;
     position: relative;
     animation-iteration-count:1;
+    -webkit-animation-iteration-count:1;
   }
 }
+/*todo--------keyframes start----------*/
+//keyframes \ sploosh
 @keyframes sploosh {
   0% {
     .box-shadow(0 ,0 ,0 0,rgba(249,104,62, 0.8));
@@ -509,3 +513,75 @@ footer {
     background: rgba(253, 73, 21, 1);
   }
 }
+
+/**
+ * $keyframes \ gelatine
+ **/
+@keyframes gelatine{
+  from,to{
+    -webkit-transform:scale(1, 1);
+    transform:scale(1, 1)
+  }
+  25%{
+    -webkit-transform:scale(.9, 1.1);
+    transform:scale(.9, 1.1)
+  }
+  50%{
+    -webkit-transform:scale(1.1, .9);
+    transform:scale(1.1, .9)
+  }
+  75%{
+    -webkit-transform:scale(.95, 1.05);
+    transform:scale(.95, 1.05)
+  }
+  from,to{
+    -webkit-transform:scale(1, 1);
+    transform:scale(1, 1)
+  }
+  25%{
+    -webkit-transform:scale(.9, 1.1);
+    transform:scale(.9, 1.1)
+  }
+  50%{
+    -webkit-transform:scale(1.1, .9);
+    transform:scale(1.1, .9)
+  }75%{
+     -webkit-transform:scale(.95, 1.05);
+     transform:scale(.95, 1.05)
+   }
+}
+
+@-webkit-keyframes gelatine{
+  from,to{
+    -webkit-transform:scale(1, 1);
+    transform:scale(1, 1)
+  }
+  25%{
+    -webkit-transform:scale(.9, 1.1);
+    transform:scale(.9, 1.1)
+  }
+  50%{
+    -webkit-transform:scale(1.1, .9);
+    transform:scale(1.1, .9)
+  }
+  75%{
+    -webkit-transform:scale(.95, 1.05);
+    transform:scale(.95, 1.05)
+  }
+  from,to{
+    -webkit-transform:scale(1, 1);
+    transform:scale(1, 1)
+  }
+  25%{
+    -webkit-transform:scale(.9, 1.1);
+    transform:scale(.9, 1.1)
+  }
+  50%{
+    -webkit-transform:scale(1.1, .9);
+    transform:scale(1.1, .9)
+  }75%{
+     -webkit-transform:scale(.95, 1.05);
+     transform:scale(.95, 1.05)
+   }
+}
+/*todo--------keyframes end----------*/
