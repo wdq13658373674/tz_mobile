@@ -364,6 +364,10 @@ footer {
       margin-left: -119/2/@rem;
       bottom: 54/@rem;
       z-index: 999;
+
+      &.active{
+        animation: gelatine .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
     }
   }
 }
@@ -410,7 +414,7 @@ footer {
 }
 
 /*底部按钮水波纹*/
-.dot-box{width: 119/@rem;height: 119/@rem;position: absolute;left: 50%;margin-left: -119/2/@rem;bottom: 34/@rem;z-index: 999;display: none;
+.dot-box{.wh(100%,100%);display: none;
   &.show{display:block;}
   .dot1 {
     animation: sploosh 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -428,8 +432,6 @@ footer {
     width: 119/@rem;
     height: 119/@rem;
     border-radius: 50%;
-    background: #fd4915;
-    background: transparent;
     position: relative;
     animation-iteration-count:1;
     -webkit-animation-iteration-count:1;
@@ -440,61 +442,49 @@ footer {
 @keyframes sploosh {
   0% {
     .box-shadow(0 ,0 ,0 0,rgba(249,104,62, 0.8));
-    background: rgba(249, 104, 62, 0.7);
   }
   100% {
     .box-shadow(0, 0, 0 70/@rem, rgba(2249, 104, 62, 0));
-    background: rgba(249, 104, 62, 0);
   }
 }
 @keyframes sploosh2 {
   0% {
     .box-shadow(0 ,0 ,0 0,rgba(249,104,62, 0.8));
-    background: rgba(249, 104, 62, 0.7);
   }
   100% {
     .box-shadow(0, 0, 0 40/@rem, rgba(2249, 104, 62, 0));
-    background: rgba(249, 104, 62, 0.3);
   }
 }
 @keyframes sploosh3 {
   0% {
     .box-shadow(0 ,0 ,0 0,rgba(249,104,62, 0.8));
-    background: rgba(253, 73, 21, 0.7);
   }
   100% {
     .box-shadow(0, 0, 0 20/@rem, rgba(2249, 104, 62, 0));
-    background: rgba(253, 73, 21, 1);
   }
 }
 @-webkit-keyframes sploosh {
   0% {
     .box-shadow(0 ,0 ,0 0,rgba(249,104,62, 0.8));
-    background: rgba(249, 104, 62, 0.7);
   }
   100% {
     .box-shadow(0, 0, 0 70/@rem, rgba(2249, 104, 62, 0));
-    background: rgba(249, 104, 62, 0);
   }
 }
 @-webkit-keyframes sploosh2 {
   0% {
     .box-shadow(0 ,0 ,0 0,rgba(249,104,62, 0.8));
-    background: rgba(249, 104, 62, 0.7);
   }
   100% {
     .box-shadow(0, 0, 0 40/@rem, rgba(2249, 104, 62, 0));
-    background: rgba(249, 104, 62, 0.3);
   }
 }
 @-webkit-keyframes sploosh3 {
   0% {
     .box-shadow(0 ,0 ,0 0,rgba(249,104,62, 0.8));
-    background: rgba(253, 73, 21, 0.7);
   }
   100% {
     .box-shadow(0, 0, 0 20/@rem, rgba(2249, 104, 62, 0));
-    background: rgba(253, 73, 21, 1);
   }
 }
 
