@@ -35,14 +35,90 @@ function list_header_scroll() {
     });
 }
 
-/*判断横竖屏切换*/
+/*
+ *电话号码验证
+ * @phone 手机号码
+ * */
+function is_mobile(phone) {
+    var flag = false;
+//    var reg0 = /^(([0\+]\d{2,3}-)?(0\d{2,3})-)?(\d{7,8})(-(\d{3,}))?$/;   //判断 固话
+    var reg1 = /^((\(\d{2,3}\))|(\d{3}\-))?(13|15|18|14|17)\d{9}$/;                     //判断 手机
+//    if (reg0.test(phone)) {
+//        flag = true;
+//    }
+    if (reg1.test(phone)) {
+        flag = true;
+    }
+    if (!flag) {
+        return false;
+    } else {
+        return true;
+    }
+}
 
-// window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
-//     if (window.orientation === 180 || window.orientation === 0) {
-//         history.go(0)
-//     }
-//     if (window.orientation === 90 || window.orientation === -90 ){
-//         history.go(0)
-//     }
-// }, false);
+/*
+ *邮箱格式验证
+ * @emails 邮箱地址
+ * */
+function is_email(emails) {
+    var reg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+    var email = emails.match(reg);
+    if (email != null) {
+        return true;  //正确
+    } else {
+        return false; //错误
+    }
+}
 
+/*中文姓名格式验证
+* @name 中文姓名
+* */
+function is_name(name) {
+    var reg = /^[\u4E00-\u9FA5]{2,5}(?:·[\u4E00-\u9FA5]{2,5})*/;
+    var name = name.match(reg);
+    if (name != null) {
+        return false;  //正确
+    } else {
+        return true; //错误
+    }
+}
+
+/*
+* 汉字
+* */
+function isChineseChar(Chinese) {
+    var reg = /[^\u4E00-\u9FA5-\-]/g;
+    var Chinese = Chinese.match(reg);
+    if (Chinese != null) {
+        return true;  //正确
+    } else {
+        return false; //错误
+    }
+}
+
+/*
+ * 地址
+ * */
+function isAddr(addr) {
+    var reg = /(?=.*?[\u4E00-\u9FA5])/;
+    var addr = addr.match(reg);
+    if (addr != null) {
+        return false;  //正确
+    } else {
+        return true; //错误
+    }
+}
+
+/*[A-Za-z0-9_\-\u4e00-\u9fa5]+
+ *身份证格式验证
+ * @card 身份证
+ */
+function is_card(card) {
+    var reg = /^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/;
+    var card = card.match(reg);
+    if (card != null) {
+        return true;  //正确
+    } else {
+        return false; //错误
+    }
+}

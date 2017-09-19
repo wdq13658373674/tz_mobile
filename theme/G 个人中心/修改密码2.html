@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>index</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../../css/ls.css">
+    <link rel="stylesheet" href="../../css/validate.css">
+
+    <script type="text/javascript" src="../../js/fastclick.js"></script>
+    <script type="text/javascript" src="../../js/public.js"></script>
+
+    <title>修改密码</title>
+</head>
+<body>
+<section class="ls-public">
+    <div class="top">
+        <a class="logo" href="#"></a>
+    </div>
+    <div class="form">
+        <form action="#" id="form">
+            <div class="form-control update-pwd">
+                <input class="ipt" type="password" placeholder="输入新密码" id="pwd" data-required="true"
+                       data-descriptions="password">
+
+            </div>
+            <div class="form-control update-pwd">
+                <input class="ipt" type="password" placeholder="确认新密码" id="confirmpwd" data-required="true"
+                       data-descriptions="confirmpassword" data-conditional="confirmpwd">
+            </div>
+            <div class="form-btn">
+                <button type="submit" class="btn btn-login">确认</button>
+            </div>
+        </form>
+    </div>
+</section>
+<script src="../../js/jquery-3.2.1.min.js"></script>
+<script src="../../js/jquery-mvalidate.js"></script>
+<script>
+    $(function () {
+        $("#form").mvalidate({
+            type: 1,
+            onKeyup: true,
+            sendForm: true,
+            firstInvalidFocus: false,
+            valid: function (event, options) {
+                //点击提交按钮时,表单通过验证触发函数
+                alert("验证通过！接下来可以做你想做的事情啦！");
+                //event.preventDefault();
+            },
+            conditional: {
+                confirmpwd: function () {
+                    return $("#pwd").val() == $("#confirmpwd").val();
+                }
+            },
+            descriptions: {
+                password: {
+                    required: '请输入密码'
+                },
+                confirmpassword: {
+                    required: '请再次输入密码',
+                    conditional: '两次密码不一样'
+                }
+            }
+        });
+    })
+</script>
+</body>
+</html>

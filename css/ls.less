@@ -1,0 +1,91 @@
+@import "../cssControl/control";
+
+body {
+  .public-bg;
+}
+
+/*登录页、安全页公共样式*/
+.ls-public {
+  width: 100%;
+  height: 100%;
+  .disabled {
+    pointer-events: none;
+  }
+  .top {
+    padding: 164/@rem 158/@rem 164/@rem 158/@rem;
+  }
+  .logo {
+    display: block;
+    width: 433/@rem;
+    height: 112/@rem;
+    background: url("../images/img/logo.png") no-repeat;
+    background-size: 100% 100%;
+  }
+  .form {
+    margin-top: 86/@rem;
+    padding: 0 56/@rem;
+    .form-control {
+      position: relative;
+      margin-top: 36/@rem;
+      border-bottom: 1/@rem solid #bbbbbb;
+      .ipt {
+        width: 100%;
+        height: 72/@rem;
+        padding-left: 74/@rem;
+        font-size: 24/@rem;
+        color: #9f9f9f;
+      }
+      .verify-code {
+        padding-left: 0;
+      }
+      .user-name {
+        background: url("../images/icon/icon-user.svg") no-repeat 18/@rem;
+        background-size: 35/@rem 33/@rem;
+      }
+      .user-pwd {
+        background: url("../images/icon/icon-lock.svg") no-repeat 18/@rem;
+        background-size: 33/@rem 37/@rem;
+      }
+      .justify-right {
+        position: absolute;
+        right: 0;
+        bottom: 18/@rem;
+        font-size: 30/@rem;
+        color: #bbbbbb;
+      }
+    }
+    .err-tip {
+      position: absolute;
+      bottom: -40/@rem;
+      color: #f46a01;
+    }
+    .form-btn {
+      margin-top: 98/@rem;
+      width: 100%;
+      text-align: center;
+      .btn-login {
+        display: block;
+        width: 100%;
+        height: 104/@rem;
+        background-color: #f46a01;
+        text-align: center;
+        line-height: 104/@rem;
+        border: none;
+        border-radius: 100/@rem;
+        font-size: 34/@rem;
+        color: #ffffff;
+        margin-bottom: 50/@rem;
+      }
+      .login-phone {
+        margin-top: 50/@rem;
+        font-size: 30/@rem;
+        color: #9f9f9f;
+      }
+    }
+    .update-pwd {
+      .ipt {
+        padding: 0;
+      }
+    }
+  }
+}

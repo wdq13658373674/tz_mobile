@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>index</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../../css/ls.css">
+    <link rel="stylesheet" href="../../css/validate.css">
+
+    <script type="text/javascript" src="../../js/fastclick.js"></script>
+    <script type="text/javascript" src="../../js/public.js"></script>
+
+    <title>登录</title>
+</head>
+<body>
+<section class="ls-public">
+    <div class="top">
+        <a class="logo" href="#"></a>
+    </div>
+    <div class="form">
+        <form action="#" id="form">
+            <div class="form-control">
+                <input class="ipt user-name" type="text" placeholder="手机号码" data-validate="phone"
+                       data-describedby="phone-description">
+            </div>
+            <div class="form-control">
+                <input class="ipt verify-code" type="text" placeholder="验密码" data-required="true"
+                       data-conditional="captcha" data-descriptions="captchacode">
+                <a class="justify-right" id="send" href="javascript:times();">获取验证码</a>
+            </div>
+            <div class="form-btn">
+                <button type="submit" class="btn btn-login">登 录</button>
+            </div>
+        </form>
+    </div>
+</section>
+<script src="../../js/jquery-3.2.1.min.js"></script>
+<script src="../../js/common/reg.js"></script>
+<script src="../../js/jquery-mvalidate.js"></script>
+<script>
+    $(function () {
+        $.mvalidateExtend({
+            phone: {
+                required: true,
+                pattern: /^0?1[3|4|5|8][0-9]\d{8}$/,
+                descriptions: {
+                    required: '<div class="field-invalidmsg">请输入手机号码</div>',
+                    pattern: '<div class="field-invalidmsg">您输入的手机号码格式不正确</div>',
+                    valid: '<div class="field-validmsg">正确</div>'
+                }
+            }
+        });
+        $("#form").mvalidate({
+            type: 1,
+            onKeyup: true,
+            sendForm: true,
+            firstInvalidFocus: false,
+            valid: function (event, options) {
+                //点击提交按钮时,表单通过验证触发函数
+                alert("验证通过！接下来可以做你想做的事情啦！");
+                //event.preventDefault();
+            },
+            conditional: {
+                captcha: function (val) {
+                    if (!val && !val.length) return false;
+                    var flag;
+                    $.ajax({
+                        url: "php/captchaAjax1.php",
+                        type: "post",
+                        async: false,
+                        data: {captchaCode: val},
+                        success: function (data) {
+                            flag = (data == 0) ? false : true;
+                            if (!flag) {
+                                $("#captcha_btn").click();
+                            }
+                        }
+                    });
+                    return flag;
+                }
+            },
+            descriptions: {
+                captchacode: {
+                    required: '请输入验密码',
+                    conditional: '您输入的验证码不正确'
+                }
+            }
+        });
+    })
+</script>
+</body>
+</html>
