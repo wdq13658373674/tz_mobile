@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>index</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link rel="stylesheet" href="../../../css/public.css">
+    <link rel="stylesheet" href="../../../css/repair.css">
+    <link rel="stylesheet" href="../../../css/datetime-picker.css">
+
+    <script type="text/javascript" src="../../../js/fastclick.js"></script>
+    <script type="text/javascript" src="../../../js/public.js"></script>
+
+
+    <title>个人报修</title>
+</head>
+<body>
+<header class="public-header">
+    <div class="header-box">
+        <a href="#" class="icon-back"></a>
+        <h4 class="title">个人报修</h4>
+    </div>
+</header>
+
+<section class="main">
+    <div class="form-radius">
+        <form action="#">
+            <div class="form-control">
+                <div class="label">选择类型</div>
+                <div class="select create-actions">请选择 <i></i></div>
+                <input class="select" name="select" type="hidden">
+            </div>
+
+            <div class="form-control">
+                <div class="label">选择故障</div>
+                <div class="select create-actions">请选择 <i></i></div>
+                <input class="select" name="select" type="hidden">
+            </div>
+            <div class="form-control">
+                <div class="label">故障描述</div>
+                <textarea class="textarea" name="jy" placeholder="请填写描述"></textarea>
+            </div>
+            <div class="form-btn">
+                <button type="submit" class="btn-submit">提交</button>
+            </div>
+        </form>
+    </div>
+</section>
+<script src="../../../js/zepto.min.js"></script>
+<script src="../../../js/addons/ActionSheet/action-sheet.js"></script>
+
+<script>
+    $(function () {
+        function addIpt(type) {
+            $('.select').val(type).text(type);
+        }
+
+        //操作表
+        $(document).on('click', '.create-actions', function () {
+            var buttons1 = [
+                {
+                    text: '请选择',
+                    label: true
+                },
+                {
+                    text: '男',
+                    bold: true,
+                    color: 'danger',
+                    onClick: function () {
+                        alert("你选择了“男“");
+                        addIpt('男');
+                    }
+                },
+                {
+                    text: '女',
+                    onClick: function () {
+                        alert("你选择了“女“");
+                        addIpt('女');
+                    }
+                }
+            ];
+            var buttons2 = [
+                {
+                    text: '取消',
+                    bg: 'danger'
+                }
+            ];
+            var groups = [buttons1, buttons2];
+            $.actions(groups);
+        });
+    });
+</script>
+</body>
+</html>

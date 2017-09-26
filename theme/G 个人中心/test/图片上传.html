@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="../../../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../../js/cordova.js"></script>
+    <script type="text/javascript">
+        $(document).bind('deviceready', function () {
+
+            $('#btnCamera').bind('touchstart', function () {
+                navigator.camera.getPicture(function (data) {
+                    $('#thePicture').attr('src', 'data:image/jpeg;base64,' + data);
+                }, function (error) {
+                    console.log('Error');
+                }, {
+                    destinationType: Camera.DestinationType.DATA_URL,
+                    sourceType: Camera.PictureSourceType.CAMERA,
+                    allowEdit: false,
+                    targetWidth: 135,
+                    targetHeight: 200
+                });
+            });
+
+            $('#btnPicture').bind('touchstart', function () {
+                navigator.camera.getPicture(function (data) {
+                    $('#thePicture').attr('src', 'data:image/jpeg;base64,' + data);
+                }, function (error) {
+                    console.log('Error');
+                }, {
+                    destinationType: Camera.DestinationType.DATA_URL,
+                    sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+                    allowEdit: false,
+                    targetWidth: 135,
+                    targetHeight: 200,
+                    mediaType: Camera.MediaType.PICTURE
+                });
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+<input type="button" id="btnCamera" value="picture from camera"/><br/>
+<input type="button" id="btnPicture" value="picture from library"/><br/>
+<img id="thePicture" src=""/>
+</body>
+</html>

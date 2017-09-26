@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>index</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link rel="stylesheet" href="../../../css/public.css">
+    <link rel="stylesheet" href="../../../css/property.css">
+    <script type="text/javascript" src="../../../js/fastclick.js"></script>
+    <script type="text/javascript" src="../../../js/public.js"></script>
+
+    <title>预交停车费</title>
+</head>
+<body>
+<header class="public-header">
+    <div class="header-box">
+        <a href="#" class="icon-back"></a>
+        <h4 class="title">预交停车费</h4>
+    </div>
+</header>
+
+<section class="public-bg">
+    <div class="tab-box">
+        <div class="tab-nav">
+            <a href="javascript: void(0);" class="curr">预交账单</a>
+            <a href="javascript: void(0);">已交账单</a>
+        </div>
+        <div class="content">
+
+            <!--未出账单-->
+            <div class="content-item advance active">
+                <form action="#">
+                    <div class="unpaid-bill bill-not">
+                        <div class="bill-list">
+                            <a class="bill-item " href="javascript: void(0);">
+                                <input class="radio " name="unpaid" type="radio" checked>
+                                <div class="bill-info">
+                                    <i class="icon-y"></i>
+                                    <p class="time">2017年09月</p>
+                                </div>
+                                <span class="bill-money">9999.78</span>
+                            </a>
+                        </div>
+                        <div class="bill-list">
+                            <a class="bill-item " href="javascript: void(0);">
+                                <input class="radio " name="unpaid" type="radio" checked>
+                                <div class="bill-info">
+                                    <i class="icon-y"></i>
+                                    <p class="time">2017年09月</p>
+                                </div>
+                                <span class="bill-money">9999.78</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="count">
+                        <p class="count-money"><span>合计</span>604.78</p>
+                        <p class="count-TB"><span>T币支付</span>200.78</p>
+                    </div>
+
+                    <div class="btn-block">
+                        <button type="submit" class="btn-pay">预交停车费</button>
+                    </div>
+                </form>
+            </div>
+
+            <!--已缴账单-->
+            <div class="content-item">
+                <div class="unpaid-bill ">
+                    <form action="#">
+                        <div class="bill-list">
+                            <a class="bill-item" href="javascript: void(0);">
+                                <div class="bill-info">
+                                    <p class="time">2017年09月</p>
+                                </div>
+                                <span class="bill-money">9999.78<em>元</em></span>
+                            </a>
+                        </div>
+
+                        <div class="bill-list">
+                            <a class="bill-item" href="javascript: void(0);">
+                                <div class="bill-info">
+                                    <p class="time">2017年09月</p>
+                                </div>
+                                <span class="bill-money">9999.78<em>T币</em></span>
+                            </a>
+                        </div>
+
+                        <div class="bill-list">
+                            <a class="bill-item" href="javascript: void(0);">
+                                <div class="bill-info">
+                                    <p class="time">2017年09月</p>
+                                </div>
+                                <span class="bill-money">9999.78<em>元</em></span>
+                            </a>
+                        </div>
+                        <div class="bill-list">
+                            <a class="bill-item" href="javascript: void(0);">
+                                <div class="bill-info">
+                                    <p class="time">2017年09月</p>
+                                </div>
+                                <span class="bill-money">9999.78<em>T币</em></span>
+                            </a>
+                        </div>
+                        <div class="bill-list">
+                            <a class="bill-item" href="javascript: void(0);">
+                                <div class="bill-info">
+                                    <p class="time">2017年09月</p>
+                                </div>
+                                <span class="bill-money">9999.78<em>T币</em></span>
+                            </a>
+                        </div>
+                        <div class="bill-list">
+                            <a class="bill-item" href="javascript: void(0);">
+                                <div class="bill-info">
+                                    <p class="time">2017年09月</p>
+                                </div>
+                                <span class="bill-money">9999.78<em>元</em></span>
+                            </a>
+                        </div>
+                        <div class="bill-list">
+                            <a class="bill-item" href="javascript: void(0);">
+                                <div class="bill-info">
+                                    <p class="time">2017年09月</p>
+                                </div>
+                                <span class="bill-money">9999.78<em>T币</em></span>
+                            </a>
+                        </div>
+                        <div class="bill-list">
+                            <a class="bill-item" href="javascript: void(0);">
+                                <div class="bill-info">
+                                    <p class="time">2017年09月</p>
+                                </div>
+                                <span class="bill-money">9999.78<em>元</em></span>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+<script src="../../../js/jquery-3.2.1.min.js"></script>
+<script>
+    $(function () {
+        $(".tab-nav a").click(function () {
+            $(this).addClass('curr').siblings().removeClass('curr');
+            var index = $(this).index();
+            number = index;
+            $('.tab-box .content .content-item').removeClass('active');
+            $('.tab-box .content .content-item:eq(' + index + ')').addClass('active');
+        });
+    })
+</script>
+</body>
+</html>
