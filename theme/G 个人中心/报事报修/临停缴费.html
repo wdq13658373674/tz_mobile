@@ -32,7 +32,7 @@
         <form action="#">
             <div class="form-control">
                 <div class="label">输入临停车辆车牌号</div>
-                <input class="select" name="select">
+                <input class="select platesNum" name="platesNum">
             </div>
             <div class="form-btn">
                 <button type="submit" class="btn-submit">查询</button>
@@ -40,6 +40,15 @@
         </form>
     </div>
 </section>
-
+<script src="../../../js/zepto.min.js"></script>
+<script>
+    $('.btn-submit').click(function () {
+        var platesNum = $('.platesNum').val();
+        if (platesNum === '') {
+            alert('请填写您的车牌号！');
+            return false;
+        }
+    })
+</script>
 </body>
 </html>

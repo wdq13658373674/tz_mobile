@@ -33,7 +33,7 @@
             <div class="form-control">
                 <div class="label">选择类型</div>
                 <div class="select create-actions">请选择 <i></i></div>
-                <input class="select" name="select" type="hidden">
+                <input class="choiceType" name="choiceType" type="hidden">
             </div>
             <div class="form-control">
                 <div class="label">故障描述</div>
@@ -50,8 +50,9 @@
 
 <script>
     $(function () {
-        function addIpt(type) {
-            $('.select').val(type).text(type);
+        function addIpt(type, val) {
+            $('.select').text(type);
+            $('.complaintType').val(val);
         }
 
         //操作表
@@ -67,14 +68,14 @@
                     color: 'danger',
                     onClick: function () {
                         alert("你选择了“男“");
-                        addIpt('男');
+                        addIpt('男', 1);
                     }
                 },
                 {
                     text: '女',
                     onClick: function () {
                         alert("你选择了“女“");
-                        addIpt('女');
+                        addIpt('女', 2);
                     }
                 }
             ];
@@ -87,6 +88,15 @@
             var groups = [buttons1, buttons2];
             $.actions(groups);
         });
+
+        $('.btn-submit').click(function () {
+            var choiceType = $('.choiceType').val(),
+                describe = $('.textarea').val();
+            if (choiceType === '' && describe === '') {
+                alert('请检查内容是否填写完整！');
+                return false;
+            }
+        })
     });
 </script>
 </body>

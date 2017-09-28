@@ -33,24 +33,26 @@
             <div class="form-control">
                 <div class="label">投诉类型</div>
                 <div class="select create-actions">请选择 <i></i></div>
-                <input class="select" name="select" type="hidden">
+                <input class="complaintType" name="complaintType" type="hidden">
             </div>
             <div class="form-control">
                 <div class="label">故障描述</div>
-                <textarea class="textarea" name="jy" placeholder="请填写描述"></textarea>
+                <textarea class="textarea describe" name="describe" placeholder="请填写描述"></textarea>
             </div>
             <div class="form-control">
                 <div class="label">上传图片</div>
                 <div class="upload-box">
-                    <div id="actionSheetBtn" class="upload-img">
+                    <div class="upfile" id="upfile"></div>
+                    <div id="actionSheetBtn" class="upload-img actionSheetBtn">
+                        <input id="uploadFile" class="uploadFile" type="file" name="upload" accept="image/*"
+                               multiple="multiple">
                         <img src="../../../images/icon/default-img.png" alt="">
                         <p>Add image</p>
                     </div>
-                    <input id="uploadFile" type="file" accept="image/*" style="display: none" multiple>
                 </div>
             </div>
             <div class="form-btn">
-                <button type="submit" class="btn-submit">提交</button>
+                <button type="button" class="btn-submit">提交</button>
             </div>
         </form>
     </div>
@@ -58,10 +60,12 @@
 <script src="../../../js/zepto.min.js"></script>
 <script src="../../../js/addons/ActionSheet/action-sheet.js"></script>
 
+
 <script>
     $(function () {
-        function addIpt(type) {
-            $('.select').val(type).text(type);
+        function addIpt(type, val) {
+            $('.select').text(type);
+            $('.complaintType').val(val);
         }
 
         //操作表
@@ -77,14 +81,14 @@
                     color: 'danger',
                     onClick: function () {
                         alert("你选择了“男“");
-                        addIpt('男');
+                        addIpt('男', 1);
                     }
                 },
                 {
                     text: '女',
                     onClick: function () {
                         alert("你选择了“女“");
-                        addIpt('女');
+                        addIpt('女', 2);
                     }
                 }
             ];
@@ -96,57 +100,57 @@
             ];
             var groups = [buttons1, buttons2];
             $.actions(groups);
+        });
+
+        $(function () {
+            var $upfile = $("#upfile");
+            var form = new FormData(); //创建表单数据对象
+            $upfile.each(function () {
+                $('.uploadFile').on("change", function () {
+                    var $file = $(this);
+                    var fileObj = $file[0];
+                    var windowURL = window.URL || window.webkitURL;
+                    var dataURL;
+
+                    //添加到页面预览
+                    if (fileObj && fileObj.files && fileObj.files[0]) {
+                        dataURL = windowURL.createObjectURL(fileObj.files[0]);
+                        var img = '<img src="' + dataURL + '"/>';
+                        form.append('file[]', fileObj.files[0]);
+                        $upfile.append(img);
+                    }
+                });
+            });
+
+            $('.btn-submit').click(function () {
+                var complaintType = $('.complaintType').val(),
+                    describe = $('.textarea').val();
+                if (complaintType !== '' && describe !== '') {
+                    form.append('complaintType', complaintType);
+                    form.append('describe', describe);
+                } else {
+                    alert('请检查内容是否填写完整！');
+                    return false;
+                }
+
+                $.ajax({
+                    url: 'http://test.com/form/form.php',
+                    type: "POST",
+                    data: form,
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
+                    beforeSend: function () {
+                    },
+                    success: function (res) {
+                        console.log(res);
+                    },
+                    error: function (res) {
+                    }
+                });
+            })
         });
     });
-    $(function () {
-        $(document).on('click', '#actionSheetBtn', function () {
-            var buttons1 = [
-                {
-                    text: '男',
-                    bold: true,
-                    color: 'danger',
-                    onClick: function () {
-                        alert("你选择了“男“");
-                        alert(window.navigator.userAgent)
-                        var uploadFile = document.getElementById('uploadFile');
-                        var evt = new MouseEvent("click", {
-                            bubbles: true,
-                            cancelable: true,
-                            view: window,
-                        });
-                        uploadFile.dispatchEvent(evt);
-                        uploadFile.click();
-                    }
-                },
-                {
-                    text: '女',
-                    onClick: function () {
-                        alert("你选择了“女“");
-                        alert(window.navigator.userAgent);
-                        if (window.navigator.userAgent.indexOf('QQ') > 0) {
-                            alert('QQ浏览器');
-                        }
-                        var uploadCamera = document.getElementById('uploadCamera');
-                        var evt = new MouseEvent("click", {
-                            bubbles: true,
-                            cancelable: true,
-                            view: window,
-                        });
-                        uploadCamera.dispatchEvent(evt);
-                        uploadCamera.click();
-                    }
-                }
-            ];
-            var buttons2 = [
-                {
-                    text: '取消',
-                    bg: 'danger'
-                }
-            ];
-            var groups = [buttons1, buttons2];
-            $.actions(groups);
-        });
-    })
 </script>
 </body>
 </html>
