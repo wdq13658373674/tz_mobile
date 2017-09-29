@@ -1,49 +1,84 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title></title>
-    <script type="text/javascript" src="../../../js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="../../../js/cordova.js"></script>
-    <script type="text/javascript">
-        $(document).bind('deviceready', function () {
+    <title>Camera Example</title>
+    <style>
+        .basicInfo .item {
+            padding: .5rem .5rem 0;
+            border-top: .3rem solid #eeeeee;
+        }
 
-            $('#btnCamera').bind('touchstart', function () {
-                navigator.camera.getPicture(function (data) {
-                    $('#thePicture').attr('src', 'data:image/jpeg;base64,' + data);
-                }, function (error) {
-                    console.log('Error');
-                }, {
-                    destinationType: Camera.DestinationType.DATA_URL,
-                    sourceType: Camera.PictureSourceType.CAMERA,
-                    allowEdit: false,
-                    targetWidth: 135,
-                    targetHeight: 200
-                });
-            });
+        .basicInfo li {
+            overflow: hidden;
+            margin-bottom: .5rem;
+            line-height: 2.1rem;
+            border-bottom: 1px solid #e3e3e3;
+        }
 
-            $('#btnPicture').bind('touchstart', function () {
-                navigator.camera.getPicture(function (data) {
-                    $('#thePicture').attr('src', 'data:image/jpeg;base64,' + data);
-                }, function (error) {
-                    console.log('Error');
-                }, {
-                    destinationType: Camera.DestinationType.DATA_URL,
-                    sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-                    allowEdit: false,
-                    targetWidth: 135,
-                    targetHeight: 200,
-                    mediaType: Camera.MediaType.PICTURE
-                });
-            });
+        .basicInfo li:last-child {
+            border-bottom: none;
+        }
 
-        });
-    </script>
+        .basicInfo input[type="text"] {
+            height: 2rem;
+            line-height: 2rem;
+        }
+
+        .basicInfo textarea {
+            height: 8rem;
+            line-height: 1.5rem;
+        }
+
+        .basicInfo .otherPic {
+            min-height: 3rem;
+        }
+
+        .basicInfo .otherPic .addPic {
+            height: 3rem;
+            line-height: 3rem;
+            font-size: 3rem;
+            margin-bottom: .5rem;
+        }
+
+        .basicInfo .otherPic img {
+            margin: 0 .5rem .5rem 0;
+            width: 3rem;
+            height: 3rem;
+            vertical-align: top;
+            border: 1px solid #ddd;
+        }
+
+        .basicInfo .yy_inputFile {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3rem;
+            height: 3rem;
+            opacity: 0;
+        }
+
+        .basicInfo .aboutPic {
+            margin-bottom: .5rem;
+            line-height: 1.5rem;
+        }
+    </style>
 </head>
-
 <body>
-<input type="button" id="btnCamera" value="picture from camera"/><br/>
-<input type="button" id="btnPicture" value="picture from library"/><br/>
-<img id="thePicture" src=""/>
+<div class="camera-area">
+    <form enctype="multipart/form-data" method="post">
+        <input id="uploadFile" type="file" accept="image/*" multiple="multiple">
+        <div class="upload-progress"><span></span></div>
+    </form>
+    <div class="thumb"></div>
+</div>
+<script src="../../../js/zepto.min.js"></script>
+<script src="../../../js/upload.js"></script>
+<script>
+    $(".camera-area").fileUpload({
+        "url": "savetofile.php"
+    });
+</script>
 </body>
 </html>
+		

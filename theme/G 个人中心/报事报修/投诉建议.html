@@ -39,15 +39,17 @@
                 <div class="label">故障描述</div>
                 <textarea class="textarea describe" name="describe" placeholder="请填写描述"></textarea>
             </div>
-            <div class="form-control">
+            <div class="form-control ">
                 <div class="label">上传图片</div>
                 <div class="upload-box">
-                    <div class="upfile" id="upfile"></div>
-                    <div id="actionSheetBtn" class="upload-img actionSheetBtn">
-                        <input id="uploadFile" class="uploadFile" type="file" name="upload" accept="image/*"
-                               multiple="multiple">
-                        <img src="../../../images/icon/default-img.png" alt="">
-                        <p>Add image</p>
+                    <div class="actionSheetBtn">
+
+                        <div id="actionSheetBtn" class="upload-img">
+                            <input id="uploadFile" class="uploadFile" type="file" name="upload" accept="image/*"
+                                   multiple="multiple">
+                            <img src="../../../images/icon/default-img.png" alt="">
+                            <p>Add image</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -103,7 +105,7 @@
         });
 
         $(function () {
-            var $upfile = $("#upfile");
+            var $upfile = $(".actionSheetBtn");
             var form = new FormData(); //创建表单数据对象
             $upfile.each(function () {
                 $('.uploadFile').on("change", function () {
@@ -115,9 +117,9 @@
                     //添加到页面预览
                     if (fileObj && fileObj.files && fileObj.files[0]) {
                         dataURL = windowURL.createObjectURL(fileObj.files[0]);
-                        var img = '<img src="' + dataURL + '"/>';
+                        var img = '<div class="preview-img"><img src="' + dataURL + '"/></div>';
                         form.append('file[]', fileObj.files[0]);
-                        $upfile.append(img);
+                        $upfile.prepend(img);
                     }
                 });
             });

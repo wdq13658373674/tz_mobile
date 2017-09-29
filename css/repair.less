@@ -90,15 +90,9 @@
       border-radius: 10/@rem;
       border: solid 1/@rem #979797;
     }
-    .upload-box {
-      .flex;
-      align-items: flex-end;
-    }
-
 
     .upload-img {
       position: relative;
-      margin-top: 29/@rem;
       width: 150/@rem;
       height: 150/@rem;
       border-radius: 10/@rem;
@@ -127,6 +121,12 @@
       background-size: 100% 100%;
     }
   }
+  .actionSheetBtn {
+    .flex;
+    margin-top: 29/@rem;
+    flex-wrap: wrap;
+    align-items: flex-end;
+  }
   .upload-img {
     text-align: center;
     img {
@@ -140,10 +140,27 @@
       color: #9f9f9f;
     }
   }
-  .upfile {
+  .actionSheetBtn {
+    div {
+      margin: 5/@rem 9/@rem;
+      &:nth-child(4n+1) {
+        margin-left: 0;
+      }
+      &:nth-child(4n+4) {
+        margin-right: 0;
+      }
+    }
+  }
+  .preview-img {
+    width: 150/@rem;
+    height: 150/@rem;
+    border-radius: 10/@rem;
+    background-color: #fff;
+    border: solid 1/@rem #9f9f9f;
+    box-sizing: border-box;
     img {
-      width: 150/@rem;
-      height: 150/@rem;
+      width: 100%;
+      height: 100%;
     }
   }
   .form-btn {
