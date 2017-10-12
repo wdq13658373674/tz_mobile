@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>index</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link rel="stylesheet" href="../../../css/public.css">
+    <link rel="stylesheet" href="../../../css/yeditaddress.css">
+
+    <script type="text/javascript" src="../../../js/fastclick.js"></script>
+    <script type="text/javascript" src="../../../js/public.js"></script>
+
+    <title>填写地址</title>
+</head>
+<body>
+<header class="public-header not-border">
+    <div class="header-box">
+        <a href="#" class="icon-back"></a>
+        <h4 class="title">填写地址</h4>
+    </div>
+</header>
+<section>
+    <form action="#">
+        <div class="form-group">
+            <div class="regionAndArea">
+                <div class="region-select placeholder">请选择地区</div>
+                <div class="area-select placeholder">请选择区域</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="village">请输入小区名或者大厦名</div>
+        </div>
+    </form>
+</section>
+<script src="../../../js/zepto.min.js"></script>
+<script>
+    $(function ($) {
+        $('.addrinfo-box').on('click', function () {
+            $('.addr-item').removeClass('active');
+            $(this).parent('.addr-item').addClass('active');
+        })
+    });
+</script>
+</body>
+</html>

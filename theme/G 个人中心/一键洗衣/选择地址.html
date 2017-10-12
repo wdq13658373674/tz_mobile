@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>index</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link rel="stylesheet" href="../../../css/public.css">
+    <link rel="stylesheet" href="../../../css/selectaddress.css">
+
+    <script type="text/javascript" src="../../../js/fastclick.js"></script>
+    <script type="text/javascript" src="../../../js/public.js"></script>
+
+    <title>选择地址</title>
+</head>
+<body>
+<header class="public-header not-border">
+    <div class="header-box">
+        <a href="#" class="icon-back"></a>
+        <h4 class="title">选择地址</h4>
+    </div>
+</header>
+<section>
+    <div class="addrList">
+        <div class="addr-item active">
+            <div class="addrinfo-box">
+                <i class="icon-select"></i>
+                <div class="addrinfo">
+                    <p class="clearfix">
+                        <span class="pull-left">小怪兽</span>
+                        <span class="pull-right">18680722507</span>
+                    </p>
+                    <p class="address">渝北区冉家坝扬子江商务中心22楼</p>
+                </div>
+            </div>
+            <a class="addr-edit" href="#">123</a>
+        </div>
+
+        <div class="addr-item">
+            <div class="addrinfo-box">
+                <i class="icon-select active"></i>
+                <div class="addrinfo">
+                    <p class="clearfix">
+                        <span class="pull-left">小怪兽</span>
+                        <span class="pull-right">18680722507</span>
+                    </p>
+                    <p class="address">渝北区冉家坝扬子江商务中心22楼</p>
+                </div>
+            </div>
+            <a class="addr-edit" href="#">123</a>
+        </div>
+    </div>
+
+    <div class="addAddress-box">
+        <a href="#" class="addAddress">
+            <div class="add-text">+ 添加新地址</div>
+        </a>
+    </div>
+</section>
+<script src="../../../js/zepto.min.js"></script>
+<script>
+    $(function ($) {
+        $('.addrinfo-box').on('click', function () {
+            $('.addr-item').removeClass('active');
+            $(this).parent('.addr-item').addClass('active');
+        })
+    });
+</script>
+</body>
+</html>
