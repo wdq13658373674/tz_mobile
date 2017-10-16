@@ -1,0 +1,82 @@
+@import "../cssControl/import";
+
+.scoll-date {
+  border-top: solid 1px #bbbbbb;
+  border-bottom: solid 1px #bbbbbb;
+  background-color: #f0faff;
+  overflow-x: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.scoll-date-list {
+  width: 200%;
+  height: 108/@rem;
+  .flex;
+  align-items: center;
+}
+
+.scoll-date-item {
+  width: 186/@rem;
+  height: 90/@rem;
+  padding: 10/@rem 0;
+  text-align: center;
+  font-size: 24/@rem;
+  margin-left: 20/@rem;
+}
+
+.active {
+  background-color: #ffffff;
+  border: solid 2/@rem #36a5f0;
+  border-radius: 5/@rem;
+
+  color: #36a5ef;
+}
+
+.time-box {
+  padding: 20/@rem 16/@rem;
+  .flex;
+  flex-wrap: wrap;
+}
+
+.time-item {
+  text-align: center;
+  width: 239/@rem;
+  height: 120/@rem;
+  border: solid 1/@rem #d7d7d7;
+  font-size: 24/@rem;
+  box-sizing: inherit;
+  .flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.not {
+  color: #bbbbbb;
+  background-color: #f6f6f6;
+  border: solid 1/@rem #d7d7d7;
+}
+
+.at {
+  color: #36a5f0;
+  border: solid 1/@rem #36a5f0;
+}
+
+.block-confirm-btn {
+  height: 110/@rem;
+  width: 100%;
+}
+
+.confirm-btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 110/@rem;
+  line-height: 110/@rem;
+  width: 100%;
+  background-color: #fd4915;
+  font-size: 30/@rem;
+  color: #ffffff;
+  text-align: center;
+}

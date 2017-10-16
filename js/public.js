@@ -122,3 +122,20 @@ function is_card(card) {
         return false; //错误
     }
 }
+
+/*tips*/
+let message = (tips) => {
+    let msgbox = document.createElement('div');
+    msgbox.id = 'msgbox';
+    $('section').append(msgbox);
+
+    let $msgbox = $('#msgbox');
+    $msgbox.html(tips);
+    let left = ($msgbox.outerWidth()) / 2;
+    $msgbox.css('marginLeft', '-' + left + 'px');
+    setTimeout(() => {
+        $msgbox.fadeOut("slow", function () {
+            $(this).remove();
+        });
+    }, 600)
+}

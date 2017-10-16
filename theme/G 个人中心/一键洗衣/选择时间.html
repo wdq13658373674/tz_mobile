@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>index</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link rel="stylesheet" href="../../../css/public.css">
+    <link rel="stylesheet" href="../../../css/selectdate.css">
+
+    <script type="text/javascript" src="../../../js/fastclick.js"></script>
+    <script type="text/javascript" src="../../../js/public.js"></script>
+
+    <title>选择时间</title>
+</head>
+<body class="public-bg">
+<header class="public-header border-b">
+    <div class="header-box">
+        <a href="#" class="icon-back"></a>
+        <h4 class="title">选择时间</h4>
+    </div>
+</header>
+<section>
+    <div class="scoll-date">
+        <div class="scoll-date-list">
+
+
+        </div>
+    </div>
+    <div class="time-box">
+        <div class="time-item" data-starttime="10" data-endtime="11">
+            <p>10:00-11:00</p>
+        </div>
+        <div class="time-item" data-starttime="11" data-endtime="12">
+            <p>11:00-12:00</p>
+        </div>
+        <div class="time-item" data-starttime="12" data-endtime="13">
+            <p>12:00-13:00</p>
+        </div>
+        <div class="time-item" data-starttime="13" data-endtime="14">
+            <p>13:00-14:00</p>
+        </div>
+        <div class="time-item" data-starttime="14" data-endtime="15">
+            <p>14:00-15:00</p>
+        </div>
+        <div class="time-item" data-starttime="15" data-endtime="16">
+            <p>15:00-16:00</p>
+        </div>
+        <div class="time-item" data-starttime="16" data-endtime="17">
+            <p>16:00-17:00</p>
+        </div>
+        <div class="time-item" data-starttime="17" data-endtime="18">
+            <p>17:00-18:00</p>
+        </div>
+        <div class="time-item" data-starttime="18" data-endtime="19">
+            <p>18:00-19:00</p>
+        </div>
+        <div class="time-item" data-starttime="25" data-endtime="25">
+            <p>尽快取<br/>90分钟之内上门</p>
+        </div>
+        <div class="time-item" data-starttime="19" data-endtime="20">
+            <p>19:00-20:00</p>
+        </div>
+        <div class="time-item" data-starttime="20" data-endtime="21">
+            <p>20:00-21:00</p>
+        </div>
+    </div>
+
+    <div class="block-confirm-btn">
+        <div class="confirm-btn">确定选择</div>
+    </div>
+</section>
+<script src="../../../js/jquery-3.2.1.min.js"></script>
+<script>
+    //获取当前日期
+    let myDate = new Date();
+    let my = myDate.getFullYear();      //本年
+    let mm = myDate.getMonth() + 1;     //本月
+    let md = myDate.getDate();          //今天的号数
+    let mh = myDate.getHours();         //当前小时
+    let mw = myDate.getDay();           //周几
+    let themonthdaysamount = new Date(new Date(my, mm, 0)).getDate();       //本月多少天
+    let dw;
+
+    //循环（7天/周）
+    for (let i = 0; i < 7; i++) {
+        if (md > themonthdaysamount) {
+            md = 1;
+            mm += 1;
+        }
+        if (mm > 12) {
+            mm = 1;
+            my += 1;
+        }
+        if (mw > 7) {
+            mw = 1;
+        }
+        switch (mw) {
+            case 1:
+                dw = '周一';
+                break;
+            case 2:
+                dw = '周二';
+                break;
+            case 3:
+                dw = '周三';
+                break;
+            case 4:
+                dw = '周四';
+                break;
+            case 5:
+                dw = '周五';
+                break;
+            case 6:
+                dw = '周六';
+                break;
+            case 7:
+                dw = '周日';
+                break;
+        }
+        if (md === myDate.getDate()) {
+            dw = '今天'
+        }
+
+        //模版渲染
+        let html = `<div class="scoll-date-item" data-year="${my}" data-month="${mm}" data-day="${md}">
+                <p class="week" >${dw}</p>
+                <p class="day">${mm}月${md}日</p>
+            </div>`;
+        $('.scoll-date-list').append(html);
+        mw++;
+        md++;
+    }
+
+    //选中状态 日期
+    let dateItem = $('.scoll-date-item');
+    dateItem.eq(0).addClass('active');
+    dateItem.on('click', function () {
+        $('.scoll-date-item').removeClass('active');
+        $(this).addClass('active');
+    });
+
+
+    //添加时间段 能否选中 以及选中状态
+    let timeItem = $('.time-item');
+    timeItem.each(function (index) {
+        if (timeItem.eq(index).data('endtime') <= mh) {
+            timeItem.eq(index).addClass('not');
+        } else {
+            timeItem.eq(index).addClass('isTrue');
+        }
+    });
+
+    let isTrue = $('.isTrue');
+    isTrue.on('click', function () {
+        isTrue.removeClass('at');
+        $(this).addClass('at');
+    });
+
+    //提交数据
+
+    /*
+    *  如果 startTime 和 endTime 都为25时 这当前选中时间段为  90分钟之内上门
+    * */
+    $('.confirm-btn').on('click', function () {
+        let selectDate = $('.active'),
+            selectTime = $('.at'),
+            year = selectDate.data('year'),
+            month = selectDate.data('month'),
+            day = selectDate.data('day'),
+            startTime = selectTime.data('starttime'),
+            endTime = selectTime.data('endtime');
+        alert('ajax');
+    })
+</script>
+</body>
+</html>

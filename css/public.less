@@ -414,9 +414,15 @@ footer {
   }
 }
 
-.not-border {
+.border-b {
   .header-box {
     border-bottom: 1/@rem solid #bbbbbb;
+  }
+}
+
+.not-border {
+  .header-box {
+    border: none;
   }
 }
 .orange-header {
@@ -691,5 +697,50 @@ footer {
     overflow-y: auto;
     overflow-x: hidden;
 
+  }
+}
+
+/*placeholder 颜色*/
+::-webkit-input-placeholder {
+  color: #bbbbbb;
+}
+
+:-moz-placeholder {
+  color: #bbbbbb;
+}
+
+::-moz-placeholder {
+  color: #bbbbbb;
+}
+
+:-ms-input-placeholder {
+  color: #bbbbbb;
+}
+
+/*tips*/
+#msgbox {
+  margin: 0 auto;
+  height: 50/@rem;
+  padding: 0 20/@rem;
+  line-height: 50/@rem;
+  position: fixed;
+  bottom: 150/@rem;
+  left: 50%;
+  background-color: #000;
+  opacity: 0.72;
+  color: #fff;
+  border-radius: 5/@rem;
+  font-size: 24/@rem;
+}
+
+/*星级评价*/
+.rating {
+  .flex;
+  .rating-item {
+    width: 26/@rem;
+    height: 26/@rem;
+    background: url("../images/img/rating.png") no-repeat;
+    background-size: 100%;
+    cursor: pointer;
   }
 }

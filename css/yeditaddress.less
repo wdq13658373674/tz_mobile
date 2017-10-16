@@ -1,37 +1,117 @@
 @import "../cssControl/import";
 
-form {
-  .public-bg;
-}
-
 .form-group {
+  width: 100%;
+  height: 94/@rem;
+  .public-bg;
   padding-left: 40/@rem;
+  font-size: 24/@rem;
+  line-height: 94/@rem;
 }
 
 .regionAndArea {
   border-bottom: solid 1/@rem #bbbbbb;
   .flex;
-  .region-select {
-    width: 334/@rem;
-    line-height: 94/@rem;
-    padding-right: 42/@rem;
-    font-size: 24/@rem;
+}
+
+.region-select {
+  width: 334/@rem;
+  line-height: 94/@rem;
+  padding-right: 42/@rem;
+  font-size: 24/@rem;
+  color: #fd4915;
+  border-right: 1/@rem solid #bbbbbb;
+  background: url("../images/icon/icon-right.svg") no-repeat 294/@rem 40/@rem;
+  background-size: 10/@rem 16/@rem;
+}
+
+.area-select {
+  width: 100%;
+  line-height: 94/@rem;
+  font-size: 24/@rem;
+  color: #fd4915;
+  background: url("../images/icon/icon-right.svg") no-repeat 660/@rem 40/@rem;
+  background-size: 10/@rem 16/@rem;
+}
+
+.village-box {
+  border-bottom: 1/@rem solid #bbb;
+  .village {
+    width: 100%;
     color: #fd4915;
-    border-right: 1/@rem solid #bbbbbb;
-    background: url("../images/icon/icon-right.svg") no-repeat 294/@rem 40/@rem;
-    background-size: 10/@rem 16/@rem;
-  }
-  .area-select {
-    width: 374/@rem;
-    padding-left: 40/@rem;
     line-height: 94/@rem;
-    font-size: 24/@rem;
-    color: #fd4915;
-    background: url("../images/icon/icon-right.svg") no-repeat 334/@rem 40/@rem;
-    background-size: 10/@rem 16/@rem;
+    border-bottom: 1/@rem solid #bbb;
   }
 }
 
-.placeholder {
+.detailed-address {
+  width: 100%;
+  color: #fd4915;
+  line-height: 94/@rem;
+}
+
+.username-box {
+  border-bottom: 1/@rem solid #bbb;
+  .username {
+    width: 100%;
+    color: #fd4915;
+    line-height: 94/@rem;
+    border-bottom: 1/@rem solid #bbb;
+  }
+}
+
+.pla {
   color: #bbbbbb;
+}
+
+.radio-box {
+  border-bottom: 1/@rem solid #bbb;
+  .flex;
+  .radio {
+    margin-left: 50/@rem;
+    .flex;
+    align-items: center;
+    &:first-child {
+      margin-left: 0;
+    }
+    .icon-radio {
+      margin-left: 20/@rem;
+      display: inline-block;
+      width: 40/@rem;
+      height: 40/@rem;
+      border: solid 1/@rem #9f9f9f;
+      border-radius: 50%;
+    }
+    &.active {
+      > .icon-radio {
+        border: none;
+        background: url("../images/icon/icon-dui.svg") no-repeat;
+        background-size: 100% 100%;
+      }
+    }
+  }
+}
+
+.tel {
+  width: 100%;
+  font-size: 24/@rem;
+  color: #fd4915;
+}
+
+.save-btn-block {
+  width: 100%;
+  height: 110/@rem;
+  .save-btn {
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 110/@rem;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    line-height: 110/@rem;
+    background-color: #fd4915;
+    color: #fff;
+    font-size: 30/@rem;
+  }
 }

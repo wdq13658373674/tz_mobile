@@ -17,307 +17,151 @@
 
     <title>一键洗衣</title>
 </head>
-<body class="public-bg">
-<header class="public-header not-border">
+<body>
+<header class="public-header border-b">
     <div class="header-box">
         <a href="#" class="icon-back"></a>
         <h4 class="title">一键洗衣</h4>
     </div>
 </header>
 <section>
-    <div class="laundry-list">
-        <a class="list-item" href="javascript: void(0);" data-goodsid="1">
-            <img src="../../../images/img/img.png" alt="衬衫">
-            <p class="name">衬衫1</p>
-            <p class="price">¥12.51</p>
-        </a>
-        <a class="list-item" href="javascript: void(0);" data-goodsid="2">
-            <img src="../../../images/img/img.png" alt="衬衫">
-            <p class="name">衬衫2</p>
-            <p class="price">¥12.02</p>
-        </a>
-        <a class="list-item" href="javascript: void(0);" data-goodsid="3">
-            <img src="../../../images/img/img.png" alt="衬衫">
-            <p class="name">衬衫3</p>
-            <p class="price">¥12.03</p>
-        </a>
-        <a class="list-item" href="javascript: void(0);" data-goodsid="4">
-            <img src="../../../images/img/img.png" alt="衬衫">
-            <p class="name">衬衫4</p>
-            <p class="price">¥12.04</p>
-        </a>
-        <a class="list-item" href="javascript: void(0);" data-goodsid="5">
-            <img src="../../../images/img/img.png" alt="衬衫">
-            <p class="name">衬衫5</p>
-            <p class="price">¥12.05</p>
-        </a>
-        <a class="list-item" href="javascript: void(0);" data-goodsid="6">
-            <img src="../../../images/img/img.png" alt="衬衫">
-            <p class="name">衬衫6</p>
-            <p class="price">¥12.06</p>
-        </a>
-        <a class="list-item" href="javascript: void(0);" data-goodsid="7">
-            <img src="../../../images/img/img.png" alt="衬衫">
-            <p class="name">衬衫7</p>
-            <p class="price">¥12.07</p>
-        </a>
-        <a class="list-item" href="javascript: void(0);" data-goodsid="8">
-            <img src="../../../images/img/img.png" alt="衬衫">
-            <p class="name">衬衫8</p>
-            <p class="price">¥12.08</p>
-        </a>
-        <a class="list-item" href="javascript: void(0);" data-goodsid="9">
-            <img src="../../../images/img/img.png" alt="衬衫">
-            <p class="name">衬衫9</p>
-            <p class="price">¥12.09</p>
-        </a>
-    </div>
-
-    <div class="mask"></div>
-    <div class="shopCart">
-        <div class="shopCart-title">
-            <a class="empty" href="javascript: void (0);">清空</a>
-            <p class="title">价格预估</p>
-            <a class="close" href="javascript: void (0);">关闭</a>
+    <a class="shops-item" href="#">
+        <div class="shops-img">
+            <img src="../../../images/img/shops-img.png" alt="">
         </div>
-        <div class="shopCartList">
-            <!--<div class="shopCartList-item">-->
-            <!--<div class="checkbox"></div>-->
-            <!--<img src="../../../images/img/img.png" alt="">-->
-            <!--<p>衬衣</p>-->
-            <!--<span class="shopCartList-price"><em>￥</em><i>19.00</i></span>-->
-            <!--<div class="quantity">-->
-            <!--<span class="reduce">-</span>-->
-            <!--<span class="num">1</span>-->
-            <!--<span class="add">+</span>-->
-            <!--</div>-->
-            <!--</div>-->
-        </div>
-    </div>
-
-</section>
-
-<footer>
-    <div class="shopCart-mini-box">
-        <div class="shopCart-mini ">
-            <a href="javascript: void (0);" class="shopCart-tips">
-                <i class="count"></i>
-                <p class="price">预估价格<span>￥<em class="total">0.00</em></span></p>
-                <p class="yfreight">不含运费</p>
-            </a>
-            <a class="shopCart-btn" href="javascript: void (0);">预约取件</a>
-        </div>
-    </div>
-    <div class="shopList-footer-box">
-        <div class="shopList-footer">
-            <a class="active" href="#">
-                <img src="../../../images/icon/laundry-icon.svg" alt="">
-                <p>首页</p>
-            </a>
-            <a class="active" href="#">
-                <img src="../../../images/icon/order-icon.svg" alt="">
-                <p>订单</p>
-            </a>
-        </div>
-    </div>
-</footer>
-<script src="../../../js/zepto.min.js"></script>
-<script>
-
-    $('.laundry-screen a').on('click', function () {
-        $('.laundry-screen a').removeClass('active');
-        $(this).addClass('active');
-    });
-
-    let total = 0, bespoke = 0, $total = $('.total'), price, count = 0, goodsdata = [];
-    $('.list-item').on('click', function () {
-
-        //生成 json 数据格式
-        let productId, productName, productPrice, productCount = 0, data;
-        productId = $(this).data('goodsid');
-        productName = $(this).children('.name').text();
-        productPrice = $(this).children('.price').text().substring(1);
-        data = {"productId": productId, "productName": productName, "productPrice": productPrice, "productCount": 1};
-
-        if (goodsdata.length) {
-            let a = false;
-            for (let i = 0; i < goodsdata.length; i++) {
-                if (goodsdata[i].productId === productId) {
-                    goodsdata[i].productCount += 1;
-                    a = false;
-                    break;
-                }
-                else {
-                    a = true;
-                }
-            }
-            if (a) {
-                goodsdata.push(data);
-            }
-        } else {
-            goodsdata.push(data);
-        }
-
-        //页面渲染
-        quantity(goodsdata);
-
-        total = 0;
-        count = 0;
-    });
-
-    //购物车弹出触发
-    $('.shopCart-tips').on('click', function () {
-        let html;
-        if ($('.open').length !== 0) {
-            $('.shopCart').hide();
-            $('.mask').hide();
-            $('.shopCartList').empty().removeClass('open');
-        } else {
-            if ($('.count').text()) {
-                $('.mask').show();
-                $('.shopCart').show();
-                goodsdata.map(function (item, index) {
-                    html = `<div class="shopCartList-item" data-productid="${goodsdata[index].productId}">
-                <div class="checkbox checked"></div>
-                <img src="../../../images/img/img.png" alt="">
-                <p>${goodsdata[index].productName}</p>
-                <span class="shopCartList-price"><em>￥</em><i class="price">${goodsdata[index].productPrice}</i></span>
-                <div class="quantity">
-                    <span class="reduce">-</span>
-                    <span class="num">${goodsdata[index].productCount}</span>
-                    <span class="add">+</span>
+        <div class="shops-info">
+            <h4 class="shops-name">小怪兽洗衣中心</h4>
+            <div class="shops-evaluate">
+                <div class="rating">
+                    <div class="rating-item" title="很不好"></div>
+                    <div class="rating-item" title="不好"></div>
+                    <div class="rating-item" title="一般"></div>
+                    <div class="rating-item" title="好"></div>
+                    <div class="rating-item" title="很好"></div>
                 </div>
-            </div>`;
-                    $('.shopCartList').append(html).addClass('open');
-                });
-
-                //quantity
-                $('.add').on('click', function () {
-                    let shopCartLisItem = $(this).parents('.shopCartList-item');
-                    let id = shopCartLisItem.data('productid');
-                    if (shopCartLisItem.children('.checked').length !== 0) {
-                        $(this).prev('.num').html(Number($(this).prev('.num').text()) + 1);
-                        goodsdata.map(function (item, index) {
-                            if (goodsdata[index].productId === id) {
-                                goodsdata[index].productCount += 1;
-                            }
-                        });
-                        quantity(goodsdata);
-                    }
-                });
-
-                $('.reduce').on('click', function () {
-
-                    let shopCartLisItem = $(this).parents('.shopCartList-item');
-                    let id = shopCartLisItem.data('productid');
-                    if (shopCartLisItem.children('.checked').length !== 0) {
-                        if ($(this).next('.num').html() <= 1) {
-                            $(this).next('.num').html(1);
-                        } else {
-                            $(this).next('.num').html(Number($(this).next('.num').text()) - 1);
-                        }
-
-                        goodsdata.map(function (item, index) {
-                            if (goodsdata[index].productId === id) {
-                                if (goodsdata[index].productCount === 1) {
-                                    goodsdata[index].productCount = 1;
-                                } else {
-                                    goodsdata[index].productCount -= 1;
-                                }
-                            }
-                        });
-
-                        quantity(goodsdata);
-
-                    }
-                });
-            }
-        }
-
-        //是否选中当前项
-        $('.checkbox').on('click', function () {
-            let checked = $(this).is('.checked');
-            let shopCartLisItem = $(this).parents('.shopCartList-item');
-            let id = shopCartLisItem.data('productid');
-            let rcount = Number($(this).parent('.shopCartList-item').find('.num').text());
-            let ycount = Number($('.count').html());
-            let ytotal = Number($('.total').text());
-            let ntotal = Number($(this).parent('.shopCartList-item').find('.price').text()) * rcount;
-            if (checked) {
-                $(this).removeClass('checked');
-
-                goodsdata.map(function (item, index) {
-                    if (goodsdata[index].productId === id) {
-                        goodsdata.splice(index, 1);
-                    }
-                });
-
-                $('.count').html(ycount - rcount);
-                $('.total').html((ytotal - ntotal).toFixed(2));
-            } else {
-                let aid = shopCartLisItem.data('productid');
-                let aproductName = shopCartLisItem.children('p').text();
-                let aprice = shopCartLisItem.find('.price').text();
-                let acount = Number(shopCartLisItem.find('.num').text());
-                let dataTemp = {
-                    'productId': aid,
-                    'productName': aproductName,
-                    'productPrice': aprice,
-                    'productCount': acount
-                };
-                $(this).addClass('checked');
-                $('.count').html(ycount + rcount);
-                $('.total').html((ytotal + ntotal).toFixed(2));
-                goodsdata.push(dataTemp);
-            }
-        });
+                <div class="shops-volume">
+                    月销量 20000次
+                </div>
+            </div>
+            <p class="shops-discount"><i class="icon-discount">减</i>满30减5元；满50减20</p>
+            <div class="shops-price">
+                <div class="price-group"><em>￥</em><span class="price">30.00</span><em>起</em></div>
+                <div class="TB-group"><i class="icon-TB"></i><span class="TB">15.00</span><em>起</em></div>
+            </div>
+        </div>
+    </a>
+    <a class="shops-item" href="#">
+        <div class="shops-img">
+            <img src="../../../images/img/shops-img.png" alt="">
+        </div>
+        <div class="shops-info">
+            <h4 class="shops-name">小怪兽洗衣中心</h4>
+            <div class="shops-evaluate">
+                <div class="rating">
+                    <div class="rating-item" title="很不好"></div>
+                    <div class="rating-item" title="不好"></div>
+                    <div class="rating-item" title="一般"></div>
+                    <div class="rating-item" title="好"></div>
+                    <div class="rating-item" title="很好"></div>
+                </div>
+                <div class="shops-volume">
+                    月销量 20000次
+                </div>
+            </div>
+            <p class="shops-discount"><i class="icon-discount">减</i>满30减5元；满50减20</p>
+            <div class="shops-price">
+                <div class="price-group"><em>￥</em><span class="price">30.00</span><em>起</em></div>
+                <div class="TB-group"><i class="icon-TB"></i><span class="TB">15.00</span><em>起</em></div>
+            </div>
+        </div>
+    </a>
+    <a class="shops-item" href="#">
+        <div class="shops-img">
+            <img src="../../../images/img/shops-img.png" alt="">
+        </div>
+        <div class="shops-info">
+            <h4 class="shops-name">小怪兽洗衣中心</h4>
+            <div class="shops-evaluate">
+                <div class="rating">
+                    <div class="rating-item" title="很不好"></div>
+                    <div class="rating-item" title="不好"></div>
+                    <div class="rating-item" title="一般"></div>
+                    <div class="rating-item" title="好"></div>
+                    <div class="rating-item" title="很好"></div>
+                </div>
+                <div class="shops-volume">
+                    月销量 20000次
+                </div>
+            </div>
+            <p class="shops-discount"><i class="icon-discount">减</i>满30减5元；满50减20</p>
+            <div class="shops-price">
+                <div class="price-group"><em>￥</em><span class="price">30.00</span><em>起</em></div>
+                <div class="TB-group"><i class="icon-TB"></i><span class="TB">15.00</span><em>起</em></div>
+            </div>
+        </div>
+    </a>
+    <a class="shops-item" href="#">
+        <div class="shops-img">
+            <img src="../../../images/img/shops-img.png" alt="">
+        </div>
+        <div class="shops-info">
+            <h4 class="shops-name">小怪兽洗衣中心</h4>
+            <div class="shops-evaluate">
+                <div class="rating">
+                    <div class="rating-item" title="很不好"></div>
+                    <div class="rating-item" title="不好"></div>
+                    <div class="rating-item" title="一般"></div>
+                    <div class="rating-item" title="好"></div>
+                    <div class="rating-item" title="很好"></div>
+                </div>
+                <div class="shops-volume">
+                    月销量 20000次
+                </div>
+            </div>
+            <p class="shops-discount"><i class="icon-discount">减</i>满30减5元；满50减20</p>
+            <div class="shops-price">
+                <div class="price-group"><em>￥</em><span class="price">30.00</span><em>起</em></div>
+                <div class="TB-group"><i class="icon-TB"></i><span class="TB">15.00</span><em>起</em></div>
+            </div>
+        </div>
+    </a>
+    <a class="shops-item" href="#">
+        <div class="shops-img">
+            <img src="../../../images/img/shops-img.png" alt="">
+        </div>
+        <div class="shops-info">
+            <h4 class="shops-name">小怪兽洗衣中心</h4>
+            <div class="shops-evaluate">
+                <div class="rating">
+                    <div class="rating-item" title="很不好"></div>
+                    <div class="rating-item" title="不好"></div>
+                    <div class="rating-item" title="一般"></div>
+                    <div class="rating-item" title="好"></div>
+                    <div class="rating-item" title="很好"></div>
+                </div>
+                <div class="shops-volume">
+                    月销量 20000次
+                </div>
+            </div>
+            <p class="shops-discount"><i class="icon-discount">减</i>满30减5元；满50减20</p>
+            <div class="shops-price">
+                <div class="price-group"><em>￥</em><span class="price">30.00</span><em>起</em></div>
+                <div class="TB-group"><i class="icon-TB"></i><span class="TB">15.00</span><em>起</em></div>
+            </div>
+        </div>
+    </a>
+</section>
+<script src="../../../js/jquery-3.2.1.min.js"></script>
+<script src="../../../js/addons/rating/rating.js"></script>
+<script>
+    /*
+    * 循环个数
+    * */
+    $('.rating').rating({
+        mode: 'LightEntire',
+        readOnly: true,
+        num: 2
     });
-
-    function quantity(arr) {
-        let qcount = 0, qprice = 0;
-        arr.map(function (item, index) {
-            qcount += arr[index].productCount;
-            qprice += Number(arr[index].productPrice) * arr[index].productCount;
-        });
-        $total.html(qprice.toFixed(2));
-        if ($total.data('total') !== '0.00') {
-            bespoke = 1;
-            $('.shopCart-btn').addClass('bespoke');
-            $('.count').show().text(qcount);
-        }
-    }
-
-
-    //弹出层
-    $('.mask').on('click', function () {
-        $('.shopCart').hide();
-        $(this).hide();
-        $('.shopCartList').empty().removeClass('open');
-    });
-    $('.close').on('click', function () {
-        $('.shopCart').hide();
-        $('.mask').hide();
-        $('.shopCartList').empty().removeClass('open');
-    });
-
-    //ajax提交
-    $('.shopCart-btn').on('click', function () {
-        //存储到内存
-        sessionStorage.setItem("goodsdata", JSON.stringify(goodsdata));     //数组数据
-        if (bespoke === 1) {
-            alert('ajax')
-        }
-    });
-    //清空数据
-    $('.empty').on('click', function () {
-        goodsdata = [];
-        $('.shopCart-btn').removeClass('bespoke');
-        $('.count').hide().empty();
-        $('.total').html('0.00');
-        $('.shopCart').hide();
-        $('.mask').hide();
-        $('.shopCartList').empty().removeClass('open');
-    })
 </script>
 </body>
 </html>
