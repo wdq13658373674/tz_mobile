@@ -1,0 +1,136 @@
+@import "../cssControl/import";
+
+.order-classify-box {
+  width: 100%;
+  height: 80/@rem;
+}
+
+.order-classify {
+  width: 100%;
+  height: 80/@rem;
+  background-color: #fff;
+  position: fixed;
+  .flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.classify-item {
+  display: block;
+  height: 84/@rem;
+  line-height: 84/@rem;
+  font-size: 24/@rem;
+  color: #4a4a4a;
+  &.active {
+    color: #fd4915;
+    border-bottom: solid 2/@rem #fd4915;
+  }
+}
+
+.list-item {
+  border-top: 24/@rem solid #f4f4f4;
+}
+
+.shops-top-info {
+  padding: 0 40/@rem;
+  width: 100%;
+  height: 80/@rem;
+  .public-bg;
+  .flex;
+  align-items: center;
+  justify-content: space-between;
+  p {
+    font-size: 26/@rem;
+  }
+}
+
+.shops-name {
+  border-left: 6/@rem solid #fd4915;
+  padding-left: 20/@rem;
+}
+
+.orders-state {
+  color: #fd4915;
+}
+
+.orders-info {
+  padding: 0 40/@rem;
+  width: 100%;
+  height: 156/@rem;
+  .flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f0faff;
+}
+
+.goods-img {
+  width: 110/@rem;
+  height: 110/@rem;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.goods-num {
+  font-size: 24/@rem;
+  color: #9f9f9f;
+}
+
+.goods-price {
+  font-size: 18/@rem;
+  color: #fd4915;
+  .price {
+    font-size: 30/@rem;
+  }
+}
+
+.goods-price-info {
+  .public-bg;
+  padding: 0 40/@rem;
+  height: 80/@rem;
+  text-align: right;
+  width: 100%;
+  line-height: 80/@rem;
+  font-size: 24/@rem;
+  border-bottom: 1/@rem solid #bbbbbb;
+  em {
+    font-style: normal;
+  }
+  span {
+    font-size: 34/@rem;
+  }
+}
+
+.orders-btn-group {
+  padding: 0 40/@rem;
+  .public-bg;
+  width: 100%;
+  height: 92/@rem;
+  .flex;
+  justify-content: flex-end;
+  align-items: center;
+  .btn-gray {
+    width: 136/@rem;
+    height: 52/@rem;
+    border-radius: 8/@rem;
+    background-color: #ffffff;
+    border: solid 1px #bbbbbb;
+    font-size: 24/@rem;
+    color: #7b7b7b;
+    text-align: center;
+    line-height: 52/@rem;
+  }
+  .btn-orange {
+    margin-left: 24/@rem;
+    width: 136/@rem;
+    height: 52/@rem;
+    border-radius: 8/@rem;
+    background-color: #ffffff;
+    border: solid 1px #fd4915;
+    font-size: 24/@rem;
+    color: #fd4915;
+    text-align: center;
+    line-height: 52/@rem;
+  }
+}

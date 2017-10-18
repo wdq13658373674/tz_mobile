@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>index</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link rel="stylesheet" href="../../../css/public.css">
+    <link rel="stylesheet" href="../../../css/pay.css">
+
+    <script type="text/javascript" src="../../../js/fastclick.js"></script>
+    <script type="text/javascript" src="../../../js/public.js"></script>
+
+    <title>选择支付方式</title>
+</head>
+<body class="public-bg">
+<header class="public-header border-b">
+    <div class="header-box">
+        <a href="#" class="icon-back"></a>
+        <h4 class="title">选择支付方式</h4>
+    </div>
+</header>
+<section>
+    <div class="pay-from">
+        <div class="form-group pay-select active">
+            <p class="form-field">使用T币支付</p>
+            <div class="pay-money-info">
+                <em>可用T币</em>
+                <i class="icon-tb"></i>
+                <div class="pay-money">500.00</div>
+            </div>
+            <i class="icon-select"></i>
+        </div>
+
+        <div class="form-group pay-select">
+            <p class="form-field">使用余额支付</p>
+            <div class="pay-money-info">
+                <em>可用余额 </em>
+                <div class="pay-money">500.00</div>
+            </div>
+            <i class="icon-select"></i>
+        </div>
+
+        <div class="form-group pay-select">
+            <p class="form-field">代付</p>
+            <i class="icon-select"></i>
+        </div>
+
+        <div class="form-group pay-select">
+            <div class="pay-img">
+                <img src="../../../images/img/zfb.png" alt="支付宝支付">
+            </div>
+            <div class="form-text">
+                <p class="pay-name">支付宝支付</p>
+                <p class="pay-info">推荐已安装支付宝的用户使用</p>
+            </div>
+            <i class="icon-select"></i>
+        </div>
+
+        <div class="form-group pay-select">
+            <div class="pay-img">
+                <img src="../../../images/img/wx.png" alt="微信支付">
+            </div>
+            <div class="form-text">
+                <p class="pay-name">微信支付</p>
+                <p class="pay-info">推荐已安装微信的用户使用</p>
+            </div>
+            <i class="icon-select"></i>
+        </div>
+
+        <div class="form-group pay-select">
+            <div class="pay-img">
+                <img src="../../../images/img/yl.png" alt="银联支付">
+            </div>
+            <div class="form-text">
+                <p class="pay-name">银联支付</p>
+                <p class="pay-info">推荐银联用户使用</p>
+            </div>
+            <i class="icon-select"></i>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="pay-count-block">
+        <div class="pay-count-box">
+            <div class="pay-count">
+                <em>合计</em>
+                <i>¥</i>
+                <span>29.00</span>
+            </div>
+            <div class="pay-btn">确认支付</div>
+        </div>
+    </div>
+</footer>
+<script src="../../../js/jquery-3.2.1.min.js"></script>
+<script>
+    $('.pay-select').on('click', function () {
+        $('.pay-select').removeClass('active');
+        $(this).addClass('active');
+    });
+
+    $('.pay-btn').on('click', function () {
+        alert('ajax');
+    })
+</script>
+</body>
+</html>
