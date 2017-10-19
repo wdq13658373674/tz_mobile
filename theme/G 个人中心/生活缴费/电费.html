@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>index</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link rel="stylesheet" href="../../../css/public.css">
+    <link rel="stylesheet" href="../../../css/lifepayment.css">
+
+    <script type="text/javascript" src="../../../js/fastclick.js"></script>
+    <script type="text/javascript" src="../../../js/public.js"></script>
+
+    <title>电费</title>
+</head>
+<body class="public-bg">
+<header class="public-header">
+    <div class="header-box">
+        <a href="#" class="icon-back"></a>
+        <h4 class="title">电费</h4>
+    </div>
+</header>
+<section>
+    <div class="payment-info">
+        <div class="payment-name">
+            <i class="icon icon-cost"></i>
+            <p>电费</p>
+        </div>
+        <div class="payment-due">
+            <div class="payment-type">应缴金额</div>
+            <div class="payment-price">184.52</div>
+        </div>
+    </div>
+    <div class="payment-user-info">
+        <div class="user-info-item">
+            <div>缴费单位</div>
+            <div class="payment-company">重庆燃气集团股份有限公司</div>
+        </div>
+        <div class="user-info-item">
+            <div class="user-text">缴费户号</div>
+            <div class="payment-number">2011213314</div>
+        </div>
+        <div class="user-info-item">
+            <div class="user-text">户名</div>
+            <div class="payment-username">*罗土</div>
+        </div>
+        <div class="user-info-item">
+            <div class="user-text">住址信息</div>
+            <div class="payment-address">四川省邻水县西城御府12栋4-5</div>
+        </div>
+    </div>
+
+    <a href="#" class="payment-btn">立即缴费</a>
+</section>
+<script src="../../../js/jquery-3.2.1.min.js"></script>
+<script>
+    $('.payment-btn').on('click', function () {
+        var price = $(".payment-price").text(),
+            company = $(".payment-company").text(),
+            number = $(".payment-number").text(),
+            username = $(".payment-username").text(),
+            address = $(".payment-address").text();
+        console.log("ajay," + price, company, number, username, address);
+    });
+</script>
+</body>
+</html>

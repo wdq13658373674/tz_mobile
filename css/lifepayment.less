@@ -1,0 +1,111 @@
+@import "../cssControl/import";
+
+section {
+  padding: 48/@rem;
+}
+
+.list-life {
+  .flex;
+  justify-content: space-between;
+  .list-item {
+    display: block;
+    text-align: center;
+  }
+  .icon {
+    display: block;
+    width: 152/@rem;
+    height: 152/@rem;
+  }
+  p {
+    margin-top: 26/@rem;
+    font-size: 25/@rem;
+    color: #464646;
+  }
+  .icon-waterrnt-empty {
+    background: url("../images/icon/icon-waterrnt-empty.svg") no-repeat;
+    background-size: 100% 100%;
+  }
+  .icon-cost-empty {
+    background: url("../images/icon/icon-cost-empty.svg") no-repeat;
+    background-size: 100% 100%;
+  }
+  .icon-gas-empty {
+    background: url("../images/icon/icon-gas-empty.svg") no-repeat;
+    background-size: 100% 100%;
+  }
+}
+
+.payment-info {
+  padding-bottom: 32/@rem;
+  border-bottom: 1/@rem solid #bbb;
+}
+
+.payment-name {
+  .flex;
+  align-items: center;
+  .icon {
+    display: block;
+    width: 116/@rem;
+    height: 116/@rem;
+  }
+  .icon-waterrent {
+    background: url("../images/icon/icon-waterrent.svg") no-repeat;
+    background-size: 100% 100%;
+  }
+  .icon-cost {
+    background: url("../images/icon/icon-cost.svg") no-repeat;
+    background-size: 100% 100%;
+  }
+  .icon-gas {
+    background: url("../images/icon/icon-gas.svg") no-repeat;
+    background-size: 100% 100%;
+  }
+
+  p {
+    margin-left: 24/@rem;
+    font-size: 32/@rem;
+    color: #464646;
+  }
+}
+
+.payment-due {
+  margin-top: 94/@rem;
+  .flex;
+  justify-content: space-between;
+  align-items: center;
+  .payment-type {
+    font-size: 28/@rem;
+    color: #464646;
+  }
+  .payment-price {
+    font-size: 60/@rem;
+    color: #fd4915;
+  }
+}
+
+.payment-user-info {
+  margin-top: 32/@rem;
+  padding-bottom: 56/@rem;
+  border-bottom: 1/@rem solid #bbb;
+  .user-info-item {
+    margin-top: 24/@rem;
+    font-size: 30/@rem;
+    color: #9f9f9f;
+    .flex;
+    justify-content: space-between;
+  }
+}
+
+.payment-btn {
+  margin: 120/@rem auto 0 auto;
+  display: block;
+  text-align: center;
+  width: 558/@rem;
+  height: 80/@rem;
+  line-height: 80/@rem;
+  border-radius: 100/@rem;
+  background-color: #ffffff;
+  border: solid 1/@rem #fd4915;
+  font-size: 30/@rem;
+  color: #fd4915;
+}

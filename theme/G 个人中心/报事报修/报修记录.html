@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>index</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link rel="stylesheet" href="../../../css/public.css">
+    <link rel="stylesheet" href="../../../css/repair.css">
+    <script type="text/javascript" src="../../../js/fastclick.js"></script>
+    <script type="text/javascript" src="../../../js/public.js"></script>
+
+    <title>报修记录</title>
+</head>
+<body>
+<header class="public-header">
+    <div class="header-box">
+        <a href="#" class="icon-back"></a>
+        <h4 class="title">报修记录</h4>
+    </div>
+</header>
+<section>
+    <div class="repairs-list">
+        <div class="classify-box">
+            <div class="classify">
+                <a class="tab-nav at" href="#">公共报修</a>
+                <a class="tab-nav" href="#">个人报修</a>
+            </div>
+        </div>
+
+        <div class="tab">
+            <div class="tab-content show">
+                <div class="list-item">
+                    <div class="repair-record">
+                        <p class="time">2015.05.14 14:25:00</p>
+                        <p class="title">空调故障</p>
+                        <p class="content">
+                            空调无法开机，空调管道漏水，空调无法正常使用空调无法开机，空调管道漏水，空调无法正常使用空调空调无法正常使用空调空调无法正常使用空调
+                        </p>
+                    </div>
+                    <div class="btn-record">
+                        <p>提交成功</p>
+                        <a href="#">报修详情</a>
+                    </div>
+                </div>
+
+                <div class="list-item">
+                    <div class="repair-record">
+                        <p class="time">2015.05.14 14:25:00</p>
+                        <p class="title">空调故障</p>
+                        <p class="content">
+                            空调无法开机，空调管道漏水，空调无法正常使用空调无法开机，空调管道漏水，空调无法正常使用空调空调无法正常使用空调空调无法正常使用空调
+                        </p>
+                    </div>
+                    <div class="btn-record">
+                        <p>提交成功</p>
+                        <a href="#">报修详情</a>
+                    </div>
+                </div>
+
+                <div class="list-item">
+                    <div class="repair-record">
+                        <p class="time">2015.05.14 14:25:00</p>
+                        <p class="title">空调故障</p>
+                        <p class="content">
+                            空调无法开机，空调管道漏水，空调无法正常使用空调无法开机，空调管道漏水，空调无法正常使用空调空调无法正常使用空调空调无法正常使用空调
+                        </p>
+                    </div>
+                    <div class="btn-record">
+                        <p>提交成功</p>
+                        <a href="#">报修详情</a>
+                    </div>
+                </div>
+
+                <div class="list-item">
+                    <div class="repair-record">
+                        <p class="time">2015.05.14 14:25:00</p>
+                        <p class="title">空调故障</p>
+                        <p class="content">
+                            空调无法开机，空调管道漏水，空调无法正常使用空调无法开机，空调管道漏水，空调无法正常使用空调空调无法正常使用空调空调无法正常使用空调
+                        </p>
+                    </div>
+                    <div class="btn-record">
+                        <p>提交成功</p>
+                        <a href="#">报修详情</a>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content">
+                <div class="list-item">
+                    <div class="repair-record">
+                        <p class="time">2015.05.14 14:25:00</p>
+                        <p class="title">空调故障</p>
+                        <p class="content">
+                            空调无法开机，空调管道漏水，空调无法正常使用空调无法开机，空调管道漏水，空调无法正常使用空调空调无法正常使用空调空调无法正常使用空调
+                        </p>
+                    </div>
+                    <div class="btn-record">
+                        <p>提交成功</p>
+                        <a href="#">报修详情</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="../../../js/jquery-3.2.1.min.js"></script>
+<script>
+    $(".tab-nav").on('click', function () {
+        var inx = $(this).index();
+        $(this).addClass('at').siblings('a').removeClass('at');
+        $('.tab-content').eq(inx).addClass('show').siblings('.tab-content').removeClass('show');
+    })
+</script>
+</body>
+</html>
