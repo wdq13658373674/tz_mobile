@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>index</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../../css/mall.css">
+
+    <script type="text/javascript" src="../../js/fastclick.js"></script>
+    <script type="text/javascript" src="../../js/public.js"></script>
+
+    <title>商品列表</title>
+</head>
+<body>
+<header class="public-header border-b">
+    <div class="header-box">
+        <a href="#" class="icon-back"></a>
+        <a href="#" class="search">卫生纸</a>
+    </div>
+</header>
+
+<section>
+    <div class="screen-box">
+        <div class="screen">
+            <a class="screen-item active" href="javascript: void(0);">综合</a>
+            <a class="screen-item" href="javascript: void(0);">销量</a>
+            <a class="screen-item price-sort" href="javascript: void(0);">价格<i></i></a>
+            <a class="screen-item" id="screen" href="javascript: void(0);">筛选</a>
+        </div>
+    </div>
+
+    <div class="goods-list">
+        <a href="#" class="goods-item">
+            <div class="goods-img">
+                <img src="../../images/img/goods-img.png" alt="早秋复古宽松直筒竖条纹长袖雪纺衬衣">
+            </div>
+            <div class="goods-info">
+                <h4 class="goods-name">早秋复古宽松直筒竖条纹长袖雪</h4>
+                <p class="goods-tip">柔软面料／穿着舒适</p>
+                <div class="goods-price-group">
+                    <p class="goods-price-rmb">
+                        ￥<span>128.00</span>
+                    </p>
+                    <p class="goods-price-tb">
+                        <i class="icon-tb"></i>
+                        <span>55.00</span>
+                    </p>
+                </div>
+            </div>
+        </a>
+
+        <a href="#" class="goods-item">
+            <div class="goods-img">
+                <img src="../../images/img/goods-img.png" alt="早秋复古宽松直筒竖条纹长袖雪纺衬衣">
+            </div>
+            <div class="goods-info">
+                <h4 class="goods-name">早秋复古宽松直筒竖条纹长袖雪纺衬衣</h4>
+                <p class="goods-tip">柔软面料／穿着舒适</p>
+                <div class="goods-price-group">
+                    <p class="goods-price-rmb">
+                        ￥<span>128.00</span>
+                    </p>
+                    <p class="goods-price-tb">
+                        <i class="icon-tb"></i>
+                        <span>55.00</span>
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+</section>
+<script src="../../js/jquery-3.2.1.min.js"></script>
+<script>
+    (function () {
+        $(".screen-item").on("click", function () {
+            $(this).addClass('active').siblings('a').removeClass('active');
+        });
+        $(".price-sort").on("click", function () {
+            var sort = $(".price-sort i"),
+                ifClass = sort.attr("class");
+            if(ifClass === "" || ifClass === undefined){
+                sort.addClass("asc");
+            }else if(ifClass === "asc"){
+                sort.addClass("desc").removeClass("asc");
+            }else if(ifClass === "desc"){
+                sort.addClass("asc").removeClass("desc");
+            }
+        });
+
+        $("#screen").on("click", function () {
+            var mask = document.createElement("div");
+            mask.setAttribute("class","mask");
+            $("section").append(mask);
+            
+        })
+    })()
+</script>
+</body>
+</html>

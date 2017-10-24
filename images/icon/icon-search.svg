@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 45.1 (43504) - http://www.bohemiancoding.com/sketch -->
+    <title>849D40E3-95C7-4C34-A4C1-1493096A2B2A</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <rect id="path-1" x="79.161271" y="27" width="622.519674" height="68" rx="8"></rect>
+    </defs>
+    <g id="房计划超市" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="房计划超市-商品列表页" transform="translate(-100.000000, -52.000000)">
+            <rect id="Rectangle-Copy" fill="#FFFFFF" x="0" y="0" width="750" height="123"></rect>
+            <g id="Rectangle-2">
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <rect stroke="#BBBBBB" stroke-width="1" x="79.661271" y="27.5" width="621.519674" height="67" rx="8"></rect>
+            </g>
+            <g id="Page-1" transform="translate(100.641360, 53.000000)" stroke="#BBBBBB" stroke-width="2">
+                <path d="M19.7187564,10.2303537 C19.7187564,15.5431905 15.4401617,19.8503353 10.1625413,19.8503353 C4.88492085,19.8503353 0.606326207,15.5431905 0.606326207,10.2303537 C0.606326207,4.91751685 4.88492085,0.610372088 10.1625413,0.610372088 C15.4401617,0.610372088 19.7187564,4.91751685 19.7187564,10.2303537 Z" id="Stroke-1"></path>
+                <path d="M17.5783679,17.6220683 L23.0814965,22.5699756" id="Stroke-3" stroke-linecap="round"></path>
+            </g>
+        </g>
+    </g>
+</svg>

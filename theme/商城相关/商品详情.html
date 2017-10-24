@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>index</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../../css/mall.css">
+    <link rel="stylesheet" href="../../js/addons/Swiper/swiper.min.css">
+
+    <script type="text/javascript" src="../../js/fastclick.js"></script>
+    <script type="text/javascript" src="../../js/public.js"></script>
+
+    <title>商品详情页</title>
+</head>
+<body>
+<header class="mall-header">
+    <a href="#" class="icon-back-box">
+        <i class="icon-back"></i>
+    </a>
+    <a class="cart-link-box" href="#">
+        <i class="cart-link"></i>
+    </a>
+</header>
+<header class="mall-header-sub">
+    <a href="#" class="icon-back-box">
+        <i class="icon-back"></i>
+    </a>
+    <a class="cart-link-box" href="#">
+        <i class="cart-link"></i>
+    </a>
+</header>
+
+<section>
+    <div class="mall-banner">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="../../images/img/test-img.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../../images/img/test-img.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../../images/img/test-img.png" alt="">
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    <div class="mall-goods-info">
+        <div class="mall-goods-name">
+            TYAKASHA塔卡沙TOYS SHOP系列女款米色羊羔绒彩色抽绳卫衣SOF26
+        </div>
+        <div class="mall-goods-price">
+            <div class="mall-goods-rmb">
+                ￥<span class="price">128.00</span>
+            </div>
+            <div class="mall-goods-tb">
+                <i class="icon-tb"></i>
+                <span class="price">55.00</span>
+            </div>
+        </div>
+        <div class="mall-goods-other">
+            <div class="expressage">快递：<span>0.00</span></div>
+            <div class="soldNum">已售72件</div>
+        </div>
+    </div>
+
+    <div class="row">
+        <a class="mall-reel" href="#">领取优惠券<i class="icon-right"></i></a>
+        <div class="mall-feature">
+            <div class="feature-item"><i class="icon-dui-hole"></i><span>极速退货</span></div>
+            <div class="feature-item"><i class="icon-dui-hole"></i><span>正品保证</span></div>
+            <div class="feature-item"><i class="icon-dui-hole"></i><span>七天退换</span></div>
+        </div>
+    </div>
+
+    <div class="row-w">
+        <div class="mall-size">
+            <span>请选择<em>尺码</em></span>
+            <i class="icon-right"></i>
+        </div>
+        <div class="mall-argument">
+            <span>产品参数</span>
+            <i class="icon-right"></i>
+        </div>
+    </div>
+
+    <div class="evaluate">
+        <div class="title-item">
+            <hr class="line">
+            <div class="title"><i class="icon-evaluate"></i>评价</div>
+            <hr class="line">
+        </div>
+        <div class="content">
+            <p class="btitle">宝贝评价(19)</p>
+            <div class="evaluate-item">
+                <p class="username">
+                    <em class="user-img"><img src="" alt=""></em>
+                    <span>b**o</span>
+                </p>
+                <p class="text">非常满意！！大热天吹着空调刚拿到就拆开试了！</p>
+                <p class="type">颜色分类：如图色；尺码：S</p>
+                <a class="evaluate-details" href="#">查看全部评价</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mall-details">
+        <div class="title-item">
+            <hr class="line">
+            <div class="title"><i class="icon-img"></i>详情</div>
+            <hr class="line">
+        </div>
+        <div class="content">
+            <img src="../../images/img/test-img.png" alt="">
+            <img src="../../images/img/test-img.png" alt="">
+            <img src="../../images/img/test-img.png" alt="">
+            <img src="../../images/img/test-img.png" alt="">
+        </div>
+    </div>
+</section>
+
+<footer class="mall-footer-box">
+    <div class="mall-footer">
+        <a class="func" href="#">
+            <i class="icon icon-customer"></i>
+            <p>客服</p>
+        </a>
+        <a class="func" href="#">
+            <i class="icon icon-collect"></i>
+            <p>收藏</p>
+        </a>
+        <a class="btn" href="#">立即购买</a>
+        <a class="btn join-cart" href="#">加入购物车</a>
+    </div>
+</footer>
+
+<script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../../js/addons/Swiper/swiper.min.js"></script>
+<script>
+    (function () {
+        $(window).scroll(function(){
+            /*顶部效果*/
+            var bheight = $(".mall-banner").height();
+            var sheight = $(document).scrollTop();
+            var bp = Number((sheight/bheight).toFixed(2));
+            var xp = 1-bp;
+            if(bp>=1){
+                bp = 1;
+            }
+            if(xp <= 0){
+                xp = 0;
+            }
+            $(".mall-header").css("opacity",xp);
+            $(".mall-header-sub").css("opacity",bp);
+        });
+        /*焦点图*/
+        var swiper = new Swiper('.swiper-container', {
+            width : window.innerWidth,
+            height : window.innerHeight,
+            loop: true,
+            pagination : '.swiper-pagination'
+        });
+
+        /*选择尺码*/
+
+    })()
+</script>
+</body>
+</html>

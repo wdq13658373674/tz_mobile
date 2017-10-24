@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="105px" height="23px" viewBox="0 0 105 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 45.1 (43504) - http://www.bohemiancoding.com/sketch -->
+    <title>9BF5504D-F0AC-46B3-AECF-28C862DC75FA</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="房计划超市" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="房计划超市-商品详情页" transform="translate(-45.000000, -1044.000000)">
+            <rect id="Rectangle" fill="#FAFAFA" x="0" y="1015" width="750" height="79"></rect>
+            <g id="Group-14" transform="translate(46.000000, 1045.000000)">
+                <g id="Group-12">
+                    <g id="Group-10" stroke="#FD4915">
+                        <g id="Page-1">
+                            <path d="M101.143829,16.4260455 C101.143829,15.6148012 101.756601,14.9474422 102.544611,14.8598233 L102.544611,11.6005696 C101.756601,11.5129507 101.143829,10.8455917 101.143829,10.0343474 C101.143829,9.22310308 101.756601,8.55546413 102.544611,8.46784527 L102.544611,5.20887145 C101.756601,5.12125258 101.143829,4.45361364 101.143829,3.64236934 C101.143829,2.83112504 101.756601,2.16376603 102.544611,2.07614716 L102.544611,0.139854262 L0.139994229,0.139854262 L0.139994229,2.06578966 C1.01086415,2.06578966 1.7165739,2.77177935 1.7165739,3.64236934 C1.7165739,4.51323926 1.01086415,5.21922895 0.139994229,5.21922895 L0.139994229,8.45748777 C1.01086415,8.45748777 1.7165739,9.16347746 1.7165739,10.0343474 C1.7165739,10.9049374 1.01086415,11.6109271 0.139994229,11.6109271 L0.139994229,14.8494658 C1.01086415,14.8494658 1.7165739,15.5551756 1.7165739,16.4260455 C1.7165739,17.2969154 1.01086415,18.0026252 0.139994229,18.0026252 L0.139994229,21.2546007 L102.544611,21.2546007 L102.544611,17.9922677 C101.756601,17.9046488 101.143829,17.2372898 101.143829,16.4260455 Z" id="Stroke-1"></path>
+                        </g>
+                        <path d="M42.5,0.5 L42.5,3.5" id="Line-6" stroke-linecap="square"></path>
+                        <path d="M42.5,5.83333333 L42.5,9.83333333" id="Line-6-Copy" stroke-linecap="square"></path>
+                        <path d="M42.5,12.1666667 L42.5,16.1666667" id="Line-6-Copy-2" stroke-linecap="square"></path>
+                        <path d="M42.5,18.5 L42.5,20.5" id="Line-6-Copy-3" stroke-linecap="square"></path>
+                    </g>
+                    <text id="店铺" font-family="MicrosoftYaHei, Microsoft YaHei" font-size="14" font-weight="normal" fill="#FD4915">
+                        <tspan x="8" y="16">店铺</tspan>
+                    </text>
+                    <text id="优惠券" font-family="MicrosoftYaHei, Microsoft YaHei" font-size="14" font-weight="normal" fill="#FD4915">
+                        <tspan x="52" y="16">优惠券</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
