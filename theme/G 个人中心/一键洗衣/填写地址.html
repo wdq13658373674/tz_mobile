@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +18,7 @@
 
     <title>填写地址</title>
 </head>
+
 <body>
 <header class="public-header border-b">
     <div class="header-box">
@@ -70,12 +72,17 @@
     <div class="save-btn-block">
         <a href="javascript: void (0);" class="save-btn">保 存</a>
     </div>
+
 </section>
 <script src="../../../js/jquery-3.2.1.min.js"></script>
 <link rel="stylesheet" href="../../../js/addons/area/LArea.css">
+<link rel="stylesheet" href="../../../js/addons/ioscroll/iosSelect.css">
 <script src="../../../js/addons/area/LAreaData1.js"></script>
 <script src="../../../js/addons/area/LAreaData2.js"></script>
 <script src="../../../js/addons/area/LArea.js"></script>
+<script src="../../../js/addons/ioscroll/bank.js"></script>
+<script src="../../../js/addons/ioscroll/iscroll.js"></script>
+<script src="../../../js/addons/ioscroll/iosSelect.js"></script>
 <script>
     var area1 = new LArea();
     area1.init({
@@ -88,7 +95,7 @@
         'type': 1, //数据源类型
         'data': LAreaData //数据源
     });
-    area1.value = [5, 10, 0];//控制初始位置，注意：该方法并不会影响到input的value
+    area1.value = [5, 10, 0]; //控制初始位置，注意：该方法并不会影响到input的value
     console.log(LAreaData);
 </script>
 
@@ -160,5 +167,96 @@
         }
     });
 </script>
+
+<script>
+    var showBankDom = document.querySelector('.village-box');
+    var bankIdDom = document.querySelector('.village');
+    showBankDom.addEventListener('click', function () {
+        var bankId = showBankDom.dataset['id'];
+        var bankName = showBankDom.dataset['value'];
+
+        var bankSelect = new IosSelect(1,
+            [data],
+            {
+                container: '.container',
+                title: '银行卡选择',
+                itemHeight: 2,
+                headerHeight: 2,
+                itemShowCount: 3,
+                oneLevelId: bankId,
+                cssUnit: "rem",
+                callback: function (selectOneObj) {
+                    bankIdDom.value = selectOneObj.id;
+                    showBankDom.innerHTML = selectOneObj.value;
+                    showBankDom.dataset['id'] = selectOneObj.id;
+                    showBankDom.dataset['value'] = selectOneObj.value;
+                }
+            });
+    });
+</script>
+
+<script>
+    //        var popupDialog = (function() {
+    //            var box = {
+    //                template: '<div class="mask"><div class="popup"><div class="popup_cont"></div><div class="btn-group"><a class="popup-btn popup_cancel_btn" href="#">取消</a><a class="popup-btn popup_confirm_btn" href="#">确定</a></div></div></div>',
+    //                init: function (opts, template) {
+    //                    var _this = this;
+    //                    $("body").append(_this.template);
+    //
+    //                    $(".popup_cont").html(opts.content);
+    //
+    //                    $(".popup_cancel_btn").on("click", function () {
+    //                        box.close();
+    //                    });
+    //                    $(".popup_confirm_btn").on("click", function () {
+    //                        box.close();
+    //                    })
+    //                },
+    //                trigger: function (el, opts) {
+    //                    el.on("click", function () {
+    //                        box.init(opts);
+    //                    })
+    //                },
+    //                close: function () {
+    //                    $(".mask").remove();
+    //                },
+    //                confirm: function () {
+    //                    $(".mask").remove();
+    //                }
+    //            };
+    //
+    //            //默认参数
+    //            var defaults = {
+    //                mode: 'LightEntire',
+    //                num: 0,
+    //                content: '123',
+    //                readOnly: false,
+    //                select: function() {},
+    //                chosen: function() {}
+    //            };
+    //
+    //
+    //            var init = function (el, opts) {
+    //                var option = $.extend(defaults, opts);
+    //                var $popup = $(el);
+    //                box.trigger($popup, option);
+    //            };
+    //
+    //            //jQuery
+    //            $.fn.extend({
+    //                popupDialog: function(opts) {
+    //                    return this.each(function() {
+    //                        init(this, opts);
+    //                    });
+    //                }
+    //            });
+    //
+    //            return {
+    //                init: init
+    //            }
+    //        })();
+    //        $('.village-box').popupDialog();
+</script>
 </body>
+
 </html>

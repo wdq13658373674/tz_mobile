@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +18,7 @@
 
     <title>商品列表</title>
 </head>
+
 <body>
 <header class="public-header border-b">
     <div class="header-box">
@@ -28,10 +30,10 @@
 <section>
     <div class="screen-box">
         <div class="screen">
-            <a class="screen-item active" href="javascript: void(0);">综合</a>
-            <a class="screen-item" href="javascript: void(0);">销量</a>
-            <a class="screen-item price-sort" href="javascript: void(0);">价格<i></i></a>
-            <a class="screen-item" id="screen" href="javascript: void(0);">筛选</a>
+            <a class="screen-item active" data-type="0" href="javascript: void(0);">综合</a>
+            <a class="screen-item" data-type="1" href="javascript: void(0);">销量</a>
+            <a class="screen-item price-sort" data-type="2" href="javascript: void(0);">价格<i></i></a>
+            <a class="screen-item" id="screen" ref="off" data-type="3" href="javascript: void(0);">筛选</a>
         </div>
     </div>
 
@@ -79,27 +81,83 @@
 <script>
     (function () {
         $(".screen-item").on("click", function () {
+            var dataType = $(this).data("type");
             $(this).addClass('active').siblings('a').removeClass('active');
+            if ($(this).attr("id") !== "screen") {
+                $(".filtrate").remove();
+                $(".mask").remove();
+            }
         });
         $(".price-sort").on("click", function () {
             var sort = $(".price-sort i"),
                 ifClass = sort.attr("class");
-            if(ifClass === "" || ifClass === undefined){
+            if (ifClass === "" || ifClass === undefined) {
                 sort.addClass("asc");
-            }else if(ifClass === "asc"){
+            } else if (ifClass === "asc") {
                 sort.addClass("desc").removeClass("asc");
-            }else if(ifClass === "desc"){
+            } else if (ifClass === "desc") {
                 sort.addClass("asc").removeClass("desc");
             }
         });
 
+
         $("#screen").on("click", function () {
+            // $(".mask").toggle();
+
+            var isShow = false;
             var mask = document.createElement("div");
-            mask.setAttribute("class","mask");
-            $("section").append(mask);
-            
+            var filtrate = document.createElement("div");
+            filtrate.setAttribute("class", "filtrate");
+            mask.setAttribute("class", "mask");
+            var on_off = $(this).attr("ref");
+
+            if (on_off === "off") {
+                $("section").append(mask);
+                $(".mask").append(filtrate);
+                var filtrateHtml = `<div class="fil-item fil-rmb" data-price="rmb">
+                                            <div class="fil-type">价格区间</div>
+                                            <input class="mprice" type="text" name="" placeholder="最低价">
+                                            <em>—</em>
+                                            <input class="bprice" type="text" name="" placeholder="最高价">
+                                        </div>
+                                        <div class="fil-item fil-tb" data-price="tb">
+                                            <div class="fil-type">T币区间</div>
+                                            <input class="mprice" type="text" name="" placeholder="最低价">
+                                            <em>—</em>
+                                            <input class="bprice" type="text" name="" placeholder="最高价">
+                                        </div>
+                                        <div class="btn-group">
+                                            <a class="reset" href="#">清空</a>
+                                            <a class="confirm" href="#">确定</a>
+                                        </div>`;
+                $(".filtrate").html(filtrateHtml);
+                $(this).attr("ref", "on");
+
+            } else {
+                $(".mask").remove();
+                $(this).attr("ref", "off");
+            }
+
+
+        })
+
+        $(".reset").on("click", function () {
+            $(this).parents(".filtrate").find("input").val("");
+        })
+
+        $(".confirm").on("click", function () {
+            var rmb_mprice = $(this).parents(".filtrate").find(".fil-rmb").children(".mprice").val(); //rmb 最低价
+            var rmb_bprice = $(this).parents(".filtrate").find(".fil-rmb").children(".bprice").val(); //rmb 最高价
+            var tb_mprice = $(this).parents(".filtrate").find(".fil-tb").children(".mprice").val(); //tb 最低价
+            var tb_bprice = $(this).parents(".filtrate").find(".fil-tb").children(".bprice").val(); //tb 最高价
+
+            //TODO 根据数据写判断
+
+            alert("ajax" + rmb_mprice, rmb_bprice, tb_mprice, tb_bprice);
+            $(".mask").remove();
         })
     })()
 </script>
 </body>
+
 </html>
