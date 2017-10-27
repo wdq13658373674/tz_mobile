@@ -82,14 +82,14 @@
     </div>
 
     <div class="row-w">
-        <div class="mall-size">
+        <div class="cart-popup mall-size">
             <span>请选择<em>尺码</em></span>
             <i class="icon-right"></i>
         </div>
-        <div class="mall-argument">
-            <span>产品参数</span>
-            <i class="icon-right"></i>
-        </div>
+        <!--<div class="mall-argument">-->
+        <!--<span>产品参数</span>-->
+        <!--<i class="icon-right"></i>-->
+        <!--</div>-->
     </div>
 
     <div class="evaluate">
@@ -137,10 +137,74 @@
             <i class="icon icon-collect"></i>
             <p>收藏</p>
         </a>
-        <a class="btn" href="#">立即购买</a>
-        <a class="btn join-cart" href="#">加入购物车</a>
+        <a class="btn cart-popup" href="#">立即购买</a>
+        <a class="btn join-cart cart-popup" href="#">加入购物车</a>
     </div>
 </footer>
+
+<div class="widgets-cover">
+    <div class="cover-bg" aria-label="关闭弹层"></div>
+    <div class="cover-content" role="dialog">
+        <div class="sku-wrap">
+            <div class="header">
+                <div class="img-wrap">
+                    <img src="../../images/img/test-img.png" class="j-summary-img" aria-label="选中的商品图">
+                </div>
+                <div class="main">
+                    <div class="price-group">
+                        <div class="price-rmb">
+                            ￥<span class="rmb">128.00</span>
+                        </div>
+                        <div class="price-tb">
+                            <i class="icon-tb"></i>
+                            <span class="tb">55.00</span>
+                        </div>
+                    </div>
+                    <div class="stock">库存 478596件</div>
+                    <div class="sku-info">
+                        请选择:
+                    </div>
+                </div>
+            </div>
+            <div class="body">
+                <ul class="sku-list-wrap">
+                    <li>
+                        <h2 class="prop_sku_title">颜色</h2>
+                        <div class="items" role="radiogroup">
+                            <a role="radio" href="javascript:void(0)">G01浅灰花纱色 NEW LIGHT GREY MEKLANGE</a>
+                            <a role="radio" href="javascript:void(0)">S01 黑色Black</a>
+                            <a role="radio" href="javascript:void(0)">S02 新奶油色NEW CREME</a>
+                        </div>
+                    </li>
+                    <li>
+                        <h2 class="prop_sku_title">尺码</h2>
+                        <div class="items" role="radiogroup">
+                            <a role="radio" href="javascript:void(0)">155/76A/XS</a>
+                            <a role="radio" href="javascript:void(0)">160/80A/S</a>
+                            <a role="radio" href="javascript:void(0)">165/84A/M</a>
+                            <a role="radio" href="javascript:void(0)">170/88A/L</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="number-wrap">
+                    <div class="number-line">
+                        <label for="number">购买数量</label>
+                        <div class="number">
+                            <button class="decrease disabled">-</button>
+                            <input id="number" type="number" value="1">
+                            <button class="increase">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer trade">
+                <a class="btn cart " role="button">加入购物车</a>
+                <a class="btn buy " role="button">立即购买</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="../../js/addons/Swiper/swiper.min.js"></script>
@@ -168,9 +232,44 @@
             loop: true,
             pagination : '.swiper-pagination'
         });
-
+//        $(".prop_sku_title").each(function () {
+//            var sku_info = "<span>"+$(this).text()+"</span>";
+//            $(".sku-info").append(sku_info);
+//        });
         /*选择尺码*/
+        $(".cart-popup").on("click", function () {
+            /*弹窗效果*/
+            $(".widgets-cover").addClass("show");
+            $("html").css({"overflow": "hidden"});
+            $(".cover-bg").on("click", function () {
+                $(".widgets-cover").removeClass("show");
+                $("html").css({"overflow": "auto"});
+            });
 
+            /*初始化弹窗头部 sku_info 内容*/
+            var sku_title = $(".prop_sku_title");
+            var sku_info = "请选择：";
+            for (var i = 0; i < sku_title.length; i++) {
+                sku_info += "<span>" + sku_title.eq(i).text() + "</span>";
+            }
+            $(".sku-info").html(sku_info);
+
+            $("[role='radio']").on("click", function () {
+                $(this).addClass("checked").siblings("a").removeClass("checked");
+//                if($(this).attr("class") === "checked" ){
+//                    $(this).removeClass("checked");
+//                }
+            })
+//            {
+//                'base_guige':{
+//                    'yanse':[],
+//                    'chima':[]
+//                },
+//                'yanse':{
+//                    'yanse1':[]
+//                }
+//            }
+        })
     })()
 </script>
 </body>
