@@ -82,8 +82,8 @@
     </div>
 
     <div class="row-w">
-        <div class="cart-popup mall-size">
-            <span>请选择<em>尺码</em></span>
+        <div class="cart-popup mall-size" id="size">
+            <span class="sku-i" data-istrue="false">请选择<em></em></span>
             <i class="icon-right"></i>
         </div>
         <!--<div class="mall-argument">-->
@@ -137,8 +137,8 @@
             <i class="icon icon-collect"></i>
             <p>收藏</p>
         </a>
-        <a class="btn cart-popup" href="#">立即购买</a>
-        <a class="btn join-cart cart-popup" href="#">加入购物车</a>
+        <a class="btn cart-popup" id="cart" href="#">加入购物车</a>
+        <a class="btn join-cart cart-popup" id="buy" href="#">立即购买</a>
     </div>
 </footer>
 
@@ -160,7 +160,7 @@
                             <span class="tb">55.00</span>
                         </div>
                     </div>
-                    <div class="stock">库存 478596件</div>
+                    <div class="stock">库存 <span class="stockNum">10</span>件</div>
                     <div class="sku-info">
                         请选择:
                     </div>
@@ -199,8 +199,8 @@
                 </div>
             </div>
             <div class="footer trade">
-                <a class="btn cart " role="button">加入购物车</a>
-                <a class="btn buy " role="button">立即购买</a>
+                <a class="btn cart" role="button">加入购物车</a>
+                <a class="btn buy" role="button">立即购买</a>
             </div>
         </div>
     </div>
@@ -209,7 +209,7 @@
 <script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="../../js/addons/Swiper/swiper.min.js"></script>
 <script>
-    (function () {
+    (function (products) {
         $(window).scroll(function(){
             /*顶部效果*/
             var bheight = $(".mall-banner").height();
@@ -232,11 +232,8 @@
             loop: true,
             pagination : '.swiper-pagination'
         });
-//        $(".prop_sku_title").each(function () {
-//            var sku_info = "<span>"+$(this).text()+"</span>";
-//            $(".sku-info").append(sku_info);
-//        });
-        /*选择尺码*/
+
+        /*弹窗*/
         $(".cart-popup").on("click", function () {
             /*弹窗效果*/
             $(".widgets-cover").addClass("show");
@@ -254,23 +251,191 @@
             }
             $(".sku-info").html(sku_info);
 
-            $("[role='radio']").on("click", function () {
-                $(this).addClass("checked").siblings("a").removeClass("checked");
-//                if($(this).attr("class") === "checked" ){
-//                    $(this).removeClass("checked");
-//                }
+            /*商品数量*/
+            var goodsnum = Number($("#number").val());
+            var stock = Number($(".stockNum").text());
+            $(".number .decrease").on("click", function () {
+                if (goodsnum <= 1) {
+                    goodsnum = 1;
+                    $(this).addClass("disabled").attr({"disabled": "disabled"});
+                } else {
+                    $(".increase").removeAttr("disabled").removeClass("disabled");
+                    $(this).removeAttr("disabled").removeClass("disabled");
+                    goodsnum--;
+                }
+                $("#number").val(goodsnum);
+            });
+
+            $(".number .increase").on("click", function () {
+                if (goodsnum >= stock) {
+                    goodsnum = stock;
+                    $(this).addClass("disabled").attr({"disabled": "disabled"});
+                } else {
+                    $(".decrease").removeAttr("disabled").removeClass("disabled");
+                    $(this).removeAttr("disabled").removeClass("disabled");
+                    goodsnum++;
+                }
+                $("#number").val(goodsnum);
+            });
+
+            $(".buy").on("click", function () {
+                alert("立即购买 ajax");
+            });
+            $(".cart").on("click", function () {
+                alert("加入购物车 ajax");
             })
-//            {
-//                'base_guige':{
-//                    'yanse':[],
-//                    'chima':[]
-//                },
-//                'yanse':{
-//                    'yanse1':[]
-//                }
-//            }
         })
-    })()
+    })();
+</script>
+<script>
+    var product = {};
+
+    var products = {
+        'types': ['color', 'size'],
+        'color': {
+            'id1': {
+                'size': [],
+                'text': '白色'
+            },
+            'id2': {
+                'size': [],
+                'text': '黑色'
+            },
+            'id3': {
+                'size': [],
+                'text': '蓝色'
+            },
+            'id4': {
+                'size': [],
+                'text': '灰色'
+            },
+            'text': '颜色',
+        },
+        'size': {
+            'id1': {
+                'text': '155/76A/XS',
+                'color': []
+            },
+            'id2': {
+                'text': '160/80A/S',
+                'color': [],
+            },
+            'id3': {
+                'text': '165/84A/M',
+                'color': [],
+            },
+            'id4': {
+                'text': '170/88A/L',
+                'color': [],
+            },
+            'text': '尺码'
+        }
+    };
+
+    function init(products, el) {
+        var guige = products.types;
+        var html = '';
+        for (var index in guige) {
+            var type = guige[index];
+            var types = getTypes(type);
+            if (!inArray('text', types)) {
+                throw '没有找到对应的文本';
+            }
+            html += genHtml(products[type], type);
+        }
+        document.querySelector(el).innerHTML = html;
+
+        bindEvent('.sku-list-wrap a');
+
+        // 注册事件
+        function getTypes(index) {
+            return Object.keys(products[index]);
+        }
+    }
+
+    init(products, '.sku-list-wrap');
+
+    function genHtml(product, type) {
+        if (product.hasOwnProperty('text')) {
+            var a = '';
+            for (key in product) {
+                if (key != 'text') {
+                    a += '<a role="radio" href="javascript:void(0)" data-id="' + key + '">' + product[key].text + '</a>';
+                }
+            }
+            return [
+                '<li class="', type, '">',
+                '    <h2 class="prop_sku_title">', product.text, '</h2>',
+                '    <div class="items" role="radiogroup">',
+                a,
+                '     </div>',
+                '</li>'
+            ].join("");
+        } else {
+            return '';
+        }
+    }
+
+    function inArray(key, data) {
+        for (var index in data) {
+            if (data[index] == key) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function bindEvent(el) {
+        var element = el || '.sku-list-wrap';
+        $(element).off('click').on('click', function () {
+            var self = $(this),
+                types = products.types,
+                type = self.parents('li').attr('class'),
+                id = self.attr('data-id');
+            if (inArray(type, types)) {
+                if (self.hasClass('checked')) {
+                    // 同时删除掉producu的属性.
+                    delete product[type];
+//                    product[type] = undefined;
+                    self.removeClass('checked');
+                } else {
+                    // 这里添加.
+                    product[type] = {
+                        'id': id,
+                        'text': products[type][id].text,
+                        'class': type
+                    };
+                    self.addClass('checked').siblings().removeClass('checked');
+                }
+                display(product, types);
+            }
+        });
+
+        function display(product, types) {
+            var spans = '';
+            if (isEmpty(product)) {
+                spans = '请选择:';
+                for (var index in types) {
+                    spans += products[types[index]].text + ' ';
+                }
+                $(".sku-i").attr("data-istrue", "false");
+            } else {
+                for (var index in product) {
+                    spans += '<span class="' + product[index].class + '">' + product[index].text + '</span>';
+                }
+                $(".sku-i").attr("data-istrue", "true");
+            }
+            $('.sku-info').html(spans);
+            $(".sku-i").html(spans);
+        }
+
+        function isEmpty(product) {
+            for (var index in product) {
+                return false;
+            }
+            return true;
+        }
+    }
 </script>
 </body>
 </html>
