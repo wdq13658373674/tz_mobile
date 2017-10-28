@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>index</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../../css/yeditaddress.css">
+
+    <script type="text/javascript" src="../../js/fastclick.js"></script>
+    <script type="text/javascript" src="../../js/public.js"></script>
+
+    <title>填写地址</title>
+</head>
+
+<body>
+<header class="public-header border-b">
+    <div class="header-box">
+        <a href="#" class="icon-back"></a>
+        <h4 class="title">填写地址</h4>
+    </div>
+</header>
+<section>
+    <form action="#">
+        <div class="form-group pull-left">
+            <div class="regionAndArea">
+                <input type="text" class="area-select" placeholder="请选择区域">
+                <input type="hidden" class="area-num">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="village-box">
+                <input class="village" type="text" placeholder="请输入小区名或者大厦名">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="detailed-address-box">
+                <input class="detailed-address" type="text" placeholder="请输入门牌号等详细地址">
+            </div>
+        </div>
+
+
+        <div class="form-group mt30">
+            <div class="username-box">
+                <input class="username" type="text" placeholder="您的姓名">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="radio-box">
+                <div class="radio active">
+                    <span>女士</span>
+                    <i class="icon-radio"></i>
+                </div>
+                <div class="radio">
+                    <span>男士</span>
+                    <i class="icon-radio"></i>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input class="tel" type="text" placeholder="请输入电话号码">
+            <!--<div class="tel">18680722507</div>-->
+        </div>
+    </form>
+
+    <div class="save-btn-block">
+        <a href="javascript: void (0);" class="save-btn">保 存</a>
+    </div>
+
+</section>
+<script src="../../js/jquery-3.2.1.min.js"></script>
+<link rel="stylesheet" href="../../js/addons/area/LArea.css">
+<link rel="stylesheet" href="../../js/addons/ioscroll/iosSelect.css">
+<script src="../../js/addons/area/LAreaData1.js"></script>
+<script src="../../js/addons/area/LAreaData2.js"></script>
+<script src="../../js/addons/area/LArea.js"></script>
+<script src="../../js/addons/ioscroll/bank.js"></script>
+<script src="../../js/addons/ioscroll/iscroll.js"></script>
+<script src="../../js/addons/ioscroll/iosSelect.js"></script>
+<script>
+    var area1 = new LArea();
+    area1.init({
+        'trigger': '.area-select', //触发选择控件的文本框，同时选择完毕后name属性输出到该位置
+        'valueTo': '.area-num', //选择完毕后id属性输出到该位置
+        'keys': {
+            id: 'id',
+            name: 'name'
+        }, //绑定数据源相关字段 id对应valueTo的value属性输出 name对应trigger的value属性输出
+        'type': 1, //数据源类型
+        'data': LAreaData //数据源
+    });
+    area1.value = [5, 10, 0]; //控制初始位置，注意：该方法并不会影响到input的value
+    console.log(LAreaData);
+</script>
+
+<script>
+    $(function ($) {
+
+        $('.radio').on('click', function () {
+            $('.radio').removeClass('active');
+            $(this).addClass('active');
+        });
+
+
+        $('.save-btn').on('click', function () {
+
+            let area = $('.area-select').val(),
+                village = $('.village').val(),
+                detailedAddress = $('.detailed-address').val(),
+                userName = $('.username').val(),
+                tel = $('.tel').val(),
+                sex;
+
+            if (area === '') {
+                message('请选择区域');
+                return false;
+            }
+            if (village === '') {
+                message('请输入小区名或者大厦名');
+                return false;
+            }
+            if (detailedAddress === '') {
+                message('请输入门牌号等详细地址');
+                return false;
+            }
+            if (userName === '') {
+                message('您的姓名');
+                return false;
+            }
+            if (tel === '') {
+                message('请输入您的电话号码');
+                return false;
+            } else if (!(/^1(3|4|5|7|8)\d{9}$/.test(tel))) {
+                message('请输入正确的电话号码');
+                return false;
+            }
+
+            if ($('.active').children('span').text() === '女士') {
+                sex = 0;
+            } else {
+                sex = 1;
+            }
+
+            alert('ajax');
+        });
+
+        let message = (tips) => {
+            let msgbox = document.createElement('div');
+            msgbox.id = 'msgbox';
+            $('section').append(msgbox);
+
+            let $msgbox = $('#msgbox');
+            $msgbox.html(tips);
+            let left = ($msgbox.outerWidth()) / 2;
+            $msgbox.css('marginLeft', '-' + left + 'px');
+            setTimeout(() => {
+                $msgbox.fadeOut("slow", function () {
+                    $(this).remove();
+                });
+            }, 600)
+        }
+    });
+</script>
+
+<script>
+    var showBankDom = document.querySelector('.village-box');
+    var bankIdDom = document.querySelector('.village');
+    showBankDom.addEventListener('click', function () {
+        var bankId = showBankDom.dataset['id'];
+        var bankName = showBankDom.dataset['value'];
+
+        var bankSelect = new IosSelect(1,
+            [data],
+            {
+                container: '.container',
+                title: '银行卡选择',
+                itemHeight: 2,
+                headerHeight: 2,
+                itemShowCount: 3,
+                oneLevelId: bankId,
+                cssUnit: "rem",
+                callback: function (selectOneObj) {
+                    bankIdDom.value = selectOneObj.id;
+                    showBankDom.innerHTML = selectOneObj.value;
+                    showBankDom.dataset['id'] = selectOneObj.id;
+                    showBankDom.dataset['value'] = selectOneObj.value;
+                }
+            });
+    });
+</script>
+
+<script>
+    //        var popupDialog = (function() {
+    //            var box = {
+    //                template: '<div class="mask"><div class="popup"><div class="popup_cont"></div><div class="btn-group"><a class="popup-btn popup_cancel_btn" href="#">取消</a><a class="popup-btn popup_confirm_btn" href="#">确定</a></div></div></div>',
+    //                init: function (opts, template) {
+    //                    var _this = this;
+    //                    $("body").append(_this.template);
+    //
+    //                    $(".popup_cont").html(opts.content);
+    //
+    //                    $(".popup_cancel_btn").on("click", function () {
+    //                        box.close();
+    //                    });
+    //                    $(".popup_confirm_btn").on("click", function () {
+    //                        box.close();
+    //                    })
+    //                },
+    //                trigger: function (el, opts) {
+    //                    el.on("click", function () {
+    //                        box.init(opts);
+    //                    })
+    //                },
+    //                close: function () {
+    //                    $(".mask").remove();
+    //                },
+    //                confirm: function () {
+    //                    $(".mask").remove();
+    //                }
+    //            };
+    //
+    //            //默认参数
+    //            var defaults = {
+    //                mode: 'LightEntire',
+    //                num: 0,
+    //                content: '123',
+    //                readOnly: false,
+    //                select: function() {},
+    //                chosen: function() {}
+    //            };
+    //
+    //
+    //            var init = function (el, opts) {
+    //                var option = $.extend(defaults, opts);
+    //                var $popup = $(el);
+    //                box.trigger($popup, option);
+    //            };
+    //
+    //            //jQuery
+    //            $.fn.extend({
+    //                popupDialog: function(opts) {
+    //                    return this.each(function() {
+    //                        init(this, opts);
+    //                    });
+    //                }
+    //            });
+    //
+    //            return {
+    //                init: init
+    //            }
+    //        })();
+    //        $('.village-box').popupDialog();
+</script>
+</body>
+
+</html>
