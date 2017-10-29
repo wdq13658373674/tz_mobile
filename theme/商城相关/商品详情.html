@@ -54,9 +54,7 @@
         </div>
     </div>
     <div class="mall-goods-info">
-        <div class="mall-goods-name">
-            TYAKASHA塔卡沙TOYS SHOP系列女款米色羊羔绒彩色抽绳卫衣SOF26
-        </div>
+        <div class="mall-goods-name">TYAKASHA塔卡沙TOYS SHOP系列女款米色羊羔绒彩色抽绳卫衣SOF26</div>
         <div class="mall-goods-price">
             <div class="mall-goods-rmb">
                 ￥<span class="price">128.00</span>
@@ -162,7 +160,7 @@
                     </div>
                     <div class="stock">库存 <span class="stockNum">10</span>件</div>
                     <div class="sku-info">
-                        请选择:
+                        请选择
                     </div>
                 </div>
             </div>
@@ -199,94 +197,18 @@
                 </div>
             </div>
             <div class="footer trade">
-                <a class="btn cart" role="button">加入购物车</a>
-                <a class="btn buy" role="button">立即购买</a>
+                <a class="btn cart show" role="button">加入购物车</a>
+                <a class="btn confirm hide" role="button">确定</a>
+                <a class="btn buy show" role="button">立即购买</a>
             </div>
         </div>
     </div>
 </div>
 
 <script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../../js/public.js"></script>
 <script type="text/javascript" src="../../js/addons/Swiper/swiper.min.js"></script>
-<script>
-    (function (products) {
-        $(window).scroll(function(){
-            /*顶部效果*/
-            var bheight = $(".mall-banner").height();
-            var sheight = $(document).scrollTop();
-            var bp = Number((sheight/bheight).toFixed(2));
-            var xp = 1-bp;
-            if(bp>=1){
-                bp = 1;
-            }
-            if(xp <= 0){
-                xp = 0;
-            }
-            $(".mall-header").css("opacity",xp);
-            $(".mall-header-sub").css("opacity",bp);
-        });
-        /*焦点图*/
-        var swiper = new Swiper('.swiper-container', {
-            width : window.innerWidth,
-            height : window.innerHeight,
-            loop: true,
-            pagination : '.swiper-pagination'
-        });
 
-        /*弹窗*/
-        $(".cart-popup").on("click", function () {
-            /*弹窗效果*/
-            $(".widgets-cover").addClass("show");
-            $("html").css({"overflow": "hidden"});
-            $(".cover-bg").on("click", function () {
-                $(".widgets-cover").removeClass("show");
-                $("html").css({"overflow": "auto"});
-            });
-
-            /*初始化弹窗头部 sku_info 内容*/
-            var sku_title = $(".prop_sku_title");
-            var sku_info = "请选择：";
-            for (var i = 0; i < sku_title.length; i++) {
-                sku_info += "<span>" + sku_title.eq(i).text() + "</span>";
-            }
-            $(".sku-info").html(sku_info);
-
-            /*商品数量*/
-            var goodsnum = Number($("#number").val());
-            var stock = Number($(".stockNum").text());
-            $(".number .decrease").on("click", function () {
-                if (goodsnum <= 1) {
-                    goodsnum = 1;
-                    $(this).addClass("disabled").attr({"disabled": "disabled"});
-                } else {
-                    $(".increase").removeAttr("disabled").removeClass("disabled");
-                    $(this).removeAttr("disabled").removeClass("disabled");
-                    goodsnum--;
-                }
-                $("#number").val(goodsnum);
-            });
-
-            $(".number .increase").on("click", function () {
-                if (goodsnum >= stock) {
-                    goodsnum = stock;
-                    $(this).addClass("disabled").attr({"disabled": "disabled"});
-                } else {
-                    $(".decrease").removeAttr("disabled").removeClass("disabled");
-                    $(this).removeAttr("disabled").removeClass("disabled");
-                    goodsnum++;
-                }
-                $("#number").val(goodsnum);
-            });
-
-            $(".buy").on("click", function () {
-                alert("立即购买 ajax");
-            });
-            $(".cart").on("click", function () {
-                alert("加入购物车 ajax");
-            })
-        })
-    })();
-</script>
 <script>
     var product = {};
 
@@ -414,7 +336,7 @@
         function display(product, types) {
             var spans = '';
             if (isEmpty(product)) {
-                spans = '请选择:';
+                spans = '请选择';
                 for (var index in types) {
                     spans += products[types[index]].text + ' ';
                 }
@@ -436,6 +358,210 @@
             return true;
         }
     }
+</script>
+<script>
+    (function (products) {
+        $(window).scroll(function () {
+            /*顶部效果*/
+            var bheight = $(".mall-banner").height();
+            var sheight = $(document).scrollTop();
+            var bp = Number((sheight / bheight).toFixed(2));
+            var xp = 1 - bp;
+            if (bp >= 1) {
+                bp = 1;
+            }
+            if (xp <= 0) {
+                xp = 0;
+            }
+            $(".mall-header").css("opacity", xp);
+            $(".mall-header-sub").css("opacity", bp);
+        });
+        /*焦点图*/
+        var swiper = new Swiper('.swiper-container', {
+            width: window.innerWidth,
+            height: window.innerHeight,
+            loop: true,
+            pagination: '.swiper-pagination'
+        });
+
+        /*弹窗*/
+        $(".cart-popup").on("click", function () {
+            /*弹窗效果*/
+            $(".widgets-cover").addClass("show");
+            $("html").css({"overflow": "hidden"});
+            $(".cover-bg").on("click", function () {
+                $(".widgets-cover").removeClass("show");
+                $("html").css({"overflow": "auto"});
+            });
+        });
+
+
+        /*测试数据*/
+        var a = {
+            '50': {
+                count: 1,
+                productId: "50",
+                productName: "辣条",
+                productParam: {
+                    type: "spec",
+                    spec_id: "16",
+                    id: 31,
+                    name: "50g"
+                },
+                productPrice: 50,
+                productStock: -1
+            },
+            '56': {
+                count: 56,
+                productId: "50",
+                productName: "辣条",
+                productParam: {
+                    type: "spec",
+                    spec_id: "16_17",
+                    id: 31,
+                    name: "50g,60g"
+                },
+                productPrice: 50,
+                productStock: -1
+            }
+        };
+        var pId = 50;
+        var buy_goods = {"count": 1, "productId": "", "productName": "", "productPrice": 0, "productStock": 0};
+
+        localStorage.setItem("mall_goods", JSON.stringify(a));
+        //localStorage.clear();
+        var mall_goods = JSON.parse(localStorage.getItem("mall_goods"));
+
+        //console.log(inArray(pId,Object.keys(mall_goods)));
+        function goods_parameter(pId) {
+            var goods_name = $(".mall-goods-name").text();
+            var imgurl = $(".swiper-container img").eq(0).attr("src");
+            var price = Number($(".rmb").text());
+            var isChecked = $(".checked"), spec_id = '', name = '';
+            var kcnum = Number($(".stockNum").text());
+            var pnum = $("#number");
+            if (inArray(pId, Object.keys(mall_goods))) {
+                /*当前商品已存在*/
+                /*商品ID*/
+                buy_goods.productId = pId;
+                /*商品名称*/
+                buy_goods.productName = goods_name;
+                /*商品图片*/
+                buy_goods.img_url = imgurl;
+                /*商品价格*/
+                buy_goods.productPrice = price;
+                mall_goods[pId].count += Number(pnum.val());
+
+            } else {
+                /*当前商品未存在*/
+                /*商品ID*/
+                buy_goods.productId = pId;
+                /*商品名称*/
+                buy_goods.productName = goods_name;
+                /*商品图片*/
+                buy_goods.img_url = imgurl;
+                /*商品价格*/
+                buy_goods.productPrice = price;
+            }
+
+            /*商品属性*/
+            if (isChecked !== "") {
+                for (var i = 0; i < isChecked.length; i++) {
+                    spec_id += "_" + $(isChecked[i]).data("id");
+                    name += "," + $(isChecked[i]).text();
+                }
+                spec_id = spec_id.substr(1);
+                name = name.substr(1);
+                var productParam = {type: "spec", id: 31};
+                productParam.spec_id = spec_id;
+                productParam.name = name;
+                buy_goods.productParam = productParam;
+            } else {
+                throw Error;
+            }
+        }
+
+        /*商品数量*/
+        var goodsnum = Number($("#number").val());
+        var stock = Number($(".stockNum").text());
+        $(".number .decrease").on("click", function () {
+            if (goodsnum <= 1) {
+                goodsnum = 1;
+                $(this).addClass("disabled").attr({"disabled": "disabled"});
+            } else {
+                $(".increase").removeAttr("disabled").removeClass("disabled");
+                $(this).removeAttr("disabled").removeClass("disabled");
+                goodsnum--;
+            }
+            buy_goods.count = goodsnum;
+            $("#number").val(goodsnum);
+        });
+
+        $(".number .increase").on("click", function () {
+            if (goodsnum >= stock) {
+                goodsnum = stock;
+                $(this).addClass("disabled").attr({"disabled": "disabled"});
+            } else {
+                $(".decrease").removeAttr("disabled").removeClass("disabled");
+                $(this).removeAttr("disabled").removeClass("disabled");
+                goodsnum++;
+
+            }
+            buy_goods.count = goodsnum;
+            $("#number").val(goodsnum);
+        });
+
+        $("#buy").on("click", function () {
+            var sku_i = $(".sku-i").attr("data-istrue");
+            if (sku_i === "true") {
+                $(".trade .confirm").show();
+                $(".trade .cart").hide();
+                $(".trade .buy").hide();
+            } else {
+                $(".trade .confirm").hide();
+                $(".trade .cart").show();
+                $(".trade .buy").show();
+            }
+        });
+        $("#cart").on("click", function () {
+            var sku_i = $(".sku-i").attr("data-istrue");
+            if (sku_i === "true") {
+                $(".trade .confirm").show();
+                $(".trade .cart").hide();
+                $(".trade .buy").hide();
+            } else {
+                $(".trade .confirm").hide();
+                $(".trade .cart").show();
+                $(".trade .buy").show();
+            }
+        });
+        $("#size").on("click", function () {
+            $(".trade .confirm").hide();
+            $(".trade .cart").show();
+            $(".trade .buy").show();
+        });
+
+        $(".cart").on("click", function () {
+            goods_parameter(pId);
+            if (buy_goods.productParam.name === "" || $(".checked").length !== $(".sku-list-wrap li").length) {
+                message("请选择规格参数！");
+            } else {
+                mall_goods[pId] = buy_goods;
+                //console.log(mall_goods);
+                localStorage.setItem("mall_goods", JSON.stringify(mall_goods));
+            }
+        });
+        $(".buy").on("click", function () {
+            goods_parameter(pId);
+            if (buy_goods.productParam.name === "" || $(".checked").length !== $(".sku-list-wrap li").length) {
+                message("请选择规格参数！");
+            } else {
+                mall_goods[pId] = buy_goods;
+                localStorage.setItem("mall_goods", JSON.stringify(buy_goods));
+            }
+        })
+
+    })();
 </script>
 </body>
 </html>

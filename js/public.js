@@ -124,14 +124,14 @@ function is_card(card) {
 }
 
 /*tips*/
-let message = (tips) => {
-    let msgbox = document.createElement('div');
+function message(tips) {
+    var msgbox = document.createElement('div');
     msgbox.id = 'msgbox';
     $('section').append(msgbox);
 
-    let $msgbox = $('#msgbox');
+    var $msgbox = $('#msgbox');
     $msgbox.html(tips);
-    let left = ($msgbox.outerWidth()) / 2;
+    var left = ($msgbox.outerWidth()) / 2;
     $msgbox.css('marginLeft', '-' + left + 'px');
     setTimeout(() => {
         $msgbox.fadeOut("slow", function () {
