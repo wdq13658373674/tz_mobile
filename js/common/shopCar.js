@@ -105,10 +105,13 @@ function total_Fun() {
         tbTotal += tb * num;//tb合计
         numTotal+=num;//结算数量
     })
-
     rbAll.text(rbTotal.toFixed(2));
     tbAll.text(tbTotal.toFixed(2));
     numAll.text(numTotal);
+
+    //结算添加 active 样式
+    var pay = $('.total-right');
+    (numTotal != 0) ? pay.addClass('active') : pay.removeClass('active');
 }
 
 /**
