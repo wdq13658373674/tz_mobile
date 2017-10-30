@@ -70,12 +70,8 @@ function changeNum_Fun(self){
     if($(self).hasClass('up')){
         num++;
     }else if($(self).hasClass('down')){
-        if(num >= 1){
+        if(num > 1){
             num--;
-            if(num <=0){
-                num=1;
-                return;
-            }
         }
     }
     numDom.val(num);
