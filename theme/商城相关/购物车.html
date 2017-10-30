@@ -26,24 +26,86 @@
 </header>
 
 <section>
+    <!--暂无订单-->
+    <div class="order-not-box" style="display:none;">
+        <div class="order-not">
+            <div class="icon-order-not"></div>
+            <p>暂无订单</p>
+        </div>
+    </div>
+
     <div class="mall-cart">
         <div class="cart-operation">
-            <a href="javascript: void (0);">删除</a>
+            <a href="javascript: void (0);" class="del">删除</a>
         </div>
         <div class="mall-cart-item">
-            <input type="checkbox">
-            <div class="icon-dui active"></div>
+            <label class="label">
+                <input type="checkbox" name="product" class="input checkOne">
+                <div class="check"></div>
+            </label>
             <div class="goods_img">
                 <img src="../../images/img/test-img.png" alt="商品图片">
             </div>
             <div class="goods-info">
-                <div class="goods-name">TYAKASHA塔卡沙TOYSSHOP系列女款米色羊羔绒彩色抽绳卫衣SOF26</div>
+                <a href="#" class="goods-name">TYAKASHA塔卡沙TOYSSHOP系列女款米色羊羔绒彩色抽绳卫衣SOF26</a>
+                <div class="goods-type">S02 新奶油色NEW CREME;155/76A/XS</div>
             </div>
         </div>
+        <div class="goods-money">
+            <div class="f30">¥<span class="rb">128.10</span></div>
+            <div class="orange-tb f30">55.10</div>
+            <div class="car-count">
+                <span class="opera down"> - </span>
+                <span class="num"><input class="input-num" type="text" value="2" placeholder="0" disabled></span>
+                <span class="opera up"> + </span>
+            </div>
+        </div>
+    </div>
+    <div class="mall-cart">
+        <div class="cart-operation">
+            <a href="javascript: void (0);" class="del">删除</a>
+        </div>
+        <div class="mall-cart-item">
+            <label class="label">
+                <input type="checkbox" name="product" class="input checkOne">
+                <div class="check"></div>
+            </label>
+            <div class="goods_img">
+                <img src="../../images/img/test-img.png" alt="商品图片">
+            </div>
+            <div class="goods-info">
+                <a href="#" class="goods-name">TYAKASHA塔卡沙TOYSSHOP系列女款米色羊羔绒彩色抽绳卫衣SOF26</a>
+                <div class="goods-type">S02 新奶油色NEW CREME;155/76A/XS</div>
+            </div>
+        </div>
+        <div class="goods-money">
+            <div class="f30">¥<span class="rb">128.00</span></div>
+            <div class="orange-tb f30">55.00</div>
+            <div class="car-count">
+                <span class="opera down"> - </span>
+                <span class="num"><input class="input-num" type="text" value="2" placeholder="0" disabled></span>
+                <span class="opera up"> + </span>
+            </div>
+        </div>
+    </div>
 
+    <div class="footer-total-box">
+        <div class="footer-total">
+            <label class="label ml40">
+                <input  id="checkAll" type="checkbox" name="checkAll" class="input">
+                <div class="check pull-left mr20"></div>
+                <span class="pull-left f25">全选</span>
+            </label>
+            <div class="total-left">
+                <p class="f26">¥ <span id="rbAll">0.00</span></p>
+                <p>合计:<span id="tbAll" class="orange-tb f28 ml45">0.00</span></p>
+            </div>
+            <a href="javascript: void (0);" class="total-right active">结算 (0)</a>
+        </div>
     </div>
 </section>
 <script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../../js/common/shopCar.js"></script>
 <script>
 
 </script>
