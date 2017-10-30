@@ -60,7 +60,7 @@ function checks_fun() {
 }
 
 /**
- * +,-函数
+ * 数量+,-函数
  * */
 function changeNum_Fun(self) {
     var parents = $(self).parents('.mall-cart');
