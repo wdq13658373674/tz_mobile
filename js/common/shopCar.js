@@ -1,10 +1,5 @@
 $(function(){
     /**
-     * 初始化小计
-     * */
-    subTotal_Fun();
-
-    /**
      * 单选事件
      * */
     $('.checkOne').click(function(){
@@ -31,7 +26,6 @@ $(function(){
         var self=this;
 
         changeNum_Fun(self);
-        subTotal_Fun();
         total_Fun();
     })
 
@@ -58,31 +52,11 @@ function checkAll_Fun(self) {
  * 单选函数
  * */
 function checks_fun() {
-    var checkAll = document.getElementById('checkAll');
+    var checkAll = $('#checkAll');
     var len = $('.checkOne').length;
     var n=$('.checkOne:checked').length;
 
-    (n>len) ?  checkAll.checked = true : checkAll.checked = false;
-}
-
-/**
- * 小计函数
- * */
-function subTotal_Fun(){
-    $('.mall-cart').each(function(){
-        var numDom = $(this).find('.input-num')
-            ,rbDom = $(this).find('.rb')
-            ,tbDom = $(this).find('.orange-tb');
-        var num = parseFloat(numDom.val()) //数量
-            ,rb = parseFloat(rbDom.text())//人民币单价
-            ,tb = parseFloat(tbDom.text());//tb单价
-        var rbSub = 0,tbSub = 0;
-
-        rbSub = rb * num;//人民币小计
-        tbSub = tb * num;//tb小计
-        $(this).attr('data-rbSub',rbSub);
-        $(this).attr('data-tbSub',tbSub);
-    })
+    (n>=len) ?  checkAll.prop('checked',true) : checkAll.prop('checked',false);
 }
 
 /**
@@ -118,8 +92,15 @@ function total_Fun() {
 
     checkOne.each(function(){
         var parents = $(this).parents('.mall-cart');
-        rbTotal += parseFloat(parents.attr('data-rbSub'));
-        tbTotal += parseFloat(parents.attr('data-tbSub'));
+        var numDom = parents.find('.input-num')
+            ,rbDom = parents.find('.rb')
+            ,tbDom = parents.find('.orange-tb');
+        var num = parseFloat(numDom.val()) //数量
+            ,rb = parseFloat(rbDom.text())//人民币单价
+            ,tb = parseFloat(tbDom.text());//tb单价
+
+        rbTotal += rb * num;//人民币合计
+        tbTotal += tb * num;//tb合计
     })
 
     rbAll.text(rbTotal.toFixed(2));
@@ -131,6 +112,7 @@ function total_Fun() {
  * */
 function del_Fun(self){
     var parents = $(self).parents('.mall-cart');
+
     if(window.confirm('确认删除该商品？')){
         parents.remove();
         parents.find('.checkOne').removeAttr('checked');
@@ -138,7 +120,10 @@ function del_Fun(self){
         if($('.mall-cart').length <= 0){
             $('.order-not-box').css('display','flex');
            document.getElementById('checkAll').checked = false;
+           return;
         }
+
+        checks_fun();
     }
 }
 
