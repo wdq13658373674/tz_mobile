@@ -51,10 +51,7 @@ $(function(){
  * */
 function checkAll_Fun(self) {
     var checkOne = $('.checkOne');
-
-    checkOne.each(function(){
-        self.checked ? this.checked = true : this.checked = false;
-    })
+    self.checked ? checkOne.prop('checked',true) : checkOne.prop('checked',false);
 }
 
 /**
@@ -65,7 +62,7 @@ function checks_fun() {
     var len = $('.checkOne').length;
     var n=$('.checkOne:checked').length;
 
-    (n>=len) ?  checkAll.checked = true : checkAll.checked = false;
+    (n>len) ?  checkAll.checked = true : checkAll.checked = false;
 }
 
 /**
@@ -140,7 +137,7 @@ function del_Fun(self){
 
         if($('.mall-cart').length <= 0){
             $('.order-not-box').css('display','flex');
-            document.getElementById('checkAll').checked = false;
+           document.getElementById('checkAll').checked = false;
         }
     }
 }
