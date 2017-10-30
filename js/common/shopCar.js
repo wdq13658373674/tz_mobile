@@ -62,7 +62,7 @@ function checks_fun() {
 /**
  * 数量+,-函数
  * */
-function changeNum_Fun(self) {
+function changeNum_Fun(self){
     var parents = $(self).parents('.mall-cart');
     var numDom = parents.find('.input-num');
     var num = parseFloat(numDom.val()) //数量
@@ -86,25 +86,29 @@ function changeNum_Fun(self) {
  * */
 function total_Fun() {
     var rbAll = $('#rbAll')
-        ,tbAll = $('#tbAll');
+        ,tbAll = $('#tbAll')
+        ,numAll =$("#numAll");
     var checkOne = $('.checkOne:checked');
-    var rbTotal = 0,tbTotal = 0;
+    var rbTotal = 0,tbTotal = 0,numTotal = 0;
+
 
     checkOne.each(function(){
         var parents = $(this).parents('.mall-cart');
         var numDom = parents.find('.input-num')
             ,rbDom = parents.find('.rb')
             ,tbDom = parents.find('.orange-tb');
-        var num = parseFloat(numDom.val()) //数量
+        var num = parseInt(numDom.val()) //数量
             ,rb = parseFloat(rbDom.text())//人民币单价
             ,tb = parseFloat(tbDom.text());//tb单价
 
         rbTotal += rb * num;//人民币合计
         tbTotal += tb * num;//tb合计
+        numTotal+=num;//结算数量
     })
 
     rbAll.text(rbTotal.toFixed(2));
     tbAll.text(tbTotal.toFixed(2));
+    numAll.text(numTotal);
 }
 
 /**
