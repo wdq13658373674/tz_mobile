@@ -103,23 +103,26 @@
     </div>
 
     <div class="info-estate  clearfix" >
-        <div class="rowup-list">
-            <div class="rowup">
-                <a class="clearfix" href="#">
-                    <span class="tips pull-left">1小区于明日下午停水半天</span>
-                    <span class="time pull-right">2017/03/28</span>
-                </a>
-
-                <a class="clearfix" href="#">
-                    <span class="tips pull-left">2小区于明日下午停水半天</span>
-                    <span class="time pull-right">2017/10/28</span>
-                </a>
-
-                <a class="clearfix" href="#">
-                    <span class="tips pull-left">3小区于明日下午停水半天</span>
-                    <span class="time pull-right">2017/12/28</span>
-                </a>
-            </div>
+        <div class="icon-tips"></div>
+        <div class="rowup">
+            <ul class="rowup-list clearfix">
+                <li class="rowup-item">
+                    <span class="tips">1小区于明日下午停水半天</span>
+                    <span class="time">2017/03/28</span>
+                </li>
+                <li class="rowup-item">
+                    <span class="tips">2小区于明日下午停水半天</span>
+                    <span class="time">2017/03/28</span>
+                </li>
+                <li class="rowup-item">
+                    <span class="tips">3小区于明日下午停水半天</span>
+                    <span class="time">2017/03/28</span>
+                </li>
+                <li class="rowup-item">
+                    <span class="tips">4小区于明日下午停水半天</span>
+                    <span class="time">2017/03/28</span>
+                </li>
+            </ul>
         </div>
     </div>
 
@@ -248,12 +251,27 @@
         </div>
     </div>
 </footer>
+<script src="../../js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="../../js/addons/Swiper/swiper.min.js"></script>
 <script src="../../js/common/animate.js"></script>
 <script>
     var swiper = new Swiper('.swiper-container', {
         loop: true
     });
+
+    $(function () {
+        var rowupItem = $(".rowup-item"),
+            rowupItemWidth = rowupItem.eq(0).width();
+
+        function scroll() {
+            $(".rowup ul").animate({"left": -rowupItemWidth}, function () {
+                $(".rowup ul li:eq(0)").appendTo($(".rowup ul"));
+                $(".rowup ul").css({"left": 0})
+            })
+        }
+
+        setInterval(scroll, 2500);
+    })
 </script>
 </body>
 </html>
