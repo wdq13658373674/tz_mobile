@@ -7,7 +7,6 @@
     margin-left: auto;
     margin-right: auto;
 }
-
 /*网站主色*/
 /*网站背景色*/
 /*标题颜色*/
@@ -59,7 +58,6 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-
 /*transition*/
 /*
 透明度 或渐变 1为不透明 0透明
@@ -82,7 +80,6 @@ css3 rgba(110, 142, 185, .4)!important;前三个是颜色值 后一个是透明�
 .public-bg {
     background-color: #fff;
 }
-
 /*按钮预定义文件*/
 /*
 按钮按下
@@ -95,15 +92,12 @@ css3 rgba(110, 142, 185, .4)!important;前三个是颜色值 后一个是透明�
 .field-invalid {
     border-color: #a94442;
 }
-
 .field-invalidmsg {
     color: #a94442;
 }
-
 .field-validmsg {
     color: #3c763d;
 }
-
 .field-tooltipWrap {
     position: absolute;
     left: 0;
@@ -111,7 +105,6 @@ css3 rgba(110, 142, 185, .4)!important;前三个是颜色值 后一个是透明�
     width: 100%;
     z-index: 19891014;
 }
-
 .field-tooltipInner {
     pointer-events: none;
     display: table;
@@ -121,18 +114,15 @@ css3 rgba(110, 142, 185, .4)!important;前三个是颜色值 后一个是透明�
     width: 100%;
     height: 100%;
 }
-
 .field-tooltip {
     display: table-cell;
     vertical-align: middle;
     text-align: center;
 }
-
 .field-tooltip .field-invalidmsg,
 .field-tooltip .field-validmsg {
     color: #fff;
 }
-
 .field-tooltip .zvalid-resultformat {
     display: inline-block;
     position: relative;
@@ -150,7 +140,6 @@ css3 rgba(110, 142, 185, .4)!important;前三个是颜色值 后一个是透明�
     -webkit-animation-duration: .18s;
     animation-duration: .18s;
 }
-
 @-webkit-keyframes fieldTipBounceIn {
     0% {
         opacity: 0;
