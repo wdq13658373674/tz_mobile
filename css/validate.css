@@ -1,1 +1,165 @@
-.main-width{width:100%;margin-left:auto;margin-right:auto}.ellipsis-1{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.public-bg{background-color:#fff}.field-invalid{border-color:#a94442}.field-invalidmsg{color:#a94442}.field-validmsg{color:#3c763d}.field-tooltipWrap{position:absolute;left:0;top:0;width:100%;z-index:19891014}.field-tooltipInner{pointer-events:none;display:table;position:fixed;left:0;top:0;width:100%;height:100%}.field-tooltip{display:table-cell;vertical-align:middle;text-align:center}.field-tooltip .field-invalidmsg,.field-tooltip .field-validmsg{color:#fff}.field-tooltip .zvalid-resultformat{display:inline-block;position:relative;background-color:rgba(0,0,0,0.8);color:#fff;padding:.4rem .6rem;font-size:.6rem;border-radius:.12rem;box-shadow:0 0 .16rem rgba(0,0,0,0.1);pointer-events:auto;animation-name:fieldTipBounceIn;-webkit-animation-name:fieldTipBounceIn;-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-duration:.18s;animation-duration:.18s}@-webkit-keyframes fieldTipBounceIn{0%{opacity:0;-webkit-transform:scale3d(.3, .3, .3);transform:scale3d(.3, .3, .3)}100%{opacity:1;-webkit-transform:scale3d(1, 1, 1);transform:scale3d(1, 1, 1)}}
+/*函数文件*/
+/*路径定义*/
+/*单位计算*/
+/*网站总宽*/
+.main-width {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*网站主色*/
+/*网站背景色*/
+/*标题颜色*/
+/*字体颜色*/
+/*提示颜色*/
+/*失效颜色*/
+/*宽高*/
+/*
+文字阴影,可以指定多组阴影
+@right_left1 右边阴影为正数 左边负数
+@bottom_top1 下边阴影为正数 上边负数
+<a href="http://my.oschina.net/text" class="referer" target="_blank">@text</a>  阴影大小
+@text_color 阴影颜色
+*/
+/*
+定义圆角
+@radius 圆角大小
+*/
+/*flex*/
+/*主轴方向
+@new:默认水平row
+(row | column)
+@old:默认水平horizontal
+(horizontal | vertical)
+*/
+/*对齐方式
+@new:新版本参数space-between
+（flex-start：左对齐 | flex-end：右对齐 | center：居中对齐 | space-between：两端对齐 | space-around：相等间隔）
+@old:旧版本参数justify
+（start | end | center | justify）
+*/
+/*是否换行
+@fw:默认不换行（参数：nowrap，wrap）
+*/
+/*项目对齐
+@ai：默认中点对齐
+（flex-start：起点对齐 | flex-end：终点对齐 | center；中点对齐 | baseline：文字的基线对齐 | stretch：占满整个容器的高度）
+*/
+/*单个对齐不一致
+@as:默认auto
+（auto：继承父元素 |flex-start：起点对齐 | flex-end：终点对齐 | center；中点对齐 | baseline：文字的基线对齐 | stretch：占满整个容器的高度）
+*/
+/*省略号
+@line:多行省略（行数）
+*/
+/*单行省略*/
+.ellipsis-1 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/*transition*/
+/*
+透明度 或渐变 1为不透明 0透明
+css3 rgba(110, 142, 185, .4)!important;前三个是颜色值 后一个是透明值
+用来兼容所有浏览器
+*/
+/*
+透明背景
+@bg:背景色
+*/
+/*
+渐变背景：
+@color-from：起始颜色
+@@color-to：终止颜色
+*/
+/*btn effect*/
+/*图标*/
+/*标题*/
+/*公共背景*/
+.public-bg {
+    background-color: #fff;
+}
+
+/*按钮预定义文件*/
+/*
+按钮按下
+@red-dark：鼠标按下背景颜色
+*/
+/*红色按钮（带背景色）*/
+/*带边框无背景按钮*/
+/*禁止点击按钮*/
+/*表单组件（下拉框等）预定义文件*/
+.field-invalid {
+    border-color: #a94442;
+}
+
+.field-invalidmsg {
+    color: #a94442;
+}
+
+.field-validmsg {
+    color: #3c763d;
+}
+
+.field-tooltipWrap {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 19891014;
+}
+
+.field-tooltipInner {
+    pointer-events: none;
+    display: table;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.field-tooltip {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.field-tooltip .field-invalidmsg,
+.field-tooltip .field-validmsg {
+    color: #fff;
+}
+
+.field-tooltip .zvalid-resultformat {
+    display: inline-block;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.6rem;
+    border-radius: 0.12rem;
+    box-shadow: 0 0 0.16rem rgba(0, 0, 0, 0.1);
+    pointer-events: auto;
+    animation-name: fieldTipBounceIn;
+    -webkit-animation-name: fieldTipBounceIn;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-duration: .18s;
+    animation-duration: .18s;
+}
+
+@-webkit-keyframes fieldTipBounceIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(0.3, 0.3, 0.3);
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
