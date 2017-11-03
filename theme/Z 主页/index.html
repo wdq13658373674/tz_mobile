@@ -21,23 +21,25 @@
     </script>
 </head>
 <body>
-<header class="index-header clearfix">
-    <div class="pull-left position clearfix"><i class="icon-position"></i><em>云鼎府邸</em></div>
-    <div class="pull-right head-multi">
-        <ul class="clearfix">
-            <li class="head-multi-item">
-                <a href="#" onclick="alert('扫一扫')">
-                    <i class="icon-weChat-sao"></i>
-                    扫一扫
-                </a>
-            </li>
-            <li class="head-multi-item ml45">
-                <a class="" href="#" onclick="alert('管家电话')">
-                    <i class="icon-steward-tel"></i>
-                    管家电话
-                </a>
-            </li>
-        </ul>
+<header class="index-header-box clearfix">
+    <div class="index-header">
+        <div class="pull-left position clearfix"><i class="icon-position"></i><em>云鼎府邸</em></div>
+        <div class="pull-right head-multi">
+            <ul class="clearfix">
+                <li class="head-multi-item">
+                    <a href="#" onclick="alert('扫一扫')">
+                        <i class="icon-weChat-sao"></i>
+                        扫一扫
+                    </a>
+                </li>
+                <li class="head-multi-item ml45">
+                    <a class="" href="#" onclick="alert('管家电话')">
+                        <i class="icon-steward-tel"></i>
+                        管家电话
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 </header>
 
@@ -98,9 +100,9 @@
     <div class="advert">
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide" style="height: 6rem;">Slide 1</div>
-                <div class="swiper-slide" style="height: 6rem;">Slide 2</div>
-                <div class="swiper-slide" style="height: 6rem;">Slide 3</div>
+                <div class="swiper-slide">Slide 1</div>
+                <div class="swiper-slide">Slide 2</div>
+                <div class="swiper-slide">Slide 3</div>
             </div>
         </div>
     </div>
@@ -426,7 +428,9 @@
 <script src="../../js/common/animate.js"></script>
 <script>
     var swiper = new Swiper('.swiper-container', {
-        loop: true
+        loop: true,
+        width: window.innerWidth,
+        height: window.innerHeight
     });
 
     $(function () {

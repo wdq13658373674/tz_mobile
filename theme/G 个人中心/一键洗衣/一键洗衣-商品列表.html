@@ -197,7 +197,10 @@
                 goodsdata.map(function (item, index) {
                     html = `<div class="shopCartList-item" data-productid="${goodsdata[index].productId}">
                 <div class="checkbox checked"></div>
-                <img src="../../../images/img/img.png" alt="">
+                <div class="img-box">
+                    <img src="../../../images/img/img.png" alt="">
+                </div>
+
                 <p>${goodsdata[index].productName}</p>
                 <span class="shopCartList-price"><em>￥</em><i class="price">${goodsdata[index].productPrice}</i></span>
                 <div class="quantity">

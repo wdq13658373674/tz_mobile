@@ -1,8 +1,24 @@
 @import "../cssControl/control";
+
+/*测试*/
+section {
+  -webkit-overflow-scrolling: touch; /* ios5+ */
+}
+
 /*主页头部*/
+.index-header-box {
+  width: 100%;
+  height: 149/@rem;
+}
 .index-header{
+  width: 100%;
+  height: 149/@rem;
+  position: fixed;
+  top: 0;
+  left: 0;
   padding: 45/@rem 47/@rem;
   background-color: @block-bg;
+  z-index: 999;
   .position{
     em{
       margin-left: 17/@rem;
@@ -131,6 +147,7 @@
 .rowup {
   width: 100%;
   height: 48/@rem;
+  line-height: 48/@rem;
   margin-left: 21/@rem;
   overflow: hidden;
   position: relative;
@@ -138,9 +155,8 @@
 .rowup-list{
   position: absolute;
   width: 100%;
-  margin: 20px auto;
-  height: 24/@rem;
-  line-height: 24/@rem;
+  height: 48/@rem;
+  line-height: 48/@rem;
   overflow: hidden;
   font-size: 15px;
   z-index:1;
