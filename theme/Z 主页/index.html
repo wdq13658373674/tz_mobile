@@ -23,7 +23,9 @@
 <body>
 <header class="index-header-box clearfix">
     <div class="index-header">
-        <div class="pull-left position clearfix"><i class="icon-position"></i><em>云鼎府邸</em></div>
+        <div class="pull-left position clearfix">
+            <i class="icon-position"></i>
+            <em>云鼎府邸</em></div>
         <div class="pull-right head-multi">
             <ul class="clearfix">
                 <li class="head-multi-item">
@@ -398,20 +400,20 @@
                 <i class="nav-tag nav-tag-mall"></i>
                 <p>商城</p>
             </a>
-            <a class="nav nav-mj-box" href="javascript:void(0);">
-                <div class="nav-middle">
-                    <!---->
-                    <div class="dot-box">
-                        <div class="dot1">
-                            <div class="dot2">
-                                <div class="dot3"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!---->
-                </div>
-                <p>智能门禁</p>
-            </a>
+            <!--<a class="nav nav-mj-box" href="javascript:void(0);">-->
+            <!--<div class="nav-middle">-->
+            <!--&lt;!&ndash;&ndash;&gt;-->
+            <!--<div class="dot-box">-->
+            <!--<div class="dot1">-->
+            <!--<div class="dot2">-->
+            <!--<div class="dot3"></div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;&ndash;&gt;-->
+            <!--</div>-->
+            <!--<p>智能门禁</p>-->
+            <!--</a>-->
             <a class="nav" href="#">
                 <i class="nav-tag nav-tag-lj"></i>
                 <p>邻聚</p>
@@ -425,7 +427,7 @@
 </footer>
 <script src="../../js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="../../js/addons/Swiper/swiper.min.js"></script>
-<script src="../../js/common/animate.js"></script>
+<!--<script src="../../js/common/animate.js"></script>-->
 <script>
     var swiper = new Swiper('.swiper-container', {
         loop: true,
@@ -433,19 +435,19 @@
         height: window.innerHeight
     });
 
-    $(function () {
-        var rowupItem = $(".rowup-item"),
-            rowupItemWidth = rowupItem.eq(0).width();
-
-        function scroll() {
-            $(".rowup ul").animate({"left": -rowupItemWidth}, function () {
-                $(".rowup ul li:eq(0)").appendTo($(".rowup ul"));
-                $(".rowup ul").css({"left": 0})
-            })
-        }
-
-        setInterval(scroll, 2500);
-    })
+    //    $(function () {
+    //        var rowupItem = $(".rowup-item"),
+    //            rowupItemWidth = rowupItem.eq(0).width();
+    //
+    //        function scroll() {
+    //            $(".rowup ul").animate({"left": -rowupItemWidth}, function () {
+    //                $(".rowup ul li:eq(0)").appendTo($(".rowup ul"));
+    //                $(".rowup ul").css({"left": 0})
+    //            })
+    //        }
+    //
+    //        setInterval(scroll, 2500);
+    //    })
 </script>
 </body>
 </html>

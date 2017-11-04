@@ -22,7 +22,7 @@
 <body>
 <header class="public-header border-b">
     <div class="header-box">
-        <a href="#" class="icon-back"></a>
+        <a href="javascript:history.go(-1);" class="back-box"><i class="icon-back"></i></a>
         <h4 class="title">填写地址</h4>
     </div>
 </header>
@@ -30,13 +30,13 @@
     <form action="#">
         <div class="form-group">
             <div class="regionAndArea">
-                <input type="text" class="area-select" placeholder="请选择区域">
+                <input type="text" class="area-select" readonly="readonly" placeholder="请选择区域">
                 <input type="hidden" class="area-num">
             </div>
         </div>
         <div class="form-group">
             <div class="village-box">
-                <input class="village" type="text" placeholder="请输入小区名或者大厦名">
+                <input class="village" type="text" readonly="readonly" placeholder="请输入小区名或者大厦名">
             </div>
         </div>
         <div class="form-group">

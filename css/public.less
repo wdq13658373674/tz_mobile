@@ -275,7 +275,7 @@ footer {
     //margin: 24/@rem 42/@rem;
     display: inline-block;
     margin-top: 24/@rem;
-    width: 19.2%;
+    width: 24%;
     p {
       margin-top: 10.4/@rem;
     }
@@ -362,32 +362,45 @@ footer {
 .public-header {
   height: 110/@rem;
   .public-bg;
+  margin-bottom: 24/@rem;
   .header-box {
     width: 100%;
-    padding: 34/@rem 41/@rem;
+    height: 110/@rem;
+    line-height: 110/@rem;
     .public-bg;
     position: fixed;
-    .flex;
-    align-items: center;
-    border-bottom: 24/@rem solid #f4f4f4;
     z-index: 99;
+    .back-box {
+      position: absolute;
+      left: 20/@rem;
+      top: 0;
+      display: block;
+      width: 100/@rem;
+      height: 110/@rem;
+      .flex;
+      align-items: center;
+      justify-content: center;
+    }
     .icon-back {
+      display: block;
+      width: 20/@rem;
       flex: 0 0 15.1/@rem;
       margin-top: 8/@rem;
-      width: 15.1/@rem;
-      height: 29/@rem;
+      height: 33/@rem;
       background: url("../images/icon/icon-back.svg") no-repeat;
       background-size: 100% 100%;
     }
     .title {
       flex: 1;
-      line-height: 40/@rem;
+      line-height: 110/@rem;
       text-align: center;
       font-size: 40/@rem;
       font-weight: normal;
     }
     .btn {
-      flex: 0 0 68/@rem;
+      position: absolute;
+      top: 0;
+      right: 48/@rem;
       font-size: 34/@rem;
       font-weight: normal;
       color: #7b7b7b;
