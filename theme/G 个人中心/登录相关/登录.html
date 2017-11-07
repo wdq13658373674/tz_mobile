@@ -27,14 +27,13 @@
         <form id="form" action="#">
             <div class="form-control">
                 <input id="phone" class="ipt user-name" name="username" type="number" placeholder="手机号码"
-                       data-validate="phone" data-describedby="phone-description">
-                <span class="err-tip"></span>
+                       data-validate="phone" maxlength="11" data-describedby="phone-description">
+                <span class="reset-input">X</span>
             </div>
             <div class="form-control">
                 <input id="pwd" class="ipt user-pwd" name="pwd" type="password" data-required="true"
                        data-descriptions="password" placeholder="密码">
                 <a class="justify-right" href="javascript:alert(1);">忘记密码</a>
-                <span class="err-tip"></span>
             </div>
             <div class="form-btn">
                 <button id="login" type="submit" class="btn btn-login">登 录</button>
@@ -47,6 +46,14 @@
 <script src="../../../js/jquery-mvalidate.js"></script>
 <script>
     $(function () {
+        $(".user-name").on("keydown", function () {
+            $(".reset-input").css("display", "block");
+        });
+
+        $(".reset-input").on("click", function () {
+            $(".user-name").val("");
+        });
+
         $.mvalidateExtend({
             phone: {
                 required: true,

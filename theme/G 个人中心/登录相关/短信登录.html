@@ -26,13 +26,14 @@
     <div class="form">
         <form action="#" id="form">
             <div class="form-control">
-                <input class="ipt user-name" type="text" placeholder="手机号码" data-validate="phone"
+                <input class="ipt user-name" maxlength="11" type="text" placeholder="手机号码" data-validate="phone"
                        data-describedby="phone-description">
+                <span class="reset-input">X</span>
             </div>
             <div class="form-control">
                 <input class="ipt verify-code" type="text" placeholder="验密码" data-required="true"
-                       data-conditional="captcha" data-descriptions="captchacode">
-                <a class="justify-right" id="send" href="javascript:times();">获取验证码</a>
+                       data-conditional="captcha" data-descriptions="captchacode" maxlength="6">
+                <a href="javascript: void (0);" class="justify-right" id="send">获取验证码</a>
             </div>
             <div class="form-btn">
                 <button type="submit" class="btn btn-login">登 录</button>
@@ -45,6 +46,22 @@
 <script src="../../../js/jquery-mvalidate.js"></script>
 <script>
     $(function () {
+        $(".user-name").on("keydown", function () {
+            $(".reset-input").css("display", "block");
+        });
+
+        $(".reset-input").on("click", function () {
+            $(".user-name").val("");
+        });
+
+        $("#send").on("click", function () {
+            if (/^(0|86|17951)?(13[0-9]|15[012356789]|17[123456789]|18[0-9]|14[57])[0-9]{8}$/.test($(".user-name").val())) {
+                times();
+            } else {
+                notice(".justify-right", "请输入正确的手机格式！")
+            }
+        });
+
         $.mvalidateExtend({
             phone: {
                 required: true,

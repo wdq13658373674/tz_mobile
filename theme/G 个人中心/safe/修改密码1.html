@@ -46,6 +46,22 @@
 <script src="../../../js/jquery-mvalidate.js"></script>
 <script>
     $(function () {
+        $(".user-name").on("keydown", function () {
+            $(".reset-input").css("display", "block");
+        });
+
+        $(".reset-input").on("click", function () {
+            $(".user-name").val("");
+        });
+
+        $("#send").on("click", function () {
+            if (/^(0|86|17951)?(13[0-9]|15[012356789]|17[123456789]|18[0-9]|14[57])[0-9]{8}$/.test($(".user-name").val())) {
+                times();
+            } else {
+                notice(".justify-right", "请输入正确的手机格式！")
+            }
+        });
+
         $.mvalidateExtend({
             phone: {
                 required: true,

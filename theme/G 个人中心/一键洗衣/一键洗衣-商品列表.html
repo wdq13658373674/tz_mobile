@@ -147,11 +147,11 @@
         $(this).addClass('active');
     });
 
-    let total = 0, bespoke = 0, $total = $('.total'), price, count = 0, goodsdata = [];
+    var total = 0, bespoke = 0, $total = $('.total'), price, count = 0, goodsdata = [];
     $('.list-item').on('click', function () {
 
         //生成 json 数据格式
-        let productId, productName, productPrice, productCount = 0, data;
+        var productId, productName, productPrice, productCount = 0, data;
         productId = $(this).data('goodsid');
         productName = $(this).children('.name').text();
         productPrice = $(this).children('.price').text().substring(1);
@@ -185,7 +185,7 @@
 
     //购物车弹出触发
     $('.shopCart-tips').on('click', function () {
-        let html;
+        var html;
         if ($('.open').length !== 0) {
             $('.shopCart').hide();
             $('.mask').hide();
@@ -214,8 +214,8 @@
 
                 //quantity
                 $('.add').on('click', function () {
-                    let shopCartLisItem = $(this).parents('.shopCartList-item');
-                    let id = shopCartLisItem.data('productid');
+                    var shopCartLisItem = $(this).parents('.shopCartList-item');
+                    var id = shopCartLisItem.data('productid');
                     if (shopCartLisItem.children('.checked').length !== 0) {
                         $(this).prev('.num').html(Number($(this).prev('.num').text()) + 1);
                         goodsdata.map(function (item, index) {
@@ -229,8 +229,8 @@
 
                 $('.reduce').on('click', function () {
 
-                    let shopCartLisItem = $(this).parents('.shopCartList-item');
-                    let id = shopCartLisItem.data('productid');
+                    var shopCartLisItem = $(this).parents('.shopCartList-item');
+                    var id = shopCartLisItem.data('productid');
                     if (shopCartLisItem.children('.checked').length !== 0) {
                         if ($(this).next('.num').html() <= 1) {
                             $(this).next('.num').html(1);
@@ -257,13 +257,13 @@
 
         //是否选中当前项
         $('.checkbox').on('click', function () {
-            let checked = $(this).is('.checked');
-            let shopCartLisItem = $(this).parents('.shopCartList-item');
-            let id = shopCartLisItem.data('productid');
-            let rcount = Number($(this).parent('.shopCartList-item').find('.num').text());
-            let ycount = Number($('.count').html());
-            let ytotal = Number($('.total').text());
-            let ntotal = Number($(this).parent('.shopCartList-item').find('.price').text()) * rcount;
+            var checked = $(this).is('.checked');
+            var shopCartLisItem = $(this).parents('.shopCartList-item');
+            var id = shopCartLisItem.data('productid');
+            var rcount = Number($(this).parent('.shopCartList-item').find('.num').text());
+            var ycount = Number($('.count').html());
+            var ytotal = Number($('.total').text());
+            var ntotal = Number($(this).parent('.shopCartList-item').find('.price').text()) * rcount;
             if (checked) {
                 $(this).removeClass('checked');
 
@@ -276,11 +276,11 @@
                 $('.count').html(ycount - rcount);
                 $('.total').html((ytotal - ntotal).toFixed(2));
             } else {
-                let aid = shopCartLisItem.data('productid');
-                let aproductName = shopCartLisItem.children('p').text();
-                let aprice = shopCartLisItem.find('.price').text();
-                let acount = Number(shopCartLisItem.find('.num').text());
-                let dataTemp = {
+                var aid = shopCartLisItem.data('productid');
+                var aproductName = shopCartLisItem.children('p').text();
+                var aprice = shopCartLisItem.find('.price').text();
+                var acount = Number(shopCartLisItem.find('.num').text());
+                var dataTemp = {
                     'productId': aid,
                     'productName': aproductName,
                     'productPrice': aprice,
@@ -295,7 +295,7 @@
     });
 
     function quantity(arr) {
-        let qcount = 0, qprice = 0;
+        var qcount = 0, qprice = 0;
         arr.map(function (item, index) {
             qcount += arr[index].productCount;
             qprice += Number(arr[index].productPrice) * arr[index].productCount;
@@ -340,7 +340,7 @@
         $('.shopCartList').empty().removeClass('open');
     });
 
-    let ajax = () => {
+    var ajax = () => {
         alert('ajax');
     }
 </script>

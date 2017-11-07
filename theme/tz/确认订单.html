@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)http://w.t.tuanzhuanw.com/wap.php?g=Wap&c=Pay&a=check&order_id=171&type=shop -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>确认订单</title>
+    <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="address=no">
+    <link href="./static/eve.7c92a906.css" rel="stylesheet">
+    <link href="./static/wap_pay_check.css" rel="stylesheet">
+    <link href="./static/weixin_pay.css" rel="stylesheet">
+    <script src="./static/jquery.min.js"></script>
+    <script src="./static/layer.m.js"></script>
+    <link href="./static/layer.css" type="text/css" rel="styleSheet" id="layermcss">
+    <link href="./static/check.css" rel="stylesheet">
+    <style>
+        input.mt[type=checkbox]:checked {
+            background-color: #fd4915 !important;
+        }
+
+        input.mt[type=radio]:checked {
+            background-color: #fd4915 !important;
+        }
+    </style>
+</head>
+<body>
+
+
+<script type="text/javascript">
+    var now_money = Number("96.3");
+    var order_type = 'shop';
+    var merchant_money = Number("0");
+    var wx_cheap = Number("0");
+    var extra_price = Number("0");
+    var open_extra_price = Number("");
+    var score_get_percent = Number("1");
+    var extra_price_name = "";
+    var order_extra_price = Number("0");
+    var no_discount_money = Number("");
+    var score_count = Number("2000");
+    var score_deducte = Number("45");
+    var score_percent = Number("1");
+    var score_can_use_count = Number("45");
+
+    // T币计算.
+    var tcion_can_use_count = Number('0');
+    var tcion_deducte = Number('0');
+    var tcion_count = Number('0.00000');
+
+    var merc_price = Number("0");
+    var sysc_price = Number("0");
+    var total_money = Number("50.00");
+    var card_discount = Number("9");
+
+    if (order_type == 'shop' || order_type == 'mall') {
+        var freigh_money = Number("0.00");
+        total_money = (total_money - freigh_money) * card_discount / 10 + freigh_money - wx_cheap - merc_price;
+    } else {
+        total_money = (total_money - no_discount_money) * card_discount / 10 - wx_cheap - merc_price + no_discount_money;
+    }
+
+    total_money += order_extra_price;
+
+    var need_pay;
+    var mer_coupon_html;
+    var system_coupon_html;
+    var sysc_price_tmp = sysc_price;
+    var merc_price_tmp = merc_price;
+    $(document).ready(function () {
+        mer_coupon_html = $('#mer_coupon').html();
+        system_coupon_html = $('#system_coupon').html();
+
+        check_money(total_money, sysc_price, merchant_money);
+        /*
+            点击事件
+         */
+        $("#use_score,#use_balance,#use_merchant_money,#use_tcion").bind("click", function () {
+
+            check_money(total_money, sysc_price, merchant_money);
+            if ($("#use_score").is(':checked') == true) {
+                $('#score_money_title').css('display', 'block');
+                $('#score_money_title .pay-wrapper').html('使用平台积分抵扣' + score_deducte + '元');
+            } else {
+                $('#score_money_title').css('display', 'none');
+            }
+        });
+
+        $("form").submit(function () {
+            $("button.mj-submit").attr("disabled", "disabled");
+            $("button.mj-submit").html("正在处理...");
+        });
+
+        $('#pay-methods-panel').find('.list .dd-padding').click(function () {
+
+            if ($(this).find('input').val() == 'offline') {
+                //window.location.href=window.location.href+'&pay_type=offline';
+                var mer_coupon_none = '<a class="react" ><div class="more more-weak"><h6>商家优惠券</h6><span class="more-after">无可用优惠券</span></div></a>';
+                var system_coupon_none = '<a class="react" ><div class="more more-weak"><h6>平台优惠券</h6><span class="more-after">无可用优惠券</span></div></a>';
+                $('#system_coupon').html(system_coupon_none);
+                $('#mer_coupon').html(mer_coupon_none);
+                console.log(total_money)
+                check_money(Number("50.00"), 0, 0);
+                sysc_price = 0;
+                merc_price = 0;
+                $('#pay_in_fact').html('实际支付：<b style="color:#fd4915">￥' + (Number("50.00") + merc_price).toFixed(2) + '</b>');
+                $('input[name="card_id"]').attr('disabled', 'disabled');
+                $('input[name="coupon_id"]').attr('disabled', 'disabled');
+            } else {
+                //window.location.reload();
+                $('#system_coupon').html(system_coupon_html);
+                $('#mer_coupon').html(mer_coupon_html);
+                total_money = Number("50.00");
+                if (order_type == 'shop' || order_type == 'mall') {
+                    var freigh_money = Number("0.00");
+                    total_money = (total_money - freigh_money) * card_discount / 10 + freigh_money - wx_cheap - merc_price_tmp;
+                } else {
+                    total_money = (total_money - no_discount_money) * card_discount / 10 - wx_cheap - merc_price_tmp + no_discount_money;
+                }
+                check_money(total_money, sysc_price_tmp, merchant_money);
+                var pay_infact_ = (total_money - sysc_price).toFixed(2);
+                if (pay_infact_ < 0) {
+                    pay_infact_ = 0;
+                }
+                //$('#pay_in_fact').html('实际支付：<b style="color:#fd4915">￥'+pay_infact_+'</b>');
+                $('input[name="card_id"]').removeAttr('disabled');
+                $('input[name="coupon_id"]').removeAttr('disabled');
+                sysc_price = sysc_price_tmp;
+                merc_price = merc_price_tmp;
+            }
+        })
+
+        if ($('#pay-methods-panel').find('.list .dd-padding input').val() == 'offline') {
+
+            //window.location.href=window.location.href+'&pay_type=offline';
+            var mer_coupon_none = '<a class="react" ><div class="more more-weak"><h6>商家优惠券</h6><span class="more-after">无可用优惠券</span></div></a>';
+            var system_coupon_none = '<a class="react" ><div class="more more-weak"><h6>平台优惠券</h6><span class="more-after">无可用优惠券</span></div></a>';
+            $('#system_coupon').html(system_coupon_none);
+            $('#mer_coupon').html(mer_coupon_none);
+
+            check_money(Number("50.00"), 0, 0);
+            sysc_price = 0;
+            merc_price = 0;
+            $('#pay_in_fact').html('实际支付：<b style="color:#fd4915">￥' + (total_money + merc_price).toFixed(2) + '</b>');
+            $('input[name="card_id"]').attr('disabled', 'disabled');
+            $('input[name="coupon_id"]').attr('disabled', 'disabled');
+        } else {
+            $('#system_coupon').html(system_coupon_html);
+            $('#mer_coupon').html(mer_coupon_html);
+            total_money = Number("50.00");
+            if (order_type == 'shop' || order_type == 'mall') {
+                var freigh_money = Number("0.00");
+                total_money = (total_money - freigh_money) * card_discount / 10 + freigh_money - wx_cheap - merc_price_tmp;
+            } else {
+                total_money = (total_money - no_discount_money) * card_discount / 10 - wx_cheap - merc_price_tmp + no_discount_money;
+            }
+
+            check_money(total_money, sysc_price_tmp, merchant_money);
+            var pay_infact_ = (total_money - sysc_price).toFixed(2);
+            if (pay_infact_ < 0) {
+                pay_infact_ = 0;
+            }
+            //$('#pay_in_fact').html('实际支付：<b style="color:#fd4915">￥'+pay_infact_+'</b>');
+            $('input[name="card_id"]').removeAttr('disabled');
+            $('input[name="coupon_id"]').removeAttr('disabled');
+            sysc_price = sysc_price_tmp;
+            merc_price = merc_price_tmp;
+        }
+
+        $('#alter_score').click(function () {
+
+            $('#change_score').show();
+            $('#pwd_bg').show();
+
+        });
+
+        $('.cancle').click(function () {
+            $('#pwd_bg').hide();
+            $('.pwd_verify').hide();
+        })
+
+        var score_money_sure = 0;
+
+        $('.jia').click(function () {
+            var score_change = $('input[name="score_change"]').val();
+            if (score_can_use_count >= (Number(score_change) + 1)) {
+                var score_counts = Number(score_change) + 1;
+            } else {
+                var score_counts = score_can_use_count;
+            }
+            $('input[name="score_change"]').val(score_counts.toFixed(2));
+            score_money_sure = (score_counts / score_percent).toFixed(2);
+            $('.verify_lspan').html('￥' + score_money_sure);
+        });
+
+        $('.jian').click(function () {
+            var score_change = $('input[name="score_change"]').val();
+            if (Number(score_change) - 1 >= 0) {
+                var score_counts = Number(score_change) - 1;
+            } else {
+                var score_counts = 0;
+            }
+            $('input[name="score_change"]').val(score_counts.toFixed(2));
+            score_money_sure = (score_counts / score_percent).toFixed(2);
+            $('.verify_lspan').html('￥' + score_money_sure);
+        });
+
+        $('#score_sure').click(function () {
+            $('#pwd_bg').hide();
+            $('.pwd_verify').hide();
+            var score_count_sure = $('input[name="score_change"]').val();
+            score_deducte = score_money_sure;
+            $('input[name="score_used_count"]').val(score_count_sure);
+            $('input[name="score_deducte"]').val(score_deducte);
+            $('#score_label').html('使用<font color="#fd4915">' + score_count_sure + '</font>个' + extra_price_name + '，抵扣：<font color="#fd4915">' + score_money_sure + '</font>元 ');
+            $('#use_score').removeAttr('checked');
+            $('#use_balance').removeAttr('checked');
+            show_money(1, 1, 1, 1, total_money);
+        });
+
+        $('#score_value').blur(function () {
+            if (isNaN($(this).val()) || Number($(this).val()) < 0) {
+                alert('非法输入');
+                window.location.reload();
+            }
+            if (Number($(this).val()) > score_can_use_count) {
+                $('#change_score .tips').html('最多使用' + score_can_use_count + '个' + extra_price_name);
+                $('input[name="score_change"]').val(score_can_use_count);
+            } else {
+                var changed_score = $(this).val();
+                score_money_sure = (changed_score / score_percent).toFixed(2);
+                $('.verify_lspan').html('￥' + score_money_sure);
+                $('input[name="score_change"]').val(Number(changed_score).toFixed(2));
+                $('#change_score .tips').html('');
+            }
+        });
+
+    });
+
+    /**
+     * 显示金额.
+     * @param use_merchant_money    使用商户金额
+     * @param use_score             使用积分
+     * @param use_balance           使用余额
+     * @param pay_title             支付标题
+     * @param money                 金额
+     * @param use_tcion             使用T币
+     */
+    function show_money(use_merchant_money, use_score, use_balance, pay_title, money, use_tcion) {
+        if ($('#use_merchant_money').is(':checked') == true) {
+            $("input[name='use_merchant_balance']").attr('value', 1);
+        } else {
+            $("input[name='use_merchant_balance']").attr('value', 0);
+        }
+
+        if ($("#use_balance").is(':checked') == true && use_balance) {
+            $("input[name='use_balance']").attr('value', 1);
+        } else {
+            $("input[name='use_balance']").attr('value', 0);
+        }
+
+        if ($("#use_score").is(':checked') == true) {
+            var score_money = score_deducte;
+            $("input[name='use_score']").attr('value', 1);
+        } else {
+            var score_money = 0;
+            $("input[name='use_score']").attr('value', 0);
+        }
+
+        if ($('#use_tcion').is(':checked') == true) {
+            var tcion_money = tcion_deducte;
+            $('input[name=use_tcion]').attr('value', 1);
+        } else {
+            var tcion_money = 0;
+            $('input[name=use_tcion]').attr('value', 0);
+        }
+
+        if (money == 0) {
+            $('#need_pay_title').css('display', 'none');
+        } else {
+            $('#need_pay_title').css('display', 'block');
+        }
+        if (!pay_title) { //弹出来的支付方式
+            $('#system_coupon').html(system_coupon_html);
+            $('#mer_coupon').html(mer_coupon_html);
+            $('#balanceBox').css('margin-bottom', '+60px');
+            $('#normal-fieldset').css('display', 'none');
+            $('#normal-fieldset input[type="radio"]').removeAttr('checked');
+
+        } else {
+            $('#balanceBox').css('margin-bottom', '0px');
+            if ($('#normal-fieldset').css('display') == 'none') {
+                $('#normal-fieldset input[type="radio"]:first').attr('checked', 'checked');
+            }
+            $('#normal-fieldset').css('display', 'block');
+
+        }
+        if (!use_merchant_money) {
+            $('#merchant_money').css('color', '#C1B9B9');
+            $('#use_merchant_money').removeAttr('checked');
+            $('#use_merchant_money').attr('disabled', 'disabled');
+            $("input[name='use_merchant_balance']").attr('value', 0);
+        } else {
+            if (merchant_money > 0) {
+                $('#merchant_money').css('color', '#666666');
+                $('#use_merchant_money').removeAttr('disabled');
+            } else {
+                $("input[name='use_merchant_balance']").attr('value', 0);
+            }
+        }
+        if (!use_score) {
+            $("input[name='use_score']").attr('value', 0);
+            $('#score_money').css('color', '#C1B9B9');
+            $('#use_score').removeAttr('checked');
+//				$('#use_score').attr('disabled','disabled');
+        } else {
+            if (score_deducte > 0) {
+                $('#score_money').css('color', '#666666');
+                $('#use_score').removeAttr('disabled');
+            } else {
+                $('.mt .score_money').css('display', 'none');
+                $("input[name='use_score']").attr('value', 0);
+            }
+        }
+
+        if (!use_tcion) {
+            $("input[name='use_tcion']").attr('value', 0);
+            $('#tcion_money').css('color', '#C1B9B9');
+            $('#use_tcion').removeAttr('checked');
+//                $('#use_tcion').attr('disabled','disabled');
+        } else {
+            if (tcion_deducte > 0) {
+                $('#tcion_money').css('color', '#666666');
+                $('#use_tcion').removeAttr('disabled');
+            } else {
+                $('.mt .tcion_money').css('display', 'none');
+                $("input[name='tcion_score']").attr('value', 0);
+            }
+        }
+
+        if (!use_balance) {
+            $("input[name='use_balance']").attr('value', 0);
+            $('#balance_money').css('color', '#C1B9B9');
+            $('#use_balance').removeAttr('checked');
+            $('#use_balance').attr('disabled', 'disabled');
+        } else {
+            if (now_money > 0) {
+                $('#balance_money').css('color', '#666666');
+                $('#use_balance').removeAttr('disabled');
+            } else {
+                $("input[name='use_balance']").attr('value', 0);
+            }
+        }
+        $('.need-pay').html(Number(money).toFixed(2));
+        var extra_price_str = '';
+
+        if (total_money - score_money - sysc_price < 0) {
+            $('#pay_in_fact').html('实付款 0 元' + extra_price_str);
+        } else {
+            if (open_extra_price == 1 && score_money > 0) {
+                extra_price_str = $('input[name="score_change"]').val() + '元宝';
+                $('#pay_in_fact').html('实际支付：<b style="color:#fd4915">￥' + (total_money - sysc_price - score_money).toFixed(2) + '+' + extra_price_str + '</b>');
+            } else {
+                var pay_infact_ = (total_money - sysc_price).toFixed(2);
+                if (pay_infact_ < 0) {
+                    pay_infact_ = 0;
+                }
+                $('#pay_in_fact').html('实际支付：<b style="color:#fd4915">￥' + pay_infact_ + '</b>');
+            }
+
+        }
+        var pay_score = 0
+        if ($("#use_score").is(':checked') == true) {
+
+            var pay_score = $('input[name="score_change"]').val();
+        }
+        get_score(pay_score);
+    }
+
+    function get_score(pay_score) {
+        var give_score = 0;
+        if (pay_score == extra_price) {
+            give_score = 0;
+        } else if (order_type == 'cash' || order_type == 'store') {
+            give_score = (total_money * score_get_percent.toFixed(2));
+        } else if (pay_score == 0 && extra_price > 0) {
+            give_score = (total_money * score_get_percent.toFixed(2));
+        } else if (pay_score < extra_price) {
+            give_score = extra_price - pay_score;
+        }
+        $('#give_score').html('可获得' + give_score + extra_price_name)
+    }
+
+    /**
+     * 检查金额
+     * @param total_money   订单金额
+     * @param sysc_price    优惠金额
+     * @param merchant_money    商家金额
+     */
+    function check_money(total_money, sysc_price, merchant_money) {
+        if (total_money > 0) {
+            //使用商家余额
+            if ($('#use_merchant_money').is(':checked') == true) {
+                $("input[name='use_merchant_balance']").attr('value', 1);
+                // 如果优惠金额大于0
+                if (sysc_price > 0) {
+                    var total_money_tmp = total_money - sysc_price;
+                    if ($("#use_balance").is(':checked') == true) {
+                        var score_flag = 0;
+                        if ($("#use_score").is(':checked') == true) {
+                            total_money_tmp -= score_deducte;
+                            total_money_tmp = total_money_tmp.toFixed(2);
+                            score_flag = 1;
+                        }
+                        if (total_money_tmp == 0) {
+                            show_money(0, 1, 0, 0, 0);
+                        } else {
+                            var flag = 0;
+                            if ($('#use_tcion').is(':checked') == true) {
+                                total_money_tmp -= tcion_deducte;
+                                total_money_tmp = total_money_tmp.toFixed(2);
+                                flag = 1;
+                            }
+                            if (total_money_tmp == 0) {
+                                show_money(0, score_flag, 0, 0, 0, 1);
+                            } else {
+                                if (merchant_money >= total_money_tmp) {
+                                    show_money(1, score_flag, 0, 0, 0, flag); // 显示 积分，余额，支付方式
+                                } else if (now_money >= total_money_tmp - merchant_money) {
+                                    show_money(1, score_flag, 1, 0, 0, flag); //
+                                } else if (now_money == 0) {
+                                    show_money(1, score_flag, 0, 1, total_money_tmp - merchant_money, flag);
+                                } else {
+                                    show_money(1, score_flag, 1, 1, total_money_tmp - merchant_money - now_money, flag);
+                                }
+                            }
+                        }
+                    } else {
+                        var flag = 0;
+                        if ($("#use_score").is(':checked') == true) {
+                            total_money_tmp -= score_deducte;
+                            total_money_tmp = total_money_tmp.toFixed(2);
+                            flag = 1;
+                        }
+
+                        if (total_money_tmp == 0) {
+                            show_money(0, 1, 0, 0, 0, 0);
+                        } else {
+                            var tcion_flag = 0;
+                            if ($('#use_tcion').is(':checked') == true) {
+                                tcion_flag = 1;
+                                total_money_tmp -= tcion_deducte;
+                                total_money_tmp = total_money_tmp.toFixed(2);
+                            }
+                            if (total_money_tmp == 0) {
+                                show_money(0, flag, 0, 0, 0, 1);
+                            } else {
+                                if (merchant_money >= total_money_tmp) {
+                                    show_money(1, flag, 0, 0, 0, tcion_flag);
+                                } else {
+                                    if (now_money == 0) {
+                                        show_money(1, flag, 0, 1, total_money_tmp - merchant_money, tcion_flag);
+                                    } else {
+                                        show_money(1, flag, 1, 1, total_money_tmp - merchant_money, tcion_flag);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if (total_money_tmp < 0) {
+                        show_money(0, 0, 0, 0, 0, 0);
+                    }
+
+                } else { //不使用系统优惠券
+
+                    var total_money_tmp = total_money;
+
+                    if ($("#use_balance").is(':checked') == true) {
+                        var score_flag = 0
+                        if ($("#use_score").is(':checked') == true) {
+                            total_money_tmp -= score_deducte;
+                            total_money_tmp = total_money_tmp.toFixed(2);
+                            score_flag = 1;
+                        }
+
+                        if (total_money_tmp == 0) {
+                            show_money(0, score_flag, 0, 0, 0, 0);
+                        } else {
+                            var tcion_flag = 0;
+                            if ($('#use_tcion').is(':checked') == true) {
+                                total_money_tmp -= tcion_deducte;
+                                total_money_tmp = total_money_tmp.toFixed(2);
+                                tcion_flag = 1;
+                            }
+                            if (total_money_tmp == 0) {
+                                show_money(0, score_flag, 0, 0, 0, 1)
+                            } else {
+                                if (merchant_money >= total_money_tmp) {
+                                    show_money(1, score_flag, 0, 0, 0, tcion_flag);
+                                } else if (now_money >= total_money_tmp - merchant_money) {
+                                    show_money(1, score_flag, 1, 0, 0, tcion_flag);
+                                } else if (now_money == 0) {
+                                    show_money(1, score_flag, 0, 1, total_money_tmp - merchant_money, tcion_flag);
+                                } else {
+                                    show_money(1, score_flag, 1, 1, total_money_tmp - merchant_money - now_money, tcion_flag);
+                                }
+                            }
+                        }
+                    } else {
+                        var score_flag = 0;
+                        if ($("#use_score").is(':checked') == true) {
+                            total_money_tmp -= score_deducte;
+                            total_money_tmp = total_money_tmp.toFixed(2);
+                            score_flag = 1;
+                        }
+                        if (total_money_tmp == 0) {
+                            show_money(0, score_flag, 0, 0, 0, 0);
+                        } else {
+                            var tcion_flag = 0;
+                            if ($("#use_tcion").is(':checked') == true) {
+                                total_money_tmp -= score_deducte;
+                                total_money_tmp = total_money_tmp.toFixed(2);
+                                tcion_flag = 1;
+                            }
+
+                            if (total_money_tmp == 0) {
+                                show_money(0, score_flag, 0, 0, 0, 1);
+                            } else {
+                                if (merchant_money >= total_money_tmp) {
+                                    show_money(1, score_flag, 0, 0, 0, tcion_flag);
+                                } else {
+                                    if (now_money == 0) {
+                                        show_money(1, score_flag, 0, 1, total_money_tmp - merchant_money, tcion_flag);
+                                    } else {
+                                        show_money(1, score_flag, 1, 1, total_money_tmp - merchant_money, tcion_flag);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } else {
+                //不使用商家余额
+                $("input[name='use_merchant_balance']").attr('value', 0);
+                if (sysc_price > 0) { //使用系统优惠券
+                    var total_money_tmp = total_money - sysc_price;
+
+                    if ($("#use_balance").is(':checked') == true) {
+                        var score_flag = 0;
+                        if ($("#use_score").is(':checked') == true) {
+                            total_money_tmp -= score_deducte;
+                            total_money_tmp = total_money_tmp.toFixed(2)
+                            score_flag = 1;
+                        }
+                        if (total_money_tmp == 0) {
+                            show_money(0, 1, 0, 0, 0);
+                        } else {
+                            var tcion_flag = 0;
+                            if ($('#use_tcion').is(':chcked') == true) {
+                                total_money_tmp -= score_deducte;
+                                total_money_tmp = total_money_tmp.toFixed(2);
+                                tcion_flag = 1;
+                            }
+                            if (total_money_tmp == 0) {
+                                show_money(0, score_flag, 0, 0, 0, tcion_flag);
+                            } else {
+                                if (now_money >= total_money_tmp) {
+                                    show_money(1, score_flag, 1, 0, 0, tcion_flag);
+                                } else if (now_money == 0) {
+                                    show_money(1, score_flag, 0, 1, total_money_tmp, tcion_flag);
+                                } else {
+                                    show_money(1, score_flag, 1, 1, total_money_tmp - now_money, tcion_flag);
+                                }
+                            }
+                        }
+                    } else {
+                        var score_flag = 0;
+                        if ($("#use_score").is(':checked') == true) {
+                            total_money_tmp -= score_deducte;
+                            total_money_tmp = total_money_tmp.toFixed(2)
+                            score_flag = 1;
+                        }
+                        if (total_money_tmp == 0) {
+                            show_money(0, 1, 0, 0, 0, 0);
+                        } else {
+                            var tcion_flag = 0;
+                            if ($('#use_tcion').is(':chcked') == true) {
+                                total_money_tmp -= score_deducte;
+                                total_money_tmp = total_money_tmp.toFixed(2);
+                                tcion_flag = 1;
+                            }
+                            if (total_money_tmp == 0) {
+                                show_money(0, score_flag, 0, 0, 0, tcion_flag);
+                            } else {
+                                if (now_money == 0) {
+                                    show_money(1, score_flag, 0, 1, total_money_tmp, tcion_flag);
+                                } else {
+                                    show_money(1, score_flag, 1, 1, total_money_tmp, tcion_flag);
+                                }
+                            }
+                        }
+                    }
+                    if (total_money_tmp < 0) {
+                        show_money(0, 0, 0, 0, 0);
+                    }
+                } else { //不使用系统优惠券
+                    var total_money_tmp = total_money;
+
+                    if ($("#use_balance").is(':checked') == true) {
+                        var score_flag = 0;
+                        if ($("#use_score").is(':checked') == true) {
+                            total_money_tmp -= score_deducte;
+                            total_money_tmp = total_money_tmp.toFixed(2);
+                            score_flag = 1;
+                        }
+                        if (total_money_tmp == 0) {
+                            show_money(0, 1, 0, 0, 0, 0);
+                        } else {
+                            var tcion_flag = 0;
+                            if ($("#use_tcion").is(':checked') == true) {
+                                total_money_tmp -= tcion_deducte;
+                                total_money_tmp = total_money_tmp.toFixed(2);
+                                tcion_flag = 1;
+                            }
+                            if (total_money_tmp == 0) {
+                                show_money(0, score_flag, 0, 0, 0, tcion_flag);
+                            } else {
+                                if (now_money >= total_money_tmp) {
+                                    show_money(0, score_flag, 1, 0, 0, tcion_flag);
+                                } else if (now_money == 0) {
+                                    show_money(1, score_flag, 0, 1, total_money_tmp, tcion_flag);
+                                } else {
+                                    show_money(1, score_flag, 1, 1, total_money_tmp - now_money, tcion_flag);
+                                }
+                            }
+                        }
+                    } else {
+                        var score_flag = 0;
+                        if ($("#use_score").is(':checked') == true) {
+                            total_money_tmp -= score_deducte;
+                            total_money_tmp = total_money_tmp.toFixed(2);
+                            score_flag = 1;
+                        }
+                        if (total_money_tmp == 0) {
+                            show_money(0, score_flag, 0, 0, 0, 0);
+                        } else {
+                            var tcion_flag = 0;
+                            if ($("#use_tcion").is(':checked') == true) {
+                                total_money_tmp -= tcion_deducte;
+                                total_money_tmp = total_money_tmp.toFixed(2);
+                                tcion_flag = 1;
+                            }
+                            if (total_money_tmp == 0) {
+                                show_money(0, score_flag, 0, 0, 0, 1);
+                            } else {
+                                if (now_money == 0) {
+                                    show_money(1, score_flag, 0, 1, total_money_tmp, tcion_flag);
+                                } else {
+                                    show_money(1, score_flag, 1, 1, total_money_tmp, tcion_flag);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            show_money(0, 0, 0, 0, 0, 0); //积分，商家余额，余额都隐藏
+        }
+    }
+
+    var twice_verify = false;            </script>
+
+<script language="javascript">
+    function bio_verify() {
+        layer.open({type: 2, content: '页面加载中', shadeClose: false});
+        var pay_type = $('input:radio:checked').val();
+        $("button.mj-submit").attr("disabled", "disabled");
+        $("button.mj-submit").html("正在处理...");
+        var use_score = $("input[name='use_score']").val();
+        var use_balance = $("input[name='use_balance']").val();
+        //var  merchant_money = Number("0");
+        if (twice_verify && (merchant_money != 0 || use_balance == 1 || use_score == 1)) {
+            if (typeof(wxSdkLoad) != "undefined") {
+                wx.invoke('getSupportSoter', {}, function (res) {
+                    if (res.support_mode == '0x01') {
+                        wx.invoke('requireSoterBiometricAuthentication', {
+                            auth_mode: '0x01',
+                            challenge: 'test',
+                            auth_content: '请将指纹验证'  //指纹弹窗提示
+                        }, function (res) {
+                            if (res.err_code == 0 && pay_type == 'weixin') {
+                                callpay();
+                            } else if (res.err_code == 0) {
+                                layer.closeAll();
+                                $('#pay-form').submit();
+                            } else if (res.err_code == 90009) {
+                                layer.closeAll();
+                                $('#pwd_bg').css('display', 'block');
+                                $('#pwd_verify').css('display', 'block');
+                            } else {
+                                alert(res.err_code);
+                                $("button.mj-submit").removeAttr("disabled");
+                                $("button.mj-submit").html("确认支付");
+                            }
+                        })
+                    } else {
+                        // 密码验证
+                        layer.closeAll();
+                        $('#pwd_bg').css('display', 'block')
+                        $('#pwd_verify').css('display', 'block')
+                    }
+                })
+            } else {
+                layer.closeAll();
+                $('#pwd_bg').css('display', 'block');
+                $('#pwd_verify').css('display', 'block');
+            }
+
+        } else {
+            layer.closeAll();
+            var res = callpay();
+            if (res) {
+                $('#pay-form').submit();
+            }
+        }
+    }
+
+    //微信弹程支付
+    function callpay() {
+        var pay_type = $('input:radio:checked').val();
+        if (typeof(pay_type) != 'undefined') {
+            if (pay_type != 'weixin') {
+                return true;
+            } else if (pay_type == 'weixin') {
+                var orderid_info = null;
+                var pay_money = need_pay;
+                var short_orderid = 171;
+                $("button.mj-submit").attr("disabled", "disabled");
+                $("button.mj-submit").html("正在处理...");
+                var param;
+                $.ajax({
+                    url: "/wap.php?g=Wap&c=Pay&a=go_pay",
+                    type: 'POST',
+                    dataType: 'json',
+                    data: $('#pay-form').serialize(),
+                    beforeSend: function () {
+                        layer.open({type: 2, content: '支付加载中', shadeClose: false});
+                    },
+                    success: function (date) {
+                        layer.closeAll();
+                        if (date.error == 0) {
+                            param = date.weixin_param;
+                            WeixinJSBridge.invoke("getBrandWCPayRequest", param, function (res) {
+                                WeixinJSBridge.log(res.err_msg);
+                                if (res.err_msg == "get_brand_wcpay_request:cancel") {
+                                    window.location.reload();
+                                } else if (res.err_msg == "get_brand_wcpay_request:ok") {
+                                    setTimeout("window.location.href = '" + date.redirctUrl + "'", 200);
+                                } else {
+                                    $("button.mj-submit").removeAttr("disabled");
+                                    $("button.mj-submit").html("确认支付");
+                                }
+                            });
+                        } else {
+                            layer.open({title: ['调用微信支付发生错误：'], content: date.info});
+                            $("button.mj-submit").removeAttr("disabled");
+                            $("button.mj-submit").html("确认支付");
+                        }
+                    }
+                });
+                return false;
+            }
+        } else {
+            return true;
+        }
+    }
+
+
+</script>
+
+<script>layer.open({type: 2, content: '页面加载中', shadeClose: false});</script>
+<div id="tips" class="tips"></div>
+<header class="public-header border-b">
+    <div class="header-box">
+        <a href="javascript:history.go(-1);" class="back-box"><i class="icon-back"></i></a>
+        <h4 class="title">确认订单</h4>
+    </div>
+</header>
+
+<div class="wrapper-list">
+    <dl class="list">
+        <dd>
+            <dl>
+                <dd class="kv-line-r dd-padding">
+                    <img src="./确认订单_files/59db2f44cdee8427.jpg" style="width:80px;height:80px;">
+                    <div>
+                        <p style="margin-left: 20px;">开心猫老火锅</p>
+                        <p style="margin-left: 20px;margin-top: 5px;">羊肉 (小份) ￥50.00 *1</p>
+                    </div>
+                </dd>
+                <dd class="kv-line-r dd-padding">
+                    <h6>订单总计</h6>
+                    <p><b style="color:#fd4915">￥50.00 </b></p>
+                </dd>
+            </dl>
+        </dd>
+    </dl>
+    <div id="balanceBox" style="margin-bottom: 60px;">
+        <h4>结算信息</h4>
+        <dl class="list">
+            <dd>
+                <dl>
+                    <dd class="kv-line-r dd-padding">
+                        <h6>会员卡折扣</h6>
+                        <p style="color:#fd4915;">9折</p>
+                    </dd>
+
+                    <dd id="mer_coupon">
+                        <a class="react">
+                            <div class="more more-weak">
+                                <h6>商家优惠券</h6>
+                                <span class="more-after">无可用优惠券</span>
+                            </div>
+                        </a>
+                    </dd>
+                    <dd id="system_coupon">
+
+                        <a class="react">
+                            <div class="more more-weak">
+                                <h6>平台优惠券</h6>
+                                <span class="more-after">无可用优惠券</span>
+                            </div>
+                        </a>
+                    </dd>
+
+                    <dd class="dd-padding" id="score_money" style="color: rgb(193, 185, 185);">
+                        <label class="mt">
+                                        <span id="score_label">本单可使用T币
+                                            <font color="#fd4915">0个</font>,可抵扣金额
+                                            <font color="#fd4915">￥0</font>
+                                        </span>
+                            <span class="pay-wrapper">
+                                            <input type="checkbox" class="mt" value="0" id="use_tcion" name="use_tcion"
+                                                   disabled="disabled">
+                                            <p style="display:block;float:right;"></p>
+                                        </span>
+                        </label>
+                    </dd>
+
+                    <dd class="dd-padding" id="balance_money" style="color: rgb(102, 102, 102);">
+                        <label class="mt"><span class="pay-wrapper">使用余额支付<br><font
+                                color="#fd4915">可用余额￥96.3</font><input type="checkbox" class="mt" id="use_balance"
+                                                                       name="use_balance" value="1"
+                                                                       checked="checked"></span></label>
+                    </dd>
+                    <dd class="dd-padding" id="balance_money">
+                        <!--<label class="mt" id="score_money_title" style="display:none"><span class="pay-wrapper"></span></label>-->
+                        <label class="mt">
+                            <span style="float: right;" class="pay-wrapper" id="pay_in_fact">实际支付：<b
+                                    style="color:#fd4915">￥45.00</b></span>
+                            <br><span class="pay-wrapper"
+                                      style="float: right;font-size:10px;color:#ccc9c9;margin-top:2px">(运费不参与打折)</span></label>
+                    </dd>
+                </dl>
+            </dd>
+        </dl>
+    </div>
+
+    <form action="http://w.t.tuanzhuanw.com/source/wap.php?g=Wap&amp;c=Pay&amp;a=go_pay&amp;showwxpaytitle1=1"
+          method="POST" id="pay-form" class="pay-form">
+        <input type="hidden" name="order_id" value="171">
+        <input type="hidden" name="order_type" value="shop">
+        <input type="hidden" name="card_id" value="">
+        <input type="hidden" name="coupon_id" value="">
+        <!-- 这里要判断一下,只能在物业费使用积分. -->
+        <input type="hidden" name="use_score" value="0">
+        <input type="hidden" name="use_tcion" value="0">
+        <input type="hidden" name="tcion_used_count" value="0">
+        <input type="hidden" name="tcion_deducte" value="0">
+        <input type="hidden" name="tcion_count" value="0.00000">
+        <input type="hidden" name="use_balance" value="1">
+        <input type="hidden" name="score_used_count" value="45">
+        <input type="hidden" name="score_deducte" value="45">
+        <input type="hidden" name="score_count" value="2000">
+        <input type="hidden" name="use_merchant_balance" value="0">
+        <input type="hidden" name="merchant_balance" value="0">
+        <input type="hidden" name="balance_money" value="96.3">
+
+
+        <div id="pay-methods-panel" class="pay-methods-panel">
+            <div id="normal-fieldset" class="normal-fieldset" style="height: 100%;display:none;margin-bottom: 60px;">
+                <h4 style="margin: .3rem .2rem .2rem;">选择支付方式</h4>
+                <dl class="list">
+                    <dd class="dd-padding">
+                        <label class="mt"><i class="bank-icon icon-alipay"></i><span class="pay-wrapper">支付宝支付<input
+                                type="radio" class="mt" value="alipay" name="pay_type"></span></label>
+                    </dd>
+                    <dd class="dd-padding">
+                        <label class="mt"><i class="bank-icon icon-offline"></i><span class="pay-wrapper">线下支付<input
+                                type="radio" class="mt" value="offline" name="pay_type"></span></label>
+                    </dd>
+                    <dd class="dd-padding">
+                        <label class="mt"><i class="bank-icon icon-tenpay"></i><span class="pay-wrapper">财付通支付<input
+                                type="radio" class="mt" value="tenpay" name="pay_type"></span></label>
+                    </dd>
+                    <dd class="dd-padding">
+                        <label class="mt"><i class="bank-icon icon-yeepay"></i><span
+                                class="pay-wrapper">银行卡支付（易宝支付）<input type="radio" class="mt" value="yeepay"
+                                                                      name="pay_type"></span></label>
+                    </dd>
+                    <dd class="dd-padding">
+                        <label class="mt"><i class="bank-icon icon-allinpay"></i><span
+                                class="pay-wrapper">银行卡支付（通联支付）<input type="radio" class="mt" value="allinpay"
+                                                                      name="pay_type"></span></label>
+                    </dd>
+                    <dd class="dd-padding">
+                        <label class="mt"><i class="bank-icon icon-baidu"></i><span class="pay-wrapper">百度钱包支付<input
+                                type="radio" class="mt" value="baidu" name="pay_type"></span></label>
+                    </dd>
+                </dl>
+            </div>
+
+            <div style="background-color: #FFFFFF; height: 53px;position: fixed;bottom: 0;left: 0;right: 0;z-index: 900;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);height: 49px;width: 100%;">
+                <div id="need_pay_title"
+                     style="position: absolute; margin-top: 18px; margin-left: 0.3rem; display: none;">
+                    还需在线支付
+                    <div style="font-weight:bold;color:#fd4915;display: inline;">￥
+                        <div class="need-pay" style="display:inline;">0.00</div>
+                    </div>
+                </div>
+                <button type="button" onclick="bio_verify()"
+                        style="float: right;height: 100%;width: 50%;background-color: #fd4915;color: #fff;border: none;">
+                    确认支付
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<link href="./确认订单_files/check.css" rel="stylesheet">
+<div id="pwd_bg" style="height: 921px;">
+
+</div>
+<div id="pwd_verify" class="pwd_verify" style="display:none">
+    <div class="pwd_menu">
+        <span class="cancle"><img src="./确认订单_files/twice_cancel.png"></span>
+        <p>密码验证</p>
+    </div>
+    <input type="hidden" id="pwd_type" name="type" value="1">
+    <div class="verify_pwd">
+        <p class="tips"></p>
+        <input type="password" autocomplete="off" id="pwd" placeholder="输入登录密码" name="pwd" value="">
+        <a id="forget_pwd" href="http://w.t.tuanzhuanw.com/wap.php?g=Wap&amp;c=Login&amp;a=forgetpwd"><p
+                class="forget_pwd">忘记密码?</p></a>
+    </div>
+    <div class="verify_sms" style="display:none;">
+        <span style="color:#5E5E5E;font-size: 12px;">验证码将发送您手机：</span><span id="verify_phone"
+                                                                            style="color:#006600;font-size: 12px;"></span>
+        <input type="text" name="sms_code" autocomplete="off" placeholder="输入验证码" value="">
+        <button onclick="sendsms(this)">发送短信</button>
+        <p></p>
+    </div>
+    <div class="verify_button" id="verify">
+        <p>验证</p>
+    </div>
+</div>
+<!-- 加 -->
+<style type="text/css">
+    .verify_jg {
+        display: inline-block;
+        height: 27px;
+        padding: 50px 0;
+    }
+
+    .verify_l {
+        float: left;
+        line-height: 27px;
+        color: #fd4915
+    }
+
+    .verify_lspan {
+        font-size: 20px;
+        float: left;
+    }
+
+    .verify_lspan1 {
+        margin: 0 5px;
+        float: left;
+    }
+
+    .plus {
+        float: left;
+    }
+
+    .plus a {
+        width: 30px;
+        float: left;
+        height: 25px;
+        border: #e5e5e5 1px solid;
+        text-align: center;
+        color: #232326;
+        font-size: 20px;
+        line-height: 25px;
+        font-family: "Arial";
+    }
+
+    .plus input {
+        width: 80px;
+        text-align: center;
+        float: left;
+        border: #e5e5e5 1px solid;
+        border-left: none;
+        border-right: none;
+        height: 25px;
+        font-size: 14px;
+        border-radius: 0px;
+        font-size: 16px;
+        color: #fd4915;
+    }
+</style>
+
+<div class="pwd_verify" style="display: none;" id="change_score">
+    <div class="pwd_menu">
+        <span class="cancle"><img src="./确认订单_files/twice_cancel.png"></span>
+        <p>积分修改</p>
+    </div>
+    <div class="verify_pwd">
+        <p class="tips"></p>
+        <div class="verify_jg">
+            <div class="verify_l">
+                <span class="verify_lspan">￥45</span>
+                <span class="verify_lspan1">+</span>
+            </div>
+            <div class="plus">
+                <a href="javascript:void(0)" class="jian">-</a>
+                <input type="text" id="score_value" name="score_change" value="45">
+                <a href="javascript:void(0)" class="jia">+</a>
+            </div>
+        </div>
+    </div>
+    <div class="verify_button" id="score_sure" style="background-color: #06c1ae;color: #fff;">
+        <p style="color: #fff;">确定</p>
+    </div>
+</div>
+<!-- 加 -->
+<script src="./确认订单_files/common_wap.js.下载"></script>
+<script src="./确认订单_files/bioauth_.js.下载"></script>
+
+<script>
+    if ($('#balanceBox dd dl dd').size() == 0) {
+        $('#balanceBox').hide();
+    }
+    layer.closeAll();
+    var showBuyBtn = true;
+</script>
+<script>if (showBuyBtn) {
+    $('button.mj-submit').show();
+}</script>
+<link href="./确认订单_files/footer.css" rel="stylesheet">
+<div style="height:10px"></div>
+<div class="top-btn"><a class="react"><i class="text-icon">⇧</i></a></div>
+<div style="display:none;">房计划社区|团转到家
+    渝ICP备13017155号-1
+</div>
+
+
+</body>
+</html>

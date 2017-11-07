@@ -102,9 +102,9 @@
     <div class="advert">
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">Slide 1</div>
-                <div class="swiper-slide">Slide 2</div>
-                <div class="swiper-slide">Slide 3</div>
+                <div class="swiper-slide"><img src="../../images/img/1.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="../../images/img/1.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="../../images/img/1.jpg" alt=""></div>
             </div>
         </div>
     </div>
@@ -136,8 +136,9 @@
 
     <div class="shops">
         <div class="title clearfix"><span>附近商铺</span><em><i>·</i>附近优质商家推荐</em></div>
-        <div class="shop-list">
 
+        <div class="shop-list">
+            <div class="shop-loading">正在加载中.....</div>
             <a class="shops-item" href="#">
                 <div class="shop-img">
                     <img src="" alt="img">
@@ -387,6 +388,7 @@
             </a>
         </div>
     </div>
+
 </section>
 
 <footer>
@@ -430,7 +432,13 @@
 <!--<script src="../../js/common/animate.js"></script>-->
 <script>
     var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination1',
         loop: true,
+        grabCursor: true,
+        paginationClickable: true,
+        autoplay: 3000,
+        autoplayDisableOnInteraction: false,
+        simulateTouch: false,
         width: window.innerWidth,
         height: window.innerHeight
     });

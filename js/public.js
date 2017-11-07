@@ -179,5 +179,24 @@ function message(tips) {
         $msgbox.fadeOut("slow", function () {
             $(this).remove();
         });
-    }, 600)
+    }, 600);
+}
+
+function notice(el, tips) {
+    var msgbox = document.createElement('div');
+    msgbox.id = 'msgbox';
+    $('section').append(msgbox);
+
+    var $msgbox = $('#msgbox');
+    $msgbox.html(tips);
+    var left = ($msgbox.outerWidth()) / 2;
+    $msgbox.css('marginLeft', '-' + left + 'px');
+    $(el).addClass("disabled");
+    setTimeout(() => {
+
+        $msgbox.fadeOut("slow", function () {
+            $(this).remove();
+            $(el).removeClass("disabled");
+        });
+    }, 600);
 }

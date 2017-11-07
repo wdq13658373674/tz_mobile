@@ -2,12 +2,22 @@
 
 /*商城首页头部*/
 .search-bar{
-  .search{
+  .flex;
+  align-items: center;
+  .search-box {
+    display: block;
+    margin: auto auto;
     text-align: center;
+    padding-left: 54/@rem;
+    width: 626/@rem;
+    height: 68/@rem;
+    line-height: 68/@rem;
+    border-radius: 8/@rem;
     font-size: 24/@rem;
     color: #bbbbbb;
     background: #ffffff url("../images/icon/icon-search.svg") no-repeat 172/@rem center;
     background-size: 25/@rem 25/@rem;
+    border: solid 1/@rem #bbbbbb;
   }
 }
 /*图片轮播*/
@@ -64,19 +74,21 @@
   }
 }
 /*搜索条*/
-.search{
-  display: block;
-  margin-left: 24/@rem;
-  padding-left: 54/@rem;
-  width: 626/@rem;
-  height: 68/@rem;
-  line-height: 68/@rem;
-  border-radius: 8/@rem;
-  background: #ffffff url("../images/icon/icon-search.svg") no-repeat 20/@rem center;
-  background-size: 25/@rem 25/@rem;
-  border: solid 1/@rem #bbbbbb;
-  font-size: 24/@rem;
-  color: #464646;
+.header-box {
+  .search {
+    display: block;
+    margin: 20/@rem auto;
+    padding-left: 54/@rem;
+    width: 510/@rem;
+    height: 68/@rem;
+    line-height: 68/@rem;
+    border-radius: 8/@rem;
+    background: #ffffff url("../images/icon/icon-search.svg") no-repeat 20/@rem center;
+    background-size: 25/@rem 25/@rem;
+    border: solid 1/@rem #bbbbbb;
+    font-size: 24/@rem;
+    color: #464646;
+  }
 }
 
 /*商品条件筛选*/
@@ -858,6 +870,20 @@
     .flex;
     align-items: center;
     justify-content: space-between;
+    .num {
+      height: 48/@rem;
+      width: 110/@rem;
+      line-height: 48/@rem;
+      border-left: 1/@rem solid #bbb;
+      border-right: 1/@rem solid #bbb;
+      text-align: center;
+      font-size: 20/@rem;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      -o-appearance: none;
+      appearance: none;
+      margin: 0;
+    }
     button {
       outline: 0;
       height: 48/@rem;
@@ -870,19 +896,6 @@
     }
     .disabled {
       color: #bbb;
-    }
-    input[type=number] {
-      height: 48/@rem;
-      width: 110/@rem;
-      border-left: 1/@rem solid #bbb;
-      border-right: 1/@rem solid #bbb;
-      text-align: center;
-      font-size: 20/@rem;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      -o-appearance: none;
-      appearance: none;
-      margin: 0;
     }
   }
 }

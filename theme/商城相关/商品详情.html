@@ -190,7 +190,7 @@
                         <label for="number">购买数量</label>
                         <div class="number">
                             <button class="decrease disabled">-</button>
-                            <input id="number" type="number" value="1">
+                            <span id="number" class="num">1</span>
                             <button class="increase">+</button>
                         </div>
                     </div>
@@ -481,7 +481,7 @@
         }
 
         /*商品数量*/
-        var goodsnum = Number($("#number").val());
+        var goodsnum = Number($("#number").text());
         var stock = Number($(".stockNum").text());
         $(".number .decrease").on("click", function () {
             if (goodsnum <= 1) {
@@ -493,7 +493,7 @@
                 goodsnum--;
             }
             buy_goods.count = goodsnum;
-            $("#number").val(goodsnum);
+            $("#number").text(goodsnum);
         });
 
         $(".number .increase").on("click", function () {
@@ -507,7 +507,7 @@
 
             }
             buy_goods.count = goodsnum;
-            $("#number").val(goodsnum);
+            $("#number").text(goodsnum);
         });
 
         $("#buy").on("click", function () {
