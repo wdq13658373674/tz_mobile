@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>index</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../../css/repair.css">
+    <link rel="stylesheet" href="../../css/datetime-picker.css">
+
+    <script type="text/javascript" src="../../js/fastclick.js"></script>
+    <script type="text/javascript" src="../../js/public.js"></script>
+
+
+    <title>我要充值</title>
+</head>
+<body>
+<header class="public-header">
+    <div class="header-box">
+        <a href="#" class="back-box"><i class="icon-back"></i></a>
+        <h4 class="title">我要充值</h4>
+    </div>
+</header>
+
+<section class="main">
+    <div class="form-radius">
+        <form action="#">
+            <div class="form-control">
+                <div class="label">输入充值金额</div>
+                <input class="select platesNum" type="number" name="platesNum">
+            </div>
+            <div class="form-btn">
+                <button type="submit" class="btn-submit">我要充值</button>
+            </div>
+        </form>
+    </div>
+</section>
+<script src="../../js/zepto.min.js"></script>
+<script>
+    $('.btn-submit').click(function () {
+        var platesNum = $('.platesNum').val();
+        if (platesNum === '') {
+            alert('输入充值金额！');
+            return false;
+        }
+    })
+</script>
+</body>
+</html>

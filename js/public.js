@@ -191,12 +191,140 @@ function notice(el, tips) {
     $msgbox.html(tips);
     var left = ($msgbox.outerWidth()) / 2;
     $msgbox.css('marginLeft', '-' + left + 'px');
-    $(el).addClass("disabled");
+    $(el).addClass("dis");
     setTimeout(() => {
 
         $msgbox.fadeOut("slow", function () {
             $(this).remove();
-            $(el).removeClass("disabled");
+            $(el).removeClass("dis");
         });
     }, 600);
 }
+
+/*
+ * 获取验证码倒计时
+ * */
+var wait = 60,
+    t;
+
+function times() {
+    if (wait === 0) {
+        $("#send").removeClass("disabled").html("获取验证码");
+        wait = 60;
+        clearTimeout(t);
+    } else {
+        $("#send").addClass("disabled").html("重新获取(" + wait + "s)");
+        wait--;
+        t = setTimeout(function () {
+            times()
+        }, 1000)
+    }
+}
+
+/*修复Iscroll高版本安卓无法点击*/
+function iScrollClick() {
+    if (/iPhone|iPad|iPod|Macintosh/i.test(navigator.userAgent)) return false;
+    if (/Chrome/i.test(navigator.userAgent)) return (/Android/i.test(navigator.userAgent));
+    if (/Silk/i.test(navigator.userAgent)) return false;
+    if (/Android/i.test(navigator.userAgent)) {
+        var s = navigator.userAgent.substr(navigator.userAgent.indexOf('Android') + 8, 3);
+        return parseFloat(s[0] + s[3]) < 44 ? false : true
+    }
+}
+
+/* 简单的消息弹出层 */
+var motify = {
+    timer: null,
+    /*shade 为 object调用 show为true显示 opcity 透明度*/
+    log: function (msg, time, shade) {
+        $('.motifyShade,.motify').hide();
+        if (motify.timer) clearTimeout(motify.timer);
+        if ($('.motify').size() > 0) {
+            $('.motify').show().find('.motify-inner').html(msg);
+        } else {
+            $('body').append('<div class="motify" style="display:block;"><div class="motify-inner">' + msg + '</div></div>');
+        }
+        if (shade && shade.show) {
+            if ($('.motifyShade').size() > 0) {
+                $('.motifyShade').css({'background-color': 'rgba(0,0,0,' + (shade.opcity ? shade.opcity : '0.3') + ')'}).show();
+            } else {
+                $('body').append('<div class="motifyShade" style="display:block;background-color:rgba(0,0,0,' + (shade.opcity ? shade.opcity : '0.3') + ');"></div>');
+            }
+        }
+        if (typeof(time) == 'undefined') {
+            time = 3000;
+        }
+        if (time != 0) {
+            motify.timer = setTimeout(function () {
+                $('.motify').hide();
+            }, time);
+        }
+    },
+    clearLog: function () {
+        $('.motifyShade,.motify').hide();
+    },
+    checkMobile: function () {
+        if (/(iphone|ipad|ipod|android|windows phone)/.test(navigator.userAgent.toLowerCase())) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+    checkIos: function () {
+        if (/(iphone|ipad|ipod)/.test(navigator.userAgent.toLowerCase())) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+    checkAndroid: function () {
+        if (/(android)/.test(navigator.userAgent.toLowerCase())) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+    checkWeixin: function () {
+        if (/(micromessenger)/.test(navigator.userAgent.toLowerCase())) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+    checkApp: function () {
+        if (/(pigcmso2olifeapp)/.test(navigator.userAgent.toLowerCase()) || /(pigcmso2oreallifeapp)/.test(navigator.userAgent.toLowerCase())) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+    checkLifeApp: function () {
+        if ((/(pigcmso2olifeapp)/.test(navigator.userAgent.toLowerCase()) && /(life_app)/.test(navigator.userAgent.toLowerCase())) || /(pigcmso2oreallifeapp)/.test(navigator.userAgent.toLowerCase())) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+    getLifeAppVersion: function () {
+        var reg = /versioncode=(\d+),/;
+        var arr = reg.exec(navigator.userAgent.toLowerCase());
+        if (arr == null) {
+            return 0;
+        } else {
+            return parseInt(arr[1]);
+        }
+    },
+    getAndroidVersion: function () {
+        var index = navigator.userAgent.indexOf("Android");
+        if (index >= 0) {
+            var androidVersion = parseFloat(navigator.userAgent.slice(index + 8));
+            if (androidVersion > 1) {
+                return androidVersion;
+            } else {
+                return 100;
+            }
+        } else {
+            return 100;
+        }
+    }
+};

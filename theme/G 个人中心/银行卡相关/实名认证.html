@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>index</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link rel="stylesheet" href="../../../css/public.css">
+    <link rel="stylesheet" href="../../../css/realname.css">
+    <link rel="stylesheet" href="../../../css/validate.css">
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../../js/iscroll.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../../js/fastclick.js"></script>
+    <script type="text/javascript" src="../../../js/public.js"></script>
+
+
+    <title>实名认证</title>
+</head>
+<body class="public-bg">
+<header class="public-header header-nmb">
+    <div class="header-box">
+        <a href="#" class="back-box"><i class="icon-back"></i></a>
+        <h4 class="title">实名认证</h4>
+    </div>
+</header>
+
+<section class="public-bg scroller" id="container">
+    <div id="scroller">
+        <form action="#" id="myform">
+            <div class="form-group">
+                <div class="label">真实姓名</div>
+                <div class="form-input">
+                    <input type="text" name="realname" maxlength="19" placeholder="请输入 您的真实姓名" data-required="true"
+                           data-descriptions="realname">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">身份证号码</div>
+                <div class="form-input">
+                    <input type="text" name="IDCard" maxlength="18" placeholder="请输入您的身份证号码" data-descriptions="IDCard"
+                           data-required="true"
+                           data-pattern="^(^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$)|(^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])((\d{4})|\d{3}[Xx])$)$">
+                </div>
+            </div>
+            <div class="btn-box">
+                <button class="btn-block" type="submit">实名认证</button>
+            </div>
+        </form>
+
+    </div>
+</section>
+
+</body>
+<script src="../../../js/jquery-mvalidate.js"></script>
+<script>
+
+    $("#myform").mvalidate({
+        type: 1,
+        onKeyup: true,
+        sendForm: true,
+        firstInvalidFocus: true,
+        valid: function (event, options) {
+            //点击提交按钮时,表单通过验证触发函数
+            alert("验证通过！接下来可以做你想做的事情啦！");
+            event.preventDefault(); // 阻止提交  正式环境下请删除此行
+        },
+        invalid: function (event, status, options) {
+            //点击提交按钮时,表单未通过验证触发函数
+            // alert("表单未通过验证！");
+        },
+        eachField: function (event, status, options) {
+            //点击提交按钮时,表单每个输入域触发这个函数 this 执向当前表单输入域，是jquery对象
+            // alert("每个都弹出！");
+        },
+        eachValidField: function (val) {
+        },
+        eachInvalidField: function (event, status, options) {
+        },
+        conditional: {},
+        descriptions: {
+            realname: {
+                required: '请输入 您的真实姓名'
+            },
+            IDCard: {
+                required: '请输入身份号码',
+                pattern: '身份号码格式不正确'
+            }
+        }
+    });
+</script>
+
+<script>
+    var myScroll;
+    $(function () {
+        myScroll = new IScroll('#container', {
+            probeType: 3,
+            disableMouse: true,
+            disablePointer: true,
+            mouseWheel: false,
+            scrollX: false,
+            scrollY: true,
+            click: iScrollClick(),
+            scrollbars: false,
+            useTransform: false,
+            useTransition: false
+        });
+
+    });
+</script>
+</html>

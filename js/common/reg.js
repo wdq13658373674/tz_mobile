@@ -4,7 +4,7 @@
 /*
  * 获取验证码倒计时
  * */
-let wait = 60,
+var wait = 60,
     t;
 function times() {
     if (wait === 0) {

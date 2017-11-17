@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>index</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link rel="stylesheet" href="../../../css/public.css">
+    <link rel="stylesheet" href="../../../css/bank.css">
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../../js/iscroll.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../../js/fastclick.js"></script>
+    <script type="text/javascript" src="../../../js/public.js"></script>
+
+
+    <title>我的银行卡</title>
+</head>
+<body>
+<header class="public-header">
+    <div class="header-box">
+        <a href="#" class="back-box"><i class="icon-back"></i></a>
+        <h4 class="title">我的银行卡</h4>
+    </div>
+</header>
+
+<section class="scroller" id="container">
+    <div class="bank-container" id="scroller">
+
+        <!--无数据-->
+
+        <!--<div class="not-bank">-->
+        <!--<div class="icon-not-bank"></div>-->
+        <!--<p>您还没有绑定银行卡</p>-->
+        <!--</div>-->
+
+        <div class="block-bank-item">
+            <div class="bank-type">
+                <h4>建设银行</h4>
+                <p>储蓄卡</p>
+            </div>
+            <div class="bank-cardNumber">
+                <p class="cardNumber">************8482</p>
+                <a class="btn-del" href="javascript: void(0);">删除</a>
+            </div>
+        </div>
+
+        <div class="block-bank-item">
+            <div class="bank-type">
+                <h4>建设银行</h4>
+                <p>储蓄卡</p>
+            </div>
+            <div class="bank-cardNumber">
+                <p class="cardNumber">************8482</p>
+            </div>
+        </div>
+
+        <div class="block-bank-item">
+            <div class="bank-type">
+                <h4>建设银行</h4>
+                <p>储蓄卡</p>
+            </div>
+            <div class="bank-cardNumber">
+                <p class="cardNumber">************8482</p>
+            </div>
+        </div>
+
+        <div class="block-bank-item">
+            <div class="bank-type">
+                <h4>建设银行</h4>
+                <p>储蓄卡</p>
+            </div>
+            <div class="bank-cardNumber">
+                <p class="cardNumber">************8482</p>
+            </div>
+        </div>
+
+        <div class="block-bank-item">
+            <div class="bank-type">
+                <h4>建设银行</h4>
+                <p>储蓄卡</p>
+            </div>
+            <div class="bank-cardNumber">
+                <p class="cardNumber">************8482</p>
+            </div>
+        </div>
+
+        <div class="block-bank-item">
+            <div class="bank-type">
+                <h4>建设银行</h4>
+                <p>储蓄卡</p>
+            </div>
+            <div class="bank-cardNumber">
+                <p class="cardNumber">************8482</p>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="btn-bottom-box">
+    <a href="" class="btn-block">+添加银行卡</a>
+</div>
+</body>
+
+<script>
+
+    $(function () {
+        /*格式化银行卡号*/
+        $(".cardNumber").each(function () {
+            var cardNumber = $(this).text();
+            console.log(1111);
+            cardNumber = cardNumber.replace(/\s/g, '').replace(/(.{4})/g, "$1 ");
+            $(this).text(cardNumber);
+        });
+        var myScroll;
+        myScroll = new IScroll('#container', {
+            probeType: 3,
+            disableMouse: true,
+            disablePointer: true,
+            mouseWheel: false,
+            scrollX: false,
+            scrollY: true,
+            click: iScrollClick(),
+            scrollbars: false,
+            useTransform: false,
+            useTransition: false
+        });
+    });
+</script>
+</html>

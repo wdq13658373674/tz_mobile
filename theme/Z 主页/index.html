@@ -102,9 +102,9 @@
     <div class="advert">
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="../../images/img/1.jpg" alt=""></div>
-                <div class="swiper-slide"><img src="../../images/img/1.jpg" alt=""></div>
-                <div class="swiper-slide"><img src="../../images/img/1.jpg" alt=""></div>
+                <div class="swiper-slide" style="background-image: url('../../images/img/1.jpg');"></div>
+                <div class="swiper-slide" style="background-image: url('../../images/img/1.jpg');"></div>
+                <div class="swiper-slide" style="background-image: url('../../images/img/1.jpg');"></div>
             </div>
         </div>
     </div>
@@ -443,19 +443,19 @@
         height: window.innerHeight
     });
 
-    //    $(function () {
-    //        var rowupItem = $(".rowup-item"),
-    //            rowupItemWidth = rowupItem.eq(0).width();
-    //
-    //        function scroll() {
-    //            $(".rowup ul").animate({"left": -rowupItemWidth}, function () {
-    //                $(".rowup ul li:eq(0)").appendTo($(".rowup ul"));
-    //                $(".rowup ul").css({"left": 0})
-    //            })
-    //        }
-    //
-    //        setInterval(scroll, 2500);
-    //    })
+    $(function () {
+        var rowupItem = $(".rowup-item"),
+            rowupItemWidth = rowupItem.eq(0).width();
+
+        function scroll() {
+            $(".rowup ul").animate({"left": -rowupItemWidth}, function () {
+                $(".rowup ul li:eq(0)").appendTo($(".rowup ul"));
+                $(".rowup ul").css({"left": 0})
+            })
+        }
+
+        setInterval(scroll, 2500);
+    })
 </script>
 </body>
 </html>
