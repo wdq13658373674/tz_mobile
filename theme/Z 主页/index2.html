@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>index</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../../css/guide.css">
+    <script type="text/javascript" src="../../js/fastclick.js"></script>
+    <script type="text/javascript" src="../../js/public.js"></script>
+    <title>引导页面</title>
+</head>
+<body>
+<section class="container">
+    <div class="textbox">
+        <p class="openApp">点击按钮打开</p>
+        <p class="title">团转APP</p>
+        <p class="tips">足不出户，<br>
+            乐享舒适便捷生活。</p>
+    </div>
+    <div class="ydc-mask">
+        <div class="yd"></div>
+    </div>
+</section>
+</body>
+<script>
+    (function () {
+        var ydcMask = document.querySelector(".ydc-mask");
+        ydcMask.onclick = function () {
+            this.style.display = "none";
+        }
+    })(window || {})
+</script>
+</html>

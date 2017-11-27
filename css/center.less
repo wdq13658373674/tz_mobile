@@ -1,4 +1,14 @@
 @import "../cssControl/control";
+
+#container {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 123/@rem;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}
 /*头部*/
 .header {
   background-color: #fff;
@@ -19,7 +29,7 @@
     }
     p {
       margin-top: 6/@rem;
-      font-size: 26/@rem;
+      font-size: 28/@rem;
       color: #7b7b7b;
       .ellipsis-1();
     }
@@ -91,7 +101,7 @@
       }
       h4 {
         flex: 1;
-        font-size: 26/@rem;
+        font-size: 28/@rem;
         color: #ffffff;
         font-weight: normal;
       }
@@ -108,7 +118,7 @@
       h5 {
         flex: 1;
         margin-left: 11/@rem;
-        font-size: 24/@rem;
+        font-size: 28/@rem;
         font-weight: normal;
         color: #7b7b7b;
       }
@@ -147,7 +157,7 @@
   .title {
     .title();
     font-weight: normal;
-    font-size: 24/@rem;
+    font-size: 28/@rem;
   }
   .bill-block {
     margin-top: 20/@rem;
@@ -179,7 +189,7 @@
     a {
       position: relative;
       padding: 0 48/@rem;
-      font-size: 26/@rem;
+      font-size: 28/@rem;
       .flex();
       align-items: center;
     }
@@ -216,6 +226,79 @@
       top: 6/@rem;
       right: 48/@rem;
       background: url("../images/icon/icon-right.svg") no-repeat;
+      background-size: 100% 100%;;
+    }
+
+    .icon-village {
+      flex: 0 0 31/@rem;
+      width: 33/@rem;
+      height: 30/@rem;
+      margin-right: 23/@rem;
+      background: url("../images/icon/village.svg") no-repeat;
+      background-size: 100% 100%;;
+    }
+    .icon-pay {
+      flex: 0 0 31/@rem;
+      width: 32/@rem;
+      height: 32/@rem;
+      margin-right: 23/@rem;
+      background: url("../images/icon/icon-pay.svg") no-repeat;
+      background-size: 100% 100%;;
+    }
+    .icon-realname {
+      flex: 0 0 31/@rem;
+      width: 32/@rem;
+      height: 32/@rem;
+      margin-right: 23/@rem;
+      background: url("../images/icon/icon-realname.svg") no-repeat;
+      background-size: 100% 100%;;
+    }
+    .icon-order {
+      flex: 0 0 31/@rem;
+      width: 32/@rem;
+      height: 32/@rem;
+      margin-right: 23/@rem;
+      background: url("../images/icon/icon-order.svg") no-repeat;
+      background-size: 100% 100%;;
+    }
+    .icon-addr {
+      flex: 0 0 31/@rem;
+      width: 21/@rem;
+      height: 31/@rem;
+      margin-right: 23/@rem;
+      background: url("../images/icon/icon-addresss.svg") no-repeat;
+      background-size: 100% 100%;;
+    }
+    .icon-invitation {
+      flex: 0 0 31/@rem;
+      width: 21/@rem;
+      height: 31/@rem;
+      margin-right: 23/@rem;
+      background: url("../images/icon/icon-invitation.svg") no-repeat;
+      background-size: 100% 100%;;
+    }
+    .icon-repairs {
+      flex: 0 0 31/@rem;
+      width: 21/@rem;
+      height: 31/@rem;
+      margin-right: 23/@rem;
+      background: url("../images/icon/icon-repairs.svg") no-repeat;
+      background-size: 100% 100%;;
+    }
+    .icon-complaints {
+      flex: 0 0 31/@rem;
+      width: 21/@rem;
+      height: 31/@rem;
+      margin-right: 23/@rem;
+      background: url("../images/icon/icon-complaints.svg") no-repeat;
+      background-size: 100% 100%;;
+    }
+    .icon-property {
+      flex: 0 0 31/@rem;
+      width: 21/@rem;
+      height: 31/@rem;
+      margin-right: 23/@rem;
+      background: url("../images/icon/icon-property-phone.svg") no-repeat;
       background-size: 100% 100%;;
     }
   }

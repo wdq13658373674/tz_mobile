@@ -17,6 +17,23 @@
     <script type="text/javascript" src="../../../js/fastclick.js"></script>
     <script type="text/javascript" src="../../../js/public.js"></script>
     <title>登录</title>
+    <style>
+        #msg {
+            position: absolute;
+            padding: 0.2rem;
+            border-radius: .1rem;
+            color: #fff;
+            background: rgba(0, 0, 0, .8);
+            left: 50%;
+            display: none;
+        }
+
+        .dis {
+            pointer-events: none;
+            cursor: default;
+            opacity: 0.6;
+        }
+    </style>
 </head>
 <body>
 <section class="ls-public">
@@ -26,7 +43,7 @@
     <div class="form">
         <form id="form" action="#">
             <div class="form-control">
-                <input id="phone" class="ipt user-name" name="username" type="number" placeholder="手机号码"
+                <input id="phone" class="ipt user-name" name="phone" type="number" placeholder="手机号码"
                        data-validate="phone" maxlength="11" data-describedby="phone-description">
                 <span class="reset-input">X</span>
             </div>
@@ -45,43 +62,29 @@
 <script src="../../../js/jquery-3.2.1.min.js"></script>
 <script src="../../../js/jquery-mvalidate.js"></script>
 <script>
-    $(function () {
-        $(".user-name").on("keydown", function () {
-            $(".reset-input").css("display", "block");
-        });
+    $('#form').submit(function () {
+        var phone = $.trim($('#phone').val());
+        if (phone.length == 0) {
+            msg('请输入手机号码');
+            $('#tips').html('请输入手机号码。').show();
+            return false;
+        }
+    });
 
-        $(".reset-input").on("click", function () {
-            $(".user-name").val("");
-        });
+    function msg(tips, el, callback) {
+        var msg = document.createElement('div');
+        msg.id = "msg";
+        document.body.appendChild(msg);
+        msg.innerHTML = tips;
+        msg.style.display = "block";
+        var w = msg.offsetWidth;
+        msg.style.marginLeft = -(w / 2) + 'px';
 
-        $.mvalidateExtend({
-            phone: {
-                required: true,
-                pattern: /^0?1[3|4|5|8][0-9]\d{8}$/,
-                descriptions: {
-                    required: '<div class="field-invalidmsg">请输入手机号码</div>',
-                    pattern: '<div class="field-invalidmsg">您输入的手机号码格式不正确</div>',
-                    valid: '<div class="field-validmsg">正确</div>'
-                }
-            }
-        });
-        $("#form").mvalidate({
-            type: 1,
-            onKeyup: true,
-            sendForm: true,
-            firstInvalidFocus: false,
-            valid: function (event, options) {
-                //点击提交按钮时,表单通过验证触发函数
-                alert("验证通过！接下来可以做你想做的事情啦！");
-                //event.preventDefault();
-            },
-            descriptions: {
-                password: {
-                    required: '请输入密码'
-                }
-            }
-        });
-    })
+        setTimeout(function () {
+            document.body.removeChild(msg);
+        }, 1500);
+    }
+
 </script>
 </body>
 </html>
