@@ -1,0 +1,25 @@
+@import "../cssControl/import";
+
+#container {
+  top: 145/@rem;
+}
+
+.cost-nav {
+  height: 74/@rem;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  .cost-item {
+    display: block;
+    width: 80/@rem;
+    height: 74/@rem;
+    text-align: center;
+    line-height: 74/@rem;
+    font-size: 24/@rem;
+    color: #9f9f9f;
+    margin: 0 24/@rem;
+    &.active {
+      color: #fd4915;
+    }
+  }
+}
