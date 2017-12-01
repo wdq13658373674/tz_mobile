@@ -2,9 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>缴费订单列表</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link rel="stylesheet" href="../../../css/public.css">
+    <link rel="stylesheet" href="../../../css/payment_order.css">
+
+    <script type="text/javascript" src="../../../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../../js/iscroll.js"></script>
+    <script type="text/javascript" src="../../../js/fastclick.js"></script>
+    <script type="text/javascript" src="../../../js/public.js"></script>
 </head>
 <body>
-$END$
+<header class="public-header">
+    <div class="header-box">
+        <a href="#" class="back-box"><i class="icon-back"></i></a>
+        <h4 class="title">缴费订单列表</h4>
+    </div>
+</header>
+<section>
+    <div id="container">
+        <div id="scroller">
+            <div class="cost-nav">
+                <a class="cost-item active" href="#">全部</a>
+                <a class="cost-item" href="#">物业费</a>
+                <a class="cost-item" href="#">水费</a>
+                <a class="cost-item" href="#">电费</a>
+                <a class="cost-item" href="#">燃气费</a>
+                <a class="cost-item" href="#">停车费</a>
+            </div>
+            <div class="tab-content">
+                <div class="tab-item">1</div>
+                <div class="tab-item">2</div>
+                <div class="tab-item">3</div>
+                <div class="tab-item">4</div>
+                <div class="tab-item">5</div>
+                <div class="tab-item">6</div>
+            </div>
+        </div>
+    </div>
+</section>
 </body>
+<script>
+    /*myScroll*/
+    var myScroll;
+    myScroll = new IScroll('#container', {
+        probeType: 3,
+        disableMouse: true,
+        disablePointer: true,
+        mouseWheel: false,
+        scrollX: false,
+        scrollY: true,
+        click: iScrollClick(),
+        scrollbars: false,
+        useTransform: false,
+        useTransition: false
+    });
+    /*选项卡*/
+    $(".cost-nav .cost-item").click(function () {
+        $(".cost-nav .cost-item").eq($(this).index()).addClass("active").siblings().removeClass("active");
+        $(".tab-content div").hide().eq($(this).index()).show();
+    });
+</script>
 </html>
