@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="47px" height="49px" viewBox="0 0 47 49" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="37px" height="39px" viewBox="0 0 37 39" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <!-- Generator: sketchtool 45.1 (43504) - http://www.bohemiancoding.com/sketch -->
-    <title>33FC4C1F-030A-42B7-A144-4F99C74C884F</title>
+    <title>0658EEC0-E2A9-4957-ADD0-8814948F0118</title>
     <desc>Created with sketchtool.</desc>
     <defs></defs>
     <g id="首页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
-        <g transform="translate(-55.000000, -2111.000000)" id="Group-39" stroke-width="2" stroke="#FD4915">
-            <g transform="translate(55.000000, 2111.000000)">
-                <polyline id="Stroke-8-Copy-2" points="45.4918692 47.8986538 45.4918692 18.0531398 22.8314953 1.42306903 1 17.2242613 1 47.8986538 21.2303271 47.8986538 21.2303271 31.7806632 30.5439252 31.7806632"></polyline>
+        <g id="首页-最新" transform="translate(-56.000000, -1659.000000)" stroke-width="3" stroke="#FD4915">
+            <g id="Group-33" transform="translate(56.000000, 1659.000000)">
+                <g id="Group-5" transform="translate(2.000000, 2.000000)">
+                    <polyline id="Stroke-8"
+                              points="33.0497148 34.5232703 33.0497148 12.3532481 16.2170012 0 0 11.7375356 0 34.5232703 15.0276119 34.5232703 15.0276119 22.5504086 21.9459942 22.5504086"></polyline>
+                </g>
             </g>
         </g>
     </g>

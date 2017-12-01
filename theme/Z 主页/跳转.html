@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>index</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../../css/jump.css">
+
+    <script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../js/fastclick.js"></script>
+    <script type="text/javascript" src="../../js/public.js"></script>
+
+    <title>物业缴费</title>
+</head>
+<body>
+<section class="container">
+    <img class="logo" src="../../images/img/logo.png" alt="">
+    <img class="jump-img" src="../../images/img/jump-img.png" alt="">
+    <p class="tips suss">实名认证</p>
+    <p>系统将在<span><em id="countdown">3</em>秒</span>后跳转</p>
+    <a href="#">立即跳转</a>
+</section>
+</body>
+<script>
+    /*倒计时跳转*/
+    jump("#countdown", 3, function () {
+        //location.href = "/"
+        alert("请填写链接")
+    });
+</script>
+</html>

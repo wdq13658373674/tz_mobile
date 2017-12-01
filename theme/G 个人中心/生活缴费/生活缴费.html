@@ -12,12 +12,14 @@
     <link rel="stylesheet" href="../../../css/public.css">
     <link rel="stylesheet" href="../../../css/lifepayment.css">
 
+    <script type="text/javascript" src="../../../js/jquery-3.2.1.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../../js/iscroll.js" charset="utf-8"></script>
     <script type="text/javascript" src="../../../js/fastclick.js"></script>
     <script type="text/javascript" src="../../../js/public.js"></script>
 
     <title>生活缴费</title>
 </head>
-<body class="public-bg">
+<body>
 <header class="public-header orange-header">
     <div class="header-box">
         <a href="#" class="back-box"><i class="icon-back-white"></i></a>
@@ -25,20 +27,51 @@
     </div>
 </header>
 <section>
-    <div class="list-life">
-        <a class="list-item" href="#">
-            <i class="icon icon-waterrnt-empty"></i>
-            <p>水费</p>
-        </a>
-        <a class="list-item" href="#">
-            <i class="icon icon-cost-empty"></i>
-            <p>电费</p>
-        </a>
-        <a class="list-item" href="#">
-            <i class="icon icon-gas-empty"></i>
-            <p>燃气费</p>
-        </a>
+    <div id="container">
+        <div id="scroller">
+            <div class="list-life">
+                <a class="list-item" href="#">
+                    <i class="icon icon-property"></i>
+                    <p>物业缴费</p>
+                </a>
+                <a class="list-item" href="#">
+                    <i class="icon icon-park"></i>
+                    <p>预交停车费</p>
+                </a>
+                <a class="list-item" href="#">
+                    <i class="icon icon-temporaryParking"></i>
+                    <p>临停缴费</p>
+                </a>
+                <a class="list-item" href="#">
+                    <i class="icon icon-waterrnt-empty"></i>
+                    <p>水费</p>
+                </a>
+                <a class="list-item" href="#">
+                    <i class="icon icon-cost-empty"></i>
+                    <p>电费</p>
+                </a>
+                <a class="list-item" href="#">
+                    <i class="icon icon-gas-empty"></i>
+                    <p>燃气费</p>
+                </a>
+            </div>
+        </div>
     </div>
 </section>
 </body>
+<script>
+    var myScroll;
+    myScroll = new IScroll('#container', {
+        probeType: 3,
+        disableMouse: true,
+        disablePointer: true,
+        mouseWheel: false,
+        scrollX: false,
+        scrollY: true,
+        click: iScrollClick(),
+        scrollbars: false,
+        useTransform: false,
+        useTransition: false
+    });
+</script>
 </html>

@@ -5,18 +5,59 @@ section {
   -webkit-overflow-scrolling: touch; /* ios5+ */
 }
 
+/*icon*/
+.icon-tips {
+  display: block;
+  .icon(25/@rem, 25/@rem, "../images/icon/icon-tips.svg");
+}
+
+.icon-tp {
+  display: block;
+  .icon(44/@rem, 25/@rem, "../images/icon/icon-tp.svg");
+}
+
+#container {
+  position: absolute;
+  z-index: 1;
+  top: 90/@rem;
+  bottom: 120/@rem;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+#scroller {
+  position: absolute;
+  z-index: 1;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  width: 100%;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  -o-text-size-adjust: none;
+  text-size-adjust: none;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
 /*主页头部*/
 .index-header-box {
   width: 100%;
-  height: 149/@rem;
+  height: 90/@rem;
 }
 .index-header{
   width: 100%;
-  height: 149/@rem;
+  height: 90/@rem;
   position: fixed;
   top: 0;
   left: 0;
-  padding: 45/@rem 47/@rem;
+  padding: 22/@rem 39/@rem;
   background-color: @block-bg;
   z-index: 999;
   .position{
@@ -34,6 +75,7 @@ section {
     }
   }
   .head-multi{
+    margin-top: -9/@rem;
     .head-multi-item{
       a{
         display: block;
@@ -43,19 +85,60 @@ section {
       text-align: center;
       .icon-weChat-sao{
         display: block;
-        margin: 0 auto 15/@rem auto;
+        margin: 0 auto 4/@rem auto;
         width: 39/@rem;
         height: 38/@rem;
         .icon(39/@rem, 38/@rem, "../images/icon/icon-weChat-sao.svg");
       }
       .icon-steward-tel{
         display: block;
-        margin: 0 auto 15/@rem auto;
+        margin: 0 auto 4/@rem auto;
         width: 33/@rem;
         height: 38/@rem;
         .icon(33/@rem, 38/@rem, "../images/icon/icon-tel.svg");
       }
     }
+  }
+}
+
+.block-slide {
+  .slide {
+    position: relative;
+    img {
+      width: 100%;
+    }
+    .btn-group {
+      position: absolute;
+      right: 28/@rem;
+      bottom: 11/@rem;
+      .flex;
+      align-items: center;
+      .btn-item {
+        .flex;
+        align-items: center;
+        &:last-child {
+          margin-left: 26/@rem;
+        }
+      }
+      span {
+        margin-left: 6/@rem;
+        font-size: 20/@rem;
+        color: #464646;
+      }
+    }
+  }
+
+  .swiper-container {
+    width: 100%;
+    height: 290/@rem;
+  }
+
+  .swiper-slide {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 100%;
+    width: 100%;
+    height: 290/@rem;
   }
 }
 
@@ -74,7 +157,7 @@ section {
       width: 102/@rem;
       margin: 0 auto;
       p{
-        font-size: 20/@rem;
+        font-size: 24/@rem;
       }
     }
     width: 25%;
@@ -82,13 +165,13 @@ section {
     float: left;
     margin: 30/@rem 0;
     .icon-payment{
-      .multi-item-icon("../images/icon/icon-shuidi.svg");
+      .multi-item-icon("../images/icon/icon-openDoor.svg");
     }
-    .icon-service{
+    .icon-husbandry {
       .multi-item-icon("../images/icon/icon-man.svg");
     }
-    .icon-property{
-      .multi-item-icon("../images/icon/icon-money.svg");
+    .icon-RentOrSale {
+      .multi-item-icon("../images/icon/icon-RentOrSale.svg");
     }
     .icon-repair{
       .multi-item-icon("../images/icon/icon-repair.svg");
@@ -102,8 +185,8 @@ section {
     .icon-carwash{
       .multi-item-icon("../images/icon/icon-carwash.svg");
     }
-    .icon-laundry{
-      .multi-item-icon("../images/icon/icon-laundry.svg");
+    .icon-openDoor {
+      .multi-item-icon("../images/icon/icon-openDoor.svg");
     }
   }
 }
@@ -112,21 +195,20 @@ section {
 .advert{
   margin: 24/@rem 0;
   width: 100%;
-}
-
-.swiper-container {
-  width: 100%;
-  height: 300/@rem;
-}
-
-.swiper-slide {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: auto 100%;
-  img {
+  .swiper-container {
     width: 100%;
+    height: 241/@rem;
+  }
+
+  .swiper-slide {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 100%;
+    width: 100%;
+    height: 241/@rem;
   }
 }
+
 /*小区消息滚动提示*/
 
 .info-estate{
@@ -136,19 +218,19 @@ section {
   padding: 25/@rem 47/@rem;
   .flex;
   align-items: center;
-  .icon-tips {
-    width: 30/@rem;
+  justify-content: space-between;
+  .tips-title {
+    .flex;
+    align-items: center;
+    justify-content: center;
+    width: 61/@rem;
     height: 31/@rem;
-    background: url("../images/icon/icon-bell.svg") no-repeat;
-    background-size: 100% 100%;
-  }
-  .tips{
-    margin-left: 50/@rem;
-    font-size: 24/@rem;
-    color: #464646;
-  }
-  .time{
-    .sub-title();
+    text-align: center;
+    line-height: 31/@rem;
+    color: #fff;
+    font-size: 20/@rem;
+    background-color: #fd4915;
+    border-radius: 5/@rem;
   }
 }
 
@@ -164,44 +246,36 @@ section {
   position: absolute;
   width: 100%;
   height: 48/@rem;
-  line-height: 48/@rem;
   overflow: hidden;
   font-size: 15px;
   z-index:1;
   .rowup-item {
-    width: 605/@rem;
-    float: left;
+    width: 580/@rem;
     .flex;
     justify-content: space-between;
+    align-items: center;
+    a {
+      width: 100%;
+      color: #0B8E00;
+      .flex;
+      justify-content: space-between;
+    }
+    .tips {
+      font-size: 24/@rem;
+      color: #464646;
+    }
+    .time {
+      .sub-title();
+    }
   }
-
 }
 
 
 /*附近商铺*/
 .shops{
-  margin-top: 24/@rem;
   //padding: 27/@rem 48/@rem 0 48/@rem;
   //background-color: @block-bg;
-  margin-bottom: 128/@rem;
-  .title{
-    padding: 27/@rem 48/@rem 0 48/@rem;
-    .public-bg;
-    span{
-      float: left;
-      .title();
-    }
-
-    em{
-      margin-top: 10/@rem;
-      float: left;
-      font-style: normal;
-      font-size: 20/@rem;
-      i{
-        margin: 0 14/@rem;
-      }
-    }
-  }
+  //margin-bottom: 128/@rem;
 }
 
 .shop-loading {
@@ -210,97 +284,114 @@ section {
   font-size: 28/@rem;
 }
 .shop-list{
+  .flex();
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
-  .shops-item{
-    .public-bg;
-    padding: 24/@rem 48/@rem;
-    position: relative;
-    display: box;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    box-orient: horizontal;
-    border-bottom: 1/@rem solid #e4e4e4;
-    &:last-child {
-      border-bottom: none;
-    }
-  }
+.shop-item {
+  margin-top: 24/@rem;
+  display: block;
+  width: 366/@rem;
+  height: 585/@rem;
+  background-color: #fff;
   .shop-img{
-    width: 168/@rem;
-    height: 128/@rem;
-
-    //TODO 商铺图片临时样式
-    background-color: #bbbbbb;
+    width: 100%;
+    height: 372/@rem;
     img {
       width: 100%;
-      height: 100%;
+      height: 372/@rem;
     }
   }
-
-  .shop-info{
-    margin-left: 16/@rem;
+  .shop-name {
+    margin-top: 28/@rem;
+    width: 100%;
+    font-size: 26/@rem;
+    padding: 0 17/@rem;
+    .ellipsis();
   }
 }
 
-.shop-info{
-  -webkit-box-flex: 1;
-  box-flex: 1;
-  .shop-title{
-    font-size: 24/@rem;
-    font-weight: bold;
-    color: #464646;
-  }
-  .shop-tips{
-    color: #7b7b7b;
-  }
-  .shop-rank{
-    .star{
-      display: inline-block;
-      width: 16/@rem;
-      height: 15/@rem;
-    }
-    .star-solid{
-      background: url("../images/icon/star-solid.svg") no-repeat;
-      background-size: 100% auto;
-    }
-    .star-empty{
-      background: url("../images/icon/star-empty.svg") no-repeat;
-      background-size: 100% auto;
-    }
-    .star-half{
-      background: url("../images/icon/star-half.svg") no-repeat;
-      background-size: 100% auto;
-    }
-  }
-  .message{
-    margin-top: 12/@rem;
-    display: block;
-    .coupon-tag{
-      display: inline-block;
-      width: 27/@rem;
-      height: 27/@rem;
-      line-height: 27/@rem;
+.price-box {
+  margin-top: 4/@rem;
+  padding: 0 17/@rem;
+  .price-tp {
+    position: relative;
+    color: #fd4915;
+    .flex;
+    align-items: baseline;
+    .tp-util {
+      display: block;
+      position: absolute;
+      width: 45/@rem;
+      height: 26/@rem;
+      top: 20/@rem;
+      line-height: 26/@rem;
+      border-radius: 4/@rem;
+      border: 1.2/@rem solid #fd4915;
+      font-size: 16/@rem;
       text-align: center;
-      font-style: normal;
-      color: #fff;
-      font-size: 18/@rem;
-      background-color: #ff635b;
     }
-    .coupon-info{
-      margin-left: 8/@rem;
-      color: #9f9f9f;
+    .tp-int {
+      margin-left: 5/@rem;
+      font-size: 50/@rem;
     }
-    .popularity{
-      .popularity-tag{
-        display: inline-block;
-        width: 16/@rem;
-        height: 15/@rem;
-        background: url("../images/icon/popularity-tag.svg") no-repeat;
-        background-size: 100% auto;
-      }
-      .popularity-info{
-        color: #9f9f9f;
-      }
+    .tp-float {
+      font-size: 26/@rem;
     }
   }
+  .price-rmb {
+    margin-top: 4/@rem;
+    .flex;
+    align-items: baseline;
+    .rmb-util {
+      font-size: 20/@rem;
+    }
+    .rmb-int {
+      margin-left: 4/@rem;
+      font-size: 26/@rem;
+    }
+    .rmb-float {
+      font-size: 18/@rem;
+    }
+  }
+  .blank-discount {
+    margin-top: 10/@rem;
+    .flex;
+    justify-content: space-between;
+  }
+  .discount {
+    .flex;
+    font-size: 16/@rem;
+    color: #fff;
+    span {
+      &:nth-child(2) {
+        margin-left: 10/@rem;
+      }
+    }
+    .discount-cut {
+      .flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16/@rem;
+      width: 96/@rem;
+      height: 24/@rem;
+      text-align: center;
+      line-height: 24/@rem;
+      background: url("../images/icon/discount-bg.svg") no-repeat;
+      background-size: 100% 100%;
+    }
+    .discount-sale {
+      display: block;
+      font-size: 16/@rem;
+      height: 24/@rem;
+      line-height: 24/@rem;
+      padding: 0 3/@rem;
+      background: #fd4915;
+    }
+  }
+  .outnumber {
+    font-size: 18/@rem;
+    color: #9f9f9f;
+  }
 }
-

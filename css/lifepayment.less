@@ -1,13 +1,20 @@
 @import "../cssControl/import";
 
-section {
-  padding: 48/@rem;
+//section {
+//  padding: 48/@rem;
+//}
+#container {
+  background-color: #fff;
+  top: 135/@rem;
+  bottom: 0;
 }
 
 .list-life {
+  margin-top: 24/@rem;
   .flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   .list-item {
+    margin: 24/@rem 48/@rem;
     display: block;
     text-align: center;
   }
@@ -15,10 +22,13 @@ section {
     display: block;
     width: 152/@rem;
     height: 152/@rem;
+    img {
+      width: 100%;
+    }
   }
   p {
     margin-top: 26/@rem;
-    font-size: 25/@rem;
+    font-size: 26/@rem;
     color: #464646;
   }
   .icon-waterrnt-empty {
@@ -31,6 +41,18 @@ section {
   }
   .icon-gas-empty {
     background: url("../images/icon/icon-gas-empty.svg") no-repeat;
+    background-size: 100% 100%;
+  }
+  .icon-property {
+    background: url("../images/icon/property-icon.svg") no-repeat;
+    background-size: 100% 100%;
+  }
+  .icon-park {
+    background: url("../images/icon/park-icon.svg") no-repeat;
+    background-size: 100% 100%;
+  }
+  .icon-temporaryParking {
+    background: url("../images/icon/temporaryParking-icon.svg") no-repeat;
     background-size: 100% 100%;
   }
 }

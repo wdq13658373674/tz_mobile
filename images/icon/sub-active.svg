@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="37px" height="37px" viewBox="0 0 37 37" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: sketchtool 45.1 (43504) - http://www.bohemiancoding.com/sketch -->
+    <title>78ADF4C5-B9BA-4BAE-97FC-2AA140C19A14</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="生活缴费" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="物业缴费" transform="translate(-844.000000, -893.000000)">
+            <g id="Group-5-Copy" transform="translate(844.000000, 893.000000)">
+                <path d="M36.2430038,0.376427402 L36.2430038,30.6194312 L36.2430038,30.6194312 C36.2430038,33.9331397 33.5567123,36.6194312 30.2430038,36.6194312 L0,36.6194312 L36.2430038,0.376427402 Z"
+                      id="Rectangle-4" fill="#FD4915"></path>
+                <polyline id="Path-4" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"
+                          points="18 24.5604359 23.4977757 29.0273732 32.275326 19.3764274"></polyline>
+            </g>
+        </g>
+        <g id="-Connections" transform="translate(-1741.000000, -901.000000)" stroke="#F5A623" stroke-width="3">
+            <path d="M1594,1540.5 C1727.5,1540.5 1727.5,8 1861,8" id="Flow-arrow"></path>
+        </g>
+    </g>
+</svg>

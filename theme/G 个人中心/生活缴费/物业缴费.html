@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>index</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link rel="stylesheet" href="../../../css/public.css">
+    <link rel="stylesheet" href="../../../css/property_payment.css">
+
+    <script type="text/javascript" src="../../../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../../js/iscroll.js"></script>
+    <script type="text/javascript" src="../../../js/fastclick.js"></script>
+    <script type="text/javascript" src="../../../js/public.js"></script>
+
+    <title>物业缴费</title>
+</head>
+<body>
+<header class="public-header">
+    <div class="header-box">
+        <a href="#" class="back-box"><i class="icon-back"></i></a>
+        <h4 class="title">物业缴费</h4>
+    </div>
+</header>
+<section>
+    <div id="container">
+        <div id="scroller">
+            <div class="block-info_owner">
+                <div class="info-owner">
+                    <div class="left-img">
+                        <img src="../../../images/img/header-img.svg" alt="">
+                    </div>
+                    <ul class="right-info">
+                        <li class="item-info">
+                            <div class="label">房间信息</div>
+                            <div class="info">云鼎府邸13栋9-8业主</div>
+                        </li>
+                        <li class="item-info">
+                            <div class="label">房屋面积</div>
+                            <div class="info">
+                                <span>120.25</span>
+                                <em class="util">m&sup2;</em>
+                            </div>
+                        </li>
+                        <li class="item-info">
+                            <div class="label">物业单价</div>
+                            <div class="info"><span>1.00<em class="util">元/m&sup2;/月</em>  </span></div>
+                        </li>
+                        <li class="item-info">
+                            <div class="label">物业类型</div>
+                            <div class="info">高层</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="block-info_money">
+                    <div class="arrearage">
+                        <div class="label">欠费总额</div>
+                        <div class="arrearage-count">
+                            <span class="util">&yen;</span>
+                            <span class="money">604.78</span>
+                        </div>
+                    </div>
+                    <div class="last-time">
+                        <div class="label">上次缴费日期</div>
+                        <div class="time">2017-5-28</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-select_month">
+                <div class="select-month-box">
+                    <div class="title-tips">请选择您要缴纳的物业周期</div>
+                    <ul class="select-month">
+                        <li class="select-item">
+                            <span class="month">1个月</span>
+                        </li>
+                        <li class="select-item">
+                            <span class="month">2个月</span>
+                        </li>
+                        <li class="select-item">
+                            <span class="month">3个月</span>
+                        </li>
+                        <li class="select-item">
+                            <span class="month">4个月</span>
+                        </li>
+                        <li class="select-item">
+                            <span class="month">5个月</span>
+                        </li>
+                        <li class="select-item">
+                            <span class="month">6个月</span>
+                            <div class="present">送1个月</div>
+                        </li>
+                        <li class="select-item">
+                            <span class="month">7个月</span>
+                            <div class="present">送1个月</div>
+                        </li>
+                        <li class="select-item">
+                            <span class="month">8个月</span>
+                            <div class="present">送2个月</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="payment-sum">
+                    <div class="title">缴费总额</div>
+                    <div class="price-box">
+                        <div class="price-tp">
+                            <i class="icon-tp"></i>
+                            <span class="tp-num">999.00</span>
+                        </div>
+                        <div class="price-rmb">
+                            <i class="util-rmb">&yen;</i>
+                            <span class="rmb-num">1288.63</span>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="line">
+                <div class="tips">物业总价=房屋面积*物业单价*购买月份</div>
+            </div>
+        </div>
+    </div>
+    <a class="block-btn" href="javascript:void(0);">确认付款</a>
+</section>
+</body>
+<script>
+    var myScroll;
+    myScroll = new IScroll('#container', {
+        probeType: 3,
+        disableMouse: true,
+        disablePointer: true,
+        mouseWheel: false,
+        scrollX: false,
+        scrollY: true,
+        click: iScrollClick(),
+        scrollbars: false,
+        useTransform: false,
+        useTransition: false
+    });
+
+    $(".select-item").on("click", function () {
+        if ($(this).hasClass("active")) {
+            $(this).removeClass("active");
+        } else {
+            $(this).addClass("active").siblings().removeClass("active");
+        }
+    })
+</script>
+</html>

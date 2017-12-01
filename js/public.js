@@ -1,6 +1,7 @@
 /*
  *设备兼容设置
  * */
+//alert("测试不影响正常操作！" + navigator.userAgent);
 !function (N, M) {
     function L() {
         var a = I.getBoundingClientRect().width;
@@ -57,7 +58,7 @@
  * 移动端事件延迟处理
  */
 if ('addEventListener' in document) {
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         FastClick.attach(document.body);
     }, false);
 }
@@ -175,7 +176,7 @@ function message(tips) {
     $msgbox.html(tips);
     var left = ($msgbox.outerWidth()) / 2;
     $msgbox.css('marginLeft', '-' + left + 'px');
-    setTimeout(() => {
+    setTimeout(function () {
         $msgbox.fadeOut("slow", function () {
             $(this).remove();
         });
@@ -192,7 +193,7 @@ function notice(el, tips) {
     var left = ($msgbox.outerWidth()) / 2;
     $msgbox.css('marginLeft', '-' + left + 'px');
     $(el).addClass("dis");
-    setTimeout(() => {
+    setTimeout(function () {
 
         $msgbox.fadeOut("slow", function () {
             $(this).remove();
@@ -207,7 +208,7 @@ function notice(el, tips) {
 var wait = 60,
     t;
 
-function times() {
+function times(wait) {
     if (wait === 0) {
         $("#send").removeClass("disabled").html("获取验证码");
         wait = 60;
@@ -328,3 +329,38 @@ var motify = {
         }
     }
 };
+
+/*倒计时跳转*/
+
+function jump(el, count, callback) {
+    window.setTimeout(function () {
+        count--;
+        if (count > 0) {
+            $(el).html(count);
+            jump(el, count, callback);
+        } else {
+            if (typeof callback === "function") {
+                callback();
+            }
+        }
+    }, 1000);
+}
+
+/*向下保留2位小数*/
+function toDecimal2(x) {
+    var f = parseFloat(x);
+    if (isNaN(f)) {
+        return false;
+    }
+    var f = Math.floor(x * 100) / 100;
+    var s = f.toString();
+    var rs = s.indexOf('.');
+    if (rs < 0) {
+        rs = s.length;
+        s += '.';
+    }
+    while (s.length <= rs + 2) {
+        s += '0';
+    }
+    return s;
+}
