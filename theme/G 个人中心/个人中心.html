@@ -14,185 +14,204 @@
     <link rel="stylesheet" href="../../js/addons/Swiper/swiper.min.css">
     <script type="text/javascript" src="../../js/fastclick.js"></script>
     <script type="text/javascript" src="../../js/public.js"></script>
+    <script type="text/javascript" src="../../js/iscroll.js"></script>
 
     <title>个人中心</title>
 </head>
 <body>
-<!--头部-->
-<header class="header">
-    <div class="center-header">
-        <div class="header-flex-item">
-            <h4 class="header-name">18223515667</h4>
-            <p>云鼎府邸13栋9-8业主云鼎府邸13栋9云鼎府邸13栋9云鼎府邸13栋9</p>
-        </div>
-        <div class="header-flex-item header-right">
-            <a href="#">
-                <div class="header-img ">
-                    <img src="../../images/img/header-img.svg" alt="">
+<div id="container">
+    <div id="scroller">
+        <!--头部-->
+        <header class="header">
+            <div class="center-header">
+                <div class="header-flex-item">
+                    <h4 class="header-name">18223515667</h4>
+                    <p>云鼎府邸13栋9-8业主云鼎府邸13栋9云鼎府邸13栋9云鼎府邸13栋9</p>
                 </div>
-                <i class="icon-right "></i>
-            </a>
-        </div>
-    </div>
-</header>
-
-<section class="center-main">
-    <!--我的资金信息-->
-    <div class="center-info">
-        <a href="#" class="info-item info-item-TB">
-            <p class="info-TB">18652.00</p>
-            <div class="info-item-title">
-                <i class="icon-TB"></i>
-                <h4>我的团票</h4>
+                <div class="header-flex-item header-right">
+                    <a href="#">
+                        <div class="header-img ">
+                            <img src="../../images/img/header-img.svg" alt="">
+                        </div>
+                        <i class="icon-right "></i>
+                    </a>
+                </div>
             </div>
-        </a>
-        <div class="info-item info-item-other">
-            <a href="#" class="info-balance">
-                <div class="info-title">
-                    <i class="icon icon-RMB"></i>
-                    <h5>我的余额(元)</h5>
+        </header>
+
+        <section class="center-main">
+            <!--我的资金信息-->
+            <div class="center-info">
+                <a href="#" class="info-item info-item-TB">
+                    <p class="info-TB">18652.00</p>
+                    <div class="info-item-title">
+                        <i class="icon-TB"></i>
+                        <h4>我的团票</h4>
+                    </div>
+                </a>
+                <div class="info-item info-item-other">
+                    <a href="#" class="info-balance">
+                        <div class="info-title">
+                            <i class="icon icon-RMB"></i>
+                            <h5>我的余额(元)</h5>
+                        </div>
+                        <div class="ye-group">
+                            <p class="info-amount">82.00</p>
+                            <a class="link" href="#4">充值</a>
+                        </div>
+                    </a>
+                    <a href="#" class="info-integral">
+                        <div class="info-title">
+                            <i class="icon icon-integral"></i>
+                            <h5>我的积分</h5>
+                        </div>
+                        <p class="info-amount">18652</p>
+                    </a>
                 </div>
-                <div class="ye-group">
-                    <p class="info-amount">82.00</p>
-                    <a class="link" href="#4">充值</a>
+            </div>
+            <!--我的账单-->
+            <div class="center-bill">
+                <h4 class="title">我的账单</h4>
+                <div class="bill-block">
+                    <h4 class="sub-title">未缴纳金额合计(元)</h4>
+                    <div class="bill-total">303.78</div>
                 </div>
-            </a>
-            <a href="#" class="info-integral">
-                <div class="info-title">
-                    <i class="icon icon-integral"></i>
-                    <h5>我的积分</h5>
-                </div>
-                <p class="info-amount">18652</p>
-            </a>
-        </div>
+            </div>
+
+            <div class="center-menu">
+                <ul>
+                    <li class="menu-item">
+                        <a href="#">
+                            <i class="icon icon-village"></i>
+                            我的小区
+                            <i class="icon-right"></i>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">
+                            <i class="icon icon-pay"></i>
+                            生活缴费
+                            <i class="icon-right"></i>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">
+                            <i class="icon icon-coupon"></i>
+                            银行卡管理
+                            <i class="icon-right"></i>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#">
+                            <i class="icon icon-realname"></i>
+                            实名认证
+                            <i class="icon-right"></i>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#">
+                            <i class="icon icon-order"></i>
+                            我的订单
+                            <i class="icon-right"></i>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#">
+                            <i class="icon icon-addr"></i>
+                            收货地址
+                            <i class="icon-right"></i>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#">
+                            <i class="icon icon-invitation"></i>
+                            我的帖子
+                            <i class="icon-right"></i>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#">
+                            <i class="icon icon-repairs"></i>
+                            物业报修
+                            <i class="icon-right"></i>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#">
+                            <i class="icon icon-complaints"></i>
+                            投诉建议
+                            <i class="icon-right"></i>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">
+                            <i class="icon icon-property"></i>
+                            联系物业
+                            <i class="icon-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="btn-logout">
+                <a href="#">退出</a>
+            </div>
+        </section>
     </div>
-    <!--我的账单-->
-    <div class="center-bill">
-        <h4 class="title">我的账单</h4>
-        <div class="bill-block">
-            <h4 class="sub-title">未缴纳金额合计(元)</h4>
-            <div class="bill-total">303.78</div>
-        </div>
-    </div>
+</div>
 
-    <div class="center-menu">
-        <ul>
-            <li class="menu-item">
-                <a href="#">
-                    <i class="icon icon-village"></i>
-                    我的小区
-                    <i class="icon-right"></i>
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="#">
-                    <i class="icon icon-pay"></i>
-                    生活缴费
-                    <i class="icon-right"></i>
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="#">
-                    <i class="icon icon-coupon"></i>
-                    银行卡管理
-                    <i class="icon-right"></i>
-                </a>
-            </li>
-
-            <li class="menu-item">
-                <a href="#">
-                    <i class="icon icon-realname"></i>
-                    实名认证
-                    <i class="icon-right"></i>
-                </a>
-            </li>
-
-            <li class="menu-item">
-                <a href="#">
-                    <i class="icon icon-order"></i>
-                    我的订单
-                    <i class="icon-right"></i>
-                </a>
-            </li>
-
-            <li class="menu-item">
-                <a href="#">
-                    <i class="icon icon-addr"></i>
-                    收货地址
-                    <i class="icon-right"></i>
-                </a>
-            </li>
-
-            <li class="menu-item">
-                <a href="#">
-                    <i class="icon icon-invitation"></i>
-                    我的帖子
-                    <i class="icon-right"></i>
-                </a>
-            </li>
-
-            <li class="menu-item">
-                <a href="#">
-                    <i class="icon icon-repairs"></i>
-                    物业报修
-                    <i class="icon-right"></i>
-                </a>
-            </li>
-
-            <li class="menu-item">
-                <a href="#">
-                    <i class="icon icon-complaints"></i>
-                    投诉建议
-                    <i class="icon-right"></i>
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="#">
-                    <i class="icon icon-property"></i>
-                    联系物业
-                    <i class="icon-right"></i>
-                </a>
-            </li>
-        </ul>
-    </div>
-</section>
 
 <footer>
     <div class="footer">
         <div class="footer-box">
-            <a class="nav active" href="#">
-                <i class="nav-tag nav-tag-home"></i>
-                <p>首页</p>
-            </a>
-            <a class="nav" href="#">
-                <i class="nav-tag nav-tag-mall"></i>
-                <p>商城</p>
-            </a>
-            <a class="nav nav-mj-box" href="javascript:void(0);">
-                <div class="nav-middle">
-                    <!---->
-                    <div class="dot-box">
-                        <div class="dot1">
-                            <div class="dot2">
-                                <div class="dot3"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!---->
-                </div>
-                <p>智能门禁</p>
-            </a>
-            <a class="nav" href="#">
-                <i class="nav-tag nav-tag-lj"></i>
-                <p>邻聚</p>
-            </a>
-            <a class="nav" href="#">
-                <i class="nav-tag nav-tag-my"></i>
-                <p>我的</p>
-            </a>
+            <div class="nav-box">
+                <a class="nav-item" href="#">
+                    <i class="icon-home"></i>
+                    <p>首页</p>
+                </a>
+                <a class="nav-item" href="#">
+                    <i class="icon-lj"></i>
+                    <p>邻聚</p>
+                </a>
+            </div>
+            <div class="nav-item-center">
+                <a class="nav-shop" href="#">
+                    <i class="icon-shop"></i>
+                    <p>房计划超市</p>
+                </a>
+            </div>
+            <div class="nav-box">
+                <a class="nav-item" href="#">
+                    <i class="icon-fj"></i>
+                    <p>附近</p>
+                </a>
+                <a class="nav-item active" href="#">
+                    <i class="icon-user"></i>
+                    <p>我的</p>
+                </a>
+            </div>
         </div>
     </div>
 </footer>
-<script src="../../js/common/animate.js"></script>
 </body>
+<script>
+    var myScroll;
+    myScroll = new IScroll('#container', {
+        probeType: 3,
+        disableMouse: true,
+        disablePointer: true,
+        mouseWheel: false,
+        scrollX: false,
+        scrollY: true,
+        click: iScrollClick(),
+        scrollbars: false,
+        useTransform: false,
+        useTransition: false
+    });
+</script>
 </html>

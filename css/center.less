@@ -1,19 +1,15 @@
 @import "../cssControl/control";
 
 #container {
-  position: absolute;
-  z-index: 1;
   top: 0;
-  bottom: 123/@rem;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
+  bottom: 120/@rem;
 }
 /*头部*/
 .header {
-  background-color: #fff;
-  padding: 36/@rem 48/@rem 0 48/@rem;
+
   .center-header {
+    background-color: #fff;
+    padding: 36/@rem 48/@rem 0 48/@rem;
     .flex();
     border-bottom: 1/@rem solid #e4e4e4;
     padding-bottom: 31/@rem;
@@ -134,7 +130,7 @@
         height: 40/@rem;
         border-radius: 100/@rem;
         background-color: #ffffff;
-        border: solid 1/@rem #fd4915;
+        border: solid 3/@rem #fd4915;
         font-size: 24/@rem;
         color: #fd4915;
         text-align: center;
@@ -321,5 +317,19 @@
       background: url("../images/icon/icon-property-phone.svg") no-repeat;
       background-size: 100% 100%;;
     }
+  }
+}
+
+.btn-logout {
+  margin: 0.8rem auto 2.5rem auto;
+  a {
+    display: block;
+    height: 80/@rem;
+    line-height: 80/@rem;
+    width: 80%;
+    margin: 0 auto;
+    color: #fff;
+    background-color: #fd4915;
+    text-align: center
   }
 }

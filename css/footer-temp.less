@@ -1,0 +1,103 @@
+@import "../cssControl/import";
+/*公共底部*/
+.footer {
+  width: 100%;
+  height: 54px;
+  .footer-box {
+    background: #fff;
+    width: 100%;
+    height: 54px;
+    border-top: 1px solid #bbb;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    .flex;
+    justify-content: space-between;
+    z-index: 4;
+  }
+  .nav-box {
+    .flex;
+    align-items: center;
+    .nav-item {
+      overflow: hidden;
+      padding-top: 14px;
+      text-align: center;
+      width: 70px;
+      height: 54px;
+      display: block;
+      i {
+        display: block;
+        margin: 0 auto;
+      }
+      p {
+        font-size: 10px;
+        margin-top: 3px;
+      }
+      &.active p {
+        color: #fd4915;
+      }
+
+      .icon-home {
+        .icon(20px, 20px, "../images/icon/nav-home.svg");
+      }
+      &.active .icon-home {
+        .icon(20px, 20px, "../images/icon/nav-home-active.svg");
+      }
+
+      .icon-lj {
+        .icon(20px, 20px, "../images/icon/nav-lj.svg");
+      }
+      &.active .icon-lj {
+        .icon(20px, 20px, "../images/icon/nav-lj-active.svg");
+      }
+
+      .icon-fj {
+        .icon(20px, 20px, "../images/icon/nav-fj.svg");
+      }
+      &.active .icon-fj {
+        .icon(20px, 20px, "../images/icon/nav-fj-active.svg");
+      }
+      .icon-user {
+        .icon(20px, 20px, "../images/icon/nav-user.svg");
+      }
+      &.active .icon-user {
+        .icon(20px, 20px, "../images/icon/nav-user-active.svg");
+      }
+    }
+  }
+  .nav-item-center {
+    position: absolute;
+    left: 50%;
+    margin-left: -70/2px;
+    top: -20px;
+    width: 68px;
+    height: 55px;
+    background: #fff;
+    border-radius: 50%;
+    padding-top: 9px;
+    box-shadow: 0 -4px 5px 0 rgba(0, 0, 0, 0.5);
+    .nav-shop {
+      display: block;
+      margin: 0 auto;
+      width: 70px;
+      text-align: center;
+      p {
+        font-size: 10px;
+        margin-top: 3px;
+      }
+      .icon-shop {
+        margin: 0 auto;
+        display: block;
+        .icon(40px, 40px, "../images/icon/nav-shop.svg");
+      }
+      &.active {
+        .icon-shop {
+          .icon(40px, 40px, "../images/icon/nav-shop-active.svg");
+        }
+        p {
+          color: #fd4915;
+        }
+      }
+    }
+  }
+}
