@@ -103,7 +103,7 @@
     /*选项卡*/
     $(".cost-nav .cost-item").click(function () {
         $(".cost-nav .cost-item").eq($(this).index()).addClass("active").siblings().removeClass("active");
-        $(".tab-content div").hide().eq($(this).index()).show();
+        $(".tab-content .tab-item").hide().eq($(this).index()).show();
     });
 </script>
 </html>
