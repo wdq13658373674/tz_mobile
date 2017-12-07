@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="44px" height="25px" viewBox="0 0 44 25" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<svg width="23px" height="23px" viewBox="0 0 23 23" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <!-- Generator: sketchtool 45.1 (43504) - http://www.bohemiancoding.com/sketch -->
-    <title>A2D975AD-DB12-4D95-98DD-F3B0759B9032</title>
+    <title>E4BBDE94-1362-4E04-96A4-E5EC1A209354</title>
     <desc>Created with sketchtool.</desc>
     <defs></defs>
-    <g id="首页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="首页-最新" transform="translate(-592.000000, -343.000000)">
-            <g id="Group-15" transform="translate(592.000000, 343.000000)">
-                <g id="Group-2">
-                    <rect id="Rectangle-5" stroke="#FD4915" x="0.5" y="0.5" width="43" height="24" rx="4"></rect>
-                    <text id="团票" font-family="MicrosoftYaHei, Microsoft YaHei" font-size="16" font-weight="normal"
+    <g id="最新页面" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="购物车-最新" transform="translate(-306.000000, -691.000000)">
+            <g id="Group-6" transform="translate(306.000000, 691.000000)">
+                <g id="Group-2-Copy">
+                    <rect id="Rectangle-5" stroke="#FD4915" stroke-width="2" x="1" y="1" width="21" height="21"
+                          rx="4"></rect>
+                    <text id="T" font-family="MicrosoftYaHei-Bold, Microsoft YaHei" font-size="16" font-weight="bold"
                           fill="#FD4915">
-                        <tspan x="7" y="18">团票</tspan>
+                        <tspan x="7" y="18">T</tspan>
                     </text>
                 </g>
             </g>

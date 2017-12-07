@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>充值</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../../css/recharge.css">
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../js/iscroll.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../js/fastclick.js"></script>
+    <script type="text/javascript" src="../../js/public.js"></script>
+
+</head>
+<body>
+<header class="public-header orange-header">
+    <div class="header-box">
+        <a href="#" class="back-box"><i class="icon-back-white"></i></a>
+        <h4 class="title">充值</h4>
+    </div>
+</header>
+<section id="container">
+    <div id="scroller">
+        <div class="balance">
+            当前余额:<em>&yen;</em><span class="money">600.26</span>
+        </div>
+        <form id="form" action="#">
+            <ul class="balance-list">
+                <li class="balance-item active" data-balance="100">
+                    充值<span>100.00</span><em>元</em>
+                </li>
+                <li class="balance-item" data-balance="200">
+                    充值<span>200.00</span><em>元</em>
+                </li>
+                <li class="balance-item" data-balance="500">
+                    充值<span>500.00</span><em>元</em>
+                </li>
+                <li class="balance-item" data-balance="1000">
+                    充值<span>1000.00</span><em>元</em>
+                </li>
+                <li class="balance-item" data-balance="2000">
+                    充值<span>2000.00</span><em>元</em>
+                </li>
+                <li class="balance-item" data-balance="3000">
+                    充值<span>3000.00</span><em>元</em>
+                </li>
+                <li class="balance-item" data-balance="5000">
+                    充值<span>5000.00</span><em>元</em>
+                </li>
+                <li class="balance-item" data-balance="1">
+                    <input class="inpt" type="tel" placeholder="自定义">
+                </li>
+            </ul>
+            <input class="money" type="hidden" name="money" value="">
+            <div class="xy"></div>
+        </form>
+    </div>
+</section>
+
+<section class="btn-block">
+    <input form="form" type="submit" value="立即充值">
+</section>
+
+</body>
+<script>
+
+    $(".balance-item").on("click", function () {
+        if ($(this).data("balance") == "1") {
+            $(".inpt").focus();
+        } else {
+            $(".money").val($(this).data("balance"));
+        }
+        $(this).addClass("active").siblings().removeClass("active");
+    });
+
+
+    var myScroll;
+    myScroll = new IScroll('#container', {
+        probeType: 3,
+        disableMouse: true,
+        disablePointer: true,
+        mouseWheel: false,
+        scrollX: false,
+        scrollY: true,
+        click: iScrollClick(),
+        scrollbars: false,
+        useTransform: false,
+        useTransition: false
+    });
+</script>
+</html>

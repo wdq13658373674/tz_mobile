@@ -212,6 +212,7 @@ section {
 /*小区消息滚动提示*/
 
 .info-estate{
+  position: relative;
   .public-bg;
   width: 100%;
   overflow: hidden;
@@ -219,6 +220,15 @@ section {
   .flex;
   align-items: center;
   justify-content: space-between;
+  .icon-link-right {
+    position: absolute;
+    display: block;
+    width: 9/@rem;
+    height: 17/@rem;
+    background: url("../images/icon/icon-right.svg") no-repeat;
+    background-size: 100% 100%;
+    right: 40/@rem;
+  }
   .tips-title {
     .flex;
     align-items: center;
@@ -250,7 +260,7 @@ section {
   font-size: 15px;
   z-index:1;
   .rowup-item {
-    width: 580/@rem;
+    width: 564/@rem;
     .flex;
     justify-content: space-between;
     align-items: center;

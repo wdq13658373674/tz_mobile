@@ -1,0 +1,271 @@
+@import "../cssControl/control";
+
+#container {
+  top: 84/@rem;
+  bottom: 120/@rem;
+}
+
+.header {
+  text-align: center;
+  width: 100%;
+  height: 84/@rem;
+  line-height: 84/@rem;
+  background-color: #ffffff;
+  font-size: 28/@rem;
+  color: #4a4a4a;
+  border-bottom: 1/@rem solid #bbb;
+}
+
+.header-top {
+  width: 100%;
+  height: 215/@rem;
+  background: url("../images/img/header-topBG.png") no-repeat;
+  background-size: 100% 100%;
+  padding: 0 30/@rem;
+  .flex;
+  align-items: center;
+  justify-content: space-between;
+  .info, .link-right {
+    width: 50%;
+  }
+  .header-img-box {
+    display: block;
+    .flex;
+    align-items: center;
+  }
+  .header-img {
+    display: block;
+    width: 128/@rem;
+    height: 128/@rem;
+    img {
+      width: 100%;
+    }
+  }
+  .my-info {
+    margin-left: 25/@rem;
+    p {
+      .ellipsis();
+      color: #fff;
+      font-size: 24/@rem;
+    }
+  }
+  .link-right {
+    text-align: right;
+    a {
+      color: #fff;
+      position: relative;
+      padding-right: 31/@rem;
+    }
+    .icon-right-white {
+      display: block;
+      position: absolute;
+      top: 6/@rem;
+      right: 0;
+      width: 12/@rem;
+      height: 19/@rem;
+      background: url("../images/icon/icon-right-white.svg") no-repeat;
+      background-size: 100% 100%;
+    }
+  }
+}
+
+.wallet-box {
+  .my-wallet {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100/@rem;
+    padding: 0 48/@rem;
+    .flex;
+    align-items: center;
+    background-color: #fff;
+    font-size: 26/@rem;
+    color: #464646;
+    border-bottom: 1/@rem solid #f4f4f4;
+    .icon-right {
+      position: absolute;
+      width: 12/@rem;
+      height: 19/@rem;
+      top: 40/@rem;
+      right: 48/@rem;
+      background: url("../images/icon/icon-right.svg") no-repeat;
+      background-size: 100% 100%;;
+    }
+    .icon-wallet {
+      display: block;
+      width: 31/@rem;
+      height: 28/@rem;
+      background: url("../images/icon/wallet-icon.svg") no-repeat;
+      background-size: 100% 100%;
+      margin-right: 19/@rem;
+    }
+  }
+  .capital-box {
+    .flex;
+    align-items: center;
+    justify-content: space-around;
+    a {
+      background-color: #fff;
+      display: block;
+      width: 100/3%;
+      height: 109/@rem;
+      border-right: 1/@rem solid #f4f4f4;
+      .num {
+        padding-top: 20/@rem;
+        font-size: 28/@rem;
+      }
+      .type {
+        margin-top: 2/@rem;
+      }
+      p {
+        font-size: 24/@rem;
+        text-align: center;
+        align-items: center;
+      }
+    }
+  }
+}
+
+/*菜单*/
+.center-menu {
+  .public-bg();
+  margin-top: 24/@rem;
+  .menu-item {
+    padding: 22/@rem 0;
+    border-bottom: 1/@rem solid #e4e4e4;
+    &:last-child {
+      border-bottom: none;
+    }
+    a {
+      position: relative;
+      padding: 0 48/@rem;
+      font-size: 28/@rem;
+      .flex();
+      align-items: center;
+    }
+    .icon {
+      flex: 0 0 23/@rem;
+    }
+    .icon-order {
+      width: 23/@rem;
+      height: 26/@rem;
+      margin-right: 31/@rem;
+      background: url("../images/icon/icon-order.svg") no-repeat;
+      background-size: 100% 100%;;
+    }
+    .icon-coupon {
+      flex: 0 0 31/@rem;
+      width: 23/@rem;
+      height: 26/@rem;
+      margin-right: 23/@rem;
+      background: url("../images/icon/icon-coupon.svg") no-repeat;
+      background-size: 100% 100%;;
+    }
+    .icon-collection {
+      flex: 0 0 31/@rem;
+      width: 23/@rem;
+      height: 31/@rem;
+      margin-right: 23/@rem;
+      background: url("../images/icon/icon-collection.svg") no-repeat;
+      background-size: 100% 100%;;
+    }
+    .icon-right {
+      position: absolute;
+      width: 12/@rem;
+      height: 19/@rem;
+      top: 6/@rem;
+      right: 48/@rem;
+      background: url("../images/icon/icon-right.svg") no-repeat;
+      background-size: 100% 100%;;
+    }
+
+    .icon-village {
+      flex: 0 0 31/@rem;
+      width: 33/@rem;
+      height: 30/@rem;
+      margin-right: 23/@rem;
+      background: url("../images/icon/village.svg") no-repeat;
+      background-size: 100% 100%;;
+    }
+    .icon-pay {
+      flex: 0 0 31/@rem;
+      width: 32/@rem;
+      height: 32/@rem;
+      margin-right: 23/@rem;
+      background: url("../images/icon/icon-pay.svg") no-repeat;
+      background-size: 100% 100%;;
+    }
+    .icon-realname {
+      flex: 0 0 31/@rem;
+      width: 32/@rem;
+      height: 32/@rem;
+      margin-right: 23/@rem;
+      background: url("../images/icon/icon-realname.svg") no-repeat;
+      background-size: 100% 100%;;
+    }
+    .icon-order {
+      flex: 0 0 31/@rem;
+      width: 32/@rem;
+      height: 32/@rem;
+      margin-right: 23/@rem;
+      background: url("../images/icon/icon-order.svg") no-repeat;
+      background-size: 100% 100%;;
+    }
+    .icon-addr {
+      flex: 0 0 31/@rem;
+      width: 21/@rem;
+      height: 31/@rem;
+      margin-right: 23/@rem;
+      background: url("../images/icon/icon-addresss.svg") no-repeat;
+      background-size: 100% 100%;;
+    }
+    .icon-invitation {
+      flex: 0 0 31/@rem;
+      width: 21/@rem;
+      height: 31/@rem;
+      margin-right: 23/@rem;
+      background: url("../images/icon/icon-invitation.svg") no-repeat;
+      background-size: 100% 100%;;
+    }
+    .icon-repairs {
+      flex: 0 0 31/@rem;
+      width: 21/@rem;
+      height: 31/@rem;
+      margin-right: 23/@rem;
+      background: url("../images/icon/icon-repairs.svg") no-repeat;
+      background-size: 100% 100%;;
+    }
+    .icon-complaints {
+      flex: 0 0 31/@rem;
+      width: 21/@rem;
+      height: 31/@rem;
+      margin-right: 23/@rem;
+      background: url("../images/icon/icon-complaints.svg") no-repeat;
+      background-size: 100% 100%;;
+    }
+    .icon-property {
+      flex: 0 0 31/@rem;
+      width: 21/@rem;
+      height: 31/@rem;
+      margin-right: 23/@rem;
+      background: url("../images/icon/icon-property-phone.svg") no-repeat;
+      background-size: 100% 100%;;
+    }
+  }
+}
+
+.btn-logout {
+  margin: 0.8rem auto 2.5rem auto;
+  a {
+    display: block;
+    width: 626/@rem;
+    height: 104/@rem;
+    border-radius: 100/@rem;
+    background-color: #fd4915;
+    line-height: 104/@rem;
+    margin: 0 auto;
+    color: #fff;
+    text-align: center;
+    font-size: 34/@rem;
+  }
+}

@@ -4,21 +4,33 @@
   top: 234/@rem;
   bottom: 0;
 }
-.cost-nav {
+
+.nav-box {
   margin-top: 24/@rem;
+  width: 100%;
   height: 74/@rem;
+  line-height: 74/@rem;
+  overflow: hidden;
+  background: #fff;
+  overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+}
+.cost-nav {
+  position: relative;
+  height: 74/@rem;
+  line-height: 74/@rem;
   background-color: #fff;
-  display: flex;
-  align-items: center;
   .cost-item {
     display: block;
-    width: 80/@rem;
+    float: left;
+    width: auto;
     height: 74/@rem;
     text-align: center;
     line-height: 74/@rem;
     font-size: 24/@rem;
     color: #9f9f9f;
-    margin: 0 24/@rem;
+    padding: 0 24/@rem;
     &.active {
       color: #fd4915;
     }

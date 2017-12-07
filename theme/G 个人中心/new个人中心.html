@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>index</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../../css/new_center.css">
+    <link rel="stylesheet" href="../../js/addons/Swiper/swiper.min.css">
+    <script type="text/javascript" src="../../js/fastclick.js"></script>
+    <script type="text/javascript" src="../../js/public.js"></script>
+    <script type="text/javascript" src="../../js/iscroll.js"></script>
+
+    <title>个人中心</title>
+</head>
+<body>
+<section class="header">我的</section>
+<div id="container">
+    <div id="scroller">
+        <!--头部-->
+        <section class="header-top" data-url="">
+            <div class="info">
+                <div class="header-img-box">
+                    <div class="header-img">
+                        <img src="../../images/icon/header-img-tz.svg" alt="">
+                    </div>
+                    <div class="my-info">
+                        <p>开心猫</p>
+                        <p>18680722507</p>
+                        <p>2-4-5</p>
+                    </div>
+                </div>
+            </div>
+            <div class="link-right">
+                <a href="#">账户、房屋管理 <i class="icon-right-white"></i></a>
+            </div>
+        </section>
+        <section class="wallet-box">
+            <a class="my-wallet" href="#">
+                <i class="icon-wallet"></i>
+                我的钱包
+                <i class="icon-right"></i>
+            </a>
+            <div class="capital-box">
+                <a href="#">
+                    <p class="num">&yen;0.00</p>
+                    <p class="type">账户余额</p>
+                </a>
+                <a href="#">
+                    <p class="num">0.00</p>
+                    <p class="type">团票</p>
+                </a>
+                <a href="#">
+                    <p class="num">0</p>
+                    <p class="type">积分</p>
+                </a>
+            </div>
+        </section>
+        <section class="center-main">
+            <div class="center-menu">
+                <ul>
+                    <li class="menu-item">
+                        <a href="#">
+                            <i class="icon icon-village"></i>
+                            我的小区
+                            <i class="icon-right"></i>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">
+                            <i class="icon icon-pay"></i>
+                            生活缴费
+                            <i class="icon-right"></i>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">
+                            <i class="icon icon-coupon"></i>
+                            银行卡管理
+                            <i class="icon-right"></i>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#">
+                            <i class="icon icon-realname"></i>
+                            实名认证
+                            <i class="icon-right"></i>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#">
+                            <i class="icon icon-order"></i>
+                            我的订单
+                            <i class="icon-right"></i>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#">
+                            <i class="icon icon-addr"></i>
+                            收货地址
+                            <i class="icon-right"></i>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#">
+                            <i class="icon icon-invitation"></i>
+                            我的帖子
+                            <i class="icon-right"></i>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#">
+                            <i class="icon icon-repairs"></i>
+                            物业报修
+                            <i class="icon-right"></i>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#">
+                            <i class="icon icon-complaints"></i>
+                            投诉建议
+                            <i class="icon-right"></i>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">
+                            <i class="icon icon-property"></i>
+                            联系物业
+                            <i class="icon-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="btn-logout">
+                <a href="#">退出</a>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+<footer>
+    <div class="footer">
+        <div class="footer-box">
+            <div class="nav-box">
+                <a class="nav-item" href="#">
+                    <i class="icon-home"></i>
+                    <p>首页</p>
+                </a>
+                <a class="nav-item" href="#">
+                    <i class="icon-lj"></i>
+                    <p>邻聚</p>
+                </a>
+            </div>
+            <div class="nav-item-center">
+                <a class="nav-shop" href="#">
+                    <i class="icon-shop"></i>
+                    <p>房计划超市</p>
+                </a>
+            </div>
+            <div class="nav-box">
+                <a class="nav-item" href="#">
+                    <i class="icon-fj"></i>
+                    <p>附近</p>
+                </a>
+                <a class="nav-item active" href="#">
+                    <i class="icon-user"></i>
+                    <p>我的</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+<script>
+    var myScroll;
+    myScroll = new IScroll('#container', {
+        probeType: 3,
+        disableMouse: true,
+        disablePointer: true,
+        mouseWheel: false,
+        scrollX: false,
+        scrollY: true,
+        click: iScrollClick(),
+        scrollbars: false,
+        useTransform: false,
+        useTransition: false
+    });
+</script>
+</html>

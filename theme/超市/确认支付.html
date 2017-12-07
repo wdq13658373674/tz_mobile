@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>确认支付</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../../css/payment.css">
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../js/iscroll.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../js/fastclick.js"></script>
+    <script type="text/javascript" src="../../js/public.js"></script>
+
+</head>
+<body>
+<header class="public-header orange-header">
+    <div class="header-box">
+        <a href="#" class="back-box"><i class="icon-back-white"></i></a>
+        <h4 class="title">确认支付</h4>
+    </div>
+</header>
+<section id="container">
+    <div id="scroller">
+
+        <div class="price-total">
+            <p class="title">订单总额</p>
+            <p class="total"><em>&yen;</em><span id="payment-total">1000.00</span></p>
+        </div>
+
+        <div class="payment-item tp active" data-payment="0">
+            <div class="type">
+                <div class="type-img tp"></div>
+                <div class="payment-name-info">
+                    <p class="payment-name">团票支付</p>
+                </div>
+            </div>
+            <div class="payment-info">
+                我的团票<i class="icon-tp"></i><span class="tp" id="tp">1500.00</span>
+            </div>
+            <div class="select"></div>
+        </div>
+
+        <div class="other-payment">
+            <div class="title">其他支付方式</div>
+            <ul>
+                <li class="payment-item" data-payment="1">
+                    <div class="type">
+                        <div class="type-img ye"></div>
+                        <div class="payment-name-info">
+                            <p class="payment-name">余额支付</p>
+                            <p class="discount">无优惠</p>
+                        </div>
+                    </div>
+                    <div class="payment-info">
+                        我的余额<i class="icon-rmb">&yen;</i><span class="rmb">1500.00</span>
+                    </div>
+                    <div class="select"></div>
+                </li>
+
+                <li class="payment-item" data-payment="2">
+                    <div class="type">
+                        <div class="type-img alipay"></div>
+                        <div class="payment-name-info">
+                            <p class="payment-name">支付宝支付</p>
+                            <p class="discount">无优惠</p>
+                        </div>
+                    </div>
+                    <div class="select"></div>
+                </li>
+
+                <li class="payment-item" data-payment="3">
+                    <div class="type">
+                        <div class="type-img wechat"></div>
+                        <div class="payment-name-info">
+                            <p class="payment-name">微信支付</p>
+                            <p class="discount">无优惠</p>
+                        </div>
+                    </div>
+                    <div class="select"></div>
+                </li>
+
+                <li class="payment-item" data-payment="4">
+                    <div class="type">
+                        <div class="type-img cash"></div>
+                        <div class="payment-name-info">
+                            <p class="payment-name">线下支付</p>
+                            <p class="discount">无优惠</p>
+                        </div>
+                    </div>
+                    <div class="select"></div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="footer-total-box">
+        <div class="footer-total">
+            <div class="total">
+                <p class="price" id="money-total">
+                    <!--<span class="payment-type">团票支付：</span>-->
+                    <!--<span class="money-total">-->
+                    <!--<i class="icon-tp"></i>-->
+                    <!--<span class="money">20.88</span>-->
+                    <!--</span>-->
+                </p>
+            </div>
+            <div class="submit">提交订单</div>
+        </div>
+    </div>
+</section>
+</body>
+<script>
+    var myScroll;
+    myScroll = new IScroll('#container', {
+        probeType: 3,
+        disableMouse: true,
+        disablePointer: true,
+        mouseWheel: false,
+        scrollX: false,
+        scrollY: true,
+        click: iScrollClick(),
+        scrollbars: false,
+        useTransform: false,
+        useTransition: false
+    });
+
+    var payment_total = Number($("#payment-total").text());
+    var defalt_html = [
+        '<span class="payment-type">团票支付：</span>',
+        '<span class="money-total">',
+        '    <i class="icon-tp"></i>',
+        '    <span class="money">' + payment_total.toFixed(2) + '</span>',
+        '</span>'
+    ].join("");
+    $("#money-total").html(defalt_html);
+
+    var paymentItem = $(".payment-item");
+    paymentItem.on("click", function () {
+        var payment = $(this).data("payment");
+        if (payment == "0") {
+            $(".tp").addClass("active");
+            $(".other-payment .payment-item").removeClass("active");
+
+
+            var ye = Number($("#tp").text());
+
+            if (ye < payment_total) {
+                $("#money-total").html("团票不足");
+                message("团票不足");
+            } else {
+                var htmlCodes = [
+                    '<span class="payment-type">团票支付：</span>',
+                    '<span class="money-total">',
+                    '    <i class="icon-tp"></i>',
+                    '    <span class="money">' + payment_total.toFixed(2) + '</span>',
+                    '</span>'
+                ].join("");
+                $("#money-total").html(htmlCodes);
+            }
+
+        } else {
+            $(".tp").removeClass("active");
+            $(this).addClass("active").siblings().removeClass("active");
+            witch_payment(payment, $(this));
+
+            function witch_payment(payment, el) {
+                if (payment == 1) {
+                    var ye = Number(el.find(".rmb").text());
+                    if (ye < payment_total) {
+                        $("#money-total").html("余额不足");
+                        message("余额不足");
+                    } else {
+                        payment = "余额支付";
+                        html(payment, payment_total);
+                    }
+                } else if (payment == 2) {
+                    payment = "支付宝支付";
+                    html(payment, payment_total);
+                } else if (payment == 3) {
+                    payment = "微信支付";
+                    html(payment, payment_total);
+                } else {
+                    payment = "线下支付";
+                    html(payment, payment_total);
+                }
+            }
+
+            function html(payment_type, payment_total) {
+                var htmlCodes = [
+                    '<span class="payment-type">' + payment_type + '：</span>',
+                    '<span class="money-total">',
+                    '    <i class="icon-rmb">&yen;</i>',
+                    '    <span class="money">' + payment_total.toFixed(2) + '</span>',
+                    '</span>'
+                ].join("");
+                $("#money-total").html(htmlCodes);
+            }
+
+
+        }
+    })
+</script>
+</html>

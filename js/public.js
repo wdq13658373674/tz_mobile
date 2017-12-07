@@ -167,7 +167,8 @@ function is_card(card) {
 }
 
 /*tips*/
-function message(tips) {
+function message(tips, callback) {
+    $("#msgbox").remove();
     var msgbox = document.createElement('div');
     msgbox.id = 'msgbox';
     $('section').append(msgbox);
@@ -176,10 +177,14 @@ function message(tips) {
     $msgbox.html(tips);
     var left = ($msgbox.outerWidth()) / 2;
     $msgbox.css('marginLeft', '-' + left + 'px');
+
     setTimeout(function () {
         $msgbox.fadeOut("slow", function () {
             $(this).remove();
         });
+        if (typeof callback === "function") {
+            callback();
+        }
     }, 600);
 }
 
@@ -240,7 +245,7 @@ var motify = {
     log: function (msg, time, shade) {
         $('.motifyShade,.motify').hide();
         if (motify.timer) clearTimeout(motify.timer);
-        if ($('.motify').size() > 0) {
+        if ($('.motify').length > 0) {
             $('.motify').show().find('.motify-inner').html(msg);
         } else {
             $('body').append('<div class="motify" style="display:block;"><div class="motify-inner">' + msg + '</div></div>');
