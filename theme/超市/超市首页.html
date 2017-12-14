@@ -24,7 +24,14 @@
 <section id="container">
     <div id="scroller">
         <div class="search-bar">
-            <a class="search" href="#"><i class="icon-magnifier"></i>搜索商品，共8964款好物</a>
+            <a class="search clearfix" href="#">
+                <i class="icon-magnifier"></i>
+                <span>搜索商品，共8964款好物</span>
+            </a>
+            <div class="search-box clearfix">
+                <input class="search-txt" type="text" placeholder="请输入要搜索的商品名">
+                <button class="search-tbn"></button>
+            </div>
         </div>
 
         <div class="block-slide">
@@ -135,7 +142,7 @@
                             </div>
                             <div class="outnumber">32530人已购</div>
                         </div>
-                        <div class="plus"></div>
+                        <div class="plus-gray"></div>
                     </li>
 
                     <li class="goods-item clearfix">
@@ -174,7 +181,7 @@
         </div>
     </div>
 </section>
-
+<div class="pull-down" id="pull-down">上拉加载</div>
 <footer>
     <div class="footer">
         <div class="footer-box">
@@ -360,6 +367,22 @@
 <script type="text/javascript" src="../../js/addons/Swiper/swiper.min.js"></script>
 <script type="text/javascript" src="../../js/iscroll.js" charset="utf-8"></script>
 <script>
+
+    $(".search").on("click", function () {
+        if($(this).is(":hidden")){
+            $(this).show();
+            $(".search-box").hide();
+        }else{
+            $(this).hide();
+            $(".search-box").show();
+            $(".search-txt").focus();
+        }
+    });
+
+    $(".search-tbn").on("click",function () {
+        alert(111);
+    });
+
     $("#cartBar").on("click", function () {
         if ($("#shopProductCartShade").css("display") == "none") {
             $("#shopProductCartShade").show();

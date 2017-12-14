@@ -1,5 +1,7 @@
 @import "../cssControl/import";
-
+#container{
+  bottom: 170/@rem;
+}
 .balance {
   background-color: #fff;
   width: 100%;
@@ -55,15 +57,54 @@
   bottom: 0;
   width: 100%;
   height: 100/@rem;
-  background-color: #fd4915;
+  background-color: #8d9092;
   button {
     width: 100%;
     height: 100/@rem;
-    background-color: #fd4915;
+    background-color: #8d9092;
     border: 0;
     text-align: center;
     font-size: 30/@rem;
     line-height: 100/@rem;
     color: #ffffff;
+    pointer-events: none;
+  }
+  &.at{
+    background-color: #fd4915;
+    button{
+      color: #ffffff;
+      background-color: #fd4915;
+      pointer-events: auto;
+    }
+  }
+}
+
+.agreement{
+  height: 35/@rem;
+  position: absolute;
+  bottom: 130/@rem;
+  left: 25%;
+  .flex;
+  align-items: center;
+  .icon-select{
+    width: 30/@rem;
+    height: 30/@rem;
+    background: url("../images/icon/payment-select-gray.svg") no-repeat;
+    background-size: 100% 100%;
+  }
+  .agreement-txt{
+    margin-left: 10/@rem;
+    font-size: 26/@rem;
+    a{
+      color: #fd4915;
+    }
+  }
+  &.active{
+    .icon-select{
+      width: 30/@rem;
+      height: 30/@rem;
+      background: url("../images/icon/payment-select.svg") no-repeat;
+      background-size: 100% 100%;
+    }
   }
 }

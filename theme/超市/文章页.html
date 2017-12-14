@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>确认支付</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../../css/article.css">
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../js/iscroll.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../js/fastclick.js"></script>
+    <script type="text/javascript" src="../../js/public.js"></script>
+
+</head>
+<body>
+
+<header class="public-header orange-header">
+    <div class="header-box">
+        <a href="#" class="back-box"><i class="icon-back-white"></i></a>
+        <h4 class="title">团转钱包使用协议</h4>
+    </div>
+</header>
+<section id="container">
+    <div id="scroller">
+        <div class="agreement">
+            <div class="agreement-title">「团转钱包使用协议」</div>
+            <div class="agreement-body">
+                <p>钱包使用钱包使用钱包使用钱包使用钱包使用钱包使用钱包使用，钱包使用钱包使用钱包使用，钱包使用钱包使用钱包使用钱包使用钱包使用钱包使用钱，包使用钱包使用钱包使用，钱包使用钱包使用钱包使，用钱包使用钱包使用钱包使用，钱包使用。</p>
+                <p>钱包使用钱包使用钱包使用钱包使用钱包使用钱包使用钱包使用，钱包使用钱包使用钱包使用，钱包使用钱包使用钱包使用钱包使用钱包使用钱包使用钱，包使用钱包使用钱包使用，钱包使用钱包使用钱包使，用钱包使用钱包使用钱包使用，钱包使用。</p>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+<script>
+    var myScroll;
+    myScroll = new IScroll('#container', {
+        probeType: 3,
+        disableMouse: true,
+        disablePointer: true,
+        mouseWheel: false,
+        scrollX: false,
+        scrollY: true,
+        click: iScrollClick(),
+        scrollbars: false,
+        useTransform: false,
+        useTransition: false
+    });
+</script>
+</html>

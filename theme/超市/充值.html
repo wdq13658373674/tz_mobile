@@ -59,77 +59,29 @@
             <input class="money" type="hidden" name="money" value="">
             <div class="xy"></div>
         </form>
-
-        <form id="form" action="#">
-            <ul class="balance-list">
-                <li class="balance-item active" data-balance="100">
-                    充值<span>100.00</span><em>元</em>
-                </li>
-                <li class="balance-item" data-balance="200">
-                    充值<span>200.00</span><em>元</em>
-                </li>
-                <li class="balance-item" data-balance="500">
-                    充值<span>500.00</span><em>元</em>
-                </li>
-                <li class="balance-item" data-balance="1000">
-                    充值<span>1000.00</span><em>元</em>
-                </li>
-                <li class="balance-item" data-balance="2000">
-                    充值<span>2000.00</span><em>元</em>
-                </li>
-                <li class="balance-item" data-balance="3000">
-                    充值<span>3000.00</span><em>元</em>
-                </li>
-                <li class="balance-item" data-balance="5000">
-                    充值<span>5000.00</span><em>元</em>
-                </li>
-                <li class="balance-item" data-balance="1">
-                    <input class="inpt" type="tel" placeholder="自定义">
-                </li>
-            </ul>
-            <input class="money" type="hidden" name="money" value="">
-            <div class="xy"></div>
-        </form>
-
-        <form id="form" action="#">
-            <ul class="balance-list">
-                <li class="balance-item active" data-balance="100">
-                    充值<span>100.00</span><em>元</em>
-                </li>
-                <li class="balance-item" data-balance="200">
-                    充值<span>200.00</span><em>元</em>
-                </li>
-                <li class="balance-item" data-balance="500">
-                    充值<span>500.00</span><em>元</em>
-                </li>
-                <li class="balance-item" data-balance="1000">
-                    充值<span>1000.00</span><em>元</em>
-                </li>
-                <li class="balance-item" data-balance="2000">
-                    充值<span>2000.00</span><em>元</em>
-                </li>
-                <li class="balance-item" data-balance="3000">
-                    充值<span>3000.00</span><em>元</em>
-                </li>
-                <li class="balance-item" data-balance="5000">
-                    充值<span>5000.00</span><em>元</em>
-                </li>
-                <li class="balance-item" data-balance="1">
-                    <input class="inpt" type="tel" placeholder="自定义">
-                </li>
-            </ul>
-            <input class="money" type="hidden" name="money" value="">
-            <div class="xy"></div>
-        </form>
     </div>
 </section>
-
+<div class="agreement">
+    <i class="icon-select"></i>
+    <span class="agreement-txt">我接受<a href="#">《团转钱包使用协议》</a></span>
+</div>
 <section class="btn-block">
     <button form="form" type="submit">立即充值</button>
 </section>
 
 </body>
 <script>
+
+    $(".agreement").on("click", function () {
+        if($(this).hasClass("active")){
+            $(this).removeClass("active");
+            $(".btn-block").removeClass("at");
+        }else {
+            $(this).addClass("active");
+            $(".btn-block").addClass("at");
+        }
+    });
+
 
     $(".balance-item").on("click", function () {
         if ($(this).data("balance") == "1") {
