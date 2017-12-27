@@ -167,8 +167,7 @@ function is_card(card) {
 }
 
 /*tips*/
-function message(tips, callback) {
-    $("#msgbox").remove();
+function message(tips) {
     var msgbox = document.createElement('div');
     msgbox.id = 'msgbox';
     $('section').append(msgbox);
@@ -177,14 +176,10 @@ function message(tips, callback) {
     $msgbox.html(tips);
     var left = ($msgbox.outerWidth()) / 2;
     $msgbox.css('marginLeft', '-' + left + 'px');
-
     setTimeout(function () {
         $msgbox.fadeOut("slow", function () {
             $(this).remove();
         });
-        if (typeof callback === "function") {
-            callback();
-        }
     }, 600);
 }
 
@@ -210,17 +205,17 @@ function notice(el, tips) {
 /*
  * 获取验证码倒计时
  * */
-var wait = 60,
-    t;
+var waits = 60;
+var t;
 
-function times(wait) {
-    if (wait === 0) {
+function times() {
+    if (waits === 0) {
         $("#send").removeClass("disabled").html("获取验证码");
-        wait = 60;
+        waits = 60;
         clearTimeout(t);
     } else {
-        $("#send").addClass("disabled").html("重新获取(" + wait + "s)");
-        wait--;
+        $("#send").addClass("disabled").html("重新获取(" + waits + "s)");
+        waits--;
         t = setTimeout(function () {
             times()
         }, 1000)
@@ -245,7 +240,7 @@ var motify = {
     log: function (msg, time, shade) {
         $('.motifyShade,.motify').hide();
         if (motify.timer) clearTimeout(motify.timer);
-        if ($('.motify').length > 0) {
+        if ($('.motify').lenght > 0) {
             $('.motify').show().find('.motify-inner').html(msg);
         } else {
             $('body').append('<div class="motify" style="display:block;"><div class="motify-inner">' + msg + '</div></div>');
@@ -334,7 +329,6 @@ var motify = {
         }
     }
 };
-
 /*倒计时跳转*/
 
 function jump(el, count, callback) {

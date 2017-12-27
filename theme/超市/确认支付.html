@@ -75,7 +75,7 @@
 
                 <li class="payment-item" data-payment="3">
                     <div class="type">
-                        <div class="type-img wechat"></div>
+                        <div class="type-img weixin"></div>
                         <div class="payment-name-info">
                             <p class="payment-name">微信支付</p>
                             <p class="discount">无优惠</p>
@@ -114,6 +114,26 @@
         </div>
     </div>
 </section>
+
+<div class="mask">
+    <div class="inputBoxContainer" id="inputBoxContainer">
+        <input type="text" class="realInput"/>
+        <div class="bogusInput">
+            <input type="password" maxlength="6" disabled/>
+            <input type="password" maxlength="6" disabled/>
+            <input type="password" maxlength="6" disabled/>
+            <input type="password" maxlength="6" disabled/>
+            <input type="password" maxlength="6" disabled/>
+            <input type="password" maxlength="6" disabled/>
+        </div>
+    </div>
+    <div class="btn-box">
+        <button id="confirmButton" class="confirmButton">确认</button>
+        <button id="close" class="confirmButton">取消</button>
+    </div>
+
+</div>
+
 </body>
 <script>
     var myScroll;
@@ -205,5 +225,72 @@
 
         }
     })
+
+</script>
+<script>
+    (function () {
+        var container = document.getElementById("inputBoxContainer");
+        boxInput = {
+            maxLength: "",
+            realInput: "",
+            bogusInput: "",
+            bogusInputArr: "",
+            callback: "",
+            init: function (fun) {
+                var that = this;
+                this.callback = fun;
+                that.realInput = container.children[0];
+                that.bogusInput = container.children[1];
+                that.bogusInputArr = that.bogusInput.children;
+                that.maxLength = that.bogusInputArr[0].getAttribute("maxlength");
+                that.realInput.oninput = function () {
+                    that.setValue();
+                };
+                that.realInput.onpropertychange = function () {
+                    that.setValue();
+                }
+            },
+            setValue: function () {
+                this.realInput.value = this.realInput.value.replace(/\D/g, "");
+                console.log(this.realInput.value.replace(/\D/g, ""))
+                var real_str = this.realInput.value;
+                for (var i = 0; i < this.maxLength; i++) {
+                    this.bogusInputArr[i].value = real_str[i] ? real_str[i] : "";
+                }
+                if (real_str.length >= this.maxLength) {
+                    this.realInput.value = real_str.substring(0, 6);
+                    this.callback();
+                }
+            },
+            getBoxInputValue: function () {
+                var realValue = "";
+                for (var i in this.bogusInputArr) {
+                    if (!this.bogusInputArr[i].value) {
+                        break;
+                    }
+                    realValue += this.bogusInputArr[i].value;
+                }
+                return realValue;
+            }
+        }
+    })();
+    boxInput.init(function () {
+        //getValue();
+    });
+    document.getElementById("confirmButton").onclick = function () {
+        //getValue();
+        alert(11);
+    };
+    document.getElementById("confirmButton").onclick = function () {
+        //getValue();
+        alert(11);
+    };
+    document.getElementById("confirmButton").onclick = function () {
+        //getValue();
+        alert(11);
+    };
+    // function getValue(){
+    //     document.getElementById("showValue").innerText = boxInput.getBoxInputValue();
+    // }
 </script>
 </html>
