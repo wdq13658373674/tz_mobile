@@ -1,35 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="33px" height="30px" viewBox="0 0 33 30" version="1.1" xmlns="http://www.w3.org/2000/svg">
-    <!-- Generator: sketchtool 45.1 (43504) - http://www.bohemiancoding.com/sketch -->
-    <title>2F00436E-5C4E-4E31-8B94-623ABB557503</title>
-    <desc>Created with sketchtool.</desc>
-    <defs></defs>
-    <g id="首页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="图标-个人中心" transform="translate(-42.000000, -160.000000)" stroke="#9E9E9E" stroke-width="2">
-            <g id="Group-6" transform="translate(42.000000, 160.000000)">
-                <g id="Page-1" transform="translate(1.000000, 1.000000)">
-                    <path d="M6.958,27.256 L6.958,1.152 C6.958,0.791 7.249,0.5 7.608,0.5 L23.13,0.5 C23.489,0.5 23.78,0.791 23.78,1.152 L23.78,27.256"
-                          id="Stroke-1"></path>
-                    <path d="M3.0654,27.256 L3.0654,6.788 C3.0654,6.429 3.3564,6.138 3.7154,6.138 L6.3064,6.138 C6.6664,6.138 6.9584,6.429 6.9584,6.788 L6.9584,27.256"
-                          id="Stroke-3"></path>
-                    <path d="M23.7803,27.256 L23.7803,6.788 C23.7803,6.429 24.0723,6.138 24.4313,6.138 L27.0223,6.138 C27.3823,6.138 27.6733,6.429 27.6733,6.788 L27.6733,27.256"
-                          id="Stroke-5"></path>
-                    <path d="M10,3.8106 L10,5.8696" id="Stroke-7" stroke-linecap="round"></path>
-                    <path d="M15,3.8106 L15,5.8696" id="Stroke-9" stroke-linecap="round"></path>
-                    <path d="M20,3.8106 L20,5.8696" id="Stroke-11" stroke-linecap="round"></path>
-                    <path d="M10,9.5118 L10,11.5698" id="Stroke-13" stroke-linecap="round"></path>
-                    <path d="M15,9.5118 L15,11.5698" id="Stroke-15" stroke-linecap="round"></path>
-                    <path d="M20,9.5118 L20,11.5698" id="Stroke-17" stroke-linecap="round"></path>
-                    <path d="M10,15.212 L10,17.27" id="Stroke-19" stroke-linecap="round"></path>
-                    <path d="M15,15.212 L15,17.27" id="Stroke-21" stroke-linecap="round"></path>
-                    <path d="M20,15.212 L20,17.27" id="Stroke-23" stroke-linecap="round"></path>
-                    <path d="M10,20.9122 L10,22.9712" id="Stroke-25" stroke-linecap="round"></path>
-                    <path d="M20,20.9122 L20,22.9712" id="Stroke-27" stroke-linecap="round"></path>
-                    <path d="M13.2666,27.256 L13.2666,21.642 C13.2666,21.282 13.5576,20.99 13.9166,20.99 L16.7316,20.99 C17.0906,20.99 17.3826,21.282 17.3826,21.642 L17.3826,27.256"
-                          id="Stroke-29" stroke-linecap="round"></path>
-                    <path d="M0.5,28 L30.312,28" id="Stroke-31" stroke-linecap="round"></path>
-                </g>
-            </g>
-        </g>
-    </g>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="138" height="125"
+     viewBox="0 0 138 125">
+    <metadata><?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+        <x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c138 79.159824, 2016/09/14-01:09:01        ">
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+                <rdf:Description rdf:about=""/>
+            </rdf:RDF>
+        </x:xmpmeta>
+
+
+        <?xpacket end="w"?>
+    </metadata>
+    <image id="图层_1" data-name="图层 1" x="2" y="2" width="133" height="123"
+           xlink:href="data:img/png;base64,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"/>
 </svg>
