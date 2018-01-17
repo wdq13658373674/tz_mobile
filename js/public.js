@@ -363,3 +363,27 @@ function toDecimal2(x) {
     }
     return s;
 }
+
+function tphb(data) {
+    var temp = [
+        '<div id="tp_mask" class="tp_mask"></div>',
+        '<div id="tp_jl" class="tp_jl">',
+        '    <div class="tp_body">',
+        '        <p class="tp_title">—— ' + data.title + ' ——</p>',
+        '        <div class="tp_box">',
+        '            <em class="tp_price">' + data.tp_num + '</em>',
+        '            <span class="tp_txt">团票</span>',
+        '        </div>',
+        '        <p class="tp_date">有效期 <span class="tp_time">' + data.time + '</span></p>',
+        '    </div>',
+        '</div>'
+    ].join("");
+    data.temp = temp;
+
+    $("body").append(data.temp);
+
+    $("#tp_mask").on("click", function () {
+        $("#tp_jl").remove();
+        $("#tp_mask").remove();
+    })
+}

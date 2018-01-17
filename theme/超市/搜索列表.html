@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>index</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../../css/search_list.css">
+
+    <script type="text/javascript" src="../../js/fastclick.js"></script>
+    <script type="text/javascript" src="../../js/public.js"></script>
+
+    <title>商品列表</title>
+</head>
+
+<body>
+<header class="public-header border-b">
+    <div class="header-box">
+        <a href="#" class="back-box"><i class="icon-back"></i></a>
+        <a href="#" class="search">卫生纸</a>
+    </div>
+</header>
+
+<section>
+    <div class="screen-box">
+        <div class="screen">
+            <a class="screen-item" id="volume" data-type="1" href="javascript: void(0);">销量</a>
+            <a class="screen-item price-sort" data-type="2" href="javascript: void(0);">价格</a>
+            <a class="screen-item" id="screen" ref="off" data-type="3" href="javascript: void(0);">筛选</a>
+        </div>
+    </div>
+
+    <div class="shops">
+        <!--<div class="shop-loading">正在加载中.....</div>-->
+        <div class="shop-list">
+            <ul class="goods-list">
+                <li class="goods-item clearfix">
+                    <div class="goods-img">
+                        <img src="../../images/img/goods-img.png" alt="">
+                    </div>
+                    <div class="goods-info">
+                        <p class="goods-name">早秋复古宽松直筒竖条纹长袖雪纺衬衣烤漆无烟电烤炉 烤涮一体锅克莱比早秋复古宽松直筒竖条纹长袖雪纺衬衣烤漆无烟电烤炉
+                            烤涮一体锅克莱比……</p>
+                        <div class="price-box">
+                            <div class="price-tp">
+                                <i class="icon-tp pull-left"></i>
+                                <span class="tp pull-left">
+                                        999.00
+                                    </span>
+                            </div>
+                            <div class="price-rmb">
+                                <i class="icon-rmb">&yen;</i>
+                                <span class="rmb">
+                                        999.00
+                                    </span>
+                                <div class="util"> / 盒</div>
+                            </div>
+
+                        </div>
+                        <div class="discount-box">
+                            <div class="discount-full">满200减40</div>
+                            <div class="discount-fracture">团票一折</div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="goods-item clearfix">
+                    <div class="goods-img">
+                        <img src="../../images/img/goods-img.png" alt="">
+                    </div>
+                    <div class="goods-info">
+                        <p class="goods-name">早秋复古宽松直筒竖条纹长袖雪纺衬衣烤漆无烟电烤炉 烤涮一体锅克莱比早秋复古宽松直筒竖条纹长袖雪纺衬衣烤漆无烟电烤炉
+                            烤涮一体锅克莱比……</p>
+                        <div class="price-box">
+                            <div class="price-tp">
+                                <i class="icon-tp"></i>
+                                <span class="tp">
+                                        999.00
+                                    </span>
+                            </div>
+                            <div class="price-rmb">
+                                <i class="icon-rmb">&yen;</i>
+                                <span class="rmb">
+                                        999.00
+                                    </span>
+                                <div class="util"> / 盒</div>
+                            </div>
+
+                        </div>
+                        <div class="discount-box">
+                            <div class="discount-full">满200减40</div>
+                            <div class="discount-fracture">团票一折</div>
+                        </div>
+                    </div>
+
+                </li>
+
+                <li class="goods-item clearfix">
+                    <div class="goods-img">
+                        <img src="../../images/img/goods-img.png" alt="">
+                    </div>
+                    <div class="goods-info">
+                        <p class="goods-name">早秋复古宽松直筒竖条纹长袖雪纺衬衣烤漆无烟电烤炉 烤涮一体锅克莱比早秋复古宽松直筒竖条纹长袖雪纺衬衣烤漆无烟电烤炉
+                            烤涮一体锅克莱比……</p>
+                        <div class="price-box">
+                            <div class="price-tp">
+                                <i class="icon-tp"></i>
+                                <span class="tp">
+                                        999.00
+                                    </span>
+                            </div>
+                            <div class="price-rmb">
+                                <i class="icon-rmb">&yen;</i>
+                                <span class="rmb">
+                                        999.00
+                                    </span>
+                                <div class="util"> / 盒</div>
+                            </div>
+
+                        </div>
+                        <div class="discount-box">
+                            <div class="discount-full">满200减40</div>
+                            <div class="discount-fracture">团票一折</div>
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+            <div class=""></div>
+        </div>
+    </div>
+</section>
+
+<div id="mask" class="mask"></div>
+<div id="filtrate" class="filtrate">
+    <div class="fil-item fil-rmb" data-price="rmb">
+        <div class="fil-type">价格区间</div>
+        <input class="mprice" type="text" name="" placeholder="最低价">
+        <em>—</em>
+        <input class="bprice" type="text" name="" placeholder="最高价">
+    </div>
+    <div class="fil-item fil-tb" data-price="tb">
+        <div class="fil-type">团票区间</div>
+        <input class="mprice" type="text" name="" placeholder="最低价">
+        <em>—</em>
+        <input class="bprice" type="text" name="" placeholder="最高价">
+    </div>
+    <div class="btn-group">
+        <a class="reset" href="#">清空</a>
+        <a class="confirm" href="#">确定</a>
+    </div>
+</div>
+
+<div id="price-range" class="price-range">
+    <ul class="range-list">
+        <li class="range-item at"><a href="#">价格由高到低</a></li>
+        <li class="range-item"><a href="#">价格由低到高</a></li>
+        <li class="range-item"><a href="#">团票由高到低</a></li>
+        <li class="range-item"><a href="#">团票由低到高</a></li>
+    </ul>
+</div>
+
+
+<script src="../../js/jquery-3.2.1.min.js"></script>
+<script>
+    (function () {
+        $(".screen-item").on("click", function () {
+            var dataType = $(this).data("type");
+            $(this).addClass('active').siblings('a').removeClass('active');
+            if ($(this).attr("id") == "volume") {
+                $("#filtrate").hide();
+                $("#price-range").hide();
+                $("#mask").hide();
+            }
+        });
+        $(".price-sort").on("click", function () {
+            $("#mask").show();
+            $("#filtrate").hide();
+            $("#price-range").show();
+        });
+
+
+        $("#screen").on("click", function () {
+            $("#mask").show();
+            $("#price-range").hide();
+            $("#filtrate").show();
+        });
+
+        $("#mask").on("click", function () {
+            $("#mask").hide();
+            $("#price-range").hide();
+            $("#filtrate").hide();
+        });
+
+        $(".reset").on("click", function () {
+            $(this).parents(".filtrate").find("input").val("");
+        });
+
+        $(".confirm").on("click", function () {
+            var rmb_mprice = $(this).parents(".filtrate").find(".fil-rmb").children(".mprice").val(); //rmb 最低价
+            var rmb_bprice = $(this).parents(".filtrate").find(".fil-rmb").children(".bprice").val(); //rmb 最高价
+            var tb_mprice = $(this).parents(".filtrate").find(".fil-tb").children(".mprice").val(); //tb 最低价
+            var tb_bprice = $(this).parents(".filtrate").find(".fil-tb").children(".bprice").val(); //tb 最高价
+
+            //TODO 根据数据写判断
+
+            alert(rmb_mprice, rmb_bprice, tb_mprice, tb_bprice);
+            $("#mask").hide();
+            $("#filtrate").hide();
+        })
+    })()
+</script>
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../../css/search.css">
+    <link rel="stylesheet" href="../../js/addons/Swiper/swiper.min.css">
+    <!--<script type="text/javascript" src="../../js/viewport.js"></script>-->
+    <script type="text/javascript" src="../../js/fastclick.js"></script>
+    <script type="text/javascript" src="../../js/public.js"></script>
+    <title>搜索</title>
+
+</head>
+<body>
+<header class="search-header">
+    <div class="search-bar clearfix">
+        <a href="#" class="back pull-left">
+            <i class="icon-back"></i>
+        </a>
+        <form action="">
+            <div class="search pull-left">
+                <i class="search-icon pull-left"></i>
+                <input class="search-text pull-left" type="text" name="search" value="" placeholder="搜索商品，共8964款好物">
+                <div class="clear">
+                    <div class="clear-btn"></div>
+                </div>
+
+            </div>
+            <div class="btn-group pull-left">
+                <input class="search-button" type="submit" value="搜索">
+            </div>
+
+        </form>
+    </div>
+</header>
+
+<section id="container">
+    <div id="scroller">
+        <div class="history-title">历史搜索记录</div>
+        <div class="history-record">
+            <!--<div class="not-history">暂无历史记录</div>-->
+            <div class="history-list">
+                <ul id="oul">
+                    <li class="history-item"><a href="#">沐浴露</a></li>
+                    <li class="history-item"><a href="#">沐浴露</a></li>
+                    <li class="history-item"><a href="#">沐浴露</a></li>
+                    <li class="history-item"><a href="#">沐浴露</a></li>
+                    <li class="history-item"><a href="#">沐浴露</a></li>
+                    <li class="history-item"><a href="#">沐浴露</a></li>
+                    <li class="history-item"><a href="#">沐浴露</a></li>
+                    <li class="history-item"><a href="#">沐浴露</a></li>
+                    <li class="history-item"><a href="#">沐浴露</a></li>
+                    <li class="history-item"><a href="#">沐浴露</a></li>
+                </ul>
+                <a class="clear-history" href="#">清空搜索历史</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="../../js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../../js/addons/Swiper/swiper.min.js"></script>
+<script type="text/javascript" src="../../js/iscroll.js" charset="utf-8"></script>
+<script>
+
+    /*搜索下拉*/
+
+    $(".search-text").on("keyup", function () {
+        var search_val = $(".search-text").val();
+        /*清空按钮显示*/
+        if (search_val !== '') {
+            $(".clear").css({display: "block"});
+        } else {
+            $(".clear").css({display: "none"});
+        }
+    });
+    $(".clear").on("click", function () {
+        $(".search-text").val('');
+    });
+    var myScroll;
+    myScroll = new IScroll('#container', {
+        probeType: 3,
+        disableMouse: true,
+        disablePointer: true,
+        mouseWheel: false,
+        scrollX: false,
+        scrollY: true,
+        click: iScrollClick(),
+        scrollbars: false,
+        useTransform: false,
+        useTransition: false
+    });
+
+</script>
+</body>
+</html>

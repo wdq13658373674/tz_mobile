@@ -1,0 +1,119 @@
+@import "../cssControl/import";
+
+body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.turntable_container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url("../images/zt/turntable/zp_bg.gif") no-repeat center;
+  background-size: auto 100%;
+}
+
+.winning {
+  position: absolute;
+  top: 300/@rem;
+  left: 50%;
+  margin-left: -161/@rem;
+  width: 322/@rem;
+  height: 61/@rem;
+  background: url("../images/zt/turntable/winning.png") no-repeat;
+  background-size: 100% 100%;
+  text-align: center;
+  font-size: 24/@rem;
+  line-height: 61/@rem;
+  color: #fff;
+}
+
+.rotate_container {
+  position: relative;
+  top: 403/@rem;
+  left: 94/@rem;
+  width: 558/@rem;
+  height: 558/@rem;
+}
+
+.pointer {
+  width: 82/@rem;
+  height: 108/@rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -41/@rem;
+  margin-top: -54/@rem;
+  z-index: 8;
+  background: url("../images/zt/turntable/pointer.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+.rotate {
+  width: 462/@rem;
+  height: 462/@rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -231/@rem;
+  margin-top: -231/@rem;
+  background: url("../images/zt/turntable/turntable.gif") no-repeat;
+  background-size: 100% 100%;
+  z-index: 7;
+}
+
+.zp_mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: rgba(0, 0, 0, .7);
+  display: none;
+}
+
+.zp_winning {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 550/@rem;
+  height: 940/@rem;
+  margin-left: -275/@rem;
+  margin-top: -470/@rem;
+  background: url("../images/zt/turntable/zp_winning_bg.png") no-repeat;
+  background-size: 100% 100%;
+  z-index: 101;
+  font-size: 24/@rem;
+}
+
+.zp_table_box {
+  width: 510/@rem;
+  height: 906/@rem;
+  margin: 20/@rem;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.zp_table {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0 0 1em;
+  th {
+    color: #c00a0a;
+    text-align: center;
+    height: 60/@rem;
+  }
+
+  td {
+    height: 40/@rem;
+    color: #000;
+    text-align: center;
+  }
+  a {
+    color: #000;
+  }
+}
