@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>注册有礼</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../../css/login_gift.css">
+    <script type="text/javascript" src="../../js/fastclick.js"></script>
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../js/public.js"></script>
+
+</head>
+<body>
+<header class="public-header header-nmb">
+    <div class="header-box">
+        <a href="#" class="back-box"><i class="icon-back"></i></a>
+        <h4 class="title">注册有礼</h4>
+    </div>
+</header>
+
+<div class="container-box">
+    <div class="container">
+        <div class="form_box">
+            <form action="#">
+                <div class="form-item">
+                    <input id="phone" class="form-ipt" type="tel" name="phone" placeholder="请输入注册手机号码">
+                </div>
+                <div class="form-item clearfix">
+                    <div class="validate-box pull-left">
+                        <input id="validateCode" class="form-ipt" type="text" name="code" placeholder="请输入验证码">
+                    </div>
+                    <a id="send" class="validate-btn pull-right" href="javascript:void(0);">发送验证码</a>
+                </div>
+                <div class="form-item">
+                    <input id="password" class="form-ipt" type="password" name="password" placeholder="请输入密码">
+                </div>
+                <div class="form-item clearfix">
+                    <div class="form-checkbox pull-left">
+                        <input id="agreement" type="checkbox" name="agreement" checked="checked">
+                        <div class="checkbox"></div>
+                    </div>
+                    <div class="form-agreement pull-left">我已阅读并同意<a href="#">《房计划团转到家注册协议》</a></div>
+                </div>
+                <div class="form-btn-group">
+                    <input type="submit" class="btn-submit" value="提交注册领取团票">
+                </div>
+            </form>
+        </div>
+        <div class="float-icon float1"></div>
+        <div class="float-icon float2"></div>
+    </div>
+</div>
+</body>
+
+<script type="text/javascript">
+    (function () {
+        /*发送验证码倒计时*/
+        $("#send").on("click", function () {
+            times();
+        });
+
+        $("form").on("submit", function () {
+            var validate = "123561";
+            var phone = $("#phone");
+            var validateCode = $("#validateCode");
+            var password = $("#password");
+
+            if (phone.val() == "") {
+                motify.log("请输入手机号码");
+                return false;
+            }
+            if (!(/^1[3|4|5|7|8][0-9]\d{4,8}$/.test(phone.val()))) {
+                motify.log("请输入正确的手机号码");
+                return false;
+            }
+            if (validateCode.val() === "") {
+                motify.log("请输入验证码");
+                return false;
+            }
+            if (validateCode.val() !== validate) {
+                motify.log("请输入正确的验证码");
+                return false;
+            }
+            if (password.val() === "") {
+                motify.log("请输入密码");
+                return false;
+            }
+            if (password.val().length < 6) {
+                motify.log("请设置6位以上的密码");
+                return false;
+            }
+        });
+
+    })()
+</script>
+</html>

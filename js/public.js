@@ -364,6 +364,20 @@ function toDecimal2(x) {
     return s;
 }
 
+/*团票奖励*/
+/**
+ *@param data
+ *
+ * title: 标题
+ * tp_num: 团票数量
+ * time: 有效期
+ *   tp({
+ *       title:"恭喜获得",
+ *       tp_num:2,
+ *       time:"2018.01.15-2018.03.15"
+ *     });
+ *
+ */
 function tphb(data) {
     var temp = [
         '<div id="tp_mask" class="tp_mask"></div>',

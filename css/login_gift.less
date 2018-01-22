@@ -1,0 +1,132 @@
+@import "../cssControl/import";
+
+.container-box {
+  position: absolute;
+  top: 2.2rem;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../images/zt/loginGift/login_gift-bg.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.form_box {
+  position: absolute;
+  top: 713/@rem;
+  left: 50%;
+  width: 684/@rem;
+  height: 590/@rem;
+  margin-left: -684/2/@rem;
+  background-color: #fff;
+  border-radius: 10/@rem;
+  padding: 58/@rem 33/@rem 68/@rem 33/@rem;
+  .validate-box {
+    width: 320/@rem;
+    height: 69/@rem;
+  }
+  .form-item {
+    margin-top: 18/@rem;
+    width: 100%;
+    height: 69/@rem;
+  }
+  .form-ipt {
+    width: 100%;
+    height: 100%;
+    line-height: 69/@rem;
+    border: 2/@rem solid #efefef;
+    padding: 0 26/@rem;
+    font-size: 28/@rem;
+  }
+  .validate-btn {
+    display: block;
+    width: 264/@rem;
+    height: 68/@rem;
+    border: 2/@rem solid #ed672c;
+    text-align: center;
+    line-height: 68/@rem;
+    color: #ed672c;
+    font-size: 28/@rem;
+  }
+  .form-checkbox {
+    position: relative;
+    margin-top: 3/@rem;
+    width: 25/@rem;
+    height: 25/@rem;
+    input[type='checkbox'] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      z-index: 10;
+    }
+    .checkbox {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ed672c;
+    }
+    input[type='checkbox']:checked + .checkbox {
+      background: url("../images/zt/loginGift/check.png") no-repeat;
+      background-size: 100% 100%;
+    }
+  }
+  .form-agreement {
+    margin-left: 10/@rem;
+    a {
+      color: #ed672c;
+    }
+  }
+
+  .form-btn-group {
+    width: 619/@rem;
+    height: 86/@rem;
+    margin: 0 auto;
+    .btn-submit {
+      border: none;
+      display: block;
+      width: 619/@rem;
+      height: 86/@rem;
+      background: url("../images/zt/loginGift/btn_bg.png");
+      background-size: 100% 100%;
+      color: #fff;
+      font-size: 30/@rem;
+    }
+  }
+}
+
+.float-icon {
+  width: 69/@rem;
+  height: 69/@rem;
+  background: url("../images/zt/loginGift/icon-tz_logo.png") no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+}
+
+.float1 {
+  bottom: -17/@rem;
+  left: 48/@rem;
+}
+
+.float2 {
+  bottom: 25/@rem;
+  right: 15/@rem;
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.6;
+}

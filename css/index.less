@@ -191,28 +191,9 @@ section {
   }
 }
 
-/*广告位*/
-.advert{
-  margin: 24/@rem 0;
-  width: 100%;
-  .swiper-container {
-    width: 100%;
-    height: 241/@rem;
-  }
-
-  .swiper-slide {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: auto 100%;
-    width: 100%;
-    height: 241/@rem;
-  }
-}
-
 /*小区消息滚动提示*/
 
 .info-estate{
-  margin-top: 24/@rem;
   position: relative;
   .public-bg;
   width: 100%;
@@ -221,6 +202,7 @@ section {
   .flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1/@rem solid #bbbbbb;
   .icon-link-right {
     position: absolute;
     display: block;
@@ -282,182 +264,29 @@ section {
   }
 }
 
-
-/*附近商铺*/
-.shops{
-  //padding: 27/@rem 48/@rem 0 48/@rem;
-  //background-color: @block-bg;
-  //margin-bottom: 128/@rem;
-}
-
-
-.shop-loading {
-  margin: 10/@rem 0;
-  text-align: center;
-  font-size: 28/@rem;
-}
-.shop-list{
-  .flex();
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.shop-item {
-  margin-top: 24/@rem;
-  display: block;
-  width: 366/@rem;
-  height: 585/@rem;
+.hot {
+  margin-top: 20/@rem;
   background-color: #fff;
-  .shop-img{
+  padding-bottom: 50/@rem;
+  .hot_title {
     width: 100%;
-    height: 372/@rem;
-    img {
-      width: 100%;
-      height: 372/@rem;
-    }
+    height: 1.3rem;
+    background: url(../images/img/shop-title.png) no-repeat center center;
+    background-size: auto 100%;
   }
-  .shop-name {
-    margin-top: 28/@rem;
-    width: 100%;
-    font-size: 26/@rem;
-    padding: 0 17/@rem;
-    .ellipsis();
-  }
-}
-
-.price-box {
-  margin-top: 4/@rem;
-  padding: 0 17/@rem;
-  .price-tp {
-    position: relative;
-    color: #fd4915;
-    .flex;
-    align-items: baseline;
-    .tp-util {
-      display: block;
-      position: absolute;
-      width: 45/@rem;
-      height: 26/@rem;
-      top: 20/@rem;
-      line-height: 26/@rem;
-      border-radius: 4/@rem;
-      border: 1.2/@rem solid #fd4915;
-      font-size: 16/@rem;
-      text-align: center;
-    }
-    .tp-int {
-      margin-left: 5/@rem;
-      font-size: 50/@rem;
-    }
-    .tp-float {
-      font-size: 26/@rem;
-    }
-  }
-  .price-rmb {
-    margin-top: 4/@rem;
-    .flex;
-    align-items: baseline;
-    .rmb-util {
-      font-size: 20/@rem;
-    }
-    .rmb-int {
-      margin-left: 4/@rem;
-      font-size: 26/@rem;
-    }
-    .rmb-float {
-      font-size: 18/@rem;
-    }
-  }
-  .blank-discount {
-    margin-top: 10/@rem;
-    .flex;
-    justify-content: space-between;
-  }
-  .discount {
-    .flex;
-    font-size: 16/@rem;
-    color: #fff;
-    span {
-      &:nth-child(2) {
-        margin-left: 10/@rem;
-      }
-    }
-    .discount-cut {
-      .flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16/@rem;
-      width: 96/@rem;
-      height: 24/@rem;
-      text-align: center;
-      line-height: 24/@rem;
-      background: url("../images/icon/discount-bg.svg") no-repeat;
-      background-size: 100% 100%;
-    }
-    .discount-sale {
-      display: block;
-      font-size: 16/@rem;
-      height: 24/@rem;
-      line-height: 24/@rem;
-      padding: 0 3/@rem;
-      background: #fd4915;
-    }
-  }
-  .outnumber {
-    font-size: 18/@rem;
-    color: #9f9f9f;
-  }
-}
-
-.discount_link {
-  background: #fff;
-  .flex();
-  justify-content: space-between;
-  .discount_left {
-    width: 272/@rem;
-    height: 145/@rem;
-    .discount_hot {
-      display: block;
-      width: 100%;
-      height: 100%;
-      background: url("../images/img/discount_hot.png") no-repeat;
-      background-size: 100% 100%;
-    }
-  }
-  .discount_right {
-    width: 477/@rem;
-    height: 145/@rem;
-    .discount_t {
-      width: 477/@rem;
-      height: 71/@rem;
-      overflow: hidden;
-      a {
-        display: block;
+  .hot_list {
+    padding: 0 38/@rem;
+    .hot_item {
+      margin-top: 30/@rem;
+      width: 680/@rem;
+      height: 350/@rem;
+      img {
         width: 100%;
-        height: 72/@rem;
-        background: url("../images/img/discount_hot1.png") no-repeat;
-        background-size: 100% 100%;
-      }
-    }
-    .discount_d {
-      overflow: hidden;
-      margin-top: 3/@rem;
-      width: 477/@rem;
-      height: 72/@rem;
-      .flex();
-      justify-content: space-between;
-      .discount_hot2 {
-        width: 236/@rem;
-        height: 71/@rem;
-        background: url("../images/img/discount_hot2.png") no-repeat;
-        background-size: 100% 100%;
-      }
-      .discount_hot3 {
-        width: 239/@rem;
-        height: 71/@rem;
-        background: url("../images/img/discount_hot5.png") no-repeat;
-        background-size: 100% 100%;
+        height: 100%;
       }
     }
   }
 }
+
+
+
