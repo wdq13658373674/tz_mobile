@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../css/turntable.css">
     <script type="text/javascript" src="../../js/fastclick.js"></script>
     <script type="text/javascript" src="../../js/public.js"></script>
+
 </head>
 <body>
 <header class="public-header header-nmb">
@@ -218,14 +219,55 @@
             </tbody>
         </table>
     </div>
-
 </div>
+
 
 </body>
 <script src="../../js/jquery-3.2.1.min.js"></script>
+<script src="../../js/addons/layer/layer.js"></script>
 <script src="../../js/addons/awardRotate.js"></script>
+<style>
+    .layui-m-layer0 .layui-m-layerchild {
+        max-width: 6rem;
+    }
+
+    .layui-m-layercont {
+        padding: .5rem .4rem;
+        line-height: 1rem;
+        border-radius: 1rem;
+        font-size: .48rem;
+    }
+
+    .layui-m-layerbtn {
+        display: box;
+        display: -moz-box;
+        display: -webkit-box;
+        width: 100%;
+        height: 1rem;
+        line-height: 1rem;
+        font-size: 0;
+        border-top: .02rem solid #D0D0D0;
+        background-color: #F2F2F2;
+    }
+
+    .layui-m-layerbtn span {
+        font-size: .48rem;
+    }
+</style>
 <script type="text/javascript">
     $(function () {
+        $("#winning").on("click", function () {
+            $(".zp_mask").css({display: "block"});
+            $(".zp_winning").css({display: "block"});
+
+        });
+
+
+        $("#zp_mask").on("click", function () {
+            $("#zp_winning").css({display: "none"});
+            $(this).css({display: "none"});
+        })
+
 
         var rotateTimeOut = function () {
             $('#rotate').rotate({
@@ -247,7 +289,12 @@
                 animateTo: angles + 1800,
                 duration: 8000,
                 callback: function () {
-                    console.log(txt);
+                    if (txt !== "谢谢参与") {
+                        layer.open({
+                            content: '恭喜你抽中了' + txt
+                            , btn: '我知道了'
+                        });
+                    }
                     bRotate = !bRotate;
                 }
             })
@@ -256,58 +303,68 @@
         $('.pointer').on("click", function () {
 
             if (bRotate) return;
-            var item = rnd(0, 11);
-            //var item = 2;
-            switch (item) {
-                case 0:
-                    //var angle = [26, 88, 137, 185, 235, 287, 337];
-                    rotateFn(0, 224, '谢谢参与');
-                    break;
-                case 1:
-                    //var angle = [88, 137, 185, 235, 287];
-                    rotateFn(1, 17, '格兰仕微波炉');
-                    break;
-                case 2:
-                    //var angle = [137, 185, 235, 287];
-                    rotateFn(2, 47, '5团票');
-                    break;
-                case 3:
-                    //var angle = [137, 185, 235, 287];
-                    rotateFn(3, 74, '充电宝');
-                    break;
-                case 4:
-                    //var angle = [185, 235, 287];
-                    rotateFn(4, 104, '0.5团票');
-                    break;
-                case 5:
-                    //var angle = [185, 235, 287];
-                    rotateFn(5, 134, '美的电饭锅');
-                    break;
-                case 6:
-                    //var angle = [235, 287];
-                    rotateFn(6, 164, '再来一次');
-                    break;
-                case 7:
-                    //var angle = [287];
-                    rotateFn(7, 194, '平底锅');
-                    break;
-                case 8:
-                    //var angle = [287];
-                    rotateFn(8, 254, '抱枕');
-                    break;
-                case 9:
-                    //var angle = [287];
-                    rotateFn(9, 284, '10团票');
-                    break;
-                case 10:
-                    //var angle = [287];
-                    rotateFn(10, 314, 'iPhone X');
-                    break;
-                case 11:
-                    //var angle = [287];
-                    rotateFn(11, 344, '1团票');
-                    break;
-            }
+            //询问框
+            layer.open({
+                content: '您确定要使用1团票抽奖吗？'
+                , btn: ['确定', '取消']
+                , yes: function (index) {
+                    layer.close(index);
+                    var item = 11;
+                    switch (item) {
+                        case 0:
+                            //var angle = [26, 88, 137, 185, 235, 287, 337];
+                            rotateFn(0, 224, '谢谢参与');
+                            break;
+                        case 1:
+                            //var angle = [88, 137, 185, 235, 287];
+                            rotateFn(1, 17, '格兰仕微波炉');
+                            break;
+                        case 2:
+                            //var angle = [137, 185, 235, 287];
+                            rotateFn(2, 47, '谢谢参与');
+                            break;
+                        case 3:
+                            //var angle = [137, 185, 235, 287];
+                            rotateFn(3, 74, '充电宝');
+                            break;
+                        case 4:
+                            //var angle = [185, 235, 287];
+                            rotateFn(4, 104, '0.5团票');
+                            break;
+                        case 5:
+                            //var angle = [185, 235, 287];
+                            rotateFn(5, 134, '美的电饭锅');
+                            break;
+                        case 6:
+                            //var angle = [235, 287];
+                            rotateFn(6, 164, '5团票');
+                            break;
+                        case 7:
+                            //var angle = [287];
+                            rotateFn(7, 194, '平底锅');
+                            break;
+                        case 8:
+                            //var angle = [287];
+                            rotateFn(8, 254, '抱枕');
+                            break;
+                        case 9:
+                            //var angle = [287];
+                            rotateFn(9, 284, '10团票');
+                            break;
+                        case 10:
+                            //var angle = [287];
+                            rotateFn(10, 314, 'iPhone X');
+                            break;
+                        case 11:
+                            //var angle = [287];
+                            rotateFn(11, 344, '1团票');
+                            break;
+                    }
+                }
+            });
+
+
+
 
             console.log(item);
         });
@@ -319,18 +376,7 @@
 </script>
 
 <script>
-    $("#winning").on("click", function () {
 
-        $(".zp_mask").css({display: "block"});
-        $(".zp_winning").css({display: "block"});
-
-    });
-
-
-    $("#zp_mask").on("click", function () {
-        $("#zp_winning").css({display: "none"});
-        $(this).css({display: "none"});
-    })
 </script>
 
 </html>

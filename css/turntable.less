@@ -1,26 +1,20 @@
 @import "../cssControl/import";
 
-body {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
 .turntable_container {
   position: relative;
   width: 100%;
-  height: 100%;
-  background: url("../images/zt/turntable/zp_bg.gif") no-repeat center;
+  height: 1558/@rem;
+  background: url("../images/zt/turntable/zp_bg.png") no-repeat center;
   background-size: auto 100%;
 }
 
 .winning {
-  position: absolute;
-  top: 300/@rem;
-  left: 50%;
-  margin-left: -161/@rem;
   width: 322/@rem;
   height: 61/@rem;
+  position: absolute;
+  top: 1188/@rem;
+  left: 50%;
+  margin-left: -161/@rem;
   background: url("../images/zt/turntable/winning.png") no-repeat;
   background-size: 100% 100%;
   text-align: center;
@@ -30,34 +24,35 @@ body {
 }
 
 .rotate_container {
-  position: relative;
-  top: 403/@rem;
-  left: 94/@rem;
-  width: 558/@rem;
-  height: 558/@rem;
+  width: 580/@rem;
+  height: 580/@rem;
+  position: absolute;
+  top: 398/@rem;
+  left: 50%;
+  margin-left: -580/2/@rem;
 }
 
 .pointer {
-  width: 82/@rem;
-  height: 108/@rem;
+  width: 116/@rem;
+  height: 152/@rem;
   position: absolute;
   left: 50%;
   top: 50%;
-  margin-left: -41/@rem;
-  margin-top: -54/@rem;
+  margin-left: -58/@rem;
+  margin-top: -76/@rem;
   z-index: 8;
   background: url("../images/zt/turntable/pointer.png") no-repeat;
   background-size: 100% 100%;
 }
 
 .rotate {
-  width: 462/@rem;
-  height: 462/@rem;
+  width: 580/@rem;
+  height: 580/@rem;
   position: absolute;
   left: 50%;
   top: 50%;
-  margin-left: -231/@rem;
-  margin-top: -231/@rem;
+  margin-left: -580/2/@rem;
+  margin-top: -580/2/@rem;
   background: url("../images/zt/turntable/turntable.gif") no-repeat;
   background-size: 100% 100%;
   z-index: 7;

@@ -50,6 +50,7 @@
                     <div class="table-th">日期</div>
                     <div class="table-th">种类</div>
                     <div class="table-th">金额</div>
+                    <div class="table-th">说明</div>
                 </div>
             </div>
             <div class="table-tbody">
@@ -57,11 +58,33 @@
                     <div class="table-td">2017.09.14</div>
                     <div class="table-td">收益</div>
                     <div class="table-td add">+3</div>
+                    <div class="table-td ">
+                        <div class="explain">司司机福建司机福建司机福建司机福建机福建</div>
+                        <div class="tag-box">
+                            <div class="tag">
+                                <em></em>
+                                <span></span>
+                                司司机福建司机福建司机福建司机福建机福建
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
                 <div class="table-tr">
                     <div class="table-td">2017.09.14</div>
                     <div class="table-td">收益</div>
                     <div class="table-td add">+3</div>
+                    <div class="table-td">
+                        <div class="explain">司司机福建司机福建司机福建司机福建机福建</div>
+                        <div class="tag-box">
+                            <div class="tag">
+                                <em></em>
+                                <span></span>
+                                司司机福建司机福建司机福建司机福建机福建
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="table-tr">
                     <div class="table-td">2017.09.14</div>
@@ -78,6 +101,13 @@
 
     </div>
 </section>
-
+<script src="../../js/jquery-3.2.1.min.js"></script>
+<script>
+    $(".explain").on("click", function () {
+        var self = $(this);
+        console.log(self)
+        self.next(".tag-box").toggle();
+    })
+</script>
 </body>
 </html>

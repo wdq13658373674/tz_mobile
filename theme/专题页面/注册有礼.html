@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../css/login_gift.css">
     <script type="text/javascript" src="../../js/fastclick.js"></script>
     <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/addons/ioscroll/iscroll.js"></script>
     <script type="text/javascript" src="../../js/public.js"></script>
 
 </head>
@@ -23,52 +24,74 @@
     </div>
 </header>
 
-<div class="container-box">
-    <div class="container">
-        <div class="form_box">
-            <form action="#">
-                <div class="form-item">
-                    <input id="phone" class="form-ipt" type="tel" name="phone" placeholder="请输入注册手机号码">
+<div id="container">
+    <div id="scroller">
+        <div class="container-box">
+            <div class="container">
+                <div class="form_box">
+                    <form action="#">
+                        <div class="form-item">
+                            <input id="phone" class="form-ipt" type="tel" name="phone" placeholder="请输入注册手机号码">
+                        </div>
+                        <div class="form-item clearfix">
+                            <div class="validate-box pull-left">
+                                <input id="validateCode" class="form-ipt" type="text" name="code" placeholder="请输入验证码">
+                            </div>
+                            <a id="send" class="validate-btn pull-right" href="javascript:void(0);">发送验证码</a>
+                        </div>
+                        <div class="form-item">
+                            <input id="password" class="form-ipt" type="password" name="password" placeholder="请输入密码">
+                        </div>
+                        <div class="form-item clearfix">
+                            <div class="form-checkbox pull-left">
+                                <input id="agreement" type="checkbox" name="agreement" checked="checked">
+                                <div class="checkbox"></div>
+                            </div>
+                            <div class="form-agreement pull-left">我已阅读并同意<a href="#">《房计划团转到家注册协议》</a></div>
+                        </div>
+                        <div class="form-btn-group">
+                            <input type="submit" class="btn-submit" value="提交注册领取团票">
+                        </div>
+                    </form>
                 </div>
-                <div class="form-item clearfix">
-                    <div class="validate-box pull-left">
-                        <input id="validateCode" class="form-ipt" type="text" name="code" placeholder="请输入验证码">
-                    </div>
-                    <a id="send" class="validate-btn pull-right" href="javascript:void(0);">发送验证码</a>
-                </div>
-                <div class="form-item">
-                    <input id="password" class="form-ipt" type="password" name="password" placeholder="请输入密码">
-                </div>
-                <div class="form-item clearfix">
-                    <div class="form-checkbox pull-left">
-                        <input id="agreement" type="checkbox" name="agreement" checked="checked">
-                        <div class="checkbox"></div>
-                    </div>
-                    <div class="form-agreement pull-left">我已阅读并同意<a href="#">《房计划团转到家注册协议》</a></div>
-                </div>
-                <div class="form-btn-group">
-                    <input type="submit" class="btn-submit" value="提交注册领取团票">
-                </div>
-            </form>
+                <div class="float-icon float1"></div>
+                <div class="float-icon float2"></div>
+            </div>
         </div>
-        <div class="float-icon float1"></div>
-        <div class="float-icon float2"></div>
     </div>
 </div>
+
 </body>
 
 <script type="text/javascript">
+
     (function () {
+
+        var myScroll;
+        myScroll = new IScroll('#container', {
+            probeType: 3,
+            disableMouse: true,
+            disablePointer: true,
+            mouseWheel: false,
+            scrollX: false,
+            scrollY: true,
+            click: iScrollClick(),
+            scrollbars: false,
+            useTransform: false,
+            useTransition: false
+        });
+
         /*发送验证码倒计时*/
         $("#send").on("click", function () {
             times();
         });
 
         $("form").on("submit", function () {
-            var validate = "123561";
+            var validate = "123456";
             var phone = $("#phone");
             var validateCode = $("#validateCode");
             var password = $("#password");
+            var agreement = $("#agreement");
 
             if (phone.val() == "") {
                 motify.log("请输入手机号码");
@@ -90,8 +113,12 @@
                 motify.log("请输入密码");
                 return false;
             }
-            if (password.val().length < 6) {
+            if (password.val().length <= 6) {
                 motify.log("请设置6位以上的密码");
+                return false;
+            }
+            if (!agreement.is(':checked')) {
+                motify.log("请同意已阅读并同意《房计划团转到家注册协议》");
                 return false;
             }
         });
