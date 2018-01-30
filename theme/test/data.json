@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "src": "./img/1.jpg",
+    "content": ""
+  },
+  {
+    "id": 2,
+    "src": "./img/2.jpg",
+    "content": ""
+  },
+  {
+    "id": 3,
+    "src": "./img/3.jpg",
+    "content": ""
+  },
+  {
+    "id": 4,
+    "src": "./img/4.jpg",
+    "content": ""
+  },
+  {
+    "id": 5,
+    "src": "./img/5.jpg",
+    "content": ""
+  }
+]

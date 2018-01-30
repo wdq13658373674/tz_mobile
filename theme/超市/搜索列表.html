@@ -28,11 +28,10 @@
 </header>
 
 <section>
-    <div class="screen-box">
+    <div id="screen-box" class="screen-box">
         <div class="screen">
-            <a class="screen-item" id="volume" data-type="1" href="javascript: void(0);">销量</a>
-            <a class="screen-item price-sort" data-type="2" href="javascript: void(0);">价格</a>
-            <a class="screen-item" id="screen" ref="off" data-type="3" href="javascript: void(0);">筛选</a>
+            <a class="screen-item" id="volume" href="javascript: void(0);">销量</a>
+            <a class="screen-item" href="javascript: void(0);">价格</a>
         </div>
     </div>
 
@@ -137,83 +136,21 @@
     </div>
 </section>
 
-<div id="mask" class="mask"></div>
-<div id="filtrate" class="filtrate">
-    <div class="fil-item fil-rmb" data-price="rmb">
-        <div class="fil-type">价格区间</div>
-        <input class="mprice" type="text" name="" placeholder="最低价">
-        <em>—</em>
-        <input class="bprice" type="text" name="" placeholder="最高价">
-    </div>
-    <div class="fil-item fil-tb" data-price="tb">
-        <div class="fil-type">团票区间</div>
-        <input class="mprice" type="text" name="" placeholder="最低价">
-        <em>—</em>
-        <input class="bprice" type="text" name="" placeholder="最高价">
-    </div>
-    <div class="btn-group">
-        <a class="reset" href="#">清空</a>
-        <a class="confirm" href="#">确定</a>
-    </div>
-</div>
-
-<div id="price-range" class="price-range">
-    <ul class="range-list">
-        <li class="range-item at"><a href="#">价格由高到低</a></li>
-        <li class="range-item"><a href="#">价格由低到高</a></li>
-        <li class="range-item"><a href="#">团票由高到低</a></li>
-        <li class="range-item"><a href="#">团票由低到高</a></li>
-    </ul>
-</div>
 
 
 <script src="../../js/jquery-3.2.1.min.js"></script>
 <script>
     (function () {
-        $(".screen-item").on("click", function () {
-            var dataType = $(this).data("type");
-            $(this).addClass('active').siblings('a').removeClass('active');
-            if ($(this).attr("id") == "volume") {
-                $("#filtrate").hide();
-                $("#price-range").hide();
-                $("#mask").hide();
+        $("#screen-box .screen-item").on("click", function () {
+            var self = $(this);
+            self.addClass('active').siblings('a').removeClass('active');
+            if (self.hasClass("desc")) {
+                self.removeClass("desc").addClass("asc");
+            } else {
+                self.removeClass("asc").addClass("desc");
             }
         });
-        $(".price-sort").on("click", function () {
-            $("#mask").show();
-            $("#filtrate").hide();
-            $("#price-range").show();
-        });
 
-
-        $("#screen").on("click", function () {
-            $("#mask").show();
-            $("#price-range").hide();
-            $("#filtrate").show();
-        });
-
-        $("#mask").on("click", function () {
-            $("#mask").hide();
-            $("#price-range").hide();
-            $("#filtrate").hide();
-        });
-
-        $(".reset").on("click", function () {
-            $(this).parents(".filtrate").find("input").val("");
-        });
-
-        $(".confirm").on("click", function () {
-            var rmb_mprice = $(this).parents(".filtrate").find(".fil-rmb").children(".mprice").val(); //rmb 最低价
-            var rmb_bprice = $(this).parents(".filtrate").find(".fil-rmb").children(".bprice").val(); //rmb 最高价
-            var tb_mprice = $(this).parents(".filtrate").find(".fil-tb").children(".mprice").val(); //tb 最低价
-            var tb_bprice = $(this).parents(".filtrate").find(".fil-tb").children(".bprice").val(); //tb 最高价
-
-            //TODO 根据数据写判断
-
-            alert(rmb_mprice, rmb_bprice, tb_mprice, tb_bprice);
-            $("#mask").hide();
-            $("#filtrate").hide();
-        })
     })()
 </script>
 </body>

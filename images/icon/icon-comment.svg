@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="25px" viewBox="0 0 28 25" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: sketchtool 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>38AE3C62-63A2-40D7-A9EE-5EDF43924AD1</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="邻聚首页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"
+       transform="translate(-640.000000, -1224.000000)">
+        <rect id="Rectangle-Copy" fill="#FFFFFF" x="0" y="143" width="750" height="1138"></rect>
+        <g id="Group" transform="translate(641.000000, 1225.000000)" stroke="#9F9F9F" stroke-linecap="round"
+           stroke-linejoin="round" stroke-width="2">
+            <path d="M0,2.268 L0,16.733 C0,17.985 1.015,19 2.268,19 L10,19 L13,23 L16.25,19 L23.732,19 C24.985,19 26,17.985 26,16.733 L26,2.268 C26,1.016 24.985,0 23.732,0 L2.268,0 C1.015,0 0,1.016 0,2.268 Z"
+                  id="Stroke-1"></path>
+            <path d="M9,7 L17,7" id="Stroke-3"></path>
+            <path d="M9,12 L17,12" id="Stroke-5"></path>
+        </g>
+    </g>
+</svg>
