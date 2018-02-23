@@ -564,3 +564,90 @@
 </script>
 </body>
 </html>
+
+
+<style>
+    .mall-footer-box {
+        width: 100%;
+        height: 2.2rem;
+    }
+
+    .mall-footer {
+        width: 100%;
+        height: 2.2rem;
+        position: fixed;
+        background-color: #fff;
+        bottom: 0;
+        left: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .mall-footer .func {
+        border-top: 0.02rem solid #bbbbbb;
+        width: 2.86rem;
+        height: 2.2rem;
+        border-right: 0.02rem solid #bbbbbb;
+        background-color: #fff;
+    }
+
+    .mall-footer .func .icon {
+        margin: 0.42rem auto 0;
+        display: block;
+        width: 0.64rem;
+        height: 0.64rem;
+    }
+
+    .mall-footer .func .icon-customer {
+        background: url("../images/icon/icon-customer.svg") no-repeat;
+        background-size: 100% 100%;
+    }
+
+    .mall-footer .func .icon-collect {
+        background: url("../images/icon/icon-collect.svg") no-repeat;
+        background-size: 100% 100%;
+    }
+
+    .mall-footer .func p {
+        margin-top: 0.14rem;
+        text-align: center;
+        font-size: 0.48rem;
+        color: #7b7b7b;
+    }
+
+    .mall-footer .btn {
+        border-top: 0.02rem solid #bbbbbb;
+        height: 2.2rem;
+        width: 4.6rem;
+        line-height: 2.2rem;
+        text-align: center;
+        font-size: 0.6rem;
+        color: #464646;
+    }
+
+    .mall-footer .join-cart {
+        color: #fff;
+        background-color: #fd4915;
+    }
+</style>
+<footer class="mall-footer-box">
+    <div class="mall-footer">
+        <a class="func" href="#">
+            <i class="icon icon-customer"></i>
+            <p>客服</p>
+        </a>
+        <a class="func" href="#">
+            <i class="icon icon-collect"></i>
+            <p>收藏</p>
+        </a>
+        <a class="btn cart-popup" id="cart" href="#">加入购物车</a>
+        <a class="btn join-cart cart-popup" id="buy" href="#">立即购买</a>
+    </div>
+</footer>

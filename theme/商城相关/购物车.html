@@ -22,6 +22,7 @@
     <div class="header-box">
         <a href="#" class="back-box"><i class="icon-back"></i></a>
         <h4 class="title">购物车(18)</h4>
+        <div class="btn">提交</div>
     </div>
 </header>
 
@@ -35,38 +36,41 @@
     </div>
 
 
-    <div class="mall-cart">
-        <div class="cart-operation">
-            <a href="javascript: void (0);" class="del">删除</a>
-        </div>
-        <div class="mall-cart-item">
-            <label class="label">
-                <input type="checkbox" name="product" class="input checkOne">
-                <div class="check"></div>
-            </label>
-            <div class="goods_img">
-                <img src="../../images/img/test-img.png" alt="商品图片">
-            </div>
-            <div class="goods-info">
-                <a href="#" class="goods-name">TYAKASHA塔卡沙TOYSSHOP系列女款米色羊羔绒彩色抽绳卫衣SOF26</a>
-                <div class="goods-type">S02 新奶油色NEW CREME;155/76A/XS</div>
-            </div>
-        </div>
-        <div class="goods-money">
-            <div class="f30">¥<span class="rb">128.00</span></div>
-            <div class="orange-tb f30">55.00</div>
-            <div class="car-count">
-                <span class="opera down"> - </span>
-                <span class="num"><input class="input-num" type="text" value="1" placeholder="0" disabled></span>
-                <span class="opera up"> + </span>
-            </div>
-        </div>
+    <div class="cart_list" id="cart_list">
+        <!--<div class="mall-cart">-->
+        <!--&lt;!&ndash;<div class="cart-operation">&ndash;&gt;-->
+        <!--&lt;!&ndash;<a href="javascript: void (0);" class="del">删除</a>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--<div class="mall-cart-item">-->
+        <!--<label class="label">-->
+        <!--<input type="checkbox" name="product" class="input checkOne">-->
+        <!--<div class="check"></div>-->
+        <!--</label>-->
+        <!--<div class="goods_img">-->
+        <!--<img src="../../images/img/test-img.png" alt="商品图片">-->
+        <!--</div>-->
+        <!--<div class="goods-info">-->
+        <!--<a href="#" class="goods-name">TYAKASHA塔卡沙TOYSSHOP系列女款米色羊羔绒彩色抽绳卫衣SOF26</a>-->
+        <!--<div class="goods-type">S02 新奶油色NEW CREME;155/76A/XS</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="goods-money">-->
+        <!--<div class="f30">¥<span class="rb">128.00</span></div>-->
+        <!--<div class="orange-tb f30">55.00</div>-->
+        <!--<div class="car-count">-->
+        <!--<span class="opera down"> - </span>-->
+        <!--<span class="num"><input class="input-num" type="text" value="1" placeholder="0" disabled></span>-->
+        <!--<span class="opera up"> + </span>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
     </div>
+
 
     <div class="footer-total-box">
         <div class="footer-total">
             <label class="label ml40">
-                <input  id="checkAll" type="checkbox" name="checkAll" class="input">
+                <input id="checkAll" type="checkbox" name="checkAll" class="input">
                 <div class="check pull-left mr20"></div>
                 <span class="pull-left f25">全选</span>
             </label>
@@ -79,9 +83,95 @@
     </div>
 </section>
 <script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="../../js/common/shopCar.js"></script>
+<!--<script type="text/javascript" src="../../js/common/shopCar.js"></script>-->
 <script>
+    (function () {
+        $.ajax({
+            url: "../../data/cart.json",
+            context: document.body,
+            success: function (data) {
+                localStorage.setItem('cart_goods', JSON.stringify(data));
+            }
+        });
+    })();
 
+
+    (function (window) {
+        var Cart = {
+            name: "",
+            init: function (cart_name) {
+                var _this = this;
+                _this.name = cart_name || "cart_goods";
+                if (localStorage.getItem(_this.name)) {
+                    _this.data = JSON.parse(localStorage.getItem(_this.name));
+                    _this.render(_this.data);
+
+                    var up = document.getElementsByClassName("up");
+                    for (var i = 0; i < up.length; i++) {
+
+                        up[i].addEventListener("click", function (index) {
+                            _this.add(index);
+
+                        });
+
+                    }
+
+                } else {
+                    _this.data = {};
+                }
+            },
+
+            //渲染模板
+            render: function (data) {
+                var htmlCodes;
+                var goods_type;
+                data.forEach(function (item, index) {
+                    if (item.goods_type.length > 1) {
+                        goods_type = item.goods_type.join(",");
+                    } else {
+                        goods_type = item.goods_type;
+                    }
+                    htmlCodes = [
+                        '<div class="mall-cart">',
+                        '            <div class="mall-cart-item">',
+                        '                <label class="label">',
+                        '                    <input type="checkbox" name="product" class="input checkOne">',
+                        '                    <div class="check"></div>',
+                        '                </label>',
+                        '                <div class="goods_img">',
+                        '                    <img src="' + item.goods_img + '" alt="商品图片">',
+                        '                </div>',
+                        '                <div class="goods-info">',
+                        '                    <a href="#" class="goods-name">' + item.goods_name + '</a>',
+                        '                    <div class="goods-type">' + goods_type + '</div>',
+                        '                </div>',
+                        '            </div>',
+                        '            <div class="goods-money">',
+                        '                <div class="f30">¥<span class="rb">' + item.goods_money + '</span></div>',
+                        '                <div class="orange-tb f30">' + item.goods_tp + '</div>',
+                        '                <div class="car-count">',
+                        '                    <span class="opera down"> - </span>',
+                        '                    <span class="num"><input class="input-num" type="text" value="' + item.goods_num + '" placeholder="0" disabled></span>',
+                        '                    <span class="opera up"> + </span>',
+                        '                </div>',
+                        '            </div>',
+                        '        </div>'
+                    ].join("");
+
+                    $("#cart_list").append(htmlCodes);
+                });
+            },
+
+            add: function (num) {
+                console.log(num);
+                this.data[num].goods_num += 1;
+                console.log(this.data[num].goods_num);
+            }
+        };
+
+        window.Cart = Cart;
+    })(window);
+    Cart.init();
 </script>
 </body>
 </html>

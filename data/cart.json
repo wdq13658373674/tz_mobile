@@ -1,0 +1,49 @@
+[
+  {
+    "goods_id": 1,
+    "goods_name": "TYAKASHA塔卡沙TOYSSHOP系列女款米色羊羔绒彩色抽绳卫衣SOF26",
+    "goods_type": [
+      "S02",
+      "155"
+    ],
+    "goods_money": 1,
+    "goods_tp": 4,
+    "goods_num": 2,
+    "goods_img": "../../images/img/test-img.png"
+  },
+  {
+    "goods_id": 2,
+    "goods_name": "TYAKASHA塔",
+    "goods_type": [
+      "76A"
+    ],
+    "goods_money": 2,
+    "goods_tp": 3,
+    "goods_num": 5,
+    "goods_img": "../../images/img/test-img.png"
+  },
+  {
+    "goods_id": 3,
+    "goods_name": "TOYSSHOP系列",
+    "goods_type": [
+      "XS",
+      "155"
+    ],
+    "goods_money": 3,
+    "goods_tp": 2,
+    "goods_num": 1,
+    "goods_img": "../../images/img/test-img.png"
+  },
+  {
+    "goods_id": 4,
+    "goods_name": "女款米色羊羔绒彩色抽绳卫衣SOF26",
+    "goods_type": [
+      "S02",
+      "XS"
+    ],
+    "goods_money": 4,
+    "goods_tp": 1,
+    "goods_num": 1,
+    "goods_img": "../../images/img/test-img.png"
+  }
+]
